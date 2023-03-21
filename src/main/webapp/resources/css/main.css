@@ -120,7 +120,12 @@ span.final_addr_ck{display:none;}
 }    
  
  
- 
+ /* 로그인 실패시 경고글 */
+ .login{
+ margin-top:30px;
+ text-align:center;
+ color:red;
+ }
 
 
 

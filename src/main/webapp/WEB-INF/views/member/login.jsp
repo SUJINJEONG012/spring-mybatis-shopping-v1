@@ -33,20 +33,25 @@
 							<input type="text" class="pw_input" name="memberPw" >
 						</div>
 					</div>
-
+					
+					<div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
+					
 					<div class="login_button_wrap">
 						<input type="button" class="login_button" value="로그인">
 					</div>
 
-
 				</div>
-
 			</form>
-
-
 		</div>
-
 	</div>
-
+	
+	
+	<script>
+	$(".login_button").click(function(){
+		alert("로그인 버튼 적용");
+		$("#login_form").attr("action", "/member/login");
+		$("#login_form").submit();
+	});
+	</script>
 </body>
 </html>

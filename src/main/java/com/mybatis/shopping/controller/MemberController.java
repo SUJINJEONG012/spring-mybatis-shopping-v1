@@ -3,6 +3,8 @@ package com.mybatis.shopping.controller;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mybatis.shopping.model.MemberVo;
 import com.mybatis.shopping.service.MemberService;
@@ -110,9 +113,30 @@ public class MemberController {
 		 }
 		 
 		 String num = Integer.toString(checkNum);
+		 
 		 return num;
 		
 	}
+	
+	/* 로그인 */
+	@PostMapping("/login")
+	public String loginPost(HttpServletRequest request, MemberVo memberVo, RedirectAttributes rttr) throws Exception{
+		
+		//System.out.println("login 메서드 진입");
+		//System.out.println("전달된 데이터 : " + memberVo);
+		
+		HttpSession session = request.getSession();
+		MemberVo lvo = memberService.memberLoign(memberVo);
+		
+		if(lvo == null) {
+			int result =0;
+			rttr.addFlashAttribute("result", result);
+			return "redirect:/member/login";
+		}
+		session.setAttribute("member", lvo);
+		return "redirect:/";
+	}
+
 	
 }
 
