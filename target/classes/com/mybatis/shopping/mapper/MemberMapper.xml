@@ -17,7 +17,7 @@
   	
   	<!-- 로그인 -->
   	<select id="memberLogin"  resultType="com.mybatis.shopping.model.MemberVo">
-  	select memberId, memberName, money, point from book_member where memberId= #{memberId} and memberPw = ${memberPw}
+  	select memberId, memberName, adminCk, money, point from book_member where memberId= #{memberId} and memberPw = #{memberPw}
   	</select>
   	
 </mapper>
