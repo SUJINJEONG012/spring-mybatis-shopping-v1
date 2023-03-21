@@ -107,6 +107,20 @@
 	color:red;
 }
 
+
+.login_success_area{
+	height:60px;
+	width:80%;
+	border:1px solid #7474ad;
+	margin:10px auto;
+	padding-top:5%;
+}
+
+.login_success_area > span{
+	display:block;
+	text-align:center;
+	margin-left:10%;
+}
 /* 유효성 검사 문구*/
 span.final_id_ck{display:none;}
 span.final_pw_ck{display:none;}

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,14 +27,22 @@
 				</div>
 				
 				<div class="login_area">
-					<div class="login_area">
-						<div class="login_button">
-							<a href="/member/login">로그인 </a>
-						</div>
-
+				
+					
+					<!-- 로그인 하지 않은 상태 -->
+					
+					<c:if test="${memberVo == null }">
+						<div class="login_button"><a href="/member/login">로그인 </a></div>
 						<span><a href="/member/join">회원가입</a></span>
-
+					</c:if>
+						<!-- 로그인한 상태 -->
+					<c:if test="${memberVo == null }">
+					<div class="login_success_area">
+					<span>회원 : ${member.memberName }</span>
+					<span>충전금액 : ${member.money }</span>
+					<span>포인트: ${member.point }</span>
 					</div>
+					</c:if>
 				</div>
 
 				<div class="clearfix"></div>
