@@ -130,7 +130,7 @@ span.final_mail_ck{display:none;}
 span.final_addr_ck{display:none;}
 /* 비밀번호 확인 일치 유효성검사 */
 .pwck_input_re_1{
-        color : green;
+        color : green; 
         display : none;    
 }
 .pwck_input_re_2{
@@ -140,7 +140,7 @@ span.final_addr_ck{display:none;}
  
  
  /* 로그인 실패시 경고글 */
- .login{
+ .login_warn{
  margin-top:30px;
  text-align:center;
  color:red;
