@@ -131,7 +131,6 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-		
 		<!-- stmp 메일 전송 관련 라이브러리 -->
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
@@ -171,23 +170,51 @@
 			<version>1.2</version>
 		</dependency>
 		<!-- security -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
-		<!-- <dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-core</artifactId> 
-			<version>5.4.2</version> </dependency> https://mvnrepository.com/artifact/org.springframework.security/spring-security-web 
-			<dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-web</artifactId> 
-			<version>5.4.2</version> </dependency> https://mvnrepository.com/artifact/org.springframework.security/spring-security-config 
-			<dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-config</artifactId> 
-			<version>5.4.2</version> </dependency> https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind 
-			<dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-databind</artifactId> 
-			<version>2.12.1</version> </dependency> https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml 
-			<dependency> <groupId>com.fasterxml.jackson.dataformat</groupId> <artifactId>jackson-dataformat-xml</artifactId> 
-			<version>2.12.1</version> </dependency> thumbnail https://mvnrepository.com/artifact/net.coobird/thumbnailator 
-			<dependency> <groupId>net.coobird</groupId> <artifactId>thumbnailator</artifactId> 
-			<version>0.4.13</version> </dependency> Quartz https://mvnrepository.com/artifact/org.quartz-scheduler/quartz-jobs 
-			<dependency> <groupId>org.quartz-scheduler</groupId> <artifactId>quartz-jobs</artifactId> 
-			<version>2.3.2</version> </dependency> https://mvnrepository.com/artifact/org.quartz-scheduler/quartz 
-			<dependency> <groupId>org.quartz-scheduler</groupId> <artifactId>quartz</artifactId> 
-			<version>2.3.2</version> </dependency> -->
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.4.2</version>
+		</dependency>
+		
+		
+		
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.2</version>
+		</dependency>
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
