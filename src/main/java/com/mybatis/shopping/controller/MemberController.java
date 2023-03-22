@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,9 @@ public class MemberController {
 	@Autowired
 	private JavaMailSender mailSender;
 	
+	@Autowired
+	private BCryptPasswordEncoder pwEncoder;
+	
 	//로그인페이지로 이동
 	//@GetMapping("/login")
 	@GetMapping("/login")
@@ -52,7 +56,14 @@ public class MemberController {
 	//회원가입
 	@PostMapping("/join")
 	public String joinPost(MemberVo memberVo) throws Exception {
-		logger.info("joinPost 진입");
+		//logger.info("joinPost 진입");
+
+		String rawPw =""; //인코딩 전 비밀번호
+		String encodePw =""; // 인코딩 후 비밀번호
+		
+		rawPw = memberVo.getMemberPw(); //비밀번호 데이터 얻음
+		encodePw = pwEncoder.encode(rawPw); // 비밀번호 인코딩
+		memberVo.setMemberPw(encodePw);  // 인코딩된 비밀번호 member객체에 다시 저장
 		
 		//회원가입
 		memberService.memberJoin(memberVo);
@@ -60,6 +71,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+
 	//아이디 중복검사
 	@PostMapping("/memberIdChk")
 	@ResponseBody
