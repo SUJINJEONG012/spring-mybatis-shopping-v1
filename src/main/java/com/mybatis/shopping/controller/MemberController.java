@@ -133,34 +133,40 @@ public class MemberController {
 	/* 로그인 */
 	@PostMapping("/login")
 	public String loginPost(HttpServletRequest request, MemberVo memberVo, RedirectAttributes rttr) throws Exception{
-		
+
 		System.out.println("login 메서드 진입");
 		System.out.println("전달된 데이터 : " + memberVo);
 		
 		HttpSession session = request.getSession();
 		String rawPw = "";
 		String encodePw = "";
-		
+					
 	    MemberVo lvo = memberService.memberLoign(memberVo);
 	    
+	   
+	 
 	    if(lvo != null) { //일치하는 아이디 존재시
-	    	
-	    	logger.info("");
-	    	
+	    	//logger.info( "lvo:  " + lvo+ "encodePw::" + encodePw);
 	    	rawPw = memberVo.getMemberPw(); // 사용자가 입력한 비번
 	    	encodePw = lvo.getMemberPw(); //데이터베이스에 저장된 비번
 	    	
-	    	if( true == pwEncoder.matches(rawPw, encodePw)) {
-	    		lvo.setMemberPw("");
-	    		session.setAttribute("member", lvo);
-	    		return "redirect:/";
-	    	}else {
+	    	logger.info("@@@");
+	    	logger.info("encodePw ==> "+ encodePw);
+            
+	    	if(true == pwEncoder.matches(rawPw, encodePw)) { // 비밀번호 일치여부 판단
+            	
+                lvo.setMemberPw("");                    // 인코딩된 비밀번호 정보 지움
+                session.setAttribute("member", lvo);     // session에 사용자의 정보 저장
+                return "redirect:/";        // 메인페이지 이동    
+            }else {
 	    		rttr.addFlashAttribute("result", 0);
-	    		return "redirect:/member/login"; // 로그인 페이지로 이동
+	    		logger.info("실패했다");
+	    		return "redirect:/"; // 로그인 페이지로 이동
 	    	}
 	    	
 	    }else { //일치하는 아이디가 존재하지 않을 경우(로그인 실패)
-	    	rttr.addFlashAttribute("result", 0);
+	    	
+	    	rttr.addFlashAttribute("result", 0);     
 	    	return "redirect:/member/login";
 	    }
 
@@ -173,6 +179,7 @@ public class MemberController {
 //		}
 //		session.setAttribute("member", lvo); // 일치하는 아이디, 비밀번호경우(로그인성공)
 //		return "redirect:/";
+	    
 	}
 
 	
