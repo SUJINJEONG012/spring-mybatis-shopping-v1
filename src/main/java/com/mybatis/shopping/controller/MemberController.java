@@ -141,10 +141,9 @@ public class MemberController {
 		String rawPw = "";
 		String encodePw = "";
 					
-	    MemberVo lvo = memberService.memberLoign(memberVo);
+	    MemberVo lvo = memberService.memberLogin(memberVo);
+	    System.out.println("lvo =  " + lvo);
 	    
-	   
-	 
 	    if(lvo != null) { //일치하는 아이디 존재시
 	    	//logger.info( "lvo:  " + lvo+ "encodePw::" + encodePw);
 	    	rawPw = memberVo.getMemberPw(); // 사용자가 입력한 비번
@@ -161,16 +160,14 @@ public class MemberController {
             }else {
 	    		rttr.addFlashAttribute("result", 0);
 	    		logger.info("실패했다");
-	    		return "redirect:/"; // 로그인 페이지로 이동
+	    		return "redirect:/member/login"; // 로그인 페이지로 이동
 	    	}
 	    	
 	    }else { //일치하는 아이디가 존재하지 않을 경우(로그인 실패)
-	    	
 	    	rttr.addFlashAttribute("result", 0);     
 	    	return "redirect:/member/login";
 	    }
 
-	    
 	    
 //		if(lvo == null) {  //일치하지 않는 아이디, 비밀번호 입력경우
 //			int result =0;

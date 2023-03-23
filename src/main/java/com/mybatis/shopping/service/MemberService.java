@@ -11,5 +11,6 @@ public interface MemberService {
 	public int idCheck(String memberId) throws Exception;
 	
 	//로그인
-	public MemberVo memberLoign(MemberVo memberVo) throws Exception;
+	public MemberVo memberLogin(MemberVo memberVo) throws Exception;
+
 }
