@@ -27,10 +27,10 @@
 			<div class="admin_wrap">
 				<div class="admin_navi_wrap">
 					<ul>
-						<li><a href="" class="admin_list_01">상품 등록</a></li>
-						<li><a href="" class="admin_list_02">상품 목록</a></li>
-						<li><a href="" class="admin_list_03">작가 등록</a></li>
-						<li><a href="" class="admin_list_04">작가 관리</a></li>
+						<li><a href="/admin/goodsEnroll" class="admin_list_01">상품 등록</a></li>
+						<li><a href="/admin/goodsMange" class="admin_list_02">상품 목록</a></li>
+						<li><a href="/admin/authorEnroll" class="admin_list_03">작가 등록</a></li>
+						<li><a href="/admin/authorManage" class="admin_list_04">작가 관리</a></li>
 						<li><a href="" class="admin_list_05">회원 관리</a></li>
 
 					</ul>
