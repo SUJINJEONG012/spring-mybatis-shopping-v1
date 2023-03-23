@@ -36,12 +36,14 @@
 						<div class="login_button"><a href="/member/login">로그인 </a></div>
 						<span><a href="/member/join">회원가입</a></span>
 					</c:if>
+					
 						<!-- 로그인한 상태 -->
-					<c:if test="${memberVo == null }">
+					<c:if test="${memberVo != null }">
 					<div class="login_success_area">
 					<span>회원 : ${member.memberName }</span>
 					<span>충전금액 : <fmt:formatNumber value="${member.money }" pattern="\#,###.##"/></span>
 					<span>포인트: <fmt:formatNumber value="${member.point }" pattern="\#,###"/></span>
+					<a href="/member/logout">로그아웃</a>
 					</div>
 					</c:if>
 				</div>

@@ -45,6 +45,7 @@ public class MemberController {
 		return "member/login";
 	}
 	
+	
 	//회원가입페이지로 이동
 		//@GetMapping("/join")
 		@GetMapping("/join")
@@ -178,7 +179,16 @@ public class MemberController {
 //		return "redirect:/";
 	    
 	}
-
+	
+	
+	/* 로그아웃 */
+	@GetMapping("/logout")
+	public String logoutMainGet(HttpServletRequest request) throws Exception {
+		logger.info("logoutMainGet 메서드 진입");
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:/";
+	}
 	
 }
 
