@@ -153,8 +153,7 @@ public class MemberController {
 	    	logger.info("@@@");
 	    	logger.info("encodePw ==> "+ encodePw);
             
-	    	if(true == pwEncoder.matches(rawPw, encodePw)) { // 비밀번호 일치여부 판단
-            	
+	    	if(true == pwEncoder.matches(rawPw, encodePw)) { // 비밀번호 일치여부 판단            	
                 lvo.setMemberPw("");                    // 인코딩된 비밀번호 정보 지움
                 session.setAttribute("member", lvo);     // session에 사용자의 정보 저장
                 return "redirect:/";        // 메인페이지 이동    
@@ -186,7 +185,7 @@ public class MemberController {
 	public String logoutMainGet(HttpServletRequest request) throws Exception {
 		logger.info("logoutMainGet 메서드 진입");
 		HttpSession session = request.getSession();
-		session.invalidate();
+		session.invalidate(); //세션 전체를 무효화하는 메서드
 		return "redirect:/";
 	}
 	

@@ -28,17 +28,14 @@
 				</div>
 				
 				<div class="login_area">
-				
-					
-					<!-- 로그인 하지 않은 상태 -->
-					
-					<c:if test="${memberVo == null }">
+			        <!-- 로그인 하지 않은 상태 -->	
+					<c:if test="${member == null}">
 						<div class="login_button"><a href="/member/login">로그인 </a></div>
 						<span><a href="/member/join">회원가입</a></span>
 					</c:if>
 					
-						<!-- 로그인한 상태 -->
-					<c:if test="${memberVo != null }">
+					<!-- 로그인한 상태 -->
+					<c:if test="${member != null}">
 					<div class="login_success_area">
 					<span>회원 : ${member.memberName }</span>
 					<span>충전금액 : <fmt:formatNumber value="${member.money }" pattern="\#,###.##"/></span>
@@ -46,10 +43,14 @@
 					<a href="/member/logout">로그아웃</a>
 					</div>
 					</c:if>
+					
+					
+				
 				</div>
 
 				<div class="clearfix"></div>
 			</div>
+
 
 			<div class="navi_bar_area">
 				<h1>navi area</h1>
