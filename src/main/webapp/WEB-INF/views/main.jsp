@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
 <link rel="stylesheet" href="resources/css/main.css">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 
@@ -27,7 +29,7 @@
 						<c:if test="${member.adminCk == 1}">
 							<li><a href="/admin/main">관리자 페이지</a></li>
 						</c:if>
-						<li><a href="">로그아웃</a></li>
+						<li><a href="" id="gnb_logout_button">로그아웃</a></li>
 						<li><a href="">마이룸</a></li>
 						<li><a href="">장바구니</a></li>
 					</c:if>
@@ -77,12 +79,23 @@
 			<div class="content_area">
 				<h1>content area</h1>
 			</div>
-
-
 		</div>
-
 	</div>
 
 
+<script>
+ /* gnb_area 로그아웃 버튼 작동 */
+$("#gnb_logout_button").click(function(){
+	//alert("버튼 작동");
+	$.ajax({
+		type:"post",
+		url: "/member/logout",
+		success:function(data){
+			alert("로그아웃 성공");
+			document.location.reload();
+		}
+	});
+})
+ </script>
 </body>
 </html>

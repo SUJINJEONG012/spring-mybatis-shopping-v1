@@ -134,7 +134,7 @@ public class MemberController {
 	/* 로그인 */
 	@PostMapping("/login")
 	public String loginPost(HttpServletRequest request, MemberVo memberVo, RedirectAttributes rttr) throws Exception{
-
+		
 		System.out.println("login 메서드 진입");
 		System.out.println("전달된 데이터 : " + memberVo);
 		
@@ -188,6 +188,16 @@ public class MemberController {
 		session.invalidate(); //세션 전체를 무효화하는 메서드
 		return "redirect:/";
 	}
+	
+	/* 비동기식 로그아웃 */
+	@PostMapping("/logout")
+	@ResponseBody
+	public void logoutPost(HttpServletRequest request) throws Exception {
+		logger.info("비동시식 로그아웃 메서드 진입");
+		HttpSession session = request.getSession();
+		session.invalidate();
+	}
+	
 	
 }
 
