@@ -22,6 +22,8 @@
 
 
 .top_area{ width:100%; }
+/* 로고 영역 */
+
 .logo_area{width:25%; height:100%; /* background-color:red; */ float:left;}
 .search_area{width:50%; height:100%; /*background-color:yellow;*/ float:left;}
 

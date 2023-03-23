@@ -40,7 +40,7 @@
 
 			<div class="top_area">
 				<div class="logo_area">
-					<h1>logo area</h1>
+					<h1><a href="/main">logo area</a></h1>
 				</div>
 				<div class="search_area">
 					<h1>search area</h1>
