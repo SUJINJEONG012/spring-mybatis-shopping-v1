@@ -1,0 +1,6 @@
+com\mybatis\shopping\controller\MemberController.class
+com\mybatis\shopping\controller\BookController.class
+com\mybatis\shopping\model\MemberVo.class
+com\mybatis\shopping\mapper\MemberMapper.class
+com\mybatis\shopping\service\MemberService.class
+com\mybatis\shopping\service\MemberServiceImpl.class
