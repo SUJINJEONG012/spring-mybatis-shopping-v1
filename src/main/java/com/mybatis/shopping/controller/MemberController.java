@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
+
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -32,8 +32,8 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@Autowired
-	private JavaMailSender mailSender;
+//	@Autowired
+//	private JavaMailSender mailSender;
 	
 	@Autowired
 	private BCryptPasswordEncoder pwEncoder;
@@ -106,25 +106,25 @@ public class MemberController {
 		 logger.info("인증번호2 : " + checkNum);
 		 
 		 /* 이메일 보내기 */
-		 String setFrom = "peekaboo2189@gmail.com"; // 보내는 사람
-		 String toMail = email; // 받는메일
-		 String title="회원가입 인증 이메일입니다.";
-		 String content = "홈페이지를 방문해주셔서 감사합니다." +
-		 "<br>"+
-		"인증번호는 " + checkNum + " 입니다." + "<br>" + 
-		 "해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
-		 
-		 try {
-			 MimeMessage message = mailSender.createMimeMessage();
-			 MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
-			 helper.setFrom(setFrom);
-			 helper.setTo(toMail);
-			 helper.setSubject(title);
-			 helper.setText(content, true);
-			 mailSender.send(message);
-		 }catch(Exception e) {
-			 e.printStackTrace();
-		 }
+//		 String setFrom = "peekaboo2189@gmail.com"; // 보내는 사람
+//		 String toMail = email; // 받는메일
+//		 String title="회원가입 인증 이메일입니다.";
+//		 String content = "홈페이지를 방문해주셔서 감사합니다." +
+//		 "<br>"+
+//		"인증번호는 " + checkNum + " 입니다." + "<br>" + 
+//		 "해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
+//		 
+//		 try {
+//			 MimeMessage message = mailSender.createMimeMessage();
+//			 MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+//			 helper.setFrom(setFrom);
+//			 helper.setTo(toMail);
+//			 helper.setSubject(title);
+//			 helper.setText(content, true);
+//			 mailSender.send(message);
+//		 }catch(Exception e) {
+//			 e.printStackTrace();
+//		 }
 		 
 		 String num = Integer.toString(checkNum);
 		 
