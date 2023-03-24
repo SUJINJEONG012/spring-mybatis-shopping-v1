@@ -58,7 +58,8 @@ public class AdminController {
 	public String authorEnroll(AuthorVo authorVo, RedirectAttributes rttr) throws Exception {
 		logger.info("@@@@@@@@@@@@@@@ authorEnroll : " + authorVo);
 		authorService.authorEnrol(authorVo); //작가 등록 쿼리 수행
-		rttr.addFlashAttribute("enroll_result" + authorVo.getAuthName());
+		rttr.addFlashAttribute("enroll_result", authorVo.getAuthName());
+		logger.info("@@ 이름들고오는지 확인 => "+ authorVo.getAuthName());
  		return "redirect:/admin/authorManage";
 	}
 	

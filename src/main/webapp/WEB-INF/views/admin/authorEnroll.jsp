@@ -56,7 +56,10 @@
                   </ul>
                 </div>
                 <div class="admin_content_wrap">
+                    
                     <div class="admin_content_subject"><span>작가 등록</span></div>
+                    
+                    
                     <div class="admin_content_main">
                     	<form action="/admin/authorEnroll" method="post" id="enrollForm">
                     		<div class="form_section">
@@ -93,6 +96,9 @@
 	                    		<button id="enrollBtn" class="btn enroll_btn">등 록</button>
 	                    	</div> 
                     </div>
+                    
+                    
+                    
                     
                 </div>
                 <div class="clearfix"></div>

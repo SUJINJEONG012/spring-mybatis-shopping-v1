@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>작가 관리</title>
 <link rel="stylesheet" href="../resources/css/admin/page.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  
 
 </head>
 <body>
@@ -78,6 +84,7 @@
             </div>
         </div> <!-- class="footer_nav" -->
         
+        
         <div class="footer">
             <div class="footer_container">
                 
@@ -100,6 +107,29 @@
         
     </div>    <!-- class="wrap" -->
 </div>    <!-- class="wrapper" -->
+
+
+<script>
+$(document).ready(function(){
+    
+    let result = '<c:out value="${enroll_result}"/>';
+   
+    checkResult(result);
+    
+    function checkResult(result){
+     
+        if(result === ''){
+        	
+        	return ;
+        	 
+        }
+        alert(" 작가 '${enroll_result}' 을 등록하였습니다."); 
+               
+    }
+ 
+});
+</script>
+
 
 </body>
 </html>
