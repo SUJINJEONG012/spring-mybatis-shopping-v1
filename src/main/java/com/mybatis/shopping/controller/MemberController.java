@@ -34,7 +34,7 @@ public class MemberController {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	@Autowired(required=false)
+	@Autowired
 	private BCryptPasswordEncoder pwEncoder;
 	
 	//로그인페이지로 이동

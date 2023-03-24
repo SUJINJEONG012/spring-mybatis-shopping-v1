@@ -19,7 +19,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int idCheck(String memberId) throws Exception {
-	
 		return memberMapper.idCheck(memberId);
 	}
 
