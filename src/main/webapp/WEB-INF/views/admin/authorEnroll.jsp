@@ -66,8 +66,10 @@
                     			<div class="form_section_title">
                     				<label>작가 이름</label>
                     			</div>
+                    			
                     			<div class="form_section_content">
                     				<input name="authName">
+                    				<span id="warn_authName">작가이름을 입력해주세요.</span>
                     			</div>
                     		</div>
                     		<div class="form_section">
@@ -80,6 +82,7 @@
                     					<option value="01">국내</option>
                     					<option value="02">국외</option>
                     				</select>
+                    				<span id="warn_nationId">소속 국가를 선택해주세요.</span>
                     			</div>
                     		</div>
                     		<div class="form_section">
@@ -88,6 +91,7 @@
                     			</div>
                     			<div class="form_section_content">
                     				<input name="authorIntro" type="text">
+                    				<span id="warn_authorIntro">작가 소개를 입력해주세요.</span>
                     			</div>
                     		</div>
                    		</form>
@@ -147,15 +151,68 @@
 
 <script>
 $("#enrollBtn").click(function(){
+	
+	 //초기세팅 
+	let nameCheck = false;
+	let nationCheck = false;
+	let introCheck = false;
+	
+	
+	//입력값 변수
+	let authName = $("input[name=authName]").val();
+	let nationId = $("select[name=nationId]").val();
+	let authorIntro = $("input[name=authorIntro]").val();
+
+	
+	// 유효성 태그
+	let wAuthName= $("#warn_authName");
+	let wNationId = $("#warn_nationId");
+	let wAuthorIntro = $("#warn_authorIntro");
+	
+	if(authName === ""){
+		wAuthName.css("display","block");
+		nameCheck = false;
+	}else{
+		wAuthName.css("display","none");
+		nameCheck = true;
+	}
+	
+	if(nationId === ""){
+		wNationId.css("display","block");
+		nationCheck = false;
+	}else{
+		wNationId.css("display","none");
+		nationCheck = true;
+	}
+	
+	
+	if(authorIntro === ""){
+		wAuthorIntro.css("display","block");
+		introCheck = false;
+	}else{
+		wAuthorIntro.css("display","none");
+		introCheck = true;
+	}
+	
 	$("#enrollForm").submit();
+	
+	
+	if(nameCheck && nationCheck && introCheck){
+		$("#enrollForm").submit();
+	}else{
+		return;
+	}
+	 
+	
 });
 
 
+//취소버튼
 $("#cancelBtn").click(function(){
 	location.href="/admin/authorManage";
 });
 
 
-</script>
+</script> 
 </body>
 </html>

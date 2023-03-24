@@ -15,6 +15,7 @@ public class AuthorVo {
 	private String authorIntro; //작가소개
 	private Date regDate; //등록 날짜 
 	private Date updateDate; // 수정 날짜
+	
 	public int getAuthorId() {
 		return authorId;
 	}
@@ -27,12 +28,23 @@ public class AuthorVo {
 	public void setAuthName(String authName) {
 		this.authName = authName;
 	}
+	
 	public String getNationId() {
 		return nationId;
 	}
+	
 	public void setNationId(String nationId) {
 		this.nationId = nationId;
+		if(nationId.equals("01")) {
+			this.nationName = "국내";
+		} else {
+			this.nationName = "국외";
+		}
 	}
+
+	
+	
+	
 	public String getNationName() {
 		return nationName;
 	}

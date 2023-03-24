@@ -11,7 +11,7 @@ ul{
     list-style: none;
 }
 
-* 화면 전체 렙 */
+/* 화면 전체 렙 */
 .wrapper{
     width: 100%;
 }
@@ -131,7 +131,14 @@ ul{
     font-weight: 300;    
 }
  
- 
+ /* 입력란 경고 */
+ .form_section_content span{
+  display:none;
+  padding-top:10px;
+  text-align:center;
+  color:#e05757;
+  font-weight:300;
+ }
  
 /* 버튼 영역 */
 .btn_section{
