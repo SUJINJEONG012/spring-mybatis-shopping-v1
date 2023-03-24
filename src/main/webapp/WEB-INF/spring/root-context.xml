@@ -38,21 +38,7 @@
 	
 
  
-<!-- gmail설정 -->
-<bean id="mailSender2" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
-     <property name="host" value="smtp.gmail.com" />
-     <property name="port" value="587" />
- <property name="username" value="peekaboo2189@gmail.com"/> <!-- 자신의 이메일 아이디 -->
- <property name="password" value="qdztgcatekggkoak"/> <!-- 자신의 비밀번호 -->
- <!-- 보안연결 TLS과 관련된 설정 -->
-     <property name="javaMailProperties">
-    <props>
-       <prop key="mail.smtp.auth">true</prop>
-       <prop key="mail.smtp.starttls.enable">true</prop>
-    </props>
-     </property>
-</bean>
-	
+
 		
 	<context:component-scan base-package="com.mybatis.shopping.controller"></context:component-scan>
 	<mybatis-spring:scan base-package="com.mybatis.shopping.mapper"/>
