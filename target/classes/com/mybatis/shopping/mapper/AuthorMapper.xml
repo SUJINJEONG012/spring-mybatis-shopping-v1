@@ -10,7 +10,7 @@
    insert into author(authName, nationId, authorIntro) values (#{authName}, #{nationId}, #{authorIntro})
   </insert>
   
-  
+
   
   
   </mapper>

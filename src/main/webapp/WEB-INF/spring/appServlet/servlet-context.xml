@@ -26,10 +26,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<context:component-scan
-		base-package="com.mybatis.shopping.controller" />
-
-
+	<context:component-scan base-package="com.mybatis.shopping.controller" />
+	
 	<!-- 인터셉터 적용 -->
 	<interceptors>
 		<interceptor>

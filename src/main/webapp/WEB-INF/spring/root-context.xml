@@ -19,7 +19,7 @@
 	<!-- <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"> -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<!-- <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/springmybatisshoppingv2" /> -->
+		<property name="url" value="jdbc:mysql://localhost:3306/springmybatisshoppingv2" />  -->
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="jdbcUrl" value="jdbc:log4jdbc:mysql://localhost:3306/springmybatisshoppingv2?serverTimezone=Asia/Seoul"></property>
 		<property name="username" value="root" />
@@ -27,13 +27,13 @@
 	</bean>
 	
 	
-	<bean id="datasource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
 	</bean>	
 	
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="datasource"></property>
+		<property name="dataSource" ref="dataSource"></property>
 	</bean>	
 	
 
@@ -53,12 +53,8 @@
      </property>
 </bean>
 	
-	
-	
-	
 		
 	<context:component-scan base-package="com.mybatis.shopping.controller"></context:component-scan>
-	
 	<mybatis-spring:scan base-package="com.mybatis.shopping.mapper"/>
 	<context:component-scan base-package="com.mybatis.shopping.model"></context:component-scan>
 	<context:component-scan base-package="com.mybatis.shopping.service"></context:component-scan>
