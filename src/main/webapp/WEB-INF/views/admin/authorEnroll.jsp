@@ -57,6 +57,43 @@
                 </div>
                 <div class="admin_content_wrap">
                     <div class="admin_content_subject"><span>작가 등록</span></div>
+                    <div class="admin_content_main">
+                    	<form action="/admin/authorEnroll" method="post" id="enrollForm">
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>작가 이름</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="authName">
+                    			</div>
+                    		</div>
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>소속 국가</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<select name="nationId">
+                    					<option value="none" selected>=== 선택 ===</option>
+                    					<option value="01">국내</option>
+                    					<option value="02">국외</option>
+                    				</select>
+                    			</div>
+                    		</div>
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>작가소개</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="authorIntro" type="text">
+                    			</div>
+                    		</div>
+                   		</form>
+                   			<div class="btn_section">
+                   				<button id="cancelBtn" class="btn">취 소</button>
+	                    		<button id="enrollBtn" class="btn enroll_btn">등 록</button>
+	                    	</div> 
+                    </div>
+                    
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -102,6 +139,17 @@
     </div>    <!-- class="wrap" -->
 </div>    <!-- class="wrapper" -->
 
+<script>
+$("#enrollBtn").click(function(){
+	$("#enrollForm").submit();
+});
 
+
+$("#cancelBtn").click(function(){
+	location.href="/admin/authorManage";
+});
+
+
+</script>
 </body>
 </html>
