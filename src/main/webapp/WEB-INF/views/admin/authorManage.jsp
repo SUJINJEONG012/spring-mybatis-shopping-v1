@@ -30,27 +30,29 @@
 		</div>
 
 		<div class="author_table_wrap">
-			<c:if test="${listCheck != 'empty'}">
-				<table class="author_table">
-					<thead>
-						<tr>
-							<td></td>
-						</tr>
-					</thead>
-					<c:forEach items="${list}" var="list">
-					<tbody>
-						<tr>
-							<td></td>
-						</tr>
-					</tbody>
-					</c:forEach>
-				</table>
-			</c:if>
-
-			<c:if test="${listCheck == 'empty'}">
-				<div class="table_empty">등록된 작가가 업습니다.</div>
-			</c:if>
-
+			<table>
+				<thead>
+					<tr>
+						<td class="th_column_1">작가 번호</td>
+						<td class="th_column_1">작가 이름</td>
+						<td class="th_column_1">작가 국가</td>
+						<td class="th_column_1">등록 날짜</td>
+						<td class="th_column_1">수정 날짜</td>
+					</tr>
+				</thead>
+				
+				<c:forEach items="${list}" var="list">
+				<tbody>
+					<tr>
+						<td><c:out value="${list.authorId}"></c:out></td>
+						<td><c:out value="${list.authName}"></c:out></td>
+						<td><c:out value="${list.nationId}"></c:out></td>
+						<td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd" /></td>
+						<td><fmt:formatDate value="${list.updateDate}" pattern="yyyy-MM-dd" /></td>
+					</tr>
+				</tbody>
+				</c:forEach>
+			</table>
 		</div>
 
 		<!-- 검색 영역 -->
