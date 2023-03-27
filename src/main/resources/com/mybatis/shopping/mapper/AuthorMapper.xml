@@ -12,7 +12,7 @@
   <!-- 작가 목록 -->
   <select id="authorGetList" resultType="com.mybatis.shopping.model.AuthorVo">
 
-  select authorid, authname, nationid, regdate, updatedate 
+  select authorId, authName, nationId, regDate, updateDate 
   from author
   <if test="keyword != null">
   where authName like concat('%', #{keyword}, '%')
