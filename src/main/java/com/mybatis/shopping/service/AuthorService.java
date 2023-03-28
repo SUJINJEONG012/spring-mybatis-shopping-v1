@@ -6,6 +6,7 @@ import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.Criteria;
 
 public interface AuthorService {
+	
 	/* 작가등록 */
 	public void authorEnrol(AuthorVo authorVo) throws Exception;
 	

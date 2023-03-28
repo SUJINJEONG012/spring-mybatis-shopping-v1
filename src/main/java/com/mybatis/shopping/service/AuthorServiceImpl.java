@@ -29,6 +29,12 @@ public class AuthorServiceImpl implements AuthorService {
 		log.info("(service)authorGetList()............." + cri);
 		return authorMapper.authorGetList(cri);
 	}
+
+	@Override
+	public int authorGetTotal(Criteria cri) throws Exception {
+		log.info("authorGetTotal.........." + cri);
+		return authorMapper.authorGetTotal(cri);
+	}
 	
 	
 	
