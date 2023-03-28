@@ -21,5 +21,20 @@
   limit #{skip}, #{amount}
   </select> 
   
+   <!-- MySQL -->
+      <!-- 작가 수 -->
+      <select id="authorGetTotal" resultType="int">
+      
+          select count(*) from author
+          
+          <if test="keyword != null">
+          
+              where authname like concat('%', #{keyword}, '%');
+          
+          </if>
+          
+      </select>
+  
+  
   </mapper>
   

@@ -32,17 +32,27 @@ public class AuthorMapperTests {
 	
 	
 	/* 작가 목록 테스트 */
+//	@Test
+//    public void authorGetListTest() throws Exception{       
+//        Criteria cri = new Criteria(3,10);    // 3페이지 & 10개 행 표시
+//        cri.setKeyword("제인오스틴");
+//        List<AuthorVo> list = authorMapper.authorGetList(cri);
+//        
+//        for(int i = 0; i < list.size(); i++) {
+//            System.out.println("list" + i + ".........." + list.get(i));
+//        }        
+//    }
+	
+	
+	/* 작가 총 수 */
 	@Test
-    public void authorGetListTest() throws Exception{       
-        Criteria cri = new Criteria(3,10);    // 3페이지 & 10개 행 표시
-        cri.setKeyword("제인오스틴");
-        List<AuthorVo> list = authorMapper.authorGetList(cri);
-        
-        for(int i = 0; i < list.size(); i++) {
-            System.out.println("list" + i + ".........." + list.get(i));
-        }
-        
-    }
+	public void authorGetTotal() throws Exception {
+		Criteria cri = new Criteria();
+		cri.setKeyword("제인오스틴");
+		int total = authorMapper.authorGetTotal(cri);
+		System.out.println("total.............." + total);
+	}
+	
 	
 	
 }
