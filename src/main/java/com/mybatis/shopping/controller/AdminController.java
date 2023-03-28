@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.model.PageDto;
 import com.mybatis.shopping.service.AuthorService;
 
 @Controller
@@ -57,6 +58,13 @@ public class AdminController {
 		/* 작가목록 데이터 */
 		List list = authorService.authorGetList(cri);
 		model.addAttribute("list", list);
+		
+		/* 페이지 이동 인터페이스 데이터 */
+		int total = authorService.authorGetTotal(cri);
+		PageDto pageMaker = new PageDto(cri, total);
+		logger.info("pageStart 얼마인지 : 0보다 작은지 " + pageMaker.getPageStart());
+		model.addAttribute("pageMaker", pageMaker);
+	
 	}
 	
 	
