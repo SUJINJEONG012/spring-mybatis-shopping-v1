@@ -92,9 +92,9 @@
  <!-- 페이지 이동 인터페이스 영역 -->
 
                   <form id="moveForm" action="/admin/authorManage" method="get">
-						<input type="text" name="pageNum" value="${pageMaker.cri.pageNum}">
-						<input type="text" name="amount" value="${pageMaker.cri.amount}">
-						<input type="text" name="keyword" value="${pageMaker.cri.keyword}">
+						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
 					</form>
 					
 					
@@ -114,13 +114,9 @@
 			let result = '<c:out value="${enroll_result}"/>';
 
 			checkResult(result);
-
 			function checkResult(result) {
-
 				if (result === '') {
-
 					return;
-
 				}
 				alert(" 작가 '${enroll_result}' 을 등록하였습니다.");
 
@@ -139,7 +135,7 @@
 		    
 		    moveForm.submit();
 		    
-		    
+		}); 
 	</script>
 
 
