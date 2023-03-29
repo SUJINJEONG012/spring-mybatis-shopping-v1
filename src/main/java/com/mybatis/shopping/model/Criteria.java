@@ -18,6 +18,7 @@ public class Criteria {
 	private String type;
 	/* 검색 키워드 */
 	private String keyword;
+	
 	/* Criteria 생성자 */
 	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
@@ -40,8 +41,9 @@ public class Criteria {
 	}
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
-		this.skip = (pageNum -1)* amount; 
+		this.skip = (pageNum -1)* this.amount; 
 	}
+	
 	public int getAmount() {
 		return amount;
 	}
