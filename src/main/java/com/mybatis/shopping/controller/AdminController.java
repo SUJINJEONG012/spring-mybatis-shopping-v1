@@ -59,6 +59,13 @@ public class AdminController {
 		List<?> list = authorService.authorGetList(cri);
 		model.addAttribute("list", list);
 		
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list); // 작가 존재경우 
+		}else {
+			model.addAttribute("listCheck", "empty"); // 작가 존재하지 않을 경우
+		}
+	
+		
 		/* 페이지 이동 인터페이스 데이터 */
 		int total = authorService.authorGetTotal(cri);
 		PageDto pageMaker = new PageDto(cri, total);
