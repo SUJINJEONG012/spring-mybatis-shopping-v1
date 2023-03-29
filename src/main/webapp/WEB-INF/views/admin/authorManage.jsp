@@ -44,7 +44,12 @@
 						<tbody>
 							<tr>
 								<td><c:out value="${list.authorId}"></c:out></td>
-								<td><c:out value="${list.authName}"></c:out></td>
+								<td>
+								<a class="move" href='<c:out value="${list.authorId}"/>'> 
+								<c:out value="${list.authName}"></c:out>
+								</a>
+								</td>
+
 								<td><c:out value="${list.nationId}"></c:out></td>
 								<td><fmt:formatDate value="${list.regDate}"
 										pattern="yyyy-MM-dd" /></td>
@@ -163,6 +168,22 @@
 			searchForm.submit();
 
 		});
+		
+		
+		
+		/* 작가 상세 페이지 이동 */
+		$(".move").on("click", function(){
+			
+			e.prevenDefault();
+			
+			moveForm.append("<input type='hidden' name='authorId' value='"+ $(this).attr("href") + "'>");
+			moveForm.attr("action", "/admin/authorDetail");
+			moveForm.submit();
+			
+		});
+		
+		
+		
 	</script>
 
 

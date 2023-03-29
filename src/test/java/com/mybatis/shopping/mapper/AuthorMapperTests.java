@@ -45,12 +45,20 @@ public class AuthorMapperTests {
 	
 	
 	/* 작가 총 수 */
+//	@Test
+//	public void authorGetTotal() throws Exception {
+//		Criteria cri = new Criteria();
+//		cri.setKeyword("제인오스틴");
+//		int total = authorMapper.authorGetTotal(cri);
+//		System.out.println("total.............." + total);
+//	}
+	
 	@Test
-	public void authorGetTotal() throws Exception {
-		Criteria cri = new Criteria();
-		cri.setKeyword("제인오스틴");
-		int total = authorMapper.authorGetTotal(cri);
-		System.out.println("total.............." + total);
+	/* 작가 상세 페이지 */
+	public void authorGetDetailTest() {
+		int authorId = 30;
+		AuthorVo authorVo =  authorMapper.authorGetDetail(authorId);
+		System.out.println("author........." + authorVo);
 	}
 	
 	

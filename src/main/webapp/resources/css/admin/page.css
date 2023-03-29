@@ -245,7 +245,10 @@ ul{
     font-size: 25px;
 }
 
-
+.author_table a{
+	color:#1088ed;
+	font-weight: 500;
+}
 
  
 /* footer navai 영역 */
