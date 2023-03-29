@@ -1,11 +1,15 @@
+com\mybatis\shopping\service\AuthorServiceImpl.class
+com\mybatis\shopping\model\Criteria.class
 com\mybatis\shopping\controller\BookController.class
 com\mybatis\shopping\model\MemberVo.class
 com\mybatis\shopping\interceptor\AdminInterceptor.class
 com\mybatis\shopping\interceptor\LoginInterceptor.class
 com\mybatis\shopping\mapper\MemberMapper.class
+com\mybatis\shopping\service\AuthorService.class
 com\mybatis\shopping\mapper\AuthorMapper.class
 com\mybatis\shopping\controller\MemberController.class
 com\mybatis\shopping\model\AuthorVo.class
 com\mybatis\shopping\controller\AdminController.class
 com\mybatis\shopping\service\MemberService.class
 com\mybatis\shopping\service\MemberServiceImpl.class
+com\mybatis\shopping\model\PageDto.class
