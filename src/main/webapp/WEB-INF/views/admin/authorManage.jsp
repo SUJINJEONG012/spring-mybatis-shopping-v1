@@ -131,7 +131,7 @@
 		
 		
 		let moveForm = $('#moveForm');
-		let searchForm = $("#searchForm");
+		let searchForm = $('#searchForm');
 		 
 		/* 페이지 이동 버튼 */
 		$(".pageMaker_btn a").on("click", function(e){

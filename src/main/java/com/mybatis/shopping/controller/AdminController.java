@@ -56,7 +56,7 @@ public class AdminController {
 		
 		logger.info("작가관리페이지 접속");
 		/* 작가목록 데이터 */
-		List list = authorService.authorGetList(cri);
+		List<?> list = authorService.authorGetList(cri);
 		model.addAttribute("list", list);
 		
 		/* 페이지 이동 인터페이스 데이터 */
