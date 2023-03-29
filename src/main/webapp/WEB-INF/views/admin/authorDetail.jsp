@@ -36,8 +36,8 @@
 					<label>작가 이름</label>
 				</div>
 				<div class="form_section_content">
-					<input class="input_block" name="authorName" readonly="readonly"
-						value="<c:out value='${authorInfo.authorName }'></c:out>">
+					<input class="input_block" name="authName" readonly="readonly"
+						value="<c:out value='${authorInfo.authName }'></c:out>">
 				</div>
 			</div>
 			<div class="form_section">
