@@ -144,8 +144,7 @@
 		/* 작가 검색 버튼 동작 */
 		$("#searchForm button").on("click", function(e){
 			
-			e.preventDefault();
-			
+			e.preventDefault();	
 			/* 검색 키워드 유효성 검사 */
 			if(!searchForm.find("input[name='keyword']").val()){
 				alert("키워드를 입력하세요.!");
@@ -153,7 +152,7 @@
 			}
 			
 			searchForm.find("input[name='pageNum']").val("1");
-			searechForm.submit();
+			searchForm.submit();
 			
 		});
 		
