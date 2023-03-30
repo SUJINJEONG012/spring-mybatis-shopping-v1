@@ -50,7 +50,7 @@
 								</a>
 								</td>
 
-								<td><c:out value="${list.nationId}"></c:out></td>
+								<td><c:out value="${list.nationName}"></c:out></td>
 								<td><fmt:formatDate value="${list.regDate}"
 										pattern="yyyy-MM-dd" /></td>
 								<td><fmt:formatDate value="${list.updateDate}"
@@ -172,7 +172,7 @@
 		
 		
 		/* 작가 상세 페이지 이동 */
-		$(".move").on("click", function(){
+		$(".move").on("click", function(e){
 			
 			e.prevenDefault();
 			

@@ -90,10 +90,14 @@ public class AdminController {
 	@GetMapping("/authorDetail")
 	public void authorGetInfoGet(int authorId, Criteria cri, Model model) throws Exception {
 		logger.info("authorDetail......" + authorId);
+		
 		/* 작가관리 페이지 정보*/
 		model.addAttribute("cri", cri);
+		
 		/* 선택 작가 정보 */
 		model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
+		
+		
 		
 	}
 	
