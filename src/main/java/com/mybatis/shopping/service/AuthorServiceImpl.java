@@ -38,7 +38,7 @@ public class AuthorServiceImpl implements AuthorService {
 
 	@Override
 	public AuthorVo authorGetDetail(int authorId) throws Exception {
-		log.info("authorGetDetail......." + authorId);
+		log.info("authorGetDetail 아이디로 찾기 ......." + authorId);
 		
 		return authorMapper.authorGetDetail(authorId);
 	}

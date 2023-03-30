@@ -4,17 +4,21 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.mybatis.shopping.controller.AdminController;
 import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.service.AuthorService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 public class AuthorMapperTests {
-
+	
 	@Autowired
 	private AuthorMapper authorMapper;
 	
@@ -53,12 +57,14 @@ public class AuthorMapperTests {
 //		System.out.println("total.............." + total);
 //	}
 	
-	@Test
 	/* 작가 상세 페이지 */
-	public void authorGetDetailTest() {
-		int authorId = 30;
-		AuthorVo authorVo =  authorMapper.authorGetDetail(authorId);
-		System.out.println("author........." + authorVo);
+	@Test
+	public void authorGetDetailTest() throws Exception {
+		int authorId = 20;
+	
+		AuthorVo authorVo = authorMapper.authorGetDetail(authorId);
+		System.out.println("authorVo 작가상세 페이지 mapper메서드 확인용......" + authorVo);
+	
 	}
 	
 	
