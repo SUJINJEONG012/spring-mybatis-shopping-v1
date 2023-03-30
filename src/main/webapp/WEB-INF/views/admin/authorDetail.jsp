@@ -97,10 +97,12 @@
 			value='<c:out value="${cri.amount }"/>'> <input
 			type="hidden" name="keyword" value='<c:out value="${cri.keyword }"/>'>
 	</form>
+
 	<%@include file="./include/admin/footer.jsp"%>
 
 	<script>
 		let moveForm = $("#moveForm");
+		let modifyForm = $("#modifyForm");
 
 		/* 작가 관리 페이지 이동 버튼 */
 		$("#cancelBtn").on("click", function(e) {
@@ -116,7 +118,29 @@
 		/* 작가 수정 페이지 이동 버튼 */
 		$("#modifyBtn").on("click", function(e) {
 
+			let authName = $(".form_section_content input[name='authName']").val();
+			let authorIntro = $(".form_section_content textarea").val();
+			
+			let nameCk = false;
+			let introCk = false;
+			
 			e.preventDefault();
+			
+			if(!authName){
+				$("#warn_authName").css("dispaly", "block");
+			}else{
+				$("#warn_authName").css("display", "none");
+			}
+			if(!authIntro){
+				$(".warn_authorIntro").css("display", "block");
+			}else{
+				$(".warn_authorIntro").css("display", "none");
+			}
+			if(nameCk && introCk){
+				modifyForm.submit();
+			}else{
+				return false;
+			}
 
 			moveForm.attr("action", "/admin/authorModify");
 			moveForm.submit();
