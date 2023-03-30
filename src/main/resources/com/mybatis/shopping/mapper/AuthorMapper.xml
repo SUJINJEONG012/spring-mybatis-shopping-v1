@@ -42,7 +42,10 @@
 	</select>
 
 
-
+    <!-- 작가 수정 -->
+    <update id="authorModify">
+    update author set authName =#{authName}, nationId=#{nationId}, authorIntro=#{authorIntro}, updateDate=now() where authorid= #{authorId} 
+    </update>
 
 
 </mapper>
