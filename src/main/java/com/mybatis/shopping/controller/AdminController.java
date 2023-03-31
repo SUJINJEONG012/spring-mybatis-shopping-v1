@@ -86,8 +86,9 @@ public class AdminController {
 	}
 	
 	
-	/* 작가 상세 페이지 */
-	@GetMapping("/authorDetail")
+	/* 작가 상세 페이지  맵핑주소 작가상세와 작가수정 */
+	@GetMapping({"/authorDetail" , "/authorModify"})
+	
 	public void authorGetInfoGet(int authorId, Criteria cri, Model model) throws Exception {
 		logger.info("authorDetail......" + authorId);
 		
