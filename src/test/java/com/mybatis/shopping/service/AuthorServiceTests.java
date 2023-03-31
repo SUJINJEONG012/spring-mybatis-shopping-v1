@@ -51,7 +51,7 @@ public class AuthorServiceTests {
     	int authorId = 20;
     	System.out.println("authorId @@@@@@@@" + authorService.authorGetDetail(authorId));
     }
-    
+    	
     
     
     

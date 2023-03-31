@@ -173,8 +173,8 @@
 		
 		/* 작가 상세 페이지 이동 */
 		$(".move").on("click", function(e){
-			
-			e.prevenDefault();
+		
+			e.preventDefault();
 			
 			moveForm.append("<input type='hidden' name='authorId' value='"+ $(this).attr("href") + "'>");
 			moveForm.attr("action", "/admin/authorDetail");
