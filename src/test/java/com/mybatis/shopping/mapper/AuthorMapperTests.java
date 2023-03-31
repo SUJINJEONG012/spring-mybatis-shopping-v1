@@ -58,15 +58,28 @@ public class AuthorMapperTests {
 //	}
 	
 	/* 작가 상세 페이지 */
+//	@Test
+//	public void authorGetDetailTest() throws Exception {
+//		int authorId = 20;
+//	
+//		AuthorVo authorVo = authorMapper.authorGetDetail(authorId);
+//		System.out.println("authorVo 작가상세 페이지 mapper메서드 확인용......" + authorVo);
+//	
+//	}
+	
+	/* 작가 정보 수정 */
 	@Test
-	public void authorGetDetailTest() throws Exception {
-		int authorId = 20;
+	public void authorModifyTest() {
+		AuthorVo authorVo  = new AuthorVo();
+		authorVo.setAuthorId(1);
+		System.out.println("수정전 : " + authorMapper.authorGetDetail(authorVo.getAuthorId()));
+	authorVo.setAuthName("수정");
+	authorVo.setAuthorId(01);
+	authorVo.setAuthorIntro("소개수정 테스트");
 	
-		AuthorVo authorVo = authorMapper.authorGetDetail(authorId);
-		System.out.println("authorVo 작가상세 페이지 mapper메서드 확인용......" + authorVo);
-	
+	authorMapper.authorModify(authorVo);
+	System.out.println("수정 후 : " + authorMapper.authorGetDetail(authorVo.getAuthorId()));
 	}
-	
 	
 	
 }

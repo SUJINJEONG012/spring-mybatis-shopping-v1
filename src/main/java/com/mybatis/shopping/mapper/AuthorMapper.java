@@ -21,4 +21,7 @@ public interface AuthorMapper {
 	
 	/* 작가 상세 */
 	public AuthorVo authorGetDetail(int authorId);
+	
+	/* 작가 수정 */
+	public int authorModify(AuthorVo authorVo);
 }
