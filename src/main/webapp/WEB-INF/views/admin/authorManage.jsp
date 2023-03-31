@@ -79,11 +79,9 @@
 				</div>
 			</form>
 		</div>
-
 		<!-- 검색 영역 -->
 
 		<!-- 페이지 이동 인터페이스 영역 -->
-
 		<div class="pageMaker_wrap">
 
 			<ul class="pageMaker">
@@ -134,14 +132,30 @@
 	<script>
 		$(document).ready(function() {
 			let result = '<c:out value="${enroll_result}"/>';
+			let mresult= '<c:out value="${modify_result}"/>';
+			
+			
 			checkResult(result);
+			checkmResult(mresult);
+			
 			function checkResult(result) {
 				if (result === '') {
 					return;
 				}
 				alert(" 작가 '${enroll_result}' 을 등록하였습니다.");
 			}
+			
+			function checkmResult(mresult){
+				if(mresult === '1'){
+					alert("작가정보를 수정하였습니다.");
+				}else if(mresult ==='0'){
+					alert("작가 수정 정보를 수정하지 못하였습니다.");
+				}
+			}
+			
 		});
+		
+		
 
 		let moveForm = $('#moveForm');
 		let searchForm = $('#searchForm');

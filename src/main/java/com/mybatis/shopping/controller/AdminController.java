@@ -104,8 +104,8 @@ public class AdminController {
 		logger.info("authorModifyPost......." + authorVo);
 		
 		int result = authorService.authorModify(authorVo);
-		rttr.addAttribute("modify_result", result);
-		return "redirect:/amdin/authorManage";
+		rttr.addFlashAttribute("modify_result", result);
+		return "redirect:/admin/authorManage";
 	}
 	
 	

@@ -129,11 +129,13 @@
 		}else{
 			$("#warn_authName").css("display", "none");
 		}
+		
 		if(!authorIntro){
 			$("#warn_authorIntro").css("display", "block");
 		}else{
 			$("#warn_authorIntro").css("display", "none");
 		}
+		
 		if(nameCk && introCk){
 			modifyForm.submit();
 		}else{
