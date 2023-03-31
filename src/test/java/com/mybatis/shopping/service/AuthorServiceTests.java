@@ -46,14 +46,30 @@ public class AuthorServiceTests {
 //    }
     
     /* 작가 상세 페이지 */
-    @Test
-    public void authorGetDetailTest() throws Exception {
-    	int authorId = 20;
-    	System.out.println("authorId @@@@@@@@" + authorService.authorGetDetail(authorId));
-    }
-    	
-    
-    
+//    @Test
+//    public void authorGetDetailTest() throws Exception {
+//    	int authorId = 20;
+//    	System.out.println("authorId @@@@@@@@" + authorService.authorGetDetail(authorId));
+//    }
+	
+	/* 작가 정보 수정  */
+	@Test
+	public void authorModifyTest() throws Exception{
+	 AuthorVo authorVo = new AuthorVo();
+	 
+	 authorVo.setAuthorId(1);
+	 System.out.println("(service) 수정 전 ..........." + authorService.authorGetDetail(authorVo.getAuthorId()));
+	 
+	 authorVo.setAuthName("(service) 수정 합니다. 서비스단 ");
+	 authorVo.setAuthorId(01);
+	 authorVo.setAuthorIntro("(service )");
+	 
+	 authorService.authorModify(authorVo);
+	 System.out.println("(service)................. 최종  : "  + authorService.authorGetDetail(authorVo.getAuthorId()));
+	}
+	
+	
+
     
        
 }
