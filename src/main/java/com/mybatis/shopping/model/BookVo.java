@@ -8,7 +8,7 @@ public class BookVo {
 	private String bookName; //상품이름
 	
 	private int authorId; //작가 아이디
-	private int authName; //작가이름 
+	private String authName; //작가이름 
 	
 	private String publeYear; //출판일
 	private String publisher; //출판사
@@ -47,10 +47,10 @@ public class BookVo {
 	public void setAuthorId(int authorId) {
 		this.authorId = authorId;
 	}
-	public int getAuthName() {
+	public String getAuthName() {
 		return authName;
 	}
-	public void setAuthName(int authName) {
+	public void setAuthName(String authName) {
 		this.authName = authName;
 	}
 	public String getPubleYear() {
