@@ -6,20 +6,29 @@ public class BookVo {
 
 	private int bookId; // 상품아이디 
 	private String bookName; //상품이름
+	
 	private int authorId; //작가 아이디
 	private int authName; //작가이름 
-	private String publeYerar; //출판일
+	
+	private String publeYear; //출판일
 	private String publisher; //출판사
+	
 	private String cateCode; //카테고리코드
 	private String cateName; //카테고리 이름
+	
 	private int bookPrice; // 상품 가격 
 	private int bookStock; //상품재고
+	
 	private double bookDiscount; //상품 할인율
 	private String bookIntro; //상품소개 
 	
 	private String bookContents; // 상품 목차
+	
 	private Date regDate; // 등록날짜
 	private Date updateDate; //수정날짜
+	
+	
+	
 	public int getBookId() {
 		return bookId;
 	}
@@ -44,11 +53,11 @@ public class BookVo {
 	public void setAuthName(int authName) {
 		this.authName = authName;
 	}
-	public String getPubleYerar() {
-		return publeYerar;
+	public String getPubleYear() {
+		return publeYear;
 	}
-	public void setPubleYerar(String publeYerar) {
-		this.publeYerar = publeYerar;
+	public void setPubleYear(String publeYear) {
+		this.publeYear = publeYear;
 	}
 	public String getPublisher() {
 		return publisher;
@@ -113,7 +122,7 @@ public class BookVo {
 	@Override
 	public String toString() {
 		return "BookVo [bookId=" + bookId + ", bookName=" + bookName + ", authorId=" + authorId + ", authName="
-				+ authName + ", publeYerar=" + publeYerar + ", publisher=" + publisher + ", cateCode=" + cateCode
+				+ authName + ", publeYerar=" + publeYear + ", publisher=" + publisher + ", cateCode=" + cateCode
 				+ ", cateName=" + cateName + ", bookPrice=" + bookPrice + ", bookStock=" + bookStock + ", bookDiscount="
 				+ bookDiscount + ", bookIntro=" + bookIntro + ", bookContents=" + bookContents + ", regDate=" + regDate
 				+ ", updateDate=" + updateDate + "]";
