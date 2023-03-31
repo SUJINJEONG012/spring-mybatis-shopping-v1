@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mybatis.shopping.model.AuthorVo;
+import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
 import com.mybatis.shopping.model.PageDto;
+import com.mybatis.shopping.service.AdminService;
 import com.mybatis.shopping.service.AuthorService;
 
 @Controller
@@ -25,6 +27,9 @@ public class AdminController {
 
 	@Autowired
 	private AuthorService authorService;
+	
+	@Autowired
+	private AdminService adminService;
 	
 	/* 관리자 메인페이지로 이동 */
 	@GetMapping("/main")
@@ -99,6 +104,7 @@ public class AdminController {
 		model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
 	}
 	
+	/* 작가 정보 수정 */
 	@PostMapping("/authorModify")
 	public String authorModifyPost(AuthorVo authorVo , RedirectAttributes rttr) throws Exception {
 		logger.info("authorModifyPost......." + authorVo);
@@ -108,6 +114,11 @@ public class AdminController {
 		return "redirect:/admin/authorManage";
 	}
 	
-	
+	/* 상품 등록 */
+	@PostMapping("/goodsEnroll")
+	public String goodsEnrollPost(BookVo bookVo, RedirectAttributes rttr) {
+		logger.info("goodEnrollPost........." +  bookVo);
+		return "redirect:/admin/goodsManage";
+	}
 
 }
