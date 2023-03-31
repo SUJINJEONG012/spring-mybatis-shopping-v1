@@ -15,9 +15,7 @@
 <body>
 	<%@include file="./include/admin/header.jsp"%>
 
-
 	<style>
-
 .admin_list_04 {
 	background-color: #c8c8c8;
 }
@@ -60,7 +58,6 @@
 							</tr>
 						</tbody>
 					</c:forEach>
-					
 				</table>
 			</c:if>
 
@@ -177,7 +174,7 @@
 		/* 작가 상세 페이지 이동 */
 		$(".move").on("click", function(e){
 			
-			e.preventDefault();
+			e.prevenDefault();
 			
 			moveForm.append("<input type='hidden' name='authorId' value='"+ $(this).attr("href") + "'>");
 			moveForm.attr("action", "/admin/authorDetail");

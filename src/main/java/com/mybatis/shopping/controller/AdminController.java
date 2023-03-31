@@ -87,7 +87,7 @@ public class AdminController {
 	
 	
 	/* 작가 상세 페이지 */
-	@GetMapping({"/authorDetail", "/authorModify"})
+	@GetMapping("/authorDetail")
 	public void authorGetInfoGet(int authorId, Criteria cri, Model model) throws Exception {
 		logger.info("authorDetail......" + authorId);
 		
@@ -95,9 +95,11 @@ public class AdminController {
 		model.addAttribute("cri", cri);
 		
 		/* 선택 작가 정보 */
-		model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));		
+		model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
+		
+		
+		
 	}
-	
 	
 	
 
