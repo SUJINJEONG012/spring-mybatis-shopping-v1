@@ -97,9 +97,15 @@ public class AdminController {
 		
 		/* 선택 작가 정보 */
 		model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
+	}
+	
+	@PostMapping("/authorModify")
+	public String authorModifyPost(AuthorVo authorVo , RedirectAttributes rttr) throws Exception {
+		logger.info("authorModifyPost......." + authorVo);
 		
-		
-		
+		int result = authorService.authorModify(authorVo);
+		rttr.addAttribute("modify_result", result);
+		return "redirect:/amdin/authorManage";
 	}
 	
 	
