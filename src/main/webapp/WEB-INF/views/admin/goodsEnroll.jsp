@@ -57,11 +57,10 @@
 					</div>
 
 					<div class="form_section_content">
-						<input type="text" name="authName" value="0">
-						<!-- <input id="authName_input" readonly="readonly"> <input
-							id="authorId_input" name="authorId" type="hidden">
+						<input id="authName_input" readonly="readonly">
+						<input type="hidden" id="authorId_input" name="authorId">
 						<button class="authorId_btn">작가선택</button>
-						<span class="ck_warn authorId_warn">작가를 선택해주세요</span> -->
+						
 					</div>
 				</div>
 
@@ -223,7 +222,18 @@ const config = {
  $(function(){
 	$("input[name='publeYear']").datepicker(config); 
  });
-
+ 
+ /* 작가 선택 버튼 */
+$(".authorId_btn").on("click", function(e){
+	e.preventDefault();
+	
+	let popUrl =  "/admin/authorPop";
+	let popOption =  "width = 600px, height = 500px, top=300px, left=300px, scrollbars=yes";
+	window.open(popUrl, "작가찾기 ", popOption);
+	
+});
+ 
+ 
 </script>
 
 
