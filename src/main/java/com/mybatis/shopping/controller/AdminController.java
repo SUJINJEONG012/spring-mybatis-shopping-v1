@@ -127,8 +127,21 @@ public class AdminController {
 	
 	/* 작가 검색 팝업창 */
 	@GetMapping("/authorPop")
-	public void authorPopGet() {
+	public void authorPopGet(Criteria cri, Model model) throws Exception {
 		logger.info("authorPopGet........");
+		
+		cri.setAmount(5);
+		// 게시물출력코드
+		List list = authorService.authorGetList(cri);
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list);// 작가존재 
+		}else {
+			model.addAttribute("listCheck", "empty"); //작가존재하지않을 경우
+		}
+		
+		//페이지 이동 인터페이스 데이
+		model.addAttribute("pageMaker", new PageDto(cri, authorService.authorGetTotal(cri)));
+		
 	}
 
 }
