@@ -114,6 +114,8 @@ public class AdminController {
 		return "redirect:/admin/authorManage";
 	}
 	
+	
+	
 	/* 상품 등록 */
 	@PostMapping("/goodsEnroll")
 	public String goodsEnrollPost(BookVo bookVo, RedirectAttributes rttr) {
@@ -121,6 +123,12 @@ public class AdminController {
 		adminService.bookEnroll(bookVo);
 		rttr.addFlashAttribute("enroll_result", bookVo.getBookName());
 		return "redirect:/admin/goodsManage";
+	}
+	
+	/* 작가 검색 팝업창 */
+	@GetMapping("/authorPop")
+	public void authorPopGet() {
+		logger.info("authorPopGet........");
 	}
 
 }
