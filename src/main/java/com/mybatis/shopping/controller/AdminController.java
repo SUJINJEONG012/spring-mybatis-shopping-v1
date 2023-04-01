@@ -118,6 +118,8 @@ public class AdminController {
 	@PostMapping("/goodsEnroll")
 	public String goodsEnrollPost(BookVo bookVo, RedirectAttributes rttr) {
 		logger.info("goodEnrollPost........." +  bookVo);
+		adminService.bookEnroll(bookVo);
+		rttr.addFlashAttribute("enroll_result", bookVo.getBookName());
 		return "redirect:/admin/goodsManage";
 	}
 
