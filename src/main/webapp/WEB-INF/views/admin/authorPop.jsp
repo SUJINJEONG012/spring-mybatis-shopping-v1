@@ -33,7 +33,11 @@
 						<c:forEach items="${list}" var="list">
 							<tr>
 								<td><c:out value="${list.authorId}"></c:out></td>
-								<td><c:out value="${list.authName}"></c:out></td>
+								<td>
+								<a class="move" href='<c:out value="${lisst.authorId}"/>' data-name='<c:out value="${lisst.authName}"/>'>
+								<c:out value="${list.authName}"></c:out>
+								</a>
+								</td>
 								<td><c:out value="${list.nationName}"></c:out></td>
 							</tr>
 						</c:forEach>
@@ -118,12 +122,26 @@
 		searchForm.submit();
 			
 	});
-	
+	/* 페이징 이동 클릭 */
 	$(".pageMaker_btn a").on("click", function(e){
 		e.preventDefault();
 		console.log($(this).attr("href"));
 		moveForm.find("input[name='pageNum']").val($(this).attr("href"));
 		moveForm.submit();
+	});
+	
+	/* 작가 선택 및 팝업창 */
+	
+	$(".move").on("click", function(e){
+		e.preventDefault();
+		alert("dd");
+		let authorId = $(this).attr("href");
+		let authName = $(this).data("name");
+		
+		$(opener.document).find("#authorId_input").val(authorId);
+		$(opener.document).find("#authName_input").val(authName);
+		
+		window.close();
 	});
 	</script>
 
