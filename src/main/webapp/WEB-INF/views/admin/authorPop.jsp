@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>작가 선택 팝업창</title>
 <link rel="stylesheet" href="../resources/css/admin/authorPop.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 	<div class="subject_name_warp">
@@ -74,6 +75,12 @@
 							href="${pageMaker.pageStart -1 }">이전</a></li>
 					</c:if>
 
+                     <!-- 페이지 번호 -->
+	                    	<c:forEach begin="${pageMaker.pageStart}" end="${pageMaker.pageEnd}" var="num">
+	                    		<li class="pageMaker_btn ${pageMaker.cri.pageNum == num ? "active":""}">
+	                    			<a href="${num}">${num}</a>
+	                    		</li>
+	                    	</c:forEach>
 					
 
 					<c:if test="${pageMaker.next}">
@@ -95,6 +102,30 @@
 		<!-- table_wrap end  -->
 
 	</div>
+	
+	<script>
+	let searchForm = $("#searchForm");
+	let moveForm = $("#moveForm");
+	
+	/* 작가 검색 버튼 */
+	$("#searchForm button").on("click", function(e){
+		e.preventDefault();
+		if(!searchForm.find("input[name='keyword']").val()){
+			alert("키워드를 입력해주세요.");
+			return false;
+		}
+		searchForm.find("input[name='pageNum']").val("1");
+		searchForm.submit();
+			
+	});
+	
+	$(".pageMaker_btn a").on("click", function(e){
+		e.preventDefault();
+		console.log($(this).attr("href"));
+		moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+		moveForm.submit();
+	});
+	</script>
 
 </body>
 </html>
