@@ -304,11 +304,11 @@ $(".authorId_btn").on("click", function(e){
  }); */
  
  
-/* 대분류 */
+/* 대분류 option */
 for(let i =0; i< cate1Array.length; i++){
 	cateSelect1.append("<option value='" + cate1Array[i].cateCode+"'>" + cate1Array[i].cateName + "</option>");
-}
-/* 중분류 */ 
+};
+/* 중분류 option */ 
 $(cateSelect1).on("change", function(){
  	let selectVal1 = $(this).find("option:selected").val();
  	cateSelect2.children().remove();
@@ -319,6 +319,10 @@ $(cateSelect1).on("change", function(){
  		}
  	}// 
 });
+
+/* 소분류 option */
+
+
  
 
 </script>
