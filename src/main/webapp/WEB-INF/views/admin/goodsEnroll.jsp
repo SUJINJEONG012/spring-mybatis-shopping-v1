@@ -58,7 +58,7 @@
 
 					<div class="form_section_content">
 						<input id="authName_input" readonly="readonly">
-						<input type="hidden" id="authorId_input" name="authorId">
+						<input id="authorId_input" name="authorId" type="hidden">
 						<button class="authorId_btn">작가선택</button>
 						
 					</div>

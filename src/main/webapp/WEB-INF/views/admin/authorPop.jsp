@@ -33,10 +33,10 @@
 						<c:forEach items="${list}" var="list">
 							<tr>
 								<td><c:out value="${list.authorId}"></c:out></td>
-								<td>
-								<a class="move" href='<c:out value="${lisst.authorId}"/>' data-name='<c:out value="${lisst.authName}"/>'>
+								<td><a class="move" href='<c:out value="${list.authorId}"/>' data-name='<c:out value="${list.authName}"/>'>
 								<c:out value="${list.authName}"></c:out>
-								</a>
+								</a> 
+								
 								</td>
 								<td><c:out value="${list.nationName}"></c:out></td>
 							</tr>
@@ -134,7 +134,7 @@
 	
 	$(".move").on("click", function(e){
 		e.preventDefault();
-		alert("dd");
+		
 		let authorId = $(this).attr("href");
 		let authName = $(this).data("name");
 		

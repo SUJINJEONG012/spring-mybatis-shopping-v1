@@ -127,10 +127,11 @@ public class AdminController {
 	
 	/* 작가 검색 팝업창 */
 	@GetMapping("/authorPop")
+	// 작가 리스트를 가져오기 위해서 파라미터에 cri, model 추가 
 	public void authorPopGet(Criteria cri, Model model) throws Exception {
 		logger.info("authorPopGet........");
 		
-		cri.setAmount(5);
+		cri.setAmount(5); //초기 5개만 보여지도록 설정
 		// 게시물출력코드
 		List list = authorService.authorGetList(cri);
 		if(!list.isEmpty()) {
@@ -139,7 +140,7 @@ public class AdminController {
 			model.addAttribute("listCheck", "empty"); //작가존재하지않을 경우
 		}
 		
-		//페이지 이동 인터페이스 데이
+		//페이지 이동 인터페이스 데이터 
 		model.addAttribute("pageMaker", new PageDto(cri, authorService.authorGetTotal(cri)));
 		
 	}
