@@ -297,11 +297,29 @@ $(".authorId_btn").on("click", function(e){
  makeCateArray(cate2Obj, cate2Array, cateList, 2);
  makeCateArray(cate3Obj, cate3Array, cateList, 3);
  
- $(document).ready(function(){
+/*  $(document).ready(function(){
 	 console.log(cate1Array);
 	 console.log(cate2Array);
 	 console.log(cate3Array);
- });
+ }); */
+ 
+ 
+/* 대분류 */
+for(let i =0; i< cate1Array.length; i++){
+	cateSelect1.append("<option value='" + cate1Array[i].cateCode+"'>" + cate1Array[i].cateName + "</option>");
+}
+/* 중분류 */ 
+$(cateSelect1).on("change", function(){
+ 	let selectVal1 = $(this).find("option:selected").val();
+ 	cateSelect2.children().remove();
+ 	cateSelect2.append("<option value='none'> 선택</option>");
+ 	for(let i = 0; i< cate2Array.length ; i++){
+ 		if(selectVal1 === cate2Array[i].cateParent){
+ 			cateSelect2.append("<option value='" + cate2Array[i].cateCode + "'>" + cate2Array[i].cateName + "</option>");
+ 		}
+ 	}// 
+});
+ 
 
 </script>
 
