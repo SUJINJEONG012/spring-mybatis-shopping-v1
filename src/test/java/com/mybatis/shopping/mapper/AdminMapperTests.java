@@ -16,22 +16,28 @@ public class AdminMapperTests {
 	private AdminMapper adminMapper; 
 	
 	/* 상품 등록 테스트 */
+//	@Test
+//	public void bookEnrollTest() throws Exception {
+//		
+//		BookVo bookVo = new BookVo();
+//		
+//		bookVo.setBookName("mapper테스트");
+//		bookVo.setAuthorId(12);
+//		bookVo.setPubleYear("2023-03-31");
+//		bookVo.setPublisher("출판사");
+//		bookVo.setCateCode("0231");
+//		bookVo.setBookPrice(20000);
+//		bookVo.setBookStock(30);
+//		bookVo.setBookDiscount(0.23);
+//		bookVo.setBookIntro("책 소개");
+//		bookVo.setBookContents("책 목차");
+//		
+//		adminMapper.bookEnroll(bookVo);
+//	}
+	
+	/* 카테고리 테스트 */
 	@Test
-	public void bookEnrollTest() throws Exception {
-		
-		BookVo bookVo = new BookVo();
-		
-		bookVo.setBookName("mapper테스트");
-		bookVo.setAuthorId(12);
-		bookVo.setPubleYear("2023-03-31");
-		bookVo.setPublisher("출판사");
-		bookVo.setCateCode("0231");
-		bookVo.setBookPrice(20000);
-		bookVo.setBookStock(30);
-		bookVo.setBookDiscount(0.23);
-		bookVo.setBookIntro("책 소개");
-		bookVo.setBookContents("책 목차");
-		
-		adminMapper.bookEnroll(bookVo);
+	public void cateListTest() throws Exception {
+	  System.out.println("cateList().........." + adminMapper.cateList());
 	}
 }

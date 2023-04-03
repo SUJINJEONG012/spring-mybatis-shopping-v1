@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
@@ -45,8 +46,17 @@ public class AdminController {
 
 	/* 상품 등록 페이지 */
 	@GetMapping("/goodsEnroll")
-	public void goodsEnrollGet() throws Exception {
+	public void goodsEnrollGet(Model model) throws Exception {
 		logger.info("상품등록 페이지 접속");
+		
+		ObjectMapper objm = new ObjectMapper();
+		
+		List list = adminService.cateList();
+		String cateList = objm.writeValueAsString(list);
+		model.addAttribute("cateList", cateList);
+		
+		logger.info(" 변경 전 .......... " +list);
+		logger.info(" 변경 후 ............." + cateList);
 	}
 
 	/* 작가 등록 페이지 */

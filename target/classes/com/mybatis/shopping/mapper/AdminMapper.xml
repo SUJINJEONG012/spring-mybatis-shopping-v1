@@ -12,4 +12,9 @@ insert into book(bookName, authorId, publeYear, publisher,cateCode, bookPrice, b
 values (#{bookName},#{authorId},#{publeYear},#{publisher},#{cateCode}, #{bookPrice},#{bookStock},#{bookDiscount},#{bookIntro}, #{bookContents})
 </insert>
 
+<!-- 카테고리 리스트  -->
+<select id="cateList" resultType="com.mybatis.shopping.model.CateVo">
+select * from bcate order by catecode
+</select>
+
 </mapper>
