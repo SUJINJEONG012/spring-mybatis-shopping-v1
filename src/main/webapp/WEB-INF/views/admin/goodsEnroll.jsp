@@ -271,6 +271,22 @@ $(".authorId_btn").on("click", function(e){
  
  let cateSelect1 = $(".cate1");
  let cateSelect2 = $(".cate2");
+ let cateSelect3 = $(".cate3");
+ 
+ 
+ for(let i = 0; i < cateList.length; i++){
+	 if(cateList[i].tier === 1){
+		 cate1Obj = new Object();
+		 
+		 cate1Obj.cateName = cateList[i].cateName;
+		 cate1Obj.cateCode = cateList[i].cateCode;
+		 cate1Obj.cateParent = cateList[i].cateParent;
+		 cate1Array.push(cate1Obj);
+	 }
+ }
+ $(document).ready(function(){
+	 console.log(cate1Array);
+ });
 
 
 </script>
