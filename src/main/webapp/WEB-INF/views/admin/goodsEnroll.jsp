@@ -273,21 +273,35 @@ $(".authorId_btn").on("click", function(e){
  let cateSelect2 = $(".cate2");
  let cateSelect3 = $(".cate3");
  
+
  
- for(let i = 0; i < cateList.length; i++){
-	 if(cateList[i].tier === 1){
-		 cate1Obj = new Object();
-		 
-		 cate1Obj.cateName = cateList[i].cateName;
-		 cate1Obj.cateCode = cateList[i].cateCode;
-		 cate1Obj.cateParent = cateList[i].cateParent;
-		 cate1Array.push(cate1Obj);
+ function makeCateArray(obj, array, cateList, tier){
+	 for(let i = 0; i < cateList.length; i++){
+		 if(cateList[i].tier === tier){ //국내, 국외 
+			 //console.log("tier === 1");
+			 //console.log(cateList);
+			 obj = new Object();
+			 
+			 //console.log("cate1Obj");
+			 //console.log(cate1Obj);
+			 obj.cateName = cateList[i].cateName;
+			 obj.cateCode = cateList[i].cateCode;
+			 obj.cateParent = cateList[i].cateParent;
+			 array.push(obj);
+		 }
 	 }
- }
+ };
+ 
+ /* 배열초기화 */
+ makeCateArray(cate1Obj, cate1Array, cateList, 1);
+ makeCateArray(cate2Obj, cate2Array, cateList, 2);
+ makeCateArray(cate3Obj, cate3Array, cateList, 3);
+ 
  $(document).ready(function(){
 	 console.log(cate1Array);
+	 console.log(cate2Array);
+	 console.log(cate3Array);
  });
-
 
 </script>
 
