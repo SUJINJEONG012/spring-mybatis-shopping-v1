@@ -148,7 +148,7 @@
 					    <input id="discount_interface" maxlength="2" value="0">
 						<input name="bookDiscount" type="hidden" value="0">
 						<span class="step_val">할인 가격 : <span class="span_discount"></span></span>
-						<span class="ck_warn bookDiscount_warn">상품할인율을 입력하세요.</span>
+						<span class="ck_warn bookDiscount_warn">1~99 숫자를 입력하세요.</span>
 					</div>
 				</div>
 
@@ -223,7 +223,7 @@ $("#enrollBtn").on("click",function(e){
 	let cateCode = $("select[name='cateCode']").val();
 	let bookPrice = $("input[name='bookPrice']").val();
 	let bookStock = $("input[name='bookStock']").val();
-	let bookDiscount = $("input[name='bookDiscount']").val();
+	let bookDiscount = $("discount_interface").val();
 	let bookIntro = $(".bit p").html();
 	let bookContents = $(".bct p").html();	
 	                                                                                                                                                                                                                                      
@@ -285,7 +285,7 @@ $("#enrollBtn").on("click",function(e){
 		stockCk = false;
 	}		
 	
-	if(bookDiscount < 1 && bookDiscount != ''){
+	if(!isNaN(bookDiscount)){
 		$(".bookDiscount_warn").css('display','none');
 		discountCk = true;
 	} else {
@@ -459,6 +459,8 @@ $(cateSelect2).on("change", function(){
 	}
 });
 
+
+
 /* 할인율 input 설정 */
 
 $("#discount_interface").on("propertychange change keyup paste input", function(){
@@ -471,10 +473,11 @@ $("#discount_interface").on("propertychange change keyup paste input", function(
 	let goodsPrice = $("input[name='bookPrice']").val();			// 원가
 	let discountPrice = goodsPrice * (1 - sendDiscountRate);		// 할인가격
 	        
+	if(!isNaN(discountRate)){
 	$(".span_discount").html(discountPrice);
 	
 	discountInput.val(sendDiscountRate);
-
+	}
 });
 
 /* 상품 가격을 수정했을 때 할인가격이 바로 보일 수 있도록 */
@@ -488,7 +491,9 @@ $("input[name='bookPrice']").on("change", function(){
 	let goodsPrice = $("input[name='bookPrice']").val();
 	let discountPrice = goodsPrice * (1 - sendDiscountRate);
 	
-	$(".span_discount").html(discountPrice);
+	if(!isNaN(discountRate)){
+		$(".span_discount").html(discountPrice);
+	}
 	
 });
 
