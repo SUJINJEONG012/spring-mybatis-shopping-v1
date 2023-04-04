@@ -297,11 +297,11 @@ $(".authorId_btn").on("click", function(e){
  makeCateArray(cate2Obj, cate2Array, cateList, 2);
  makeCateArray(cate3Obj, cate3Array, cateList, 3);
  
-/*  $(document).ready(function(){
+  /* $(document).ready(function(){
 	 console.log(cate1Array);
 	 console.log(cate2Array);
 	 console.log(cate3Array);
- }); */
+ }); */ 
  
  
 /* 대분류 option */
@@ -322,7 +322,18 @@ $(cateSelect1).on("change", function(){
 
 /* 소분류 option */
 
-
+$(cateSelect2).on("change", function(){
+	let selectVal2 = $(this).find("option:selected").val();
+	
+	cateSelect3.children().remove();
+	cateSelect3.append("<option value='none'>선택</option>");
+	
+	for(let i=0; i<cate3Array.length; i++){
+		if(selectVal2 === cate3Array[i].cateParent){
+			cateSelect3.append("<option value='" +cate3Array[i].cateCode + "'>" + cate3Array[i].cateName +  "</option>")
+		}
+	}
+});
  
 
 </script>
