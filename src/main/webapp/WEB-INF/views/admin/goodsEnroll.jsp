@@ -60,6 +60,7 @@
 						<input id="authName_input" readonly="readonly">
 						<input id="authorId_input" name="authorId" type="hidden">
 						<button class="authorId_btn">작가선택</button>
+						<span class="ck_warn authorId_warn">작가를 선택하세요.</span>
 						
 					</div>
 				</div>
@@ -71,7 +72,7 @@
 
 					<div class="form_section_content">
 						<input name="publeYear" autocomplete="off" readonly="readonly">
-
+						<span class="ck_warn publeYear_warn">출판일을 선택하세요.</span>
 					</div>
 				</div>
 
@@ -82,8 +83,8 @@
 
 					<div class="form_section_content">
 						<input name="publisher">
-						<!-- <span
-							class="ck_warn publisher_warn"> 출판사를 입력해주세요.</span> -->
+						<span
+							class="ck_warn publisher_warn"> 출판사를 입력해주세요.</span>>
 					</div>
 				</div>
 
@@ -110,7 +111,7 @@
 						 <option selected value="none"> 선택</option>
 						 </select>
 						</div>
-						
+						<span class="ck_warn cateCode_warn">카테고리를 선택하세요.</span>
 						
 					</div>
 				</div>
@@ -123,6 +124,7 @@
 
 					<div class="form_section_content">
 						<input name="bookPrice" value="0">
+						<span class="ck_warn bookPrice_warn">상품가격을 입력해주세요.</span>
 					</div>
 				</div>
 
@@ -133,6 +135,7 @@
 
 					<div class="form_section_content">
 						<input name="bookStock" value="0">
+						<span class="ck_warn bookStock_warn">상품가격을 입력하세요.</span>
 					</div>
 				</div>
 
@@ -143,6 +146,7 @@
 
 					<div class="form_section_content">
 						<input name="bookDiscount" value="0">
+						<span class="ck_warn bookDiscount_warn">상품할인율을 입력하세요.</span>
 					</div>
 				</div>
 
@@ -151,8 +155,9 @@
 						<label>책 소개 </label>
 					</div>
 
-					<div class="form_section_content">
+					<div class="form_section_content bit">
 						<textarea name="bookIntro" id="bookIntro_textarea"></textarea>
+						<span class="ck_warn bookIntro_warn">책 소개를 입력해주세요.</span>
 					</div>
 				</div>
 
@@ -161,8 +166,9 @@
 						<label>책 목차</label>
 					</div>
 
-					<div class="form_section_content">
+					<div class="form_section_content bct">
 						<textarea name="bookContents" id="bookContents_textarea"></textarea>
+						<span class="ck_warn bookContents_warn">책 목차를 입력해주세요.</span>
 					</div>
 				</div>
 
@@ -194,8 +200,50 @@ $("#cancelBtn").click(function(){
 $("#enrollBtn").on("click",function(e){
 	
 	e.preventDefault();
-	 
-	enrollForm.submit();
+	
+	/* 체크 변수 */
+	let bookNameCk = false;
+	/* let authorIdCk = false;
+	let publeYearCk = false;
+	let publisherCk = false;
+	let cateCodeCk = false;
+	let bookPriceCk = false;
+	let bookStockCk = false;
+	let bookDiscountCk = false;
+	let bookIntroCk = false; 
+	let bookCotentsCk = false; */
+	
+	/* 체크 대상 변수 값 */
+	let bookName = $("input=[name='bookName']").val();
+	/* let authorId = $("input=[name='authorId']").val();
+	let publeYear = $("input=[name='publeYear']").val();
+	let publisher = $("input=[name='publisher']").val();
+	let cateCode = $("input=[name='cateCode']").val();
+	let bookPrice = $("input=[name='bookPrice']").val();
+	let bookStock = $("input=[name='bookStock']").val();
+	let bookDiscount= $("input=[name='bookDiscount']").val();
+	let bookIntro= $(".bit p").html();
+	let bookContents= $(".bct p").html(); */
+	
+	                                                                                                                                                                                                                                      
+	
+	/* 공란 체크 */
+	if(bookName) {
+		$(".bookName_warn").css("display", "none");
+		bookNameCk = true;
+	}else{
+		$(".bookName_warn").css("display", "block");
+		bookNameCk = false;
+		return false;
+	}
+	
+	/* if(bookNameCk){
+		alert()
+		enrollForm.submit();
+	} else{
+		
+	} */
+	//enrollForm.submit();
 	
 });
 
@@ -312,7 +360,11 @@ for(let i =0; i< cate1Array.length; i++){
 $(cateSelect1).on("change", function(){
  	let selectVal1 = $(this).find("option:selected").val();
  	cateSelect2.children().remove();
+ 	cateSelect3.children().remove();
+
  	cateSelect2.append("<option value='none'> 선택</option>");
+ 	cateSelect3.append("<option value='none'> 선택</option>");
+ 	
  	for(let i = 0; i< cate2Array.length ; i++){
  		if(selectVal1 === cate2Array[i].cateParent){
  			cateSelect2.append("<option value='" + cate2Array[i].cateCode + "'>" + cate2Array[i].cateName + "</option>");
