@@ -84,7 +84,7 @@
 					<div class="form_section_content">
 						<input name="publisher">
 						<span
-							class="ck_warn publisher_warn"> 출판사를 입력해주세요.</span>>
+							class="ck_warn publisher_warn"> 출판사를 입력해주세요.</span>
 					</div>
 				</div>
 
@@ -145,7 +145,9 @@
 					</div>
 
 					<div class="form_section_content">
-						<input name="bookDiscount" value="0">
+					    <input id="discount_interface" maxlength="2" value="0">
+						<input name="bookDiscount" type="hidden" value="0">
+						<span class="step_val">할인 가격 : <span class="span_discount"></span></span>
 						<span class="ck_warn bookDiscount_warn">상품할인율을 입력하세요.</span>
 					</div>
 				</div>
@@ -456,7 +458,39 @@ $(cateSelect2).on("change", function(){
 		}
 	}
 });
+
+/* 할인율 input 설정 */
+
+$("#discount_interface").on("propertychange change keyup paste input", function(){
+	let userInput = $("#discount_interface");
+	let discountInput= $("input[name='bookDiscount']");
+	
+	let discountRate = userInput.val(); //사용자입력값 
+	let sendDiscountRate = discountRate/100; //서버에 전송할 값
+	
+	let goodsPrice = $("input[name='bookPrice']").val();			// 원가
+	let discountPrice = goodsPrice * (1 - sendDiscountRate);		// 할인가격
+	        
+	$(".span_discount").html(discountPrice);
+	
+	discountInput.val(sendDiscountRate);
+
+});
+
+/* 상품 가격을 수정했을 때 할인가격이 바로 보일 수 있도록 */
  
+$("input[name='bookPrice']").on("change", function(){
+	let userInput = $("#discount_interface");
+	let discountInput = $("input[name='bookDiscount']");
+	
+	let discountRate = userInput.val();
+	let sendDiscountRate = discountRate /100;
+	let goodsPrice = $("input[name='bookPrice']").val();
+	let discountPrice = goodsPrice * (1 - sendDiscountRate);
+	
+	$(".span_discount").html(discountPrice);
+	
+});
 
 </script>
 

@@ -110,3 +110,10 @@ input[name='publeYear'] {
     margin-top: 20px;
 }
 
+.form_section_content .step_val{						/* 할인 가격 문구 */
+	display: block;
+    padding-top: 5px;
+    font-weight: 500;
+}
+
+.form_section_content .span_discount{display:block;}
