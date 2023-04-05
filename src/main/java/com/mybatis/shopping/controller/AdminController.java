@@ -40,8 +40,19 @@ public class AdminController {
 
 	/* 상품 관리 페이지 */
 	@GetMapping("/goodsManage")
-	public void goodsMangeGet() throws Exception {
+	public void goodsMangeGet(Criteria cri, Model model) throws Exception {
 		logger.info("상품등록 페이지 접속");
+		
+		/* 상품 리스트 */
+		List list = adminService.goodsGetList(cri);
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list);
+		}else {
+			model.addAttribute("listCheck", "empty");
+			return;
+		}
+		/* 페이지 인터페이스 데이터 */
+		model.addAttribute("pageMaker", new PageDto(cri, adminService.goodsGetTotal(cri)));
 	}
 
 	/* 상품 등록 페이지 */

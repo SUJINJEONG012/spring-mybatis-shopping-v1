@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mybatis.shopping.mapper.AdminMapper;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CateVo;
+import com.mybatis.shopping.model.Criteria;
 
 import lombok.extern.log4j.Log4j;
 
@@ -31,6 +32,20 @@ public class AdminServiceImpl implements AdminService {
 		log.info("(service) cateList.................");
 		
 		return adminMapper.cateList();
+	}
+
+	/* 상품 리스트 */
+	@Override
+	public List<BookVo> goodsGetList(Criteria cri) {
+		log.info("googsGetList().................");
+		return adminMapper.goodsGetList(cri);
+	}
+
+	/* 상품 총 개수 */
+	@Override
+	public int goodsGetTotal(Criteria cri) {
+		log.info("googsGetTotal().................");
+		return adminMapper.goodsGetTotal(cri);
 	}
 	
 	
