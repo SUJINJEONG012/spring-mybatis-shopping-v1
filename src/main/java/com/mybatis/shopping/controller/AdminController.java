@@ -40,8 +40,8 @@ public class AdminController {
 
 	/* 상품 관리 페이지 */
 	@GetMapping("/goodsManage")
-	public void goodsMangeGet(Criteria cri, Model model) throws Exception {
-		logger.info("상품등록 페이지 접속");
+	public void goodsManageGet(Criteria cri, Model model) throws Exception {
+		logger.info("상품관리 페이지 접속");
 		
 		/* 상품 리스트 */
 		List list = adminService.goodsGetList(cri);
