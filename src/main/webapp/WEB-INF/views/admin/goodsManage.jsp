@@ -146,7 +146,8 @@ let moveForm = $("#moveForm");
 
 /* 작가 검색 버튼 동작 */
  $("#searchForm button").on("click", function(e){
-	e.preventDefault();
+	
+	 e.preventDefault();
 	
 	if(!searchForm.find("input[name='keyword']").val()){
 		alert("키워드를 입력해주세요.");
