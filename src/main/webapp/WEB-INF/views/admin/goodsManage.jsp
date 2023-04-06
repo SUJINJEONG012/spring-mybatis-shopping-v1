@@ -103,11 +103,11 @@
 					   </c:forEach>
 					   
 					   <!-- 다음 버튼 -->
-	                    	<c:if test="${pageMaker.next}">
+	                  <c:if test="${pageMaker.next}">
 	                    		<li class="pageMaker_btn next">
 	                    			<a href="${pageMaker.pageEnd + 1 }">다음</a>
 	                    		</li>
-	                    	</c:if>
+	                  </c:if>
 					   
 					</ul>
 					</div>
