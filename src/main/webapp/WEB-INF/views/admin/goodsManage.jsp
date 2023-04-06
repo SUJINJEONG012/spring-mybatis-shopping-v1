@@ -52,7 +52,7 @@
 										<td><c:out value="${list.bookId}"></c:out></td>
 										<td><c:out value="${list.bookName}"></c:out></td>
 										<td><c:out value="${list.authName}"></c:out></td>
-										<td><c:out value="${list.cateCode}"></c:out></td>
+										<td><c:out value="${list.cateName}"></c:out></td>
 										<td><c:out value="${list.bookStock}"></c:out></td>
 										<td><fmt:formatDate value="${list.regDate}"
 												pattern="yyyy-mm-dd" /></td>
@@ -81,7 +81,7 @@
 								<input type="hidden" name="amount"
 									value='<c:out value="${pageMaker.cri.amount}"></c:out>'>
 								<input type="hidden" name="type" value="G">
-								<button class="btn search_btn">검색</button>
+								<button type="submit" class="btn search_btn">검색</button>
 
 							</div>
 						</form>
@@ -128,6 +128,7 @@
 
 
 $(document).ready(function() {
+	
 	let eResult = '<c:out value="${enroll_result}"/>';
 
 	checkResult(eResult);
@@ -141,11 +142,14 @@ $(document).ready(function() {
 	}
 });
 
+
+
+/* 작가 검색 버튼 동작 */
 let searchForm = $("#searchForm");
 let moveForm = $("#moveForm");
 
-/* 작가 검색 버튼 동작 */
- $("#searchForm button").on("click", function(e){
+
+$("#searchForm button").on("click", function(e){
 	
 	 e.preventDefault();
 	
@@ -156,7 +160,7 @@ let moveForm = $("#moveForm");
 	
 	searchForm.find("input[name='pageNum']").val("1");
 	searchForm.submit();
- });
+ }); 
  
  
  /* 페이지 이동 버튼 */
