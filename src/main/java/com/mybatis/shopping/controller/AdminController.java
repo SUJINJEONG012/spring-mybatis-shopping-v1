@@ -69,6 +69,19 @@ public class AdminController {
 		logger.info(" 변경 전 .......... " +list);
 		logger.info(" 변경 후 ............." + cateList);
 	}
+	
+	
+	/* 상품 조회 페이지 */
+	@GetMapping("/goodsDetail")
+	public void goodsGetInfoGet(int bookId, Criteria cri, Model model) {
+		logger.info("goodsGetInfo()..............." + bookId);
+		
+		/* 목록 페이지 */
+		model.addAttribute("cri", cri);
+		
+		/* 조회 페이지 정보 */
+		model.addAttribute("goodsInfo", adminService.goodsGetDetail(bookId));
+	}
 
 	/* 작가 등록 페이지 */
 	@GetMapping("/authorEnroll")

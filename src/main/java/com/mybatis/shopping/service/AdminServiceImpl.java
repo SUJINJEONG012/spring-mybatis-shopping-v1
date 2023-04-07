@@ -47,6 +47,15 @@ public class AdminServiceImpl implements AdminService {
 		log.info("googsGetTotal().................");
 		return adminMapper.goodsGetTotal(cri);
 	}
+
+	
+	@Override
+	public BookVo goodsGetDetail(int bookId) {
+		log.info("goodsGetDetail()................" + bookId);
+		return adminMapper.goodsGetDetail(bookId);
+	}
+	
+	
 	
 	
 }

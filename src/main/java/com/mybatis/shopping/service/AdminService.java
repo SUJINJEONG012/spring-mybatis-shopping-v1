@@ -18,5 +18,8 @@ public interface AdminService {
 	
 	/* 상품 총 개수 */
 	public int goodsGetTotal(Criteria cri);
+	
+	/* 상품 조회 */
+	public BookVo goodsGetDetail(int bookId);
 
 }

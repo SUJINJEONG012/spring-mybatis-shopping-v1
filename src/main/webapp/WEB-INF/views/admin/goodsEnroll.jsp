@@ -14,8 +14,7 @@
 	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script
-	src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
@@ -23,7 +22,7 @@
 </head>
 <body>
 
-	<style>
+<style>
 .admin_list_01 {
 	background-color: #c8c8c8;
 }
