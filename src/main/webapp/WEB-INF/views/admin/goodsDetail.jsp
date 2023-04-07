@@ -225,8 +225,54 @@
 		.catch(error=>{
 		 	console.error(error);
 		   });
-			
+		
+		/* 카테고리 */
+		let cateList = JSON.parse('${cateList}');
+		let cate1Array = new Array();
+		let cate2Array = new Array();
+		let cate3Array = new Array();
+		
+		let cate1Obj = new Object();
+		let cate2Obj = new Object();
+		let cate3Obj = new Object();
+		
+		let cateSelect1 = $(".cate1");
+		let cateSelect2 = $(".cate2");
+		let cateSelect3 = $(".cate3");
 	
+		/* 카테고리 배열 초기화 메서드 */
+		function makeCateArray(obj, array, cateList, tire){
+			for(let i = 0; i < cateList.length; i++){
+				if(cateList[i].tier === tier){
+					obj = new Object;
+					
+					obj.cateName = cateList[i].cateName;
+					obj.cateCode = cateList[i].cateCode;
+					obj.cateParent = cateList[i].cateParent;
+					array.push(obj);
+				}
+			}
+		}
+		
+		/* 배열 초기화 */
+		makeCateArray(cate1Obj, cate1Array, cateList,1);
+		makeCateArray(cate2Obj, cate2Array, cateList,2);
+		makeCateArray(cate3Obj, cate3Array, cateList,3);
+		
+		let targetCate2 ='';
+		let targetCate3 ='${goodsInfo.cateCode}';
+		
+		for(let i =0; i < cate3Array.length; i++){
+			if(targetCate3 === cate3Array[i].cateCode){
+				targetCate3 = cate3Array[i];
+			}
+		}
+		
+		console.log('targetCate3 : ' + targetCate3);
+		console.log('targetCate3.cateName : ' + targetCate3.cateName);
+		console.log('targetCate3.cateCode : ' + targetCate3.cateCode);
+		console.log('targetCate3.cateParent : ' + targetCate3.cateParent);
+		
 	
 	});
 	
