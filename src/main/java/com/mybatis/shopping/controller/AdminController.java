@@ -78,6 +78,7 @@ public class AdminController {
 		logger.info("goodsGetInfo()..............." + bookId);
 		
 		ObjectMapper adminMapper = new ObjectMapper();
+		
 		/* 카테고리 리스트 데이터 */
 		model.addAttribute("cateList", adminMapper.writeValueAsString(adminService.cateList()));
 		

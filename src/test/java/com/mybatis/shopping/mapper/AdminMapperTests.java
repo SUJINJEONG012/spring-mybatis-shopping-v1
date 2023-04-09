@@ -66,7 +66,7 @@ public class AdminMapperTests {
 	/* 상품 조회 페이지 */
 	@Test
 	public void goodsGetDetailTest() {
-		int bookId = 150;
+		int bookId = 12;
 		BookVo result = adminMapper.goodsGetDetail(bookId);
 		System.out.println("상품조회 데이터 : " + result);
 	}
