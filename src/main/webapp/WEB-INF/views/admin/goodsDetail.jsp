@@ -201,6 +201,9 @@
 		</form>
 
 	</div>
+	
+	
+	
 
 	<script>
 	
@@ -232,6 +235,7 @@
 		let cate1Array = new Array();
 		let cate2Array = new Array();
 		let cate3Array = new Array();
+		
 		let cate1Obj = new Object();
 		let cate2Obj = new Object();
 		let cate3Obj = new Object();
@@ -254,8 +258,7 @@
 					array.push(obj);
 				}
 			}	
-			console.log(obj);
-		};
+		}
 		
 		
 		
@@ -271,29 +274,14 @@
 		for(let i = 0; i < cate3Array.length; i++){
 			
 		 	if(targetCate3 === cate3Array[i].cateCode){
-		 		targetCate3 = cate3Array[i];		
-		 	}
-		 
+		 			targetCate3 = cate3Array[i];		
+		 	} 
+		 	
 		}
-		console.log('targetCate3 : ' + targetCate3);
-		//console.log('targetCate3.cateName : ' + targetCate3.cateName);
-		//console.log('targetCate3.cateCode : ' + targetCate3.cateCode);
-		//console.log('targetCate3.cateParent : ' + targetCate3.cateParent);
-		
 	
+		console.log('targetCate3 : ' + targetCate3.cateName);
 		
 		
-		for(let i = 0; i < cate3Array.length; i++){
-			if(targetCate3.cateParent === cate3Array[i].cateParent){
-				cateSelect3.append("<option value='"+cate3Array[i].cateCode+"'>" + cate3Array[i].cateName + "</option>");
-			}
-		}				
-		
-		$(".cate3 option").each(function(i,obj){
-			if(targetCate3.cateCode === obj.value){
-				$(obj).attr("selected", "selected");
-			}
-		});	
 		
 	
 
