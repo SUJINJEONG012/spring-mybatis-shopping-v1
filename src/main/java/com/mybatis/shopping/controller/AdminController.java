@@ -73,23 +73,26 @@ public class AdminController {
 	
 	
 	/* 상품 조회 페이지 */
-	@GetMapping("/goodsDetail")
+	@GetMapping({"/goodsDetail","/goodsModify"})
 	public void goodsGetInfoGet(int bookId, Criteria cri, Model model) throws JsonProcessingException {
 		logger.info("goodsGetInfo()..............." + bookId);
 		
 		ObjectMapper adminMapper = new ObjectMapper();
 		
 		/* 카테고리 리스트 데이터 */
-		model.addAttribute("cateList", adminMapper.writeValueAsString(adminService.cateList()));
-		
-	
+		model.addAttribute("cateList", adminMapper.writeValueAsString(adminService.cateList()));	
+
 		/* 목록 페이지 */
 		model.addAttribute("cri", cri);
 		
 		/* 조회 페이지 정보 */
 		model.addAttribute("goodsInfo", adminService.goodsGetDetail(bookId));
+		
+		
 	}
 
+	
+	
 	/* 작가 등록 페이지 */
 	@GetMapping("/authorEnroll")
 	public void authorEnrollGet() throws Exception {
