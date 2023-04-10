@@ -25,7 +25,7 @@ public class AdminMapperTests {
 //		bookVo.setAuthorId(12);
 //		bookVo.setPubleYear("2023-03-31");
 //		bookVo.setPublisher("출판사");
-//		bookVo.setCateCode("0231");
+//		bookVo.setCateCode("103004");
 //		bookVo.setBookPrice(20000);
 //		bookVo.setBookStock(30);
 //		bookVo.setBookDiscount(0.23);
@@ -66,7 +66,7 @@ public class AdminMapperTests {
 	/* 상품 조회 페이지 */
 	@Test
 	public void goodsGetDetailTest() {
-		int bookId = 12;
+		int bookId = 1015;
 		BookVo result = adminMapper.goodsGetDetail(bookId);
 		System.out.println("상품조회 데이터 : " + result);
 	}

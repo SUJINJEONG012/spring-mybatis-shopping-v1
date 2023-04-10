@@ -115,19 +115,19 @@
 				</div>
 				<div class="form_section_content">
 					<div class="cate_wrap">
-						<span>대분류</span> <select class="cate1" disabled>
+						<span>대분류</span> <select class="cate1" >
 							<option value="none">선택</option>
 						</select>
 					</div>
 
 					<div class="cate_wrap">
-						<span>중분류</span> <select class="cate2" disabled>
+						<span>중분류</span> <select class="cate2">
 							<option value="none">선택</option>
 						</select>
 					</div>
 
 					<div class="cate_wrap">
-						<span>소분류</span> <select class="cate3" name="cateCode" disabled>
+						<span>소분류</span> <select class="cate3" name="cateCode">
 							<option value="none">선택</option>
 						</select>
 					</div>
@@ -261,6 +261,7 @@
 		makeCateArray(cate2Obj, cate2Array, cateList,2);
 		makeCateArray(cate3Obj, cate3Array, cateList,3);
 		
+		/* 소분류 카테고리 */
 		let targetCate2 ='';
 		let targetCate3 ='${goodsInfo.cateCode}';
 		
@@ -275,7 +276,55 @@
 		console.log('targetCate3.cateCode : ' + targetCate3.cateCode);
 		console.log('targetCate3.cateParent : ' + targetCate3.cateParent);
 		
-	
+		
+		 for(let i = 0; i < cate3Array.length; i++){
+			if(targetCate3.cateParent === cate3Array[i].cateParent){
+				cateSelect3.append("<option value='"+ cate3Array[i].cateCode+"'>" + cate3Array[i].cateName + "</option>");
+			}
+		} 
+		
+		 $(".cate3 option").each(function(i,obj){
+			 if(targetCate3.cateCode === obj.value){
+				 $(obj).attr("selected", "selected");
+			 }
+		 });
+		 
+		 /* 중분류 카테고리*/
+		 
+		 
+		 
+		 
+		 
+		 for(let i = 0; i < cate2Array.length; i++){
+				if(targetCate3.cateParent === cate2Array[i].cateCode){
+					targetCate2 = cate2Array[i];
+				}
+			}
+		 
+		 for(let i = 0; i < cate2Array.length; i++){
+			 if(targetCate2.cateParent === cate2Array[i].cateParent){
+				 cateSelect2.append("<option value='"+ cate2Array[i].cateCode+"'>" +cate2Array[i].cateName + "</option>");
+			 }	 
+		 };
+			
+			$(".cate2 option").each(function(i,obj){
+				if(targetCate2.cateCode === obj.value){
+					$(obj).attr("selected", "selected");
+				}
+			});	
+		
+			
+		/* 대분류 카테고리 */
+		for(let i = 0; i <cate1Array.length; i++){
+			cateSelect1.append("<option value='" + cate1Array[i].cateCode + "'>" + cate1Array[i].cateName+ "</option>")
+		}
+		$(".cate1 option").each(function(i,obj){
+			if(targetCate2.cateParent === obj.value){
+				$(obj).attr("selected", "selected");
+			}
+		});
+		
+		
 	});
 	
 	
