@@ -203,6 +203,8 @@
 
 	</div>
 
+
+
 	<script>
 	
 	
@@ -282,10 +284,8 @@
 
 
 
-	<%@include file="./include/admin/footer.jsp"%>
-	
-	
 
+	<%@include file="./include/admin/footer.jsp"%>
 	
 	</body>
 </html>
