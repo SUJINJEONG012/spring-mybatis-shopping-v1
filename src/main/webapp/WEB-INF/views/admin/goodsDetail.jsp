@@ -243,7 +243,7 @@
 		let cateSelect3 = $(".cate3");
 	
 		/* 카테고리 배열 초기화 메서드 */
-		function makeCateArray(obj, array, cateList, tire){
+		function makeCateArray(obj, array, cateList, tier){
 			for(let i = 0; i < cateList.length; i++){
 				if(cateList[i].tier === tier){
 					obj = new Object;
