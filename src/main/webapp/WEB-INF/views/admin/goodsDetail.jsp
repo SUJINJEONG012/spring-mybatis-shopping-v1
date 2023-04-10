@@ -7,24 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 목록 페이지</title>
-
 <link rel="stylesheet" href="../resources/css/admin/goodsDetail.css">
-
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
-  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
 </head>
 <body>
 
 
 
-<%@include file="./include/admin/header.jsp"%>
-
-
-
+	<%@include file="./include/admin/header.jsp"%>
+	
+	
+	
 	<div class="admin_content_main">
-
+		
 		<div class="admin_content_subject">
 			<span>상품 상세</span>
 		</div>
@@ -201,16 +202,12 @@
 		</form>
 
 	</div>
-	
-	
-	
 
 	<script>
 	
 	
 	$(document).ready(function(){
-	
-		
+		alert("dddd");
 		//할인율 값 삽입
 		let bookDiscount = '<c:out value="${goodsInfo.bookDiscount}"/>' * 100;
 		$("#discount_interface").attr("value", bookDiscount);
@@ -227,11 +224,10 @@
 		.create(document.querySelector('#bookContents_textarea'))
 		.catch(error=>{
 		 	console.error(error);
-		});
+		   });
 		
 		/* 카테고리 */
 		let cateList = JSON.parse('${cateList}');
-		
 		let cate1Array = new Array();
 		let cate2Array = new Array();
 		let cate3Array = new Array();
@@ -245,58 +241,51 @@
 		let cateSelect3 = $(".cate3");
 	
 		/* 카테고리 배열 초기화 메서드 */
-		function makeCateArray(obj,array,cateList,tier){
-			
+		function makeCateArray(obj, array, cateList, tire){
 			for(let i = 0; i < cateList.length; i++){
-				
-				if(cateList[i].tier === tier){	
-					obj = new Object();	
+				if(cateList[i].tier === tier){
+					obj = new Object;
+					
 					obj.cateName = cateList[i].cateName;
 					obj.cateCode = cateList[i].cateCode;
 					obj.cateParent = cateList[i].cateParent;
-					
 					array.push(obj);
 				}
-			}	
+			}
 		}
-		
-		
 		
 		/* 배열 초기화 */
-		makeCateArray(cate1Obj,cate1Array,cateList,1);
-		makeCateArray(cate2Obj,cate2Array,cateList,2);
-		makeCateArray(cate3Obj,cate3Array,cateList,3);
+		makeCateArray(cate1Obj, cate1Array, cateList,1);
+		makeCateArray(cate2Obj, cate2Array, cateList,2);
+		makeCateArray(cate3Obj, cate3Array, cateList,3);
 		
-		let targetCate2 = '';
-		let targetCate3 = '${goodsInfo.cateCode}';
+		let targetCate2 ='';
+		let targetCate3 ='${goodsInfo.cateCode}';
 		
-		
-		for(let i = 0; i < cate3Array.length; i++){
-			
-		 	if(targetCate3 === cate3Array[i].cateCode){
-		 			targetCate3 = cate3Array[i];		
-		 	} 
-		 	
+		for(let i =0; i < cate3Array.length; i++){
+			if(targetCate3 === cate3Array[i].cateCode){
+				targetCate3 = cate3Array[i];
+			}
 		}
+		
+		console.log('targetCate3 : ' + targetCate3);
+		console.log('targetCate3.cateName : ' + targetCate3.cateName);
+		console.log('targetCate3.cateCode : ' + targetCate3.cateCode);
+		console.log('targetCate3.cateParent : ' + targetCate3.cateParent);
+		
 	
-		console.log('targetCate3 : ' + targetCate3.cateName);
-		
-		
-		
-	
-
 	});
 	
 	
 	</script>
+	
 
 
 
+	<%@include file="./include/admin/footer.jsp"%>
+	
+	
 
-<%@include file="./include/admin/footer.jsp"%>
-
-
-
-
-</body>
+	
+	</body>
 </html>
