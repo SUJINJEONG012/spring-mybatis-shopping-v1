@@ -115,19 +115,22 @@
 				</div>
 				<div class="form_section_content">
 					<div class="cate_wrap">
-						<span>대분류</span> <select class="cate1" >
+						<span>대분류</span> 
+						<select class="cate1" disabled>
 							<option value="none">선택</option>
 						</select>
 					</div>
 
 					<div class="cate_wrap">
-						<span>중분류</span> <select class="cate2">
+						<span>중분류</span> 
+						<select class="cate2" disabled>
 							<option value="none">선택</option>
 						</select>
 					</div>
 
 					<div class="cate_wrap">
-						<span>소분류</span> <select class="cate3" name="cateCode">
+						<span>소분류</span> 
+						<select class="cate3" name="cateCode" disabled>
 							<option value="none">선택</option>
 						</select>
 					</div>
