@@ -1,156 +1,160 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 수정 페이지 </title>
+<title>상품 수정 페이지</title>
 <link rel="stylesheet" href="../resources/css/admin/goodsModify.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
-
 </head>
 <body>
-<%@include file="./include/admin/header.jsp" %>
+	<%@include file="./include/admin/header.jsp"%>
 
-<div class="admin_content_wrap">
-                    <div class="admin_content_subject"><span>상품 등록</span></div>
-                    <div class="admin_content_main">
-                    	<form action="/admin/goodsModify" method="post" id="modifyForm">
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>책 제목</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookName" value="${goodsInfo.bookName}">
-                    				<span class="ck_warn bookName_warn">책 이름을 입력해주세요.</span>
-                    			</div>
-                    		</div>
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>작가</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input id="authName_input" readonly="readonly" value="${goodsInfo.authName}">
-                    				<input id="authorId_input" name="authorId" type="hidden" value="${goodsInfo.authorId}">
-                    				<button class="authorId_btn">작가 선택</button>
-                    				<span class="ck_warn authorId_warn">작가를 선택해주세요</span>
-                    			</div>
-                    		</div>            
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>출판일</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="publeYear" autocomplete="off" readonly="readonly">
-                    				<span class="ck_warn publeYear_warn">출판일을 선택해주세요.</span>
-                    			</div>
-                    		</div>            
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>출판사</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="publisher" value="${goodsInfo.publisher}">
-                    				<span class="ck_warn publisher_warn">출판사를 입력해주세요.</span>
-                    			</div>
-                    		</div>             
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>책 카테고리</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<div class="cate_wrap">
-                    					<span>대분류</span>
-                    					<select class="cate1">
-                    						<option selected value="none">선택</option>
-                    					</select>
-                    				</div>
-                    				<div class="cate_wrap">
-                    					<span>중분류</span>
-                    					<select class="cate2">
-                    						<option selected value="none">선택</option>
-                    					</select>
-                    				</div>
-                    				<div class="cate_wrap">
-                    					<span>소분류</span>
-                    					<select class="cate3" name="cateCode">
-                    						<option selected value="none">선택</option>
-                    					</select>
-                    				</div>  
-                    				<span class="ck_warn cateCode_warn">카테고리를 선택해주세요.</span>                  				                    				
-                    			</div>
-                    		</div>          
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 가격</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookPrice" value="${goodsInfo.bookPrice}">
-                    				<span class="ck_warn bookPrice_warn">상품 가격을 입력해주세요.</span>
-                    			</div>
-                    		</div>               
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 재고</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookStock" value="${goodsInfo.bookStock}">
-                    				<span class="ck_warn bookStock_warn">상품 재고를 입력해주세요.</span>
-                    			</div>
-                    		</div>          
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 할인율</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input id="discount_interface" maxlength="2" value="0">
-                    				<input name="bookDiscount" type="hidden" value="${goodsInfo.bookDiscount}">
-                    				<span class="step_val">할인 가격 : <span class="span_discount"></span></span>
-                    				<span class="ck_warn bookDiscount_warn">1~99 숫자를 입력해주세요.</span>
-                    			</div>
-                    		</div>          		
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>책 소개</label>
-                    			</div>
-                    			<div class="form_section_content bit">
-                    				<textarea name="bookIntro" id="bookIntro_textarea">${goodsInfo.bookIntro}</textarea>
-                    				<span class="ck_warn bookIntro_warn">책 소개를 입력해주세요.</span>
-                    			</div>
-                    		</div>        		
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>책 목차</label>
-                    			</div>
-                    			<div class="form_section_content bct">
-                    				<textarea name="bookContents" id="bookContents_textarea">${goodsInfo.bookContents}</textarea>
-                    				<span class="ck_warn bookContents_warn">책 목차를 입력해주세요.</span>
-                    			</div>
-                    		</div>
-                    		<input type="hidden" name='bookId' value="${goodsInfo.bookId}">
-                   		</form>
-                   			<div class="btn_section">
-                   				<button id="cancelBtn" class="btn">취 소</button>
-	                    		<button id="modifyBtn" class="btn modify_btn">수 정</button>
-	                    	</div> 
-                    </div>  
-                    
-                	<form id="moveForm" action="/admin/goodsManage" method="get" >
- 						<input type="hidden" name="pageNum" value="${cri.pageNum}">
-						<input type="hidden" name="amount" value="${cri.amount}">
-						<input type="hidden" name="keyword" value="${cri.keyword}">
-						<input type="hidden" name='bookId' value="${goodsInfo.bookId}">
-                	</form>                     
-                </div>
- 
- 
-<%@include file="./include/admin/footer.jsp" %>
+	<div class="admin_content_wrap">
+		<div class="admin_content_subject">
+			<span>상품 등록</span>
+		</div>
+		<div class="admin_content_main">
+			<form action="/admin/goodsModify" method="post" id="modifyForm">
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>책 제목</label>
+					</div>
+					<div class="form_section_content">
+						<input name="bookName" value="${goodsInfo.bookName}"> <span
+							class="ck_warn bookName_warn">책 이름을 입력해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>작가</label>
+					</div>
+					<div class="form_section_content">
+						<input id="authName_input" readonly="readonly"
+							value="${goodsInfo.authName}"> <input id="authorId_input"
+							name="authorId" type="hidden" value="${goodsInfo.authorId}">
+						<button class="authorId_btn">작가 선택</button>
+						<span class="ck_warn authorId_warn">작가를 선택해주세요</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>출판일</label>
+					</div>
+					<div class="form_section_content">
+						<input name="publeYear" autocomplete="off" readonly="readonly">
+						<span class="ck_warn publeYear_warn">출판일을 선택해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>출판사</label>
+					</div>
+					<div class="form_section_content">
+						<input name="publisher" value="${goodsInfo.publisher}"> <span
+							class="ck_warn publisher_warn">출판사를 입력해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>책 카테고리</label>
+					</div>
+					<div class="form_section_content">
+						<div class="cate_wrap">
+							<span>대분류</span> <select class="cate1">
+								<option selected value="none">선택</option>
+							</select>
+						</div>
+						<div class="cate_wrap">
+							<span>중분류</span> <select class="cate2">
+								<option selected value="none">선택</option>
+							</select>
+						</div>
+						<div class="cate_wrap">
+							<span>소분류</span> <select class="cate3" name="cateCode">
+								<option selected value="none">선택</option>
+							</select>
+						</div>
+						<span class="ck_warn cateCode_warn">카테고리를 선택해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>상품 가격</label>
+					</div>
+					<div class="form_section_content">
+						<input name="bookPrice" value="${goodsInfo.bookPrice}"> <span
+							class="ck_warn bookPrice_warn">상품 가격을 입력해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>상품 재고</label>
+					</div>
+					<div class="form_section_content">
+						<input name="bookStock" value="${goodsInfo.bookStock}"> <span
+							class="ck_warn bookStock_warn">상품 재고를 입력해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>상품 할인율</label>
+					</div>
+					<div class="form_section_content">
+						<input id="discount_interface" maxlength="2" value="0"> <input
+							name="bookDiscount" type="hidden"
+							value="${goodsInfo.bookDiscount}"> <span class="step_val">할인
+							가격 : <span class="span_discount"></span>
+						</span> <span class="ck_warn bookDiscount_warn">1~99 숫자를 입력해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>책 소개</label>
+					</div>
+					<div class="form_section_content bit">
+						<textarea name="bookIntro" id="bookIntro_textarea">${goodsInfo.bookIntro}</textarea>
+						<span class="ck_warn bookIntro_warn">책 소개를 입력해주세요.</span>
+					</div>
+				</div>
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>책 목차</label>
+					</div>
+					<div class="form_section_content bct">
+						<textarea name="bookContents" id="bookContents_textarea">${goodsInfo.bookContents}</textarea>
+						<span class="ck_warn bookContents_warn">책 목차를 입력해주세요.</span>
+					</div>
+				</div>
+				<input type="hidden" name='bookId' value="${goodsInfo.bookId}">
+			</form>
+			<div class="btn_section">
+				<button id="cancelBtn" class="btn">취 소</button>
+				<button id="modifyBtn" class="btn modify_btn">수 정</button>
+			</div>
+		</div>
+
+		<form id="moveForm" action="/admin/goodsManage" method="get">
+			<input type="hidden" name="pageNum" value="${cri.pageNum}"> <input
+				type="hidden" name="amount" value="${cri.amount}"> <input
+				type="hidden" name="keyword" value="${cri.keyword}"> <input
+				type="hidden" name='bookId' value="${goodsInfo.bookId}">
+		</form>
+	</div>
+
+
+	<%@include file="./include/admin/footer.jsp"%>
 
 
 	<script>
@@ -218,6 +222,7 @@
 		
 		let targetCate2 ='';
 		let targetCate3 ='${goodsInfo.cateCode}';
+		
 		/* 소분류 카테고리 */
 		for(let i =0; i < cate3Array.length; i++){
 			if(targetCate3 === cate3Array[i].cateCode){
@@ -273,30 +278,33 @@
 				$(obj).attr("selected", "selected");
 			}
 		});
+		
+		/* 위지윅 적용 */
+		/* 책 소개 */
+		ClassicEditor
+			.create(document.querySelector('#bookIntro_textarea'))
+			.catch(error=>{
+				console.error(error));
+			});
+	
+		/* 책 목차 */
+		ClassicEditor
+			.create(document.querySelector('#bookContents_textarea'))
+			.catch(error=>{
+				console.error(error);
+			});
+		
+		
 
     });
 	
-	
-	/* 목록 이동 버튼 */
-	$("#cancelBtn").on("click", function(e){
-		e.preventDefault();
-		$("#moveForm").submit();
-	});
-	/* 수정 페이지 이동 */
-	$("#modifyBtn").on("click", function(e){
-		e.preventDefault();
-		let addInput= '<input type="hidden" name="bookId" value="${goodsInfo.bookId}">';
-		$("#moveForm").append(addInput);
-		$("#moveForm").attr("action", "/admin/goodsModify");
-		$("#moveForm").submit();
-	
-	});
+
 	
 	</script>
-	
 
 
-<script>
+
+	<script>
 
 //사용자 선택에 따라 분류들이 변경되도록 => 상품등록페이지의 코드 
 
@@ -366,8 +374,8 @@ $(cateSelect2).on("change", function(){
 	}
 });
 
-</script>	
-	
-	
+</script>
+
+
 </body>
 </html>
