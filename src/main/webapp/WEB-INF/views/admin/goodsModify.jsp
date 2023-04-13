@@ -295,6 +295,17 @@
 			});
 		
 		
+		/* 할인율 인터페이스 출력 */
+		let bookPriceInput = $("input[name='bookPrice']");
+		let discountInput = $("input[name='bookDiscount']");
+		let bookPrice = bookPriceInput.val();
+		let rawDiscountRate = discountInput.val();
+		let discountRate = rawDiscountRate * 100;
+		
+		let discountPrice = bookPrice * (1-rawDiscountRate);
+		$(".span_discount").html(discountPrice);
+		$("#discount_interface").val(discountRate);
+		
 
     });
 	
