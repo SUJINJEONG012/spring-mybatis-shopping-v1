@@ -148,6 +148,8 @@ public class AdminController {
 		model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
 	}
 	
+	
+	
 	/* 작가 정보 수정 */
 	@PostMapping("/authorModify")
 	public String authorModifyPost(AuthorVo authorVo , RedirectAttributes rttr) throws Exception {

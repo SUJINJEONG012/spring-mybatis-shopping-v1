@@ -10,6 +10,7 @@
 <title>상품 수정 페이지</title>
 <link rel="stylesheet" href="../resources/css/admin/goodsModify.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -22,11 +23,11 @@
 	<%@include file="./include/admin/header.jsp"%>
 
 	<div class="admin_content_wrap">
-	
+
 		<div class="admin_content_subject">
 			<span>상품 등록</span>
 		</div>
-		
+
 		<div class="admin_content_main">
 			<form action="/admin/goodsModify" method="post" id="modifyForm">
 				<div class="form_section">
@@ -109,33 +110,33 @@
 							class="ck_warn bookStock_warn">상품 재고를 입력해주세요.</span>
 					</div>
 				</div>
-				
+
 				<div class="form_section">
-					
+
 					<div class="form_section_title">
 						<label>상품 할인율</label>
 					</div>
-					
+
 					<div class="form_section_content">
-						<input id="discount_interface" maxlength="2" value="0"> 
-						<input name="bookDiscount" type="hidden" value="${goodsInfo.bookDiscount}"> 
-						<span class="step_val">할인 가격 : 
-						<span class="span_discount"></span></span> 
-						<span class="ck_warn bookDiscount_warn">1~99 숫자를 입력해주세요.</span>
+						<input id="discount_interface" maxlength="2" value="0"> <input
+							name="bookDiscount" type="hidden"
+							value="${goodsInfo.bookDiscount}"> <span class="step_val">할인
+							가격 : <span class="span_discount"></span>
+						</span> <span class="ck_warn bookDiscount_warn">1~99 숫자를 입력해주세요.</span>
 					</div>
 				</div>
-				
+
 				<div class="form_section">
-				
+
 					<div class="form_section_title">
 						<label>책 소개</label>
 					</div>
-				
+
 					<div class="form_section_content bit">
 						<textarea name="bookIntro" id="bookIntro_textarea">${goodsInfo.bookIntro}</textarea>
 						<span class="ck_warn bookIntro_warn">책 소개를 입력해주세요.</span>
 					</div>
-				
+
 				</div>
 				<div class="form_section">
 					<div class="form_section_title">
@@ -148,10 +149,13 @@
 				</div>
 				<input type="hidden" name='bookId' value="${goodsInfo.bookId}">
 			</form>
+			
 			<div class="btn_section">
 				<button id="cancelBtn" class="btn">취 소</button>
 				<button id="modifyBtn" class="btn modify_btn">수 정</button>
+				<button id="deleteBtn" class="btn delete_btn">삭 제</button>
 			</div>
+
 		</div>
 
 		<form id="moveForm" action="/admin/goodsManage" method="get">
@@ -159,14 +163,16 @@
 				type="hidden" name="amount" value="${cri.amount}"> <input
 				type="hidden" name="keyword" value="${cri.keyword}"> <input
 				type="hidden" name='bookId' value="${goodsInfo.bookId}">
-		</form>		
+		</form>
 	</div>
+	
+	<%@include file="./include/admin/footer.jsp"%>
 
 
 	<script>
 	
 	$(document).ready(function(){
-		alert("Dd");
+		alert("상품수정 페이지 들어오기 ");
 		/* 캘린더 위젯 적용 */
 		const config = {
 				dateFormat: 'yy-mm-dd',
@@ -182,7 +188,7 @@
 			    yearSuffix: '년',
 		        changeMonth: true,
 		        changeYear: true
-		}	
+		}
 		
 		/* 캘린더 */
 		$(function() {	
@@ -286,6 +292,7 @@
 			}
 		});
 		
+		
 		/* 위지윅 적용 */
 		/* 책 소개 */
 		ClassicEditor
@@ -317,6 +324,8 @@
 		
     });
 	</script>
+	
+	
 
 	<script>
 
@@ -392,7 +401,6 @@ $(cateSelect2).on("change", function(){
 
 </script>
 
-	<%@include file="./include/admin/footer.jsp"%>
 
 
 
