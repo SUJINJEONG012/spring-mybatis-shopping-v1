@@ -212,7 +212,7 @@
 	
 	
 	$(document).ready(function(){
-		alert("dddd");
+		
 		//할인율 값 삽입
 		let bookDiscount = '<c:out value="${goodsInfo.bookDiscount}"/>' * 100;
 		$("#discount_interface").attr("value", bookDiscount);
@@ -245,6 +245,7 @@
 		let cateSelect2 = $(".cate2");
 		let cateSelect3 = $(".cate3");
 	
+		
 		/* 카테고리 배열 초기화 메서드 */
 		function makeCateArray(obj, array, cateList, tier){
 			for(let i = 0; i < cateList.length; i++){
@@ -331,6 +332,7 @@
 		e.preventDefault();
 		$("#moveForm").submit();
 	});
+	
 	/* 수정 페이지 이동 */
 	$("#modifyBtn").on("click", function(e){
 		e.preventDefault();
