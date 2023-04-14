@@ -159,6 +159,7 @@
 
 <script>
 $(document).ready(function(){
+	
 	/* 캘린더 위젯 적용 */
 	/* 설정 */
 	const config = {

@@ -21,11 +21,11 @@ public class AdminMapperTests {
 //		
 //		BookVo bookVo = new BookVo();
 //		
-//		bookVo.setBookName("mapper테스트");
-//		bookVo.setAuthorId(12);
-//		bookVo.setPubleYear("2023-03-31");
+//		bookVo.setBookName(" 카테고리 생성 오류로 인한 다시테스트 ");
+//		bookVo.setAuthorId(1);
+//		bookVo.setPubleYear("2023-04-15");
 //		bookVo.setPublisher("출판사");
-//		bookVo.setCateCode("103004");
+//		bookVo.setCateCode("103003");
 //		bookVo.setBookPrice(20000);
 //		bookVo.setBookStock(30);
 //		bookVo.setBookDiscount(0.23);
@@ -64,11 +64,11 @@ public class AdminMapperTests {
 	
 	
 	/* 상품 조회 페이지 */
-	@Test
-	public void goodsGetDetailTest() {
-		int bookId = 1015;
-		BookVo result = adminMapper.goodsGetDetail(bookId);
-		System.out.println("상품조회 데이터 : " + result);
-	}
+//	@Test
+//	public void goodsGetDetailTest() {
+//		int bookId = 10;
+//		BookVo result = adminMapper.goodsGetDetail(bookId);
+//		System.out.println("상품조회 데이터 : " + result);
+//	}
 	
 }
