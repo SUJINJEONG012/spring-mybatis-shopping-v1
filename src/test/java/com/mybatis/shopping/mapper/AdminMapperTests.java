@@ -71,4 +71,26 @@ public class AdminMapperTests {
 //		System.out.println("상품조회 데이터 : " + result);
 //	}
 	
+	
+	/* 상품 정보 수정 페이지 */
+	@Test
+	public void goodsModifyTest() {
+		BookVo bookVo = new BookVo();
+		bookVo.setBookId(24);
+		bookVo.setBookName("상품수정 테스트 mapper");
+		bookVo.setAuthorId(4);
+		bookVo.setPubleYear("2023-04-16");
+		bookVo.setPublisher("출판사1");
+		bookVo.setCateCode("102002");
+		bookVo.setBookPrice(424000);
+		bookVo.setBookStock(300);
+		bookVo.setBookIntro("책소개11");
+		bookVo.setBookContents("책 목차222");
+		bookVo.setBookDiscount(0.9);
+
+		adminMapper.goodsModify(bookVo);
+		
+	}
+	
+	
 }

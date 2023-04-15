@@ -116,7 +116,7 @@
                     			<div class="form_section_content">
                     				<input id="discount_interface" maxlength="2" value="0">
                     				<input name="bookDiscount" type="hidden" value="${goodsInfo.bookDiscount}">
-                    				<span class="step_val">할인 가격 : <span class="span_discount"></span></span>
+                    				<p class="step_val">할인 가격 : <strong class="span_discount"></strong></p>
                     				<span class="ck_warn bookDiscount_warn">1~99 숫자를 입력해주세요.</span>
                     			</div>
                     		</div>          		
@@ -308,41 +308,9 @@ $(document).ready(function(){
 	$(".span_discount").html(discountPrice);
 	$("#discount_interface").val(discountRate);
 	
-/* 할인율 Input 설정 */
-	
-	$("#discount_interface").on("propertychange change keyup paste input", function(){
-		
-		let userInput = $("#discount_interface");
-		let discountInput = $("input[name='bookDiscount']");
-		
-		let discountRate = userInput.val();					// 사용자가 입력한 할인값
-		let sendDiscountRate = discountRate / 100;			// 서버에 전송할 할인값
-		let goodsPrice = $("input[name='bookPrice']").val();			// 원가
-		let discountPrice = goodsPrice * (1 - sendDiscountRate);		// 할인가격
-		
-		if(!isNaN(discountRate)){
-			$(".span_discount").html(discountPrice);		
-			discountInput.val(sendDiscountRate);				
-		}
 
-		
-	});	
 	
-	$("input[name='bookPrice']").on("change", function(){
-		
-		let userInput = $("#discount_interface");
-		let discountInput = $("input[name='bookDiscount']");
-		
-		let discountRate = userInput.val();					// 사용자가 입력한 할인값
-		let sendDiscountRate = discountRate / 100;			// 서버에 전송할 할인값
-		let goodsPrice = $("input[name='bookPrice']").val();			// 원가
-		let discountPrice = goodsPrice * (1 - sendDiscountRate);		// 할인가격
-		
-		if(!isNaN(discountRate)){
-			$(".span_discount").html(discountPrice);	
-		}	
-		
-	});
+
 	
 	 /* 작가 선택 버튼 */
 	$(".authorId_btn").on("click", function(e){
@@ -358,9 +326,13 @@ $(document).ready(function(){
 	
 	
 });
+
+
 </script>
 
 <script>
+
+
 /* 카테고리 */
 let cateList = JSON.parse('${cateList}');
 
@@ -432,6 +404,45 @@ $(cateSelect2).on("change",function(){
 	}// for		
 	
 });		
+	
+/* 할인율 Input 설정 */
+
+$("#discount_interface").on("propertychange change keyup paste input", function(){
+	
+	let userInput = $("#discount_interface");
+	let discountInput = $("input[name='bookDiscount']");
+	
+	let discountRate = userInput.val();					// 사용자가 입력한 할인값
+	let sendDiscountRate = discountRate / 100;			// 서버에 전송할 할인값
+	let goodsPrice = $("input[name='bookPrice']").val();			// 원가
+	let discountPrice = goodsPrice * (1 - sendDiscountRate);		// 할인가격
+	
+	if(!isNaN(discountRate)){
+		$(".span_discount").html(discountPrice);		
+		discountInput.val(sendDiscountRate);				
+	}
+
+	
+});	
+
+$("input[name='bookPrice']").on("change", function(){
+	
+	let userInput = $("#discount_interface");
+	let discountInput = $("input[name='bookDiscount']");
+	
+	let discountRate = userInput.val();					// 사용자가 입력한 할인값
+	let sendDiscountRate = discountRate / 100;			// 서버에 전송할 할인값
+	let goodsPrice = $("input[name='bookPrice']").val();			// 원가
+	let discountPrice = goodsPrice * (1 - sendDiscountRate);		// 할인가격
+	
+	if(!isNaN(discountRate)){
+		$(".span_discount").html(discountPrice);	
+	}
+	
+	
+});		
+
+
 </script>
 
 </body>
