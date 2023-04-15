@@ -440,6 +440,17 @@ $("input[name='bookPrice']").on("change", function(){
 	}
 	
 	
+	/* 취소 버튼 */
+	$("#cancelBtn").on("click", function(e){
+		e.preventDefault();
+		$("#moveForm").submit();
+	});
+	/* 수정 버튼 */
+	$("#modifyBtn").on("click", function(e){
+		e.preventDefault();
+		$("#moveForm").submit();
+	});
+	
 });		
 
 

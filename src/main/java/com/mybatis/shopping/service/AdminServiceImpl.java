@@ -48,11 +48,19 @@ public class AdminServiceImpl implements AdminService {
 		return adminMapper.goodsGetTotal(cri);
 	}
 
-	
+	/* 상품 상세 페이 */
 	@Override
 	public BookVo goodsGetDetail(int bookId) {
 		log.info("goodsGetDetail()................" + bookId);
 		return adminMapper.goodsGetDetail(bookId);
+	}
+
+	
+	/* 상품 수정 페이지 */
+	@Override
+	public int goodsModify(BookVo bookVo) {
+		log.info("goodsModify()...........");
+		return adminMapper.goodsModify(bookVo);
 	}
 	
 	
