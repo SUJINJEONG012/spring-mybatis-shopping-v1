@@ -50,6 +50,12 @@
 	  select bookId, bookName, (select authName from author where authorId = book.authorId) authName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents, regDate, updateDate
 	  from book where bookId = #{bookId}  
 	</select>
+	
+	<!-- 상품 정보 수정 페이지  -->
+	<update id="goodsModify">
+	 update book set bookName = #{bookName}, authorId = #{authorId}, publeYear = #{publeYear}, publisher = #{publisher}, cateCode = #{cateCode}, bookPrice= #{bookPrice}, bookStock = #{bookStock}, bookDiscount = #{bookDiscount}, bookIntro =#{bookIntro}, bookContents= #{bookContents}, updateDate = now() 
+	 where bookId = ${bookId}
+	</update>
 
 
 </mapper>

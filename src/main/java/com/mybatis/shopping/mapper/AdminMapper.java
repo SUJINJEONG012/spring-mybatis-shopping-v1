@@ -14,7 +14,6 @@ public interface AdminMapper {
 	/* 카테고리 리스트 */
 	public List<CateVo> cateList();
 	
-	
 	/* 상품리스트 */
 	public List<BookVo> goodsGetList(Criteria cri);
 	
@@ -23,4 +22,9 @@ public interface AdminMapper {
 	
 	/* 상품 조회 페이지 */
 	public BookVo goodsGetDetail(int bookId);
+	
+	/* 상품 수정 */
+	public int goodsModify(BookVo bookVo);
+	
+	
 }
