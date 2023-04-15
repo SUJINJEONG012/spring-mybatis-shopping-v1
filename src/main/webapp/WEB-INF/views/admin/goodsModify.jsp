@@ -89,7 +89,8 @@
                     				</div>  
                     				<span class="ck_warn cateCode_warn">카테고리를 선택해주세요.</span>                  				                    				
                     			</div>
-                    		</div>          
+                    		</div>      
+                    		    
                     		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>상품 가격</label>
@@ -344,10 +345,22 @@ $(document).ready(function(){
 		
 		if(!isNaN(discountRate)){
 			$(".span_discount").html(discountPrice);	
-		}
+		}	
 		
+	});
+	
+	 /* 작가 선택 버튼 */
+	$(".authorId_btn").on("click", function(e){
+		e.preventDefault();
 		
-	});		
+		let popUrl =  "/admin/authorPop";
+		let popOption =  "width = 600px, height = 500px, top=300px, left=300px, scrollbars=yes";
+		window.open(popUrl, "작가찾기 ", popOption);
+		
+	});
+	 
+	
+	
 	
 });
 </script>
