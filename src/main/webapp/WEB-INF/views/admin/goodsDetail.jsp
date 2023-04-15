@@ -82,8 +82,7 @@
 				</div>
 				<div class="form_section_content">
 					<input type="text" name="publeYear" autocomplete="off"
-						readonly="readonly"
-						value="<c:out value="${goodsInfo.publeYear}" /> " disabled>
+						readonly="readonly" value="<c:out value="${goodsInfo.publeYear}" /> " disabled>
 				</div>
 			</div>
 
@@ -98,16 +97,6 @@
 				</div>
 			</div>
 
-
-			<div class="form_section">
-				<div class="form_section_title">
-					<label>출판사</label>
-				</div>
-				<div class="form_section_content">
-					<input type="text" name="publisher"
-						value="<c:out value="${goodsInfo.publisher}" /> " disabled>
-				</div>
-			</div>
 
 			<div class="form_section">
 				<div class="form_section_title">
