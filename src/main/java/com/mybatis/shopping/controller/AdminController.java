@@ -91,12 +91,18 @@ public class AdminController {
 	}
 	
 	/* 상품 수정 페이지 */
+	@PostMapping("/goodsModify")
 	public String goodsModifyPost(BookVo bookVo, RedirectAttributes rttr) {
 		logger.info("goodsModifyPost......." + bookVo);
+		
 		int result = adminService.goodsModify(bookVo);
-		rttr.addAttribute("modify_result", result);
-		return "redirect:/admin/goodsManage";
+		
+		rttr.addFlashAttribute("modify_result", result);
+		
+		return "redirect:/admin/goodsManage";		
 	}
+	
+	
 	
 	
 	/* 작가 등록 페이지 */

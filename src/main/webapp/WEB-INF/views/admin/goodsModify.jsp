@@ -145,7 +145,7 @@
 	                    		<button id="modifyBtn" class="btn modify_btn">수 정</button>
 	                    	</div> 
                     </div>  
-                	<form id="moveForm" action="/admin/goodsManage" method="get" >
+                	<form id="moveForm" action="/admin/goodsDetail" method="get" >
  						<input type="hidden" name="pageNum" value="${cri.pageNum}">
 						<input type="hidden" name="amount" value="${cri.amount}">
 						<input type="hidden" name="keyword" value="${cri.keyword}">
@@ -439,19 +439,19 @@ $("input[name='bookPrice']").on("change", function(){
 		$(".span_discount").html(discountPrice);	
 	}
 	
+});	
+
+/* 취소 버튼 */
+$("#cancelBtn").on("click", function(e){
 	
-	/* 취소 버튼 */
-	$("#cancelBtn").on("click", function(e){
-		e.preventDefault();
-		$("#moveForm").submit();
-	});
-	/* 수정 버튼 */
-	$("#modifyBtn").on("click", function(e){
-		e.preventDefault();
-		$("#moveForm").submit();
-	});
-	
-});		
+	e.preventDefault();
+	$("#moveForm").submit();
+});
+/* 수정 버튼 */
+$("#modifyBtn").on("click", function(e){
+	e.preventDefault();
+	$("#moveForm").submit();
+});
 
 
 </script>

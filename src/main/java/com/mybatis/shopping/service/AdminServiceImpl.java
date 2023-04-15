@@ -59,7 +59,8 @@ public class AdminServiceImpl implements AdminService {
 	/* 상품 수정 페이지 */
 	@Override
 	public int goodsModify(BookVo bookVo) {
-		log.info("goodsModify()...........");
+		log.info("goodsModify()..........." + bookVo);
+		
 		return adminMapper.goodsModify(bookVo);
 	}
 	
