@@ -15,6 +15,7 @@
  <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
 </head>
 
 <body>
@@ -444,15 +445,17 @@ $("input[name='bookPrice']").on("change", function(){
 	
 });	
 
+
+
 /* 취소 버튼 */
-$("#cancelBtn").on("click", function(e){
-	
+$("#cancelBtn").on("click", function(e){	
 	e.preventDefault();
 	$("#moveForm").submit();
 });
 /* 수정 버튼 */
 $("#modifyBtn").on("click", function(e){
 	e.preventDefault();
+	alert("수정버튼을 클릭!");
 	$("#moveForm").submit();
 });
 
