@@ -56,6 +56,12 @@
 	 update book set bookName = #{bookName}, authorId = #{authorId}, publeYear = #{publeYear}, publisher = #{publisher}, cateCode = #{cateCode}, bookPrice= #{bookPrice}, bookStock = #{bookStock}, bookDiscount = #{bookDiscount}, bookIntro =#{bookIntro}, bookContents= #{bookContents}, updateDate = now() 
 	 where bookId = ${bookId}
 	</update>
+	
+	<!-- 상품 s삭제  -->
+	<delete id="goodsDelete">
+	delete from book where bookId= #{bookId}
+	</delete>
+	
 
 
 </mapper>

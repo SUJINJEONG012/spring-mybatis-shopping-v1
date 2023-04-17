@@ -102,7 +102,14 @@ public class AdminController {
 		return "redirect:/admin/goodsManage";		
 	}
 	
-	
+	/* 상품 정보 삭제 */
+	@PostMapping("/goodsDelete")
+	public String goodsDeletePost(int bookId, RedirectAttributes rttr) {
+		logger.info("goodsDeletePost................");
+		int result = adminService.goodsDelete(bookId);
+		rttr.addFlashAttribute("delete_result",result);
+		return "redirect:/admin/goodsManage";
+	}
 	
 	
 	/* 작가 등록 페이지 */

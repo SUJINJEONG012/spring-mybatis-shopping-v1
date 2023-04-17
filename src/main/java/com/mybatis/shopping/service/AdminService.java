@@ -23,5 +23,8 @@ public interface AdminService {
 	public BookVo goodsGetDetail(int bookId);
 	/* 상품 수정 */
 	public int goodsModify(BookVo bookVo);
+	
+	/* 상품 삭제 */
+	public int goodsDelete(int bookId);
 
 }
