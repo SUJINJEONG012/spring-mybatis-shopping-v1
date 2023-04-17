@@ -140,12 +140,14 @@
                     			</div>
                     		</div>
                     		<input type="hidden" name='bookId' value="${goodsInfo.bookId}">
-                   		</form>
+                   		
                    			<div class="btn_section">
                    				<button id="cancelBtn" class="btn">취 소</button>
 	                    		<button id="modifyBtn" class="btn modify_btn">수 정</button>
 	                    		<button id="deleteBtn" class="btn delete-btn">삭 제</button>
 	                    	</div> 
+                   		</form>
+                   		
                     </div> 
                      
                 	<form id="moveForm" action="/admin/goodsManage" method="get" >
