@@ -71,6 +71,15 @@ public class AdminController {
 		logger.info(" 변경 후 ............." + cateList);
 	}
 	
+	/* 상품 등록 */
+	@PostMapping("/goodsEnroll")
+	public String goodsEnrollPost(BookVo bookVo, RedirectAttributes rttr) {
+		logger.info("goodEnrollPost........." +  bookVo);
+		adminService.bookEnroll(bookVo);
+		rttr.addFlashAttribute("enroll_result", bookVo.getBookName());
+		return "redirect:/admin/goodsManage";
+	}
+	
 	
 	/* 상품 조회 페이지 */
 	@GetMapping({"/goodsDetail","/goodsModify"})
@@ -109,6 +118,7 @@ public class AdminController {
 		rttr.addFlashAttribute("delete_result",result);
 		return "redirect:/admin/goodsManage";
 	}
+	
 	
 	
 	/* 작가 등록 페이지 */
@@ -180,14 +190,9 @@ public class AdminController {
 	
 	
 	
-	/* 상품 등록 */
-	@PostMapping("/goodsEnroll")
-	public String goodsEnrollPost(BookVo bookVo, RedirectAttributes rttr) {
-		logger.info("goodEnrollPost........." +  bookVo);
-		adminService.bookEnroll(bookVo);
-		rttr.addFlashAttribute("enroll_result", bookVo.getBookName());
-		return "redirect:/admin/goodsManage";
-	}
+	
+	
+	
 	
 	/* 작가 검색 팝업창 */
 	@GetMapping("/authorPop")
@@ -208,5 +213,25 @@ public class AdminController {
 		model.addAttribute("pageMaker", new PageDto(cri, authorService.authorGetTotal(cri)));
 		
 	}
+	
+	/* 작가 정보 삭제 */
+	@PostMapping("/authorDelete")
+	public String authorDeletePost(int authorId, RedirectAttributes rttr) {
+		logger.info("authorDeletePost......");
+		int result = 0;
+		try {
+			result = authorService.authorDelete(authorId);
+		}catch(Exception e) {
+			e.printStackTrace();
+			result = 2;
+			rttr.addFlashAttribute("delete_result", result);
+			return "redirect:/admin/authorManage";
+		}
+		
+		rttr.addFlashAttribute("delete_result", result);
+		return "redirect:/admin/authorManage";
+		
+	}
+	
 
 }

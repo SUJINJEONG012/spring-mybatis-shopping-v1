@@ -13,13 +13,15 @@
 
 </head>
 <body>
-	<%@include file="./include/admin/header.jsp"%>
-
-	<style>
+<style>
 .admin_list_04 {
 	background-color: #c8c8c8;
 }
 </style>
+
+	<%@include file="./include/admin/header.jsp"%>
+
+
 
 
 	<div class="admin_content_wrap">
