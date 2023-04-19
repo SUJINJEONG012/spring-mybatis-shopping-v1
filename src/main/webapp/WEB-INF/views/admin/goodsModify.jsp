@@ -454,11 +454,11 @@ $("#cancelBtn").on("click", function(e){
 	e.preventDefault();
 	$("#moveForm").submit();
 });
+
 /* 수정 버튼 */
 $("#modifyBtn").on("click", function(e){
 	e.preventDefault();
-	alert("수정버튼을 클릭!");
-	$("#moveForm").submit();
+	$("#modifyForm").submit();
 });
 
 /* 삭제 버튼 */

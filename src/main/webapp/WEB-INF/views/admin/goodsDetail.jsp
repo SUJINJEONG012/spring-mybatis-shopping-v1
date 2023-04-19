@@ -195,6 +195,8 @@
 
 	</div>
 
+	<%@include file="./include/admin/footer.jsp"%>
+	
 
 
 	<script>
@@ -324,8 +326,9 @@
 	
 	/* 수정 페이지 이동 */
 	$("#modifyBtn").on("click", function(e){
-		alert("수정페이지로 이동 ");
+		
 		e.preventDefault();
+		alert("수정페이지로 이동 ");
 		let addInput= '<input type="hidden" name="bookId" value="${goodsInfo.bookId}">';
 		$("#moveForm").append(addInput);
 		$("#moveForm").attr("action", "/admin/goodsModify");
@@ -342,7 +345,5 @@
 
 
 
-	<%@include file="./include/admin/footer.jsp"%>
-	
 	</body>
 </html>
