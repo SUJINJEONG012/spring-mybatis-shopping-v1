@@ -49,11 +49,11 @@
 				</div>
 				<div class="form_section_content">
 					<select name="nationId">
-						<option value="none" selected disabled="disabled">=== 선택
+						<option value="none" disabled="disabled">=== 선택
 							===</option>
-						<option value="01" disabled="disabled"
+						<option value="01" 
 							<c:out value=" ${authorInfo.nationId eq '01' ?'selected':''}"/>>국내</option>
-						<option value="02" disabled="disabled"
+						<option value="02" 
 							<c:out value=" ${authorInfo.nationId eq '02' ?'selected':''}"/>>국외</option>
 					</select>
 				</div>
