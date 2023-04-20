@@ -175,7 +175,7 @@
 						<label>상품이미지</label>
 					</div>
 					<div class="form_section_content">
-					<input type="file" multiple id="fileItem" name="uploadFile" style="height:30px;">
+					<input type="file" id="fileItem" name="uploadFile" style="height:30px;">
 					</div>
 
 				</div>
@@ -505,6 +505,46 @@ $("input[name='bookPrice']").on("change", function(){
 	
 });
 
+
+
+/* 이미지 업로드 */
+ $("input[type='file']").on("change", function(e){
+	//alert("동작");
+	let fileInput = $('input[name="uploadFile"]');
+	let fileList = fileInput[0].files;
+	let fileObj = fileList[0];
+	
+	if(!fileCheck(fileObj.name, fileObj.size)){
+		return false;
+	}
+	alert("통과!");
+	
+	console.log("fileList : " + fileList);
+	console.log("fileObj : " + fileObj);
+	console.log("fileObj.name : "+fileObj.name);
+	console.log("fileObj.size : "+fileObj.size);
+	console.log("fileType(MimeType) : "  + fileObj.type);
+	
+ });
+
+/* 파일 허용 */
+
+let regex = new RegExp("(.*?)\.(jpg|png)$");
+let maxSize = 1048576; //1MB	
+
+function fileCheck(fileName, fileSize){
+	if(fileName >= maxSize){
+		alert("파일 사이즈 초과");
+		return false;
+	}
+	
+	if(!regex.test(fileName)){
+		alert("해당 종류의 파일은 업로드 할 수 없습니다.");
+		return false;
+	}
+	
+	return true;
+}
 </script>
 
 
