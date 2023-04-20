@@ -84,7 +84,7 @@ public class AuthorMapperTests {
 	/* 작가 삭제 */
 	@Test
 	public void authorDeleteTest() {
-		int authorId = 3;
+		int authorId = 210;
 		int result = authorMapper.authorDelete(authorId);
 		if(result == 1 ) {
 			System.out.println("삭제성공");
