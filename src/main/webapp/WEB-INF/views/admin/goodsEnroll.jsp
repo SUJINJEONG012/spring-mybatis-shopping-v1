@@ -510,6 +510,8 @@ $("input[name='bookPrice']").on("change", function(){
 /* 이미지 업로드 */
  $("input[type='file']").on("change", function(e){
 	//alert("동작");
+	let formData = new FormData();
+	
 	let fileInput = $('input[name="uploadFile"]');
 	let fileList = fileInput[0].files;
 	let fileObj = fileList[0];
@@ -517,7 +519,23 @@ $("input[name='bookPrice']").on("change", function(){
 	if(!fileCheck(fileObj.name, fileObj.size)){
 		return false;
 	}
-	alert("통과!");
+	//alert("통과!");
+	
+	formData.append("uploadFile", fileObj);
+	
+	//다중 파일 일때 
+	/* for(let i = 0; i <fileList.length; i++){
+		formData.append("uploadFile", fileList[i]);
+	} */
+	
+	$.ajax({
+		url:"/admin/uploadAjaxAction", //서버로 요청을 보낼 url
+		processData: false, //서버로 전송할 데이터를 queryString형태로 반환할지 여부
+		contentType: false, //서버로 전송되는 content-type
+		data: formData, //서버로 전송할 데이터
+		type: "POST", //서버 요청 타입 get,post
+		dataType:"JSON" //서버로 반환받을 데이터 타입 
+	});
 	
 	console.log("fileList : " + fileList);
 	console.log("fileObj : " + fileObj);

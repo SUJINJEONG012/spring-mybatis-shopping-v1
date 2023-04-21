@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -55,6 +56,19 @@ public class AdminController {
 		/* 페이지 인터페이스 데이터 */
 		model.addAttribute("pageMaker", new PageDto(cri, adminService.goodsGetTotal(cri)));
 	}
+	
+	/* 첨부파일 업로드 */
+	@PostMapping("/uploadAjaxAction")
+	public void uploadAjaxActionPost(MultipartFile[] uploadFile) {
+	  for(MultipartFile multipartFile : uploadFile) {
+		  logger.info("uploadAjaxActionPost ..........."); 
+		  logger.info("파일 이름 : " + multipartFile.getOriginalFilename());
+		  logger.info("파일 타입 ;" + multipartFile.getContentType());
+		  logger.info("파일 크기 : " + multipartFile.getSize());
+	  }
+	 
+	 }
+	
 
 	/* 상품 등록 페이지 */
 	@GetMapping("/goodsEnroll")
