@@ -1,5 +1,8 @@
 package com.mybatis.shopping.controller;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -61,10 +64,25 @@ public class AdminController {
 	@PostMapping("/uploadAjaxAction")
 	public void uploadAjaxActionPost(MultipartFile[] uploadFile) {
 	  for(MultipartFile multipartFile : uploadFile) {
-		  logger.info("uploadAjaxActionPost ..........."); 
-		  logger.info("파일 이름 : " + multipartFile.getOriginalFilename());
-		  logger.info("파일 타입 ;" + multipartFile.getContentType());
-		  logger.info("파일 크기 : " + multipartFile.getSize());
+		  logger.info("uploadAjaxActionPost ...........");
+		  
+		  String uploadFolder = "C:\\upload";
+		  
+		  /* 날짜 폴더 경로 */
+		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		  Date date = new Date();
+		  String str = sdf.format(date);
+		  String datePath= str.replace("-", File.separator);
+		  
+		  /* 폴더 생성*/
+		  File uploadPath = new File(uploadFolder, datePath);
+		  if(uploadPath.exists() == false) {
+			  uploadPath.mkdir();
+		  }
+		  
+//		  logger.info("파일 이름 : " + multipartFile.getOriginalFilename());
+//		  logger.info("파일 타입 ;" + multipartFile.getContentType());
+//		  logger.info("파일 크기 : " + multipartFile.getSize());
 	  }
 	 
 	 }
