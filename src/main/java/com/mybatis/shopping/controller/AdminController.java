@@ -18,6 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+
 import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
@@ -66,19 +68,26 @@ public class AdminController {
 	  for(MultipartFile multipartFile : uploadFile) {
 		  logger.info("uploadAjaxActionPost ...........");
 		  
-		  String uploadFolder = "C:\\upload";
+		  //String uploadFolder = "C:\\upload";
+		  String uploadFolder = "/Users/jeongsujin/upload";
+		
 		  
-		  /* 날짜 폴더 경로 */
-		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		  /* 날짜 생성 */
+		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			
 		  Date date = new Date();
+			
 		  String str = sdf.format(date);
-		  String datePath= str.replace("-", File.separator);
+			
+		  String datePath = str.replace("-", File.separator);
+		  logger.info(datePath);
 		  
-		  /* 폴더 생성*/
+		  /* 폴더 생성 */
 		  File uploadPath = new File(uploadFolder, datePath);
-		  if(uploadPath.exists() == false) {
-			  uploadPath.mkdir();
-		  }
+			//uploadPath.mkdirs();
+			if(uploadPath.exists() == false) {
+				uploadPath.mkdirs();
+			}
 		  
 //		  logger.info("파일 이름 : " + multipartFile.getOriginalFilename());
 //		  logger.info("파일 타입 ;" + multipartFile.getContentType());
