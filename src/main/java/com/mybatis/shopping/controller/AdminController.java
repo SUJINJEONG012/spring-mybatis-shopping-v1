@@ -111,7 +111,7 @@ public class AdminController {
 				BufferedImage bt_image = new BufferedImage(300,500, BufferedImage.TYPE_3BYTE_BGR);
 				
 				Graphics2D graphic = bt_image.createGraphics();
-				graphic.drawImage(bt_image, 0, 0, 300, 500, null);
+				graphic.drawImage(bo_image, 0, 0, 300, 500, null);
 				ImageIO.write(bt_image, "jpg", thumbnailFile);
 				
 			} catch (Exception e) {
