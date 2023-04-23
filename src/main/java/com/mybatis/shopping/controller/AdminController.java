@@ -1,18 +1,18 @@
 package com.mybatis.shopping.controller;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import javax.imageio.ImageIO;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
@@ -69,11 +69,11 @@ public class AdminController {
 	}
 
 	/* 첨부파일 업로드 */
-	@PostMapping("/uploadAjaxAction")
-	public void uploadAjaxActionPost(MultipartFile[] uploadFile) {
+	@PostMapping(value="/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<AttachImageVo>> uploadAjaxActionPost(MultipartFile[] uploadFile) {
 
-		for (MultipartFile multipartFile : uploadFile) {
-			logger.info("uploadAjaxActionPost ...........");
+		logger.info("uploadAjaxActionPost ...........");
+
 
 			// String uploadFolder = "C:\\upload";
 			String uploadFolder = "/Users/jeongsujin/upload";
@@ -95,12 +95,26 @@ public class AdminController {
 			if (uploadPath.exists() == false) {
 				uploadPath.mkdirs();
 			}
-
 			
+			
+		
+			/* 이미지 정보 담는 객체 */
+			List<AttachImageVo> list = new ArrayList();
+			
+			/* 이미지 파일 체크 */
+		    for (MultipartFile multipartFile : uploadFile) {
+		    	
+		    AttachImageVo attachImageVo = new AttachImageVo();
+		    
 			/* 파일 이름 가져오는 메서드 */
 			String uploadFileName = multipartFile.getOriginalFilename();
+			attachImageVo.setFileName(uploadFileName);
+			attachImageVo.setUploadPath(datePath);
+			
 			/* UUID 파일 이름 고유한 이름 */
 			String uuid = UUID.randomUUID().toString();
+			attachImageVo.setUuid(uuid);
+			
 			uploadFileName = uuid + "_" + uploadFileName;
 
 			/* 파일위치, 파일 이름을 합친 File 객체 */
@@ -136,13 +150,16 @@ public class AdminController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+			list.add(attachImageVo); 
 			
 
 //		  logger.info("파일 이름 : " + multipartFile.getOriginalFilename());
 //		  logger.info("파일 타입 ;" + multipartFile.getContentType());
 //		  logger.info("파일 크기 : " + multipartFile.getSize());
 		}
+		    
+		    ResponseEntity<List<AttachImageVo>> result = new ResponseEntity<List<AttachImageVo>>(list, HttpStatus.OK);
+		    return result;
 		
 		
 		
