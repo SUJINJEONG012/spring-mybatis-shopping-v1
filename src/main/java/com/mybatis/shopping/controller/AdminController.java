@@ -31,6 +31,8 @@ import com.mybatis.shopping.model.PageDto;
 import com.mybatis.shopping.service.AdminService;
 import com.mybatis.shopping.service.AuthorService;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -107,19 +109,29 @@ public class AdminController {
 			try {
 				multipartFile.transferTo(saveFile);
 				/* 썸네일 생성 ImageIO */
+				
+//				File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
+//				
+//				BufferedImage bo_image = ImageIO.read(saveFile);
+//				/* 비율 */
+//				double ratio = 3;
+//				int width = (int) (bo_image.getWidth()/ ratio);
+//				int height = (int) (bo_image.getHeight() / ratio);
+//				
+//				BufferedImage bt_image = new BufferedImage(width,height, BufferedImage.TYPE_3BYTE_BGR);
+//				
+//				Graphics2D graphic = bt_image.createGraphics();
+//				graphic.drawImage(bo_image, 0, 0, width, height, null);
+//				ImageIO.write(bt_image, "jpg", thumbnailFile);
+				
+				/* 방법 2 */
 				File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
+				Thumbnails.of(saveFile)
+				.size(160,160)
+				.toFile(thumbnailFile);
 				
-				BufferedImage bo_image = ImageIO.read(saveFile);
-				/* 비율 */
-				double ratio = 3;
-				int width = (int) (bo_image.getWidth()/ ratio);
-				int height = (int) (bo_image.getHeight() / ratio);
+				//https://kimvampa.tistory.com/219 비율관련주소 여기 보고  
 				
-				BufferedImage bt_image = new BufferedImage(width,height, BufferedImage.TYPE_3BYTE_BGR);
-				
-				Graphics2D graphic = bt_image.createGraphics();
-				graphic.drawImage(bo_image, 0, 0, width, height, null);
-				ImageIO.write(bt_image, "jpg", thumbnailFile);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
