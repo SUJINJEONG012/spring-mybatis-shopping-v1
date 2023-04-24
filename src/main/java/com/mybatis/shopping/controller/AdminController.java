@@ -75,8 +75,8 @@ public class AdminController {
 		logger.info("uploadAjaxActionPost ...........");
 
 
-			// String uploadFolder = "C:\\upload";
-			String uploadFolder = "/Users/jeongsujin/upload";
+			String uploadFolder = "C:\\upload";
+			//String uploadFolder = "/Users/jeongsujin/upload";
 
 			/* 날짜 생성 */
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
