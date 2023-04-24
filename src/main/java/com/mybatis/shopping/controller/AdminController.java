@@ -1,5 +1,6 @@
 package com.mybatis.shopping.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
+import javax.imageio.ImageIO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -122,7 +125,8 @@ public class AdminController {
 			
 			/* 이미지 파일 체크 */
 		    for (MultipartFile multipartFile : uploadFile) {
-		    	
+		    
+		    //이미지 정보 객체 
 		    AttachImageVo attachImageVo = new AttachImageVo();
 		    
 			/* 파일 이름 가져오는 메서드 */
@@ -138,6 +142,7 @@ public class AdminController {
 
 			/* 파일위치, 파일 이름을 합친 File 객체 */
 			File saveFile = new File(uploadPath, uploadFileName);
+			
 			/* 파일 저장 */
 			try {
 				multipartFile.transferTo(saveFile);
@@ -159,6 +164,13 @@ public class AdminController {
 				
 				/* 방법 2 */
 				File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
+				BufferedImage bo_image = ImageIO.read(saveFile);
+				//비율 
+				double ratio = 3;
+				//넓이 높이
+				int width = (int) (bo_image.getWidth() / ratio);
+				int height = (int) (bo_image.getHeight() / ratio);
+				
 				Thumbnails.of(saveFile)
 				.size(160,160)
 				.toFile(thumbnailFile);
@@ -179,11 +191,6 @@ public class AdminController {
 		    
 		    ResponseEntity<List<AttachImageVo>> result = new ResponseEntity<List<AttachImageVo>>(list, HttpStatus.OK);
 		    return result;
-		
-		
-		
-		
-		
 
 	}
 
