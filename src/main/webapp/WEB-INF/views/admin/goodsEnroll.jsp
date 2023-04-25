@@ -27,6 +27,34 @@
 .admin_list_01 {
 	background-color: #c8c8c8;
 }
+
+#result_card img{
+		max-width: 100%;
+	    height: auto;
+	    display: block;
+	    padding: 5px;
+	    margin-top: 10px;
+	    margin: auto;	
+	}
+	#result_card {
+		position: relative;
+	}
+	.imgDeleteBtn{
+	    position: absolute;
+	    top: 0;
+	    right: 5%;
+	    background-color: #ef7d7d;
+	    color: wheat;
+	    font-weight: 900;
+	    width: 30px;
+	    height: 30px;
+	    border-radius: 50%;
+	    line-height: 26px;
+	    text-align: center;
+	    border: none;
+	    display: block;
+	    cursor: pointer;	
+	}
 </style>
 	<%@include file="./include/admin/header.jsp"%>
 
@@ -176,6 +204,9 @@
 					</div>
 					<div class="form_section_content">
 					<input type="file" id="fileItem" name="uploadFile" style="height:30px;">
+					
+					<div id="uploadResult">
+					
 					</div>
 
 				</div>
@@ -538,6 +569,7 @@ $("input[name='bookPrice']").on("change", function(){
 		dataType:"JSON", //서버로 반환받을 데이터 타입 
 		success: function(result){
 			console.log(result);
+			showUploadImage(result);
 		},
 		error: function(result){
 			alert("이미지 파일이 아닙니다.");
@@ -570,6 +602,28 @@ function fileCheck(fileName, fileSize){
 	
 	return true;
 }
+
+/*  이미지 출력 */
+function showUploadImage(uploadResultArr){
+	/* 전달받은 데이터 검증 */
+	if(!uploadResultArr || uploadResultArr.length == 0){
+		return
+	}
+	let uploadResult = $("#uploadResult");
+	let obj = uploadResultArr[0];
+	let str = "";
+	let fileCallPath = obj.uploadPath.replace(/\\/g,'/') + "/s_" + obj.uuid + "_" + obj.fileName;
+	
+	str += "<div id='result_card'>";
+	str += "<img src='/display?fileName="+fileCallPath +"'>";
+	str += "<div class='imgDeleteBtn'>X</div>";
+	str += "</div>";
+	
+	uploadResult.append(str);
+	
+}
+
+
 </script>
 
 
