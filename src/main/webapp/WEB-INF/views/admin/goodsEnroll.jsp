@@ -617,6 +617,7 @@ function showUploadImage(uploadResultArr){
 	let obj = uploadResultArr[0];
 	let str = "";
 	let fileCallPath = obj.uploadPath.replace(/\\/g,'/') + "/s_" + obj.uuid + "_" + obj.fileName;
+	//let fileCallPath = obj.uploadPath.replace(/\\/g,'/') + "/s_" + obj.uuid + "_" + obj.fileName;
 	
 	str += "<div id='result_card'>";
 	str += "<img src='/display?fileName="+fileCallPath +"'>";
