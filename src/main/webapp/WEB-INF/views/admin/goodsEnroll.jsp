@@ -540,16 +540,20 @@ $("input[name='bookPrice']").on("change", function(){
 
 /* 이미지 업로드 */
  $("input[type='file']").on("change", function(e){
+	 /*이미지 존재시 삭제 */
+	 if($(".imgDeleteBtn").length > 0 ){
+		 deleteFile();
+	 } 
+	 
 	//alert("동작");
 	let formData = new FormData();
-	
 	let fileInput = $('input[name="uploadFile"]');
 	let fileList = fileInput[0].files;
 	let fileObj = fileList[0];
 	
-	/* if(!fileCheck(fileObj.name, fileObj.size)){
+	 if(!fileCheck(fileObj.name, fileObj.size)){
 		return false;
-	} */
+	} 
 	
 	//alert("통과!");
 	
@@ -585,7 +589,6 @@ $("input[name='bookPrice']").on("change", function(){
  });
 
 /* 파일 허용 */
-
 let regex = new RegExp("(.*?)\.(jpg|png)$");
 let maxSize = 1048576; //1MB	
 
@@ -609,6 +612,7 @@ function showUploadImage(uploadResultArr){
 	if(!uploadResultArr || uploadResultArr.length == 0){
 		return
 	}
+	
 	let uploadResult = $("#uploadResult");
 	let obj = uploadResultArr[0];
 	let str = "";
@@ -616,12 +620,47 @@ function showUploadImage(uploadResultArr){
 	
 	str += "<div id='result_card'>";
 	str += "<img src='/display?fileName="+fileCallPath +"'>";
-	str += "<div class='imgDeleteBtn'>X</div>";
+	str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>X</div>";
 	str += "</div>";
 	
 	uploadResult.append(str);
 	
 }
+
+
+/* 이미지 삭제 버튼 동작 */
+$("#uploadResult").on("click", function(e){
+		deleteFile();
+});
+
+/* 파일 삭제 메서드 */
+ 
+ function deleteFile(){
+	let targetFile = $(".imgDeleteBtn").data("file");
+	let targetDiv = $("#result_card");
+	
+	$.ajax({
+		url:"/admin/deleteFile",
+		data:{fileName : targetFile},
+		dataType:"text",
+		type:"POST",
+		success: function(result){
+			//파일 삭제 햇을경우 : 미리보기 이미지 삭제,  input태그 초기화
+			console.log(result);
+		
+		targetDiv.remove();
+		$("input[type='file']").val("");
+		},
+		error: function(result){
+			console.log(result);
+			alert("파일을 삭제하지 못하엿습니다.");
+		}
+		
+	});
+}
+
+
+
 
 
 </script>
