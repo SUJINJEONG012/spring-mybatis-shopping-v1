@@ -622,7 +622,9 @@ function showUploadImage(uploadResultArr){
 	str += "<div id='result_card'>";
 	str += "<img src='/display?fileName="+fileCallPath +"'>";
 	str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>X</div>";
+	str += "<div></div>";
 	str += "</div>";
+	
 	
 	uploadResult.append(str);
 	
