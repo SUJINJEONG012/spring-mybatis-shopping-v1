@@ -1,6 +1,7 @@
 package com.mybatis.shopping.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class BookVo {
 
@@ -27,8 +28,17 @@ public class BookVo {
 	private Date regDate; // 등록날짜
 	private Date updateDate; //수정날짜
 	
+	// 이미지 정보
+	private List<AttachImageVo> imageList;
+
+
 	
-	
+	public List<AttachImageVo> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<AttachImageVo> imageList) {
+		this.imageList = imageList;
+	}
 	public int getBookId() {
 		return bookId;
 	}
@@ -119,13 +129,14 @@ public class BookVo {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+	
 	@Override
 	public String toString() {
 		return "BookVo [bookId=" + bookId + ", bookName=" + bookName + ", authorId=" + authorId + ", authName="
-				+ authName + ", publeYerar=" + publeYear + ", publisher=" + publisher + ", cateCode=" + cateCode
+				+ authName + ", publeYear=" + publeYear + ", publisher=" + publisher + ", cateCode=" + cateCode
 				+ ", cateName=" + cateName + ", bookPrice=" + bookPrice + ", bookStock=" + bookStock + ", bookDiscount="
 				+ bookDiscount + ", bookIntro=" + bookIntro + ", bookContents=" + bookContents + ", regDate=" + regDate
-				+ ", updateDate=" + updateDate + "]";
+				+ ", updateDate=" + updateDate + ", imageList=" + imageList + "]";
 	}
 	
 	
