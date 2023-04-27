@@ -98,9 +98,9 @@ public class AdminController {
 			}
 		}
 
-			//String uploadFolder = "C:\\upload";
+			String uploadFolder = "C:\\upload";
 		
-			String uploadFolder = "/Users/jeongsujin/upload";
+			//String uploadFolder = "/Users/jeongsujin/upload";
 
 			/* 날짜 생성 */
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -205,10 +205,11 @@ public class AdminController {
 		
 		File file = null;
 		
-		//file = new File("c:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
 		
 		try {
-			file = new File("/Users/jeongsujin/upload/" + URLDecoder.decode(fileName, "UTF-8"));
+			
+			file = new File("C:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			//file = new File("/Users/jeongsujin/upload/" + URLDecoder.decode(fileName, "UTF-8"));
 			
 			file.delete();
 			/* 원본 파일 삭제 */
