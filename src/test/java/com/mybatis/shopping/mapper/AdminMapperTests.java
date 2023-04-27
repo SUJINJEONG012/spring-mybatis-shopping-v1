@@ -64,33 +64,33 @@ public class AdminMapperTests {
 	
 	
 	/* 상품 조회 페이지 */
-//	@Test
-//	public void goodsGetDetailTest() {
-//		int bookId = 10;
-//		BookVo result = adminMapper.goodsGetDetail(bookId);
-//		System.out.println("상품조회 데이터 : " + result);
-//	}
+	@Test
+	public void goodsGetDetailTest() {
+		int bookId = 10;
+		BookVo result = adminMapper.goodsGetDetail(bookId);
+		System.out.println("상품조회 데이터 : " + result);
+	}
 	
 	
 	/* 상품 정보 수정 페이지 */
-	@Test
-	public void goodsModifyTest() {
-		BookVo bookVo = new BookVo();
-		bookVo.setBookId(4087);
-		bookVo.setBookName("회사에서 수정");
-		bookVo.setAuthorId(4);
-		bookVo.setPubleYear("2023-04-17");
-		bookVo.setPublisher("출판사1");
-		bookVo.setCateCode("102002");
-		bookVo.setBookPrice(424000);
-		bookVo.setBookStock(300);
-		bookVo.setBookIntro("책소개11");
-		bookVo.setBookContents("책 목차222");
-		bookVo.setBookDiscount(0.9);
-
-		adminMapper.goodsModify(bookVo);
-		
-	}
+//	@Test
+//	public void goodsModifyTest() {
+//		BookVo bookVo = new BookVo();
+//		bookVo.setBookId(4087);
+//		bookVo.setBookName("회사에서 수정");
+//		bookVo.setAuthorId(4);
+//		bookVo.setPubleYear("2023-04-17");
+//		bookVo.setPublisher("출판사1");
+//		bookVo.setCateCode("102002");
+//		bookVo.setBookPrice(424000);
+//		bookVo.setBookStock(300);
+//		bookVo.setBookIntro("책소개11");
+//		bookVo.setBookContents("책 목차222");
+//		bookVo.setBookDiscount(0.9);
+//
+//		adminMapper.goodsModify(bookVo);
+//		
+//	}
 	
 	/*상품 정보 삭제 */
 //	@Test

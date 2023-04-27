@@ -61,6 +61,7 @@ public class AdminController {
 	@GetMapping("/goodsManage")
 	public void goodsManageGet(Criteria cri, Model model) throws Exception {
 		logger.info("상품관리 페이지 접속");
+	
 
 		/* 상품 리스트 */
 		List list = adminService.goodsGetList(cri);
@@ -98,9 +99,9 @@ public class AdminController {
 			}
 		}
 
-			String uploadFolder = "C:\\upload";
+			//String uploadFolder = "C:\\upload";
 		
-			//String uploadFolder = "/Users/jeongsujin/upload";
+			String uploadFolder = "/Users/jeongsujin/upload";
 
 			/* 날짜 생성 */
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -208,8 +209,8 @@ public class AdminController {
 		
 		try {
 			
-			file = new File("C:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
-			//file = new File("/Users/jeongsujin/upload/" + URLDecoder.decode(fileName, "UTF-8"));
+			//file = new File("C:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			file = new File("/Users/jeongsujin/upload/" + URLDecoder.decode(fileName, "UTF-8"));
 			
 			file.delete();
 			/* 원본 파일 삭제 */
@@ -242,16 +243,19 @@ public class AdminController {
 		String cateList = objm.writeValueAsString(list);
 		model.addAttribute("cateList", cateList);
 
-		logger.info(" 변경 전 .......... " + list);
-		logger.info(" 변경 후 ............." + cateList);
+		logger.info(" 상품등록 페이지 변경 전 .......... " + list);
+		logger.info(" 상품등록 페이지 변경 후 ............." + cateList);
 	}
 
 	/* 상품 등록 */
 	@PostMapping("/goodsEnroll")
 	public String goodsEnrollPost(BookVo bookVo, RedirectAttributes rttr) {
-		logger.info("goodEnrollPost........." + bookVo);
-		adminService.bookEnroll(bookVo);
-		rttr.addFlashAttribute("enroll_result", bookVo.getBookName());
+		logger.info("goodEnrollPost......... dddd" + bookVo);
+		
+		//adminService.bookEnroll(bookVo);
+		
+		//rttr.addFlashAttribute("enroll_result", bookVo.getBookName());
+		
 		return "redirect:/admin/goodsManage";
 	}
 

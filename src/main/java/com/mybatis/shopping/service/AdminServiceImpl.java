@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mybatis.shopping.mapper.AdminMapper;
 import com.mybatis.shopping.model.BookVo;
@@ -19,6 +20,8 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private AdminMapper adminMapper;
 
+	/* 상품 등록 */
+	@Transactional
 	@Override
 	public void bookEnroll(BookVo bookVo) {
 		
@@ -26,6 +29,7 @@ public class AdminServiceImpl implements AdminService {
 		adminMapper.bookEnroll(bookVo);
 	}
 
+	/* 카테고리 리스트 */
 	@Override
 	public List<CateVo> cateList() {
 		
@@ -33,6 +37,9 @@ public class AdminServiceImpl implements AdminService {
 		
 		return adminMapper.cateList();
 	}
+	
+	
+	
 
 	/* 상품 리스트 */
 	@Override
@@ -48,7 +55,7 @@ public class AdminServiceImpl implements AdminService {
 		return adminMapper.goodsGetTotal(cri);
 	}
 
-	/* 상품 상세 페이 */
+	/* 상품 상세 페이지 */
 	@Override
 	public BookVo goodsGetDetail(int bookId) {
 		log.info("goodsGetDetail()................" + bookId);
