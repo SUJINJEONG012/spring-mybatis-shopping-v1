@@ -12,37 +12,51 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	
-	
-	<!-- <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"> -->
+
+
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" 
+		destroy-method="close"> -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<!-- <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/springmybatisshoppingv2" />  -->
-		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:mysql://localhost:3306/springmybatisshoppingv2?serverTimezone=Asia/Seoul"></property>
+		<!-- <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" 
+			/> <property name="url" value="jdbc:mysql://localhost:3306/springmybatisshoppingv2" 
+			/> -->
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl"
+			value="jdbc:log4jdbc:mysql://localhost:3306/springmybatisshoppingv2?serverTimezone=Asia/Seoul"></property>
 		<property name="username" value="root" />
 		<property name="password" value="1234" />
 	</bean>
-	
-	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+
+
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
-	</bean>	
-	
-	
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	</bean>
+
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-	</bean>	
+	</bean>
+
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource"></property>
+	</bean>
 	
+	<tx:annotation-driven />
 
- 
+	<context:component-scan
+		base-package="com.mybatis.shopping.controller"></context:component-scan>
+	<mybatis-spring:scan
+		base-package="com.mybatis.shopping.mapper" />
+	<context:component-scan
+		base-package="com.mybatis.shopping.model"></context:component-scan>
+	<context:component-scan
+		base-package="com.mybatis.shopping.service"></context:component-scan>
 
-		
-	<context:component-scan base-package="com.mybatis.shopping.controller"></context:component-scan>
-	<mybatis-spring:scan base-package="com.mybatis.shopping.mapper"/>
-	<context:component-scan base-package="com.mybatis.shopping.model"></context:component-scan>
-	<context:component-scan base-package="com.mybatis.shopping.service"></context:component-scan>
-		
 </beans>

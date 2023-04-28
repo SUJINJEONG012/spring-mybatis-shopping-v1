@@ -28,10 +28,12 @@ public class AdminServiceImpl implements AdminService {
 		log.info("(service) bookEnroll............");
 		adminMapper.bookEnroll(bookVo);
 		
+		//이미지 존재여부 확인 
 		if(bookVo.getImageList() == null || bookVo.getImageList().size() <= 0) {
 			return;
 		}
 		
+		//람다식 활용한 for 문
 		bookVo.getImageList().forEach(attach ->{
 			attach.setBookId(bookVo.getBookId());
 			adminMapper.imageEnroll(attach);

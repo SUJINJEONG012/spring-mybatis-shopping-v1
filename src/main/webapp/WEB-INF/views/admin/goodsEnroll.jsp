@@ -13,14 +13,15 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script
-	src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
 </head>
+
+
 <body>
 
 	<style>
@@ -56,6 +57,8 @@
 	    cursor: pointer;	
 	}
 </style>
+
+
 	<%@include file="./include/admin/header.jsp"%>
 
 	<div class="admin_content_wrap">
@@ -189,7 +192,8 @@
 
 				<div class="form_section">
 					<div class="form_section_title">
-						<label>책 목차</label>
+						<labe
+						l>책 목차</label>
 					</div>
 
 					<div class="form_section_content bct">
@@ -230,15 +234,10 @@
 
 let enrollForm = $("#enrollForm")
 	
-/* 취소 버튼 */
-$("#cancelBtn").click(function(){
-	
-	location.href="/admin/goodsManage"
-	
-});
+
 
 /* 상품 등록 버튼 */
-$("#enrollBtn").on("click",function(e){
+$("#enrollBtn").on("click", function(e){
 	
 	e.preventDefault();
 	
@@ -254,6 +253,8 @@ $("#enrollBtn").on("click",function(e){
 	let introCk = false;
 	let contentsCk = false;	
 	
+	
+	
 	/* 체크 대상 변수 */
 	let bookName = $("input[name='bookName']").val();
 	let authorId = $("input[name='authorId']").val();
@@ -262,20 +263,21 @@ $("#enrollBtn").on("click",function(e){
 	let cateCode = $("select[name='cateCode']").val();
 	let bookPrice = $("input[name='bookPrice']").val();
 	let bookStock = $("input[name='bookStock']").val();
-	let bookDiscount = $("discount_interface").val();
+	let bookDiscount = $("#discount_interface").val();
 	let bookIntro = $(".bit p").html();
 	let bookContents = $(".bct p").html();	
-	                                                                                                                                                                                                                                      
+	
+	
 	
 	/* 공란 체크 */
-	if(bookName) {
-		$(".bookName_warn").css("display", "none");
+	if(bookName){
+		$(".bookName_warn").css('display','none');
 		bookNameCk = true;
-	}else{
-		$(".bookName_warn").css("display", "block");
+	} else {
+		$(".bookName_warn").css('display','block');
 		bookNameCk = false;
-		
 	}
+	
 	if(authorId){
 		$(".authorId_warn").css('display','none');
 		authorIdCk = true;
@@ -346,19 +348,28 @@ $("#enrollBtn").on("click",function(e){
 	} else {
 		$(".bookContents_warn").css('display','block');
 		contentsCk = false;
-	}
+	}		
 	
+	
+	/* 최종 확인 */
 	if(bookNameCk && authorIdCk && publeYearCk && publisherCk && cateCodeCk && priceCk && stockCk && discountCk && introCk && contentsCk ){
-		alert('통과');
-		enrollForm.submit();
-		
+	alert('통과');		
 	} else {
 		return false;
 	}
 	
+	enrollForm.submit();
 	
-	
+
 });
+
+
+/* 취소 버튼 */
+$("#cancelBtn").click(function(){	
+	location.href="/admin/goodsManage";
+});
+
+
 
 /* 위지윅 적용 */
 
@@ -664,9 +675,6 @@ $("#uploadResult").on("click", function(e){
 		
 	});
 }
-
-
-
 
 
 </script>

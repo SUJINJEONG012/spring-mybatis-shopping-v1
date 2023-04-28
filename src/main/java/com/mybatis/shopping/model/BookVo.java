@@ -31,14 +31,13 @@ public class BookVo {
 	// 이미지 정보
 	private List<AttachImageVo> imageList;
 
-
-	
 	public List<AttachImageVo> getImageList() {
 		return imageList;
 	}
 	public void setImageList(List<AttachImageVo> imageList) {
 		this.imageList = imageList;
 	}
+	
 	public int getBookId() {
 		return bookId;
 	}

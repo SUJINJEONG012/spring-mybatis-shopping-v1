@@ -135,7 +135,6 @@ $(document).ready(function() {
 	
 	/* 상품등록 이벤트*/
 	let eResult = '<c:out value="${enroll_result}"/>';
-
 	checkResult(eResult);
 
 	function checkResult(result) {
