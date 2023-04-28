@@ -8,24 +8,31 @@
 <meta charset="UTF-8">
 <title>상품 목록 페이지</title>
 <link rel="stylesheet" href="../resources/css/admin/goodsDetail.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 </head>
+
 <body>
 
+<style>
 
+#result_card img{
+width:100%;
+display:block;
+padding:5px;
+margin-top:10px;
+margin: 0 auto;
+}
+</style>
 
 	<%@include file="./include/admin/header.jsp"%>
-	
-	
-	
+
+
+
 	<div class="admin_content_main">
-		
+
 		<div class="admin_content_subject">
 			<span>상품 상세</span>
 		</div>
@@ -82,7 +89,8 @@
 				</div>
 				<div class="form_section_content">
 					<input type="text" name="publeYear" autocomplete="off"
-						readonly="readonly" value="<c:out value="${goodsInfo.publeYear}" /> " disabled>
+						readonly="readonly"
+						value="<c:out value="${goodsInfo.publeYear}" /> " disabled>
 				</div>
 			</div>
 
@@ -104,22 +112,19 @@
 				</div>
 				<div class="form_section_content">
 					<div class="cate_wrap">
-						<span>대분류</span> 
-						<select class="cate1" disabled>
+						<span>대분류</span> <select class="cate1" disabled>
 							<option value="none">선택</option>
 						</select>
 					</div>
 
 					<div class="cate_wrap">
-						<span>중분류</span> 
-						<select class="cate2" disabled>
+						<span>중분류</span> <select class="cate2" disabled>
 							<option value="none">선택</option>
 						</select>
 					</div>
 
 					<div class="cate_wrap">
-						<span>소분류</span> 
-						<select class="cate3" name="cateCode" disabled>
+						<span>소분류</span> <select class="cate3" name="cateCode" disabled>
 							<option value="none">선택</option>
 						</select>
 					</div>
@@ -179,6 +184,17 @@
 				</div>
 			</div>
 
+			<div class="form_section">
+				<div class="form_section_title">
+					<label>상품 이미지 </label>
+				</div>
+				<div class="form_section_content">
+				 <div id="uploadResult">
+				 
+				 </div>
+				</div>
+			</div>
+
 
 			<div class="btn_section">
 				<button id="cancelBtn" class="btn">상품 목록</button>
@@ -188,15 +204,15 @@
 		</div>
 
 		<form id="moveForm" action="/admin/goodsManage" method="get">
-			<input type="hidden" name="pageNum" value="${cri.pageNum}">
-			<input type="hidden" name="amount" value="${cri.amount}">
-			<input type="hidden" name="keyword" value="${cri.keyword}">
+			<input type="hidden" name="pageNum" value="${cri.pageNum}"> <input
+				type="hidden" name="amount" value="${cri.amount}"> <input
+				type="hidden" name="keyword" value="${cri.keyword}">
 		</form>
 
 	</div>
 
 	<%@include file="./include/admin/footer.jsp"%>
-	
+
 
 
 	<script>
@@ -314,6 +330,71 @@
 				$(obj).attr("selected", "selected");
 			}
 		});
+		
+		
+		/* 이미지 정보 호출 */
+		/* let bookId = '<c:out value="${goosInfo.bookId}"/>';
+		let uploadResult = $("#uploadResult");
+		
+		$.getJSON("/getAttachList", {bookId: bookId}, function(arr){
+			
+			if(arr.length === 0){
+				
+				let str += "";
+				str +=  "<div id='result_card'>";
+				str += "<img src='/resources/img/goodsNoImage.png'>";
+				str += "</div>";
+				
+				uploadResult.html(str);
+				return ;
+			}
+			
+			let str = "";
+			let obj = arr[0];
+			
+			let fileCallPath = encodeURLComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+			str += "<div id ='result_card'";
+			str += "data-path ='"+ obj.uploadPath + "' data-uuid = '" obj.uuid + "' data-filename='" + obj.filename+ "'";
+			str += ">";
+			str += "<img src='/display?fileName="+ fileCallPath + "'>";
+			str += "</div>";
+			
+			uploadResult.html(str);
+		}); */
+		
+		/* 이미지 정보 호출 */
+		let bookId = '<c:out value="${goodsInfo.bookId}"/>';
+		let uploadResult = $("#uploadResult");			
+		
+		$.getJSON("/getAttachList", {bookId : bookId}, function(arr){	
+			
+			if(arr.length === 0){	
+				
+				let str = "";
+				str += "<div id='result_card'>";
+				str += "<img src='/resources/img/goodsNoImage.png'>";
+				str += "</div>";
+				
+				uploadResult.html(str);						
+				
+				return;
+			}				
+			
+			let str = "";
+			let obj = arr[0];	
+			
+			let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+			str += "<div id='result_card'";
+			str += "data-path='" + obj.uploadPath + "' data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'";
+			str += ">";
+			str += "<img src='/display?fileName=" + fileCallPath +"'>";
+			str += "</div>";		
+			
+			uploadResult.html(str);						
+			
+		});			
+		
+		
 
     });
 	
@@ -340,10 +421,10 @@
 	
 	
 	</script>
-	
 
 
 
 
-	</body>
+
+</body>
 </html>
