@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -64,12 +65,12 @@ public class AdminMapperTests {
 	
 	
 	/* 상품 조회 페이지 */
-	@Test
-	public void goodsGetDetailTest() {
-		int bookId = 10;
-		BookVo result = adminMapper.goodsGetDetail(bookId);
-		System.out.println("상품조회 데이터 : " + result);
-	}
+//	@Test
+//	public void goodsGetDetailTest() {
+//		int bookId = 10;
+//		BookVo result = adminMapper.goodsGetDetail(bookId);
+//		System.out.println("상품조회 데이터 : " + result);
+//	}
 	
 	
 	/* 상품 정보 수정 페이지 */
@@ -101,5 +102,18 @@ public class AdminMapperTests {
 //			System.out.println("삭제성공");
 //		}
 //	}
+	
+	
+	/* 이미지 등록 테스트 */
+	@Test
+	public void imageEnrollTest() {
+		AttachImageVo attachImageVo = new AttachImageVo();
+		attachImageVo.setBookId(13);
+		attachImageVo.setFileName("test");
+		attachImageVo.setUploadPath("test");
+		attachImageVo.setUuid("test2");
+		
+		adminMapper.imageEnroll(attachImageVo);
+	}
 	
 }

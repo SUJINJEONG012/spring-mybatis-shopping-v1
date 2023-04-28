@@ -7,6 +7,11 @@
 
 	<!-- 상품 등록 -->
 	<insert id="bookEnroll">
+	 <selectKey resultType="int" keyProperty="bookId" order="AFTER">
+	 <!-- select max(bookId) from book; -->
+	 select last_insert)id()
+	 </selectKey>
+	
 
 		insert into book(bookName, authorId, publeYear, publisher,cateCode,
 		bookPrice, bookStock, bookDiscount, bookIntro, bookContents)
@@ -61,6 +66,11 @@
 	<delete id="goodsDelete">
 	delete from book where bookId= #{bookId}
 	</delete>
+	
+	<!-- 이미지 등록 -->
+	<insert id = "imageEnroll">
+	insert into book_image(bookId, fileName, uploadPath, uuid) values (#{bookId}, #{fileName}, #{uploadPath}, #{uuid})
+	</insert>
 	
 
 
