@@ -232,7 +232,7 @@
 
 <script>
 
-let enrollForm = $("#enrollForm")
+//let enrollForm = $("#enrollForm")
 	
 
 
@@ -354,20 +354,23 @@ $("#enrollBtn").on("click", function(e){
 	/* 최종 확인 */
 	if(bookNameCk && authorIdCk && publeYearCk && publisherCk && cateCodeCk && priceCk && stockCk && discountCk && introCk && contentsCk ){
 	alert('통과');		
+	$("#enrollForm").submit();
 	} else {
 		return false;
 	}
 	
-	enrollForm.submit();
+	
 	
 
 });
 
 
 /* 취소 버튼 */
-$("#cancelBtn").click(function(){	
+$("#cancelBtn").on("click", function(e){	
+	e.preventDefault();
 	location.href="/admin/goodsManage";
 });
+
 
 
 

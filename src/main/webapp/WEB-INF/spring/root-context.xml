@@ -45,10 +45,12 @@
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="datasource"></property>
+		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
 	<tx:annotation-driven />
+	<task:annotation-driven/>
+
 
 	<context:component-scan
 		base-package="com.mybatis.shopping.controller"></context:component-scan>
