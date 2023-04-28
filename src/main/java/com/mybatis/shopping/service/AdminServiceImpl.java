@@ -27,6 +27,18 @@ public class AdminServiceImpl implements AdminService {
 		
 		log.info("(service) bookEnroll............");
 		adminMapper.bookEnroll(bookVo);
+		
+		if(bookVo.getImageList() == null || bookVo.getImageList().size() <= 0) {
+			return;
+		}
+		
+		bookVo.getImageList().forEach(attach ->{
+			attach.setBookId(bookVo.getBookId());
+			adminMapper.imageEnroll(attach);
+			
+		});
+		
+		
 	}
 
 	/* 카테고리 리스트 */

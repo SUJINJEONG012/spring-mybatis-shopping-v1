@@ -9,15 +9,14 @@
 	<insert id="bookEnroll">
 	 <selectKey resultType="int" keyProperty="bookId" order="AFTER">
 	 <!-- select max(bookId) from book; -->
-	 select last_insert)id()
+	 SELECT LAST_INSERT_ID()
 	 </selectKey>
 	
 
 		insert into book(bookName, authorId, publeYear, publisher,cateCode,
 		bookPrice, bookStock, bookDiscount, bookIntro, bookContents)
-		values (#{bookName},#{authorId},#{publeYear},#{publisher},#{cateCode},
-		#{bookPrice},#{bookStock},#{bookDiscount},#{bookIntro},
-		#{bookContents})
+		values( #{bookName}, #{authorId}, #{publeYear}, #{publisher}, #{cateCode},
+		#{bookPrice}, #{bookStock}, #{bookDiscount},#{bookIntro}, #{bookContents})
 	</insert>
 
 	<!-- 카테고리 리스트 -->
