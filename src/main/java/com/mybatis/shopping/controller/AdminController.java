@@ -94,6 +94,7 @@ public class AdminController {
 			}
 			
 			if(!type.startsWith("image")) {
+				
 				List<AttachImageVo> list = null;
 				return new ResponseEntity<>(list, HttpStatus.BAD_REQUEST);
 			}
@@ -174,10 +175,8 @@ public class AdminController {
 				int height = (int) (bo_image.getHeight() / ratio);
 				
 				Thumbnails.of(saveFile)
-				.size(160,160)
+				.size(width,height)
 				.toFile(thumbnailFile);
-				
-				//https://kimvampa.tistory.com/219 비율관련주소 여기 보고  
 				
 				
 			} catch (Exception e) {
@@ -186,9 +185,9 @@ public class AdminController {
 			list.add(attachImageVo); 
 			
 
-//		  logger.info("파일 이름 : " + multipartFile.getOriginalFilename());
-//		  logger.info("파일 타입 ;" + multipartFile.getContentType());
-//		  logger.info("파일 크기 : " + multipartFile.getSize());
+		  logger.info("파일 이름 : " + multipartFile.getOriginalFilename());
+		  logger.info("파일 타입 ;" + multipartFile.getContentType());
+		  logger.info("파일 크기 : " + multipartFile.getSize());
 		}
 		    
 		    ResponseEntity<List<AttachImageVo>> result = new ResponseEntity<List<AttachImageVo>>(list, HttpStatus.OK);

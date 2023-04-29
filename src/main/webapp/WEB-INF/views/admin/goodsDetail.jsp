@@ -19,11 +19,11 @@
 <style>
 
 #result_card img{
-width:100%;
+/* width:100%; */
 display:block;
 padding:5px;
 margin-top:10px;
-margin: 0 auto;
+
 }
 </style>
 
