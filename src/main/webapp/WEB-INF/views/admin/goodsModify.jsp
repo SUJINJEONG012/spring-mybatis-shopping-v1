@@ -364,28 +364,34 @@ $(document).ready(function(){
 	$(".span_discount").html(discountPrice);
 	$("#discount_interface").val(discountRate);
 	
+
+	
 	/* 기존 이미지 출력 */
-	let bookId = '<c:out value="${goodsInfo.bookId}"/>';
+	 let bookId = '<c:out value="${goodsInfo.bookId}"/>';
 	let uploadResult = $("#uploadResult");
 	
 	$.getJSON("/getAttachList", {bookId : bookId}, function(arr){
+		
 		console.log(arr);
 		
 		if(arr.length === 0){
+			
+			
 			let str = "";
-			str += "<div>";
+			str += "<div id='result_card'>";
 			str += "<img src='/resources/img/goodsNoImage.png'>";
 			str += "</div>";
-			uploadResult.html(str);
+			
+			uploadResult.html(str);				
 			return;
 		}
 		
 		let str = "";
 		let obj = arr[0];
 		
-		let fileCallPath = encodeURLComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
-		str += "<div id ='result_card'";
-		str += "data-path='" + obj.uploadPath + "' data-uuid='" +  obj.uuid + "' data-filename='"  + obj.fileName + "'";
+		let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+		str += "<div id='result_card'";
+		str += "data-path='" + obj.uploadPath + "' data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'";
 		str += ">";
 		str += "<img src='/display?fileName=" + fileCallPath +"'>";
 		str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
@@ -394,9 +400,13 @@ $(document).ready(function(){
 		str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";				
 		str += "</div>";
 		
-		uploadResult.html(str);		
+		uploadResult.html(str);			
 		
-	});
+	}); 
+	// GetJSON	
+	
+	
+	
 
 	
 	 /* 작가 선택 버튼 */
@@ -416,7 +426,7 @@ $(document).ready(function(){
 
 </script>
 
-	<script>
+<script>
 
 
 /* 카테고리 */
