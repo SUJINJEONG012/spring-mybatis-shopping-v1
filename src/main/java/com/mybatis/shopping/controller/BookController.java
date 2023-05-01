@@ -18,15 +18,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mybatis.shopping.mapper.AttachMapper;
 import com.mybatis.shopping.model.AttachImageVo;
 
 @Controller
 public class BookController {
 
-	private static final Logger logger = LoggerFactory.getLogger(BookController.class);
-
+	private static final Logger logger = LoggerFactory.getLogger(BookController.class);	
+	
 	@Autowired
-	private AttachService  attachService;
+	private AttachMapper attachMapper;
 	
 	/* 메인페이지 이동 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -42,8 +43,8 @@ public class BookController {
 	
 	logger.info("getImage()..........." + fileName);
 	
-	//File file = new File("C:\\upload\\" + fileName);
-	File file = new File("/Users/jeongsujin/upload/" + fileName);
+	File file = new File("C:\\upload\\" + fileName);
+	//File file = new File("/Users/jeongsujin/upload/" + fileName);
 	
 	ResponseEntity<byte[]> result = null;
 	

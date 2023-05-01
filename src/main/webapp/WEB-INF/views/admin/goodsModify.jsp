@@ -33,7 +33,7 @@
 	display: block;
 	padding: 5px;
 	margin-top: 10px;
-	margin: auto;
+	
 }
 
 #result_card {
@@ -350,7 +350,7 @@ $(document).ready(function(){
 		console.error(error);
 	});
 	
-	
+
 	/* 할인율 인터페이스 출력 */
 	let bookPriceInput = $("input[name='bookPrice']");
 	let discountInput = $("input[name='bookDiscount']");
@@ -364,7 +364,6 @@ $(document).ready(function(){
 	$(".span_discount").html(discountPrice);
 	$("#discount_interface").val(discountRate);
 	
-
 	
 	/* 기존 이미지 출력 */
 	 let bookId = '<c:out value="${goodsInfo.bookId}"/>';
@@ -405,9 +404,6 @@ $(document).ready(function(){
 	}); 
 	// GetJSON	
 	
-	
-	
-
 	
 	 /* 작가 선택 버튼 */
 	$(".authorId_btn").on("click", function(e){
@@ -490,7 +486,6 @@ $(cateSelect2).on("change",function(){
 	let selectVal2 = $(this).find("option:selected").val();
 	
 	cateSelect3.children().remove();
-	
 	cateSelect3.append("<option value='none'>선택</option>");		
 	
 	for(let i = 0; i < cate3Array.length; i++){
@@ -516,10 +511,9 @@ $("#discount_interface").on("propertychange change keyup paste input", function(
 	if(!isNaN(discountRate)){
 		$(".span_discount").html(discountPrice);		
 		discountInput.val(sendDiscountRate);				
-	}
-
-	
+	}	
 });	
+
 
 $("input[name='bookPrice']").on("change", function(){
 	
@@ -545,11 +539,7 @@ $("#cancelBtn").on("click", function(e){
 	$("#moveForm").submit();
 });
 
-/* 수정 버튼 */
-$("#modifyBtn").on("click", function(e){
-	e.preventDefault();
-	$("#modifyForm").submit();
-});
+
 
 /* 삭제 버튼 */
 $("#deleteBtn").on("click", function(e){
@@ -560,7 +550,225 @@ $("#deleteBtn").on("click", function(e){
 	moveForm.attr("action", "/admin/goodsDelete");
 	moveForm.attr("method", "post");
 	moveForm.submit();
-})
+});
+
+/* 수정 버튼 */
+$("#modifyBtn").on("click", function(e){
+	e.preventDefault();
+	
+	/* 체크 변수 */
+	let bookNameCk = false;
+	let authorIdCk = false;
+	let publeYearCk = false;
+	let publisherCk = false;
+	let cateCodeCk = false;
+	let priceCk = false;
+	let stockCk = false;
+	let discountCk = false;
+	let introCk = false;
+	let contentsCk = false;	
+	
+	/* 체크 대상 변수 */
+	let bookName = $("input[name='bookName']").val();
+	let authorId = $("input[name='authorId']").val();
+	let publeYear = $("input[name='publeYear']").val();
+	let publisher = $("input[name='publisher']").val();
+	let cateCode = $("select[name='cateCode']").val();
+	let bookPrice = $("input[name='bookPrice']").val();
+	let bookStock = $("input[name='bookStock']").val();
+	let bookDiscount = $("#discount_interface").val();
+	let bookIntro = $(".bit p").html();
+	let bookContents = $(".bct p").html();	
+	
+	/* 공란 체크 */
+	if(bookName){
+		$(".bookName_warn").css('display','none');
+		bookNameCk = true;
+	} else {
+		$(".bookName_warn").css('display','block');
+		bookNameCk = false;
+	}
+	
+	if(authorId){
+		$(".authorId_warn").css('display','none');
+		authorIdCk = true;
+	} else {
+		$(".authorId_warn").css('display','block');
+		authorIdCk = false;
+	}
+	
+	if(publeYear){
+		$(".publeYear_warn").css('display','none');
+		publeYearCk = true;
+	} else {
+		$(".publeYear_warn").css('display','block');
+		publeYearCk = false;
+	}	
+	
+	if(publisher){
+		$(".publisher_warn").css('display','none');
+		publisherCk = true;
+	} else {
+		$(".publisher_warn").css('display','block');
+		publisherCk = false;
+	}
+	
+	if(cateCode != 'none'){
+		$(".cateCode_warn").css('display','none');
+		cateCodeCk = true;
+	} else {
+		$(".cateCode_warn").css('display','block');
+		cateCodeCk = false;
+	}	
+	
+	if(bookPrice != 0){
+		$(".bookPrice_warn").css('display','none');
+		priceCk = true;
+	} else {
+		$(".bookPrice_warn").css('display','block');
+		priceCk = false;
+	}	
+	
+	if(bookStock != 0){
+		$(".bookStock_warn").css('display','none');
+		stockCk = true;
+	} else {
+		$(".bookStock_warn").css('display','block');
+		stockCk = false;
+	}		
+	
+	if(!isNaN(bookDiscount)){
+		$(".bookDiscount_warn").css('display','none');
+		discountCk = true;
+	} else {
+		$(".bookDiscount_warn").css('display','block');
+		discountCk = false;
+	}	
+	
+	if(bookIntro != '<br data-cke-filler="true">'){
+		$(".bookIntro_warn").css('display','none');
+		introCk = true;
+	} else {
+		$(".bookIntro_warn").css('display','block');
+		introCk = false;
+	}	
+	
+	if(bookContents != '<br data-cke-filler="true">'){
+		$(".bookContents_warn").css('display','none');
+		contentsCk = true;
+	} else {
+		$(".bookContents_warn").css('display','block');
+		contentsCk = false;
+	}		
+	
+	/* 최종 확인 */
+	if(bookNameCk && authorIdCk && publeYearCk && publisherCk && cateCodeCk && priceCk && stockCk && discountCk && introCk && contentsCk ){
+		//alert('통과');
+		$("#modifyForm").submit();
+	} else {
+		return false;
+	}
+	//$("#modifyForm").submit();
+});
+
+
+/* 이미지 삭제 버튼 동작*/
+$("#uploadResult").on("click", ".imgDeleteBtn", function(e){
+	deleteFile();
+});
+
+/* 파일 삭제 메서드 */
+function deleteFile(){
+	$("#result_card").remove();
+}
+
+
+/* 이미지 업로드*/
+$("input[type='file']").on("change", function(e){
+	/* 이미지 존재 시 삭제 */
+	if($("#result_card").length > 0 ){
+		deleteFile();
+	}
+	
+	let formData = new FormData();
+	let fileInput = $("input[name='uploadFile']");
+	let fileList = fileInput[0].files;
+	let fileObj = fileList[0];
+	
+	if(!fileCheck(fileObj.name, fileObj.size)){
+		return false;
+	}
+	formData.append("uploadFile", fileObj);
+	
+	$.ajax({
+		url:"/admin/uploadAjaxAction",
+		processData: false,
+		contentType: false,
+		data : formData,
+		type: "POST",
+		dataType: "json",
+		success: function(result){
+		 console.log(result);
+		 showUploadImage(result);
+		},
+		error: function(result){
+			alert("이미지 파일이 아닙니다.");
+		}
+	});
+	
+});
+
+/* VARM, method*/
+ 
+let regex = new RegExp("(.*?)\.(jpg|png)$");
+	let maxSize = 1048576; //1MB	
+	
+	function fileCheck(fileName, fileSize){
+
+		if(fileSize >= maxSize){
+			alert("파일 사이즈 초과");
+			return false;
+		}
+			  
+		if(!regex.test(fileName)){
+			alert("해당 종류의 파일은 업로드할 수 없습니다.");
+			return false;
+		}
+		
+		return true;		
+		
+	}
+
+	/* 이미지 출력 */
+	function showUploadImage(uploadResultArr){
+		
+		/* 전달받은 데이터 검증 */
+		if(!uploadResultArr || uploadResultArr.length == 0){
+			return
+	    }
+		
+		let uploadResult = $("#uploadResult");
+		
+		let obj = uploadResultArr[0];
+		
+		let str = "";
+		
+		let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
+		//replace 적용 하지 않아도 가능
+		//let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+		
+		str += "<div id='result_card'>";
+		str += "<img src='/display?fileName=" + fileCallPath +"'>";
+		str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
+		str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
+		str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
+		str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";		
+		str += "</div>";		
+		
+   		uploadResult.append(str);  
+		
+	}
+
 
 
 </script>

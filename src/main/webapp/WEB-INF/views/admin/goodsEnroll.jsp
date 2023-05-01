@@ -15,7 +15,8 @@
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
@@ -29,33 +30,35 @@
 	background-color: #c8c8c8;
 }
 
-#result_card img{
-		max-width: 100%;
-	    height: auto;
-	    display: block;
-	    padding: 5px;
-	    margin-top: 10px;
-	    margin: auto;	
-	}
-	#result_card {
-		position: relative;
-	}
-	.imgDeleteBtn{
-	    position: absolute;
-	    top: 0;
-	    right: 5%;
-	    background-color: #ef7d7d;
-	    color: wheat;
-	    font-weight: 900;
-	    width: 30px;
-	    height: 30px;
-	    border-radius: 50%;
-	    line-height: 26px;
-	    text-align: center;
-	    border: none;
-	    display: block;
-	    cursor: pointer;	
-	}
+#result_card img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	padding: 5px;
+	margin-top: 10px;
+	margin: auto;
+}
+
+#result_card {
+	position: relative;
+}
+
+.imgDeleteBtn {
+	position: absolute;
+	top: 0;
+	right: 5%;
+	background-color: #ef7d7d;
+	color: wheat;
+	font-weight: 900;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	line-height: 26px;
+	text-align: center;
+	border: none;
+	display: block;
+	cursor: pointer;
+}
 </style>
 
 
@@ -192,8 +195,7 @@
 
 				<div class="form_section">
 					<div class="form_section_title">
-						<labe
-						l>책 목차</label>
+						<labe l>책 목차</label>
 					</div>
 
 					<div class="form_section_content bct">
@@ -207,22 +209,19 @@
 						<label>상품이미지</label>
 					</div>
 					<div class="form_section_content">
-					<input type="file" id="fileItem" name="uploadFile" style="height:30px;">
-					
-					<div id="uploadResult">
-					
+						<input type="file" id="fileItem" name="uploadFile"
+							style="height: 30px;">
+
+						<div id="uploadResult"></div>
+
 					</div>
-
-				</div>
-
-
 			</form>
 
 			<div class="btn_section">
 				<button id="cancelBtn" class="btn">취소</button>
 				<button id="enrollBtn" class="btn enroll_btn">등록</button>
 			</div>
-			
+
 
 		</div>
 
@@ -230,7 +229,7 @@
 
 	<%@include file="./include/admin/footer.jsp"%>
 
-<script>
+	<script>
 
 //let enrollForm = $("#enrollForm")
 	
@@ -585,7 +584,7 @@ $("input[name='bookPrice']").on("change", function(){
 		contentType: false, //서버로 전송되는 content-type
 		data: formData, //서버로 전송할 데이터
 		type: "POST", //서버 요청 타입 get,post
-		dataType:"JSON", //서버로 반환받을 데이터 타입 
+		dataType:"JSON", //서버로 반환받을 데이터 타입 삭
 		success: function(result){
 			console.log(result);
 			showUploadImage(result);
