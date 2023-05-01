@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mybatis.shopping.mapper.AttachMapper;
 import com.mybatis.shopping.model.AttachImageVo;
 
 @Controller
@@ -27,7 +26,7 @@ public class BookController {
 	private static final Logger logger = LoggerFactory.getLogger(BookController.class);
 
 	@Autowired
-	private AttachMapper attachMapper;
+	private AttachService  attachService;
 	
 	/* 메인페이지 이동 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
