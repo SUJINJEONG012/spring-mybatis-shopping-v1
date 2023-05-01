@@ -53,7 +53,6 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	
-	
 
 	/* 상품 리스트 */
 	@Override
@@ -78,10 +77,10 @@ public class AdminServiceImpl implements AdminService {
 
 	
 	/* 상품 수정 페이지 */
-	@Override
+	@Override 
 	public int goodsModify(BookVo bookVo) {
 		log.info("goodsModify()..........." + bookVo);
-		
+		/* 상품 정보 데이터를 db에 반영하는 쿼리문을 수행하는 메서드만을 호출하고 그 결과 값을 반환 */
 		return adminMapper.goodsModify(bookVo);
 	}
 	
