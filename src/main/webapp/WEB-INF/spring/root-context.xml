@@ -60,5 +60,7 @@
 		base-package="com.mybatis.shopping.model"></context:component-scan>
 	<context:component-scan
 		base-package="com.mybatis.shopping.service"></context:component-scan>
+	<context:component-scan
+		base-package="com.mybatis.shopping.task"></context:component-scan>
 
 </beans>

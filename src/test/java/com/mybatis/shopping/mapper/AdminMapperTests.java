@@ -118,10 +118,17 @@ public class AdminMapperTests {
 	
 	
 	/* 지정 상품 이미지 삭제 */
+//	@Test
+//	public void deleteImageAllTests() {
+//		int bookId = 53;
+//		adminMapper.deleteImageAll(bookId);
+//	}
+	
+	
+	/* 어제자 날짜 이미지 리스트 */
 	@Test
-	public void deleteImageAllTests() {
-		int bookId = 53;
-		adminMapper.deleteImageAll(bookId);
+	public void checkImageListTest() {
+		adminMapper.checkFileList();
 	}
 	
 }

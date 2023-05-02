@@ -18,5 +18,4 @@ public class AttachImageVo {
 	private int bookId;
 	
 	
-	
 }
