@@ -105,15 +105,23 @@ public class AdminMapperTests {
 	
 	
 	/* 이미지 등록 테스트 */
+//	@Test
+//	public void imageEnrollTest() {
+//		AttachImageVo attachImageVo = new AttachImageVo();
+//		attachImageVo.setBookId(13);
+//		attachImageVo.setFileName("test");
+//		attachImageVo.setUploadPath("test");
+//		attachImageVo.setUuid("test2");
+//		
+//		adminMapper.imageEnroll(attachImageVo);
+//	}
+	
+	
+	/* 지정 상품 이미지 삭제 */
 	@Test
-	public void imageEnrollTest() {
-		AttachImageVo attachImageVo = new AttachImageVo();
-		attachImageVo.setBookId(13);
-		attachImageVo.setFileName("test");
-		attachImageVo.setUploadPath("test");
-		attachImageVo.setUuid("test2");
-		
-		adminMapper.imageEnroll(attachImageVo);
+	public void deleteImageAllTests() {
+		int bookId = 53;
+		adminMapper.deleteImageAll(bookId);
 	}
 	
 }
