@@ -77,11 +77,25 @@ public class AdminServiceImpl implements AdminService {
 
 	
 	/* 상품 수정 페이지 */
+	@Transactional
 	@Override 
 	public int goodsModify(BookVo bookVo) {
 		log.info("goodsModify()..........." + bookVo);
-		/* 상품 정보 데이터를 db에 반영하는 쿼리문을 수행하는 메서드만을 호출하고 그 결과 값을 반환 */
-		return adminMapper.goodsModify(bookVo);
+	
+		/* 상품 정보 데이터를 db에 반영하는 쿼리문을 수행하는 메서드만을 호출하고 그 결과 값을 반환 
+		return adminMapper.goodsModify(bookVo);*/
+		
+		int result = adminMapper.goodsModify(bookVo);
+		if(result == 1 && bookVo.getImageList() != null && bookVo.getImageList().size() > 0) {
+			adminMapper.deleteImageAll(bookVo.getBookId());
+			bookVo.getImageList().forEach(attach ->{
+				attach.setBookId(bookVo.getBookId());
+				adminMapper.imageEnroll(attach);
+			});
+		}
+		return result;
+		
+		
 	}
 	
 	/* 상품 삭제 페이지 */
