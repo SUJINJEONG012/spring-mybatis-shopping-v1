@@ -35,8 +35,8 @@ public class TaskTest {
 		List<Path> checkFilePath = new ArrayList<Path>();
 		
 		fileList.forEach(bookVo ->{
-			//Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
-			Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			//Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
 			
 			checkFilePath.add(path);
 		});
