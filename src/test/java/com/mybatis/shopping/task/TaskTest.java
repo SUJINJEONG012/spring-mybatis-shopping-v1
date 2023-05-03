@@ -25,15 +25,19 @@ public class TaskTest {
 	@Test
 	public void taskTests() {
 
+		//DB에 저장된 파일 리스트
 		List<AttachImageVo> fileList = adminMapper.checkFileList();
-		System.out.println("fileList : ");
+		
+		System.out.println("디비에 저장된 파일 리스트 : fileList : " + fileList);
 		
 		fileList.forEach(list -> System.out.println(list));
 		
 		List<Path> checkFilePath = new ArrayList<Path>();
 		
 		fileList.forEach(bookVo ->{
-			Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			//Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			
 			checkFilePath.add(path);
 		});
 		

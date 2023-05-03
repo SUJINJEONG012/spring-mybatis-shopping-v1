@@ -129,6 +129,8 @@ public class AdminMapperTests {
 	@Test
 	public void checkImageListTest() {
 		adminMapper.checkFileList();
+		System.out.println("checkFileList !@@:: " + adminMapper.checkFileList());
+	
 	}
 	
 }
