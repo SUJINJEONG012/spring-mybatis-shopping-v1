@@ -79,7 +79,7 @@
 	
 	<!-- 어제자 날짜 이미지 리스트 -->
 	<select id="checkFileList" resultType="com.mybatis.shopping.model.AttachImageVo">
-	 select * from book_image where uploadpath = DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -0 DAY), '%Y\%m\%d')
+	 select * from book_image where uploadpath = DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -1 DAY), '%Y\%m\%d')
 	</select>
 	
 	
