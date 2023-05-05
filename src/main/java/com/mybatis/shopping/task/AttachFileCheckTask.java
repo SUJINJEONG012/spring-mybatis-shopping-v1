@@ -77,7 +77,7 @@ public class AttachFileCheckTask {
 		//삭제대상 파일 제거
 		log.warn("file Delete: ");
 		for(File file : removeFileList) {
-			log.warn(file);
+			log.warn("file delefe: " + file);
 			file.delete();
 		}
 		log.warn("============================");
