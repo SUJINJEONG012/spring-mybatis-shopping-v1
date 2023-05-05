@@ -1,5 +1,7 @@
 package com.mybatis.shopping.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.mybatis.shopping.model.AttachImageVo;
-import com.mybatis.shopping.model.BookVo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -126,11 +127,21 @@ public class AdminMapperTests {
 	
 	
 	/* 어제자 날짜 이미지 리스트 */
-	@Test
-	public void checkImageListTest() {
-		adminMapper.checkFileList();
-		System.out.println("checkFileList !@@:: " + adminMapper.checkFileList());
+//	@Test
+//	public void checkImageListTest() {
+//		adminMapper.checkFileList();
+//		System.out.println("checkFileList !@@:: " + adminMapper.checkFileList());
+//	
+//	}
 	
+	
+	/* 지정 상품 이미지 정보 얻기 */
+	@Test
+	public void getAttachInfoTest() {
+		int bookId = 56;
+		List<AttachImageVo> list = adminMapper.getAttachInfo(bookId);
+		System.out.println("list : " + list);
+		
 	}
 	
 }
