@@ -50,8 +50,8 @@ public class TaskTest {
 		
 		//원본이미지
 		fileList.forEach(bookVo ->{
-			//Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
-			Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			//Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
 			checkFilePath.add(path);
 		});
 		
@@ -61,7 +61,8 @@ public class TaskTest {
 		
 		//썸네일 이미지
 		fileList.forEach(bookVo -> {
-			Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), "s_" + bookVo.getUuid() + "_" + bookVo.getFileName());
+			Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			//Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), "s_" + bookVo.getUuid() + "_" + bookVo.getFileName());
 			checkFilePath.add(path);
 		});
 		
@@ -73,7 +74,9 @@ public class TaskTest {
 		
 		
 		//체크 할 대상의 이미지파일이 저장된 디렉토리를 File객체로 생성 후 targetDir 변수에 대입
-		File targetDir = Paths.get("C:\\upload", getFolderYesterDay()).toFile();
+		File targetDir = Paths.get("/Users/jeongsujin/upload", getFolderYesterDay()).toFile();
+		
+		//File targetDir = Paths.get("C:\\upload", getFolderYesterDay()).toFile();
 		//listFiles()메서드를 호출하여 반환받은 File배열 객체 주소를 targetFile변수에 대입
 		File[] targetFile = targetDir.listFiles();
 		

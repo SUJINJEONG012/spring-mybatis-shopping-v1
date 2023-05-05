@@ -11,8 +11,8 @@ public class testBatch {
 	
 	@Scheduled(cron = "0 * * * * * ")
 	public void testMethod() throws Exception{
-	  log.warn("배지 실행 테스트........");	
-	  log.warn("==========================");
+	 // log.warn("배지 실행 테스트........");	
+	 // log.warn("==========================");
 	}
 
 }

@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -33,35 +34,52 @@ public class AttachFileCheckTask {
 		return str.replace("-", File.separator);
 	}
 	
-	@Scheduled(cron="0 0 1 * * *")
+	@Scheduled(cron="1 * * * * *")
 	public void checkFiles() throws Exception{
 		log.warn("File Check Task Run..........");
-		log.wran(new Date());
+		log.warn(new Date());
 		log.warn("========================================");
 		
 		//DB에 저장된 파일 리스트
 		List<AttachImageVo> fileList = adminMapper.checkFileList();
 		//비교 기준 파일 리스트 (Path 객체)
-		List<Path> checkFilePath = new ArrayList<Paht>();
+		List<Path> checkFilePath = new ArrayList<Path>();
 		
 		//원본이미지
 		fileList.forEach(bookVo ->{
-			Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			//Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
 			checkFilePath.add(path);
 			});
 		//썸네일 이미지
-		fileList.forEach(bookVo ->{
-			Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), "s_" + bookVo.getUuid() + "_" + bookVo.getFileName());
+		fileList.forEach(bookVo ->{	
+			Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+			//Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), "s_" + bookVo.getUuid() + "_" + bookVo.getFileName());
 			checkFilePath.add(path);
 		});
 		
 		
 		//디렉토리 파일 리스트
-		//삭제 대상 파일 리스트(분류0
+		File targetDir = Paths.get("/Users/jeongsujin/upload", getFolderYesterDay()).toFile();
+		//File targetDir = Paths.get("C:\\upload", getFolderYesterDay()).toFile();
+		File[] targetFile = targetDir.listFiles();
+		
+		//삭제 대상 파일 리스트(분류)
+		List<File> removeFileList = new ArrayList<File>(Arrays.asList(targetFile));
+		for(File file : targetFile) {
+			checkFilePath.forEach(checkFile ->{
+				if(file.toPath().equals(checkFilePath))
+					removeFileList.remove(file);
+			});
+		}
 		
 		//삭제대상 파일 제거
-		
-		System.out.println("============================");
+		log.warn("file Delete: ");
+		for(File file : removeFileList) {
+			log.warn(file);
+			file.delete();
+		}
+		log.warn("============================");
 	}
 
 }
