@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.shopping.mapper.BookMapper">
+
+  <!-- 상품 검색 조건  -->
+  <sql id="criteria">
+  <if test="keyword != null">
+  where (bookName like concat ('%', #{keyword},'%'))
+  </if>
+  </sql>
+  
+  
+  <select id="getGoodsList" resultType="com.mybatis.shopping.model.BookVo">
+  
+  select bookId, bookName, b.authName , a.authorId, c.cateName, a.cateCode, publisher, publeYear, bookPrice
+  from book a left outer join author b on a.authorId= b.authorId
+  left outer join bcate c on a.cateCode = c.cateCode
+  <include refid="criteria"></include>
+  order by bookId desc
+  limit #{skip}, #{amount}
+  </select>
+  
+  <select id="goodsGetTotal" resultType="int">
+  select count(*) from book
+  <include refid="criteria"></include>
+  </select>
+  
+  
+  
+  </mapper>
+  
