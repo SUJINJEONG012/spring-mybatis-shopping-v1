@@ -35,7 +35,7 @@
 					대표전화 : oooo-oooo(발신자 부담전화)
 					<br>
 					<br>
-					COPYRIGHT(C) <strong>kimvampa.tistory.com</strong>	ALL RIGHTS RESERVED.
+					COPYRIGHT(C) <strong>dd.sdd.com</strong>	ALL RIGHTS RESERVED.
 				</div>
 				<div class="clearfix"></div>
 			</div>
