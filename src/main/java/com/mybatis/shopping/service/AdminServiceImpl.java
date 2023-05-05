@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mybatis.shopping.mapper.AdminMapper;
+import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
@@ -102,7 +103,19 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int goodsDelete(int bookId) {
 		log.info("goodsDelete.............");
+		//DB데이터 삭제
+		adminMapper.deleteImageAll(bookId);
 		return adminMapper.goodsDelete(bookId);
+	}
+	
+	
+	/* 지정 상품 이미지 정보 얻기 */
+	@Override
+	@Transactional
+	public List<AttachImageVo> getAttachInfo(int bookId) {
+		log.info("getAttachInfo..............");
+			
+		return adminMapper.getAttachInfo(bookId);
 	}
 	
 	

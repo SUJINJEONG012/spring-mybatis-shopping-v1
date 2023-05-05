@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mybatis.shopping.mapper.AttachMapper;
 import com.mybatis.shopping.model.AttachImageVo;
+import com.mybatis.shopping.service.AttachService;
 
 @Controller
 public class BookController {
@@ -27,7 +27,7 @@ public class BookController {
 	private static final Logger logger = LoggerFactory.getLogger(BookController.class);	
 	
 	@Autowired
-	private AttachMapper attachMapper;
+	private AttachService attachService;
 	
 	/* 메인페이지 이동 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -64,7 +64,7 @@ public class BookController {
 	@GetMapping(value="/getAttachList", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<AttachImageVo>> getAttachList(int bookId){
 		logger.info("getAttachList.......... "  + bookId);
-		return new ResponseEntity<List<AttachImageVo>>(attachMapper.getAttachList(bookId), HttpStatus.OK);
+		return new ResponseEntity<List<AttachImageVo>>(attachService.getAttachList(bookId), HttpStatus.OK);
 	}
 	
 

@@ -34,7 +34,7 @@ public class AttachFileCheckTask {
 		return str.replace("-", File.separator);
 	}
 	
-	@Scheduled(cron="1 * * * * *")
+	@Scheduled(cron="0 * * * * *")
 	public void checkFiles() throws Exception{
 		log.warn("File Check Task Run..........");
 		log.warn(new Date());
@@ -51,6 +51,7 @@ public class AttachFileCheckTask {
 			//Path path = Paths.get("C:\\upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
 			checkFilePath.add(path);
 			});
+		
 		//썸네일 이미지
 		fileList.forEach(bookVo ->{	
 			Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
@@ -68,7 +69,7 @@ public class AttachFileCheckTask {
 		List<File> removeFileList = new ArrayList<File>(Arrays.asList(targetFile));
 		for(File file : targetFile) {
 			checkFilePath.forEach(checkFile ->{
-				if(file.toPath().equals(checkFilePath))
+				if(file.toPath().equals(checkFile))
 					removeFileList.remove(file);
 			});
 		}

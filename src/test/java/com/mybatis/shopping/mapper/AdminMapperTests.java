@@ -138,7 +138,7 @@ public class AdminMapperTests {
 	/* 지정 상품 이미지 정보 얻기 */
 	@Test
 	public void getAttachInfoTest() {
-		int bookId = 56;
+		int bookId = 37;
 		List<AttachImageVo> list = adminMapper.getAttachInfo(bookId);
 		System.out.println("list : " + list);
 		

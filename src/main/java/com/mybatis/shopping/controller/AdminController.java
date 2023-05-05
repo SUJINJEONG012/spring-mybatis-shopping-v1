@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -292,6 +294,30 @@ public class AdminController {
 	@PostMapping("/goodsDelete")
 	public String goodsDeletePost(int bookId, RedirectAttributes rttr) {
 		logger.info("goodsDeletePost................");
+		
+		//이미지 정보를 반환해주는 service메서드를 호출하고 반환받은 값을 list타입의 fileList변수에 저장
+		List<AttachImageVo> fileList = adminService.getAttachInfo(bookId);
+		
+		//상품이미지가 존재한다면
+		if(fileList != null) {
+			List<Path> pathList = new ArrayList();
+			
+			fileList.forEach(bookVo ->{
+				//원본이미지
+				//C:\\upload
+				Path path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), bookVo.getUuid() + "_" + bookVo.getFileName());
+				pathList.add(path);
+				
+				//썸네일 이미지 
+				path = Paths.get("/Users/jeongsujin/upload", bookVo.getUploadPath(), "s_" +  bookVo.getUuid() + "_" + bookVo.getFileName());
+				pathList.add(path);
+			});
+			
+			pathList.forEach(path -> {
+				path.toFile().delete();
+			});
+		}
+		
 		int result = adminService.goodsDelete(bookId);
 		rttr.addFlashAttribute("delete_result", result);
 		return "redirect:/admin/goodsManage";

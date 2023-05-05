@@ -2,6 +2,7 @@ package com.mybatis.shopping.service;
 
 import java.util.List;
 
+import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
@@ -28,6 +29,7 @@ public interface AdminService {
 	/* 상품 삭제 */
 	public int goodsDelete(int bookId);
 	
-	
+	/* 지정 상품 이미지 정보 얻기 */
+	public List<AttachImageVo> getAttachInfo(int bookId);
 
 }
