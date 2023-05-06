@@ -55,7 +55,7 @@
 /* 홈페이지 메인 제품 목록  */
 .content_area{
 	width: 100%;
-	min-height:1000px;
+	min-height:500px;
   
 }
 
@@ -399,7 +399,7 @@ span.final_addr_ck{display:none;}
 	width: 100%;
    
     background-color: #6AAFE6;
-   
+
     color: white;
 }
 

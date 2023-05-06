@@ -38,8 +38,8 @@
 	<!-- 상품 검색 -->
 	<select id="getGoodsList"
 		resultType="com.mybatis.shopping.model.BookVo">
-		select bookId, bookName, b.authName , a.authorId, c.cateName,
-		a.cateCode, publisher, publeYear, bookPrice
+		select bookId, bookName, b.authName, a.authorId, c.cateName,
+		a.cateCode, publisher, publeYear, bookPrice, bookDiscount
 		from book a left outer join
 		author b on a.authorId= b.authorId
 		left outer join bcate c on

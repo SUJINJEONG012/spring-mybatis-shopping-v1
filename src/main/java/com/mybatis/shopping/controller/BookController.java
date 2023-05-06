@@ -88,7 +88,7 @@ public class BookController {
 			model.addAttribute("list" , list);
 			logger.info("pre list : " + list);
 		}else {
-			model.addAttribute("listcheck ", "empty");
+			model.addAttribute("listcheck" , "empty");
 			return "search";
 		}
 		

@@ -88,7 +88,7 @@
 
 
 			<div class="content_area">
-				<!-- 게시물 있을 때 -->
+				<!-- 게시물 있을 때 -->	
 				<c:if test="${listcheck != 'empty'}">
 
 				</c:if>
@@ -96,7 +96,10 @@
 				<c:if test="${listcheck == 'empty'}">
 					<div class="table_empty">검색결과가 없습니다.</div>
 				</c:if>
+				
 			</div>
+			
+			
 		</div>
 
 		<!-- Footer 영역 -->

@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mybatis.shopping.mapper.AttachMapper;
 import com.mybatis.shopping.mapper.BookMapper;
+import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
 
@@ -18,6 +20,9 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	private BookMapper bookMapper;
+	
+	@Autowired
+	private AttachMapper attachMapper;
 	
 	/* 상품 검색 */
 	@Override
@@ -41,6 +46,7 @@ public class BookServiceImpl implements BookService {
 			}
 		}
 		
+
 		return bookMapper.getGoodsList(cri);
 	}
 
