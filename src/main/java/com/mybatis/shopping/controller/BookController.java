@@ -77,7 +77,7 @@ public class BookController {
 	
 	
 	/* 상품검색 */
-	@GetMapping("search")
+	@GetMapping("/search")
 	public String searchGoodsGet(Criteria cri, Model model) {
 		logger.info("@@ cri : " + cri);
 		

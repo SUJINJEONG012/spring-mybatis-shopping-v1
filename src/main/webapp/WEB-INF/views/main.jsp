@@ -47,6 +47,12 @@
 					<h1>search area</h1>
 					<form id="searchForm" action="/search" method="get">
 					<div class="search_input">
+					
+					<select name="type">
+					<option value="T">책 제목 </option>
+					<option value="A">작가 </option>
+					</select>
+					
 					<input type="text" name="keyword">
 					<button class="btn search_btn">검색 </button>
 					</div>

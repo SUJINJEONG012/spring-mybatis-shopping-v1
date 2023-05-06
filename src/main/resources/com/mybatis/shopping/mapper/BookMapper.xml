@@ -38,7 +38,6 @@
 	<!-- 상품 검색 -->
 	<select id="getGoodsList"
 		resultType="com.mybatis.shopping.model.BookVo">
-
 		select bookId, bookName, b.authName , a.authorId, c.cateName,
 		a.cateCode, publisher, publeYear, bookPrice
 		from book a left outer join
@@ -52,7 +51,7 @@
 
 	<!-- 상품 총 개수 -->
 	<select id="goodsGetTotal" resultType="int">
-		select count(*) from book
+		select count(*) from book a
 		<include refid="criteria"></include>
 	</select>
 

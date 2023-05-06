@@ -29,7 +29,7 @@ public class BookServiceImpl implements BookService {
 		String [] authorArr = bookMapper.getAuthorIdList(cri.getKeyword());
 		
 		
-		if(type.equals("A") || type.equals("C") || type.equals("AT") || type.equals("ACT")) {
+		if(type.equals("A") || type.equals("AC") || type.equals("AT") || type.equals("ACT")) {
 			if(authorArr.length == 0) {
 				return new ArrayList();
 			}
@@ -40,7 +40,6 @@ public class BookServiceImpl implements BookService {
 				cri.setAuthorArr(authorArr);
 			}
 		}
-		
 		
 		return bookMapper.getGoodsList(cri);
 	}
