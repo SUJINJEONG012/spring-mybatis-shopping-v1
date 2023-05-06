@@ -12,4 +12,7 @@ public interface BookService {
 	
 	/* 상품 총 개수 */
 	public int goodsGetTotal(Criteria cri);
+	
+
+	
 }

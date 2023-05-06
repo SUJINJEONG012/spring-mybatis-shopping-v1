@@ -5,30 +5,67 @@
 
 <mapper namespace="com.mybatis.shopping.mapper.BookMapper">
 
-  <!-- 상품 검색 조건  -->
-  <sql id="criteria">
-  <if test="keyword != null">
-  where (bookName like concat ('%', #{keyword},'%'))
-  </if>
-  </sql>
-  
-  
-  <select id="getGoodsList" resultType="com.mybatis.shopping.model.BookVo">
-  
-  select bookId, bookName, b.authName , a.authorId, c.cateName, a.cateCode, publisher, publeYear, bookPrice
-  from book a left outer join author b on a.authorId= b.authorId
-  left outer join bcate c on a.cateCode = c.cateCode
-  <include refid="criteria"></include>
-  order by bookId desc
-  limit #{skip}, #{amount}
-  </select>
-  
-  <select id="goodsGetTotal" resultType="int">
-  select count(*) from book
-  <include refid="criteria"></include>
-  </select>
-  
-  
-  
-  </mapper>
+	<!-- 상품 검색 조건 -->
+	<sql id="criteria">
+
+		<trim prefix="where (" suffix=")" prefixOverrides="AND">
+
+			<foreach item="type" collection="typeArr">
+				<choose>
+					<when test="type == 'A'.toString()">
+						<trim prefixOverrides="or">
+							<foreach collection="authorArr" item="authorId">
+								<trim prefix="or">
+									a.authorId = #{authorId}
+								</trim>
+							</foreach>
+						</trim>
+					</when>
+
+					<when test="type == 'C'.toString()">
+						a.cateCode like concat ('%',#{cateCode}, '%')
+					</when>
+					<when test="type == 'T'.toString()">
+						bookName like concat ( '%',  #{keyword},'%')
+					</when>
+
+				</choose>
+			</foreach>
+		</trim>
+
+	</sql>
+
+	<!-- 상품 검색 -->
+	<select id="getGoodsList"
+		resultType="com.mybatis.shopping.model.BookVo">
+
+		select bookId, bookName, b.authName , a.authorId, c.cateName,
+		a.cateCode, publisher, publeYear, bookPrice
+		from book a left outer join
+		author b on a.authorId= b.authorId
+		left outer join bcate c on
+		a.cateCode = c.cateCode
+		<include refid="criteria"></include>
+		order by bookId desc
+		limit #{skip}, #{amount}
+	</select>
+
+	<!-- 상품 총 개수 -->
+	<select id="goodsGetTotal" resultType="int">
+		select count(*) from book
+		<include refid="criteria"></include>
+	</select>
+
+
+	<!-- 작가 Id 리스트 요청 -->
+	<select id="getAuthorIdList" resultType="String">
+		select authorId from
+		author where authName like concat ('%', #{keyword},
+		'%')
+	</select>
+
+
+
+
+</mapper>
   

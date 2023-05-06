@@ -1,5 +1,6 @@
 package com.mybatis.shopping.model;
 
+import java.util.Arrays;
 
 /*
  * 작가 데이터를 출력하는 쿼리
@@ -18,6 +19,12 @@ public class Criteria {
 	private String type;
 	/* 검색 키워드 */
 	private String keyword;
+	/* 작가 리스트 */
+	private String[] authorArr;
+	/* 카테고리 코드 */
+	private String cateCode;
+	
+	
 	
 	/* Criteria 생성자 */
 	public Criteria(int pageNum, int amount) {
@@ -29,6 +36,7 @@ public class Criteria {
 	public Criteria() {
 		this(1,10);
 	}
+	
 	/* 검색 타입 데이터 배열 변환 */
 	public String[] getTypeArr() {
 		return type == null ? new String[] {}:type.split("");
@@ -71,10 +79,26 @@ public class Criteria {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+	
+	public String[] getAuthorArr() {
+		return authorArr;
+	}
+	public void setAuthorArr(String[] authorArr) {
+		this.authorArr = authorArr;
+	}
+	public String getCateCode() {
+		return cateCode;
+	}
+	public void setCateCode(String cateCode) {
+		this.cateCode = cateCode;
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", type=" + type
-				+ ", keyword=" + keyword + "]";
+				+ ", keyword=" + keyword + ", authorArr=" + Arrays.toString(authorArr) + ", cateCode=" + cateCode + "]";
 	}
 	
 	

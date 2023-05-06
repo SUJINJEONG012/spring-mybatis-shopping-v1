@@ -12,4 +12,8 @@ public interface BookMapper {
 	
 	/* 상품 총 개수 */
 	public int goodsGetTotal(Criteria cri);
+	
+	/* 작가 ID 리스트 요청 */
+	public String[] getAuthorIdList(String keyword);
+	
 }
