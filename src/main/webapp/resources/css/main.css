@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+
+ 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat'); [lang="en"] { font-family:"Montserrat",  "Noto Sans KR", sans-serif,"맑은 고딕","Nanum Gothic","나눔 고딕","돋움",dotum,sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Noto%20Sans%20KR'); [lang="ko"] { font-family: "Noto Sans KR", "Montserrat", sans-serif,"맑은 고딕","Nanum Gothic","나눔 고딕","돋움",dotum,sans-serif; }
+
+
+
 *{margin:0; padding:0;}
 
 .wrapper{ width:100%;}
@@ -24,8 +32,8 @@
 .top_area{ width:100%; }
 /* 로고 영역 */
 
-.logo_area{width:25%; height:100%; /* background-color:red; */ float:left;}
-.search_area{width:50%; height:100%; /*background-color:yellow;*/ float:left;}
+.logo_area{width:25%; height:100%; }
+.search_area{width:50%; height:100%; }
 
 .login_area{ text-align:center;}
 
@@ -447,6 +455,86 @@ span.final_addr_ck{display:none;}
     margin: 200px 0 215px 0px;
     font-size: 25px;
 }
+
+/* 검색결과  상품 표 */
+	.list_search_result{
+		width: 90%;
+	    margin: auto;	
+	}
+	.type_list{
+	    width: 100%;
+	    border-bottom: 1px solid #e7e7e7;
+	    border-collapse: collapse;	
+	}
+	.type_list tr{
+		height:200px;
+		border-bottom: 1px solid #e7e7e7;
+	}
+	.detail div{
+		margin-bottom: 5px;
+	}
+	.category{
+		font-size: 12px;
+    	font-weight: 600;
+	}
+	.title{
+	    font-size: 20px;
+	    color: #3a60df;
+	    font-weight: 700;
+	}
+	.author{
+		font-size: 14px;
+	}
+	.info{
+		text-align: center;
+	}
+	.price{
+		text-align: center;
+	}
+	.org_price del{
+		font-size: 13px;
+	}
+	.sell_price strong{
+		color: #da6262;
+    	font-size: 18px;
+	}
+
+/* 페이지 버튼 인터페이스 */
+	.pageMaker_wrap{
+		text-align: center;
+	    margin-top: 30px;
+	    margin-bottom: 40px;
+	}
+	.pageMaker{
+	    list-style: none;
+	    display: inline-block;
+	}	
+	.pageMaker_btn {
+	    float: left;
+	    width: 40px;
+	    height: 40px;
+	    line-height: 40px;
+	    margin-left: 20px;
+	}
+	.active{
+		border : 2px solid black;
+		font-weight:400;
+	}
+	.next, .prev {
+	    border: 1px solid #ccc;
+	    padding: 0 10px;
+	}
+	.pageMaker_btn a:link {color: black;}
+	.pageMaker_btn a:visited {color: black;}
+	.pageMaker_btn a:active {color: black;}
+	.pageMaker_btn a:hover {color: black;}
+	.next a, .prev a {
+	    color: #ccc;
+	}
+ 
+
+
+
 
 /* footer navai 영역 */
 .footer_nav{
