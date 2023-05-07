@@ -41,7 +41,7 @@
 
 			<div class="top_area">
 				<div class="logo_area">
-					<h1><a href="/main">logo area</a></h1>
+					<h1><a href="/">logo area</a></h1>
 				</div>
 				<div class="search_area">
 					<h1>search area</h1>
@@ -86,8 +86,35 @@
 
 
 			<div class="navi_bar_area">
-				<h1>navi area</h1>
+				<div class="dropdown">
+				  <button class="dropbtn">국내
+				  <i class="fa fa-caret-down"></i>
+				  </button>
+				  <div class="dropdown-content">
+				   <a href="/search?type=C&cateCode=202001">교양</a>
+				   <a href="#">테스트2</a>
+				   <a href="#">테스트3</a>
+				   <a href="#">테스트4</a>
+				   <a href="#">테스트5</a>
+				   <a href="#">테스트6</a>
+				  </div>
+				</div>
+				
+				<div class="dropdown">
+				<button class="dropbtn">국외
+				  <i class="fa fa-caret-down"></i>
+				  </button>
+				  <div class="dropdown-content">
+				   <a href="#">테스트1</a>
+				   <a href="#">테스트2</a>
+				   <a href="#">테스트3</a>
+				   <a href="#">테스트4</a>
+				   <a href="#">테스트5</a>
+				   <a href="#">테스트6</a>
+				  </div>
+				</div>
 			</div>
+			
 			<div class="content_area">
 				<h1>content area</h1>
 			</div>
