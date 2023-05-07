@@ -267,22 +267,53 @@
 										.attr("selected", "selected");
 							}
 
+							/* 이미지 삽입 내가 */
+							$(".image_wrap").each(function(i, obj) {
+									
+								const bobj = $(obj);
+									
+								if(bobj.data("bookid")){
+										
+									const uploadPath = bobj.data("path");
+									const uuid = bobj.data("uuid");
+									const fileName = bobj.data("filename");
+
+									const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+													
+									$(this).find("img").attr('src', '/display?fileName=' + fileCallPath);
+									
+								}else{
+									
+									$(this).find("img").attr('src', '/resources/img/goodsNoImage.png');
+								
+								}
+									
+							}); 
+							
+							
 							/* 이미지 삽입 */
-							$(".image_wrap")
-									.each(
-											function(i, obj) {
-												const bobj = $(obj);
-												const uploadPath = bobj
-														.data("path");
-												const uuid = bobj.data("uuid");
-												const fileName = bobj
-														.data("filename");
-
-												const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
-												
-												$(this).find("img").attr('src', '/display?fileName='+ fileCallPath);
-
-											});
+							 /* $(".image_wrap").each(function(i, obj){
+								
+								const bobj = $(obj);
+								
+								if(bobj.data("bookid")){
+									const uploadPath = bobj.data("path");
+									const uuid = bobj.data("uuid");
+									const fileName = bobj.data("filename");
+									
+									const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+									
+									$(this).find("img").attr('src', '/display?fileName=' + fileCallPath);
+									
+								} else {
+									
+									$(this).find("img").attr('src', '/resources/img/goodsNoImage.png');
+									
+								}
+								
+							});		 */ 
+							
+							
 						});
 	</script>
 </body>
