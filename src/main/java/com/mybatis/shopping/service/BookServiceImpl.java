@@ -27,6 +27,7 @@ public class BookServiceImpl implements BookService {
 	/* 상품 검색 */
 	@Override
 	public List<BookVo> getGoodsList(Criteria cri) {
+		
 		log.info("getGoodsList()............");
 		
 		String type= cri.getType();
@@ -46,8 +47,14 @@ public class BookServiceImpl implements BookService {
 			}
 		}
 		
-
-		return bookMapper.getGoodsList(cri);
+		List<BookVo> list = bookMapper.getGoodsList(cri);
+		list.forEach(book->{
+			int bookId = book.getBookId();
+			List<AttachImageVo> imageList = attachMapper.getAttachList(bookId);
+			book.setImageList(imageList);
+		});
+		
+		return list;
 	}
 
 	/* 상품 총 개수 */

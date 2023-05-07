@@ -68,6 +68,9 @@ public class BookController {
 	
 	}
 	
+	
+	
+	
 	/* 이미지 반환 */
 	@GetMapping(value="/getAttachList", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<AttachImageVo>> getAttachList(int bookId){
@@ -82,6 +85,7 @@ public class BookController {
 		logger.info("@@ cri : " + cri);
 		
 		List<BookVo> list = bookService.getGoodsList(cri);
+		
 		logger.info("pre list : " + list);
 		
 		if(!list.isEmpty()) {
@@ -94,5 +98,6 @@ public class BookController {
 		
 		model.addAttribute("pageMaker",  new PageDto(cri, bookService.goodsGetTotal(cri)));
 		return "search";
+		
 	}
 }

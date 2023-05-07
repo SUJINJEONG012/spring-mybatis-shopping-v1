@@ -52,8 +52,8 @@
 							<select name="type">
 								<option value="T">책 제목</option>
 								<option value="A">작가</option>
-							</select> 
-							<input type="text" name="keyword" value="<c:out value="${pageMaker.cri.keyword}"/>">
+							</select> <input type="text" name="keyword"
+								value="<c:out value="${pageMaker.cri.keyword}"/>">
 							<button class="btn search_btn">검색</button>
 						</div>
 					</form>
@@ -103,11 +103,23 @@
 							<tbody id="searchList">
 								<c:forEach items="${list}" var="list">
 									<tr>
-										<td class="image"></td>
+										<td class="image">
+							
+
+											<div class="image_wrap"
+												data-bookid="${list.imageList[0].bookId}"
+												data-path="${list.imageList[0].uploadPath}"
+												data-uuid="${list.imageList[0].uuid}"
+												data-filename="${list.imageList[0].fileName}">
+												<img>
+											</div>
+
+										</td>
 										<td class="detail">
 											<div class="category">[${list.cateName}]</div>
 											<div class="title">${list.bookName }</div>
-											<div class="author" lang="en">${list.authName } 지음 | ${list.publisher} | ${list.publeYear}</div>
+											<div class="author" lang="en">${list.authName }지음 |
+												${list.publisher} | ${list.publeYear}</div>
 
 										</td>
 										<td>
@@ -147,8 +159,8 @@
 							</c:if>
 
 							<!-- 페이지 번호  -->
-							<c:forEach begin="${pageMaker.pageStart}" end="${pageMaker.pageEnd}"
-								var="num">
+							<c:forEach begin="${pageMaker.pageStart}"
+								end="${pageMaker.pageEnd}" var="num">
 								<li
 									class="pageMaker_btn ${pageMaker.cri.pageNum == num ? 'active':''}">
 									<a href="${num}">${num}</a>
@@ -162,12 +174,13 @@
 							</c:if>
 						</ul>
 					</div>
-					
+
 					<form id="moveForm" action="/search" method="get">
-					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-					<input type="hidden" name="amout" value="${pageMaker.cri.amount}">
-					<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
-					<input type="hidden" name="type" value="${pageMaker.cri.type}">
+						<input type="hidden" name="pageNum"
+							value="${pageMaker.cri.pageNum}"> <input type="hidden"
+							name="amout" value="${pageMaker.cri.amount}"> <input
+							type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+						<input type="hidden" name="type" value="${pageMaker.cri.type}">
 					</form>
 
 
@@ -235,23 +248,42 @@
 				}
 			}); //ajax
 		})
-		
+
 		/* 페이지 이동 버튼 */
 		const moveForm = $('#moveForm');
-		$(".pageMaker_btn a").on("click", function(e){
+		$(".pageMaker_btn a").on("click", function(e) {
 			e.preventDefault();
 			moveForm.find("input[name='pageNum']").val($(this).attr("href"));
 			moveForm.submit();
 		});
-		
+
 		/* 검색 타입  */
-		$(document).ready(function(){
-			const selectedType='<c:out value="${pageMaker.cri.type}" />';
-			if(selectedType != ""){
-				$("select[name='type']").val(selectedType).attr("selected", "selected");
-			}
-		});
-		
+		$(document)
+				.ready(
+						function() {
+							const selectedType = '<c:out value="${pageMaker.cri.type}" />';
+							if (selectedType != "") {
+								$("select[name='type']").val(selectedType)
+										.attr("selected", "selected");
+							}
+
+							/* 이미지 삽입 */
+							$(".image_wrap")
+									.each(
+											function(i, obj) {
+												const bobj = $(obj);
+												const uploadPath = bobj
+														.data("path");
+												const uuid = bobj.data("uuid");
+												const fileName = bobj
+														.data("filename");
+
+												const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+												
+												$(this).find("img").attr('src', '/display?fileName='+ fileCallPath);
+
+											});
+						});
 	</script>
 </body>
 </html>
