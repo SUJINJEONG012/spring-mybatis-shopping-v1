@@ -17,12 +17,10 @@
 		<div class="wrap">
 
 			<div class="top_gnb_area">
-
 				<ul class="list">
 					<c:if test="${member == null }">
 						<li><a href="/member/login">로그인</a></li>
 						<li><a href="/member/join">회원가입</a></li>
-
 					</c:if>
 
 					<c:if test="${member != null}">
@@ -41,7 +39,7 @@
 			<div class="top_area">
 				<div class="logo_area">
 					<h1>
-						<a href="/main">logo area</a>
+						<a href="/">logo area</a>
 					</h1>
 				</div>
 				<div class="search_area">
@@ -176,10 +174,10 @@
 					</div>
 
 					<form id="moveForm" action="/search" method="get">
-						<input type="hidden" name="pageNum"
-							value="${pageMaker.cri.pageNum}"> <input type="hidden"
-							name="amout" value="${pageMaker.cri.amount}"> <input
-							type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}"> 
+						<input type="hidden" name="amout" value="${pageMaker.cri.amount}"> 
+						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+						<input type="hidden" name="cateCode" value="<c:out value=""${pageMaker.cri.cateCode}/>">
 						<input type="hidden" name="type" value="${pageMaker.cri.type}">
 					</form>
 

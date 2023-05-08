@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<%@include file="./include/admin/header.jsp" %>
+<%@include file="../include/admin/header.jsp" %>
 
 
                <div class="admin_content_wrap">
@@ -17,7 +17,7 @@
                 </div>
                 
                 
-<%@include file="./include/admin/footer.jsp" %>
+<%@include file="../include/admin/footer.jsp" %>
 
 
 </body>

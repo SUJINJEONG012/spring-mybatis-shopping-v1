@@ -11,6 +11,7 @@
 <body>
 <div class="wrapper">
         <div class="wrap">
+           
             <!-- gnv_area -->	
             <div class="top_gnb_area">
                 <ul class="list">	

@@ -24,7 +24,7 @@
 
 <body>
 
-	<%@include file="./include/admin/header.jsp"%>
+	<%@include file="../include/admin/header.jsp"%>
 
 	<style>
 #result_card img {
@@ -211,7 +211,7 @@
 
 
 
-	<%@include file="./include/admin/footer.jsp"%>
+	<%@include file="../include/admin/footer.jsp"%>
 
 
 	<script>

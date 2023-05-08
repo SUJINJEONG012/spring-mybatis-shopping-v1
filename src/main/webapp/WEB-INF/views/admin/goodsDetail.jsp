@@ -27,7 +27,7 @@ margin-top:10px;
 }
 </style>
 
-	<%@include file="./include/admin/header.jsp"%>
+	<%@include file="../include/admin/header.jsp"%>
 
 
 
@@ -211,7 +211,7 @@ margin-top:10px;
 
 	</div>
 
-	<%@include file="./include/admin/footer.jsp"%>
+	<%@include file="../include/admin/footer.jsp"%>
 
 
 

@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
- <%@include file="./include/admin/header.jsp" %>
+ <%@include file="../include/admin/header.jsp" %>
 <style>
 .admin_list_03{
     background-color: #c8c8c8;
@@ -69,7 +69,7 @@
                 <!-- admin_content_wrap end -->
                
        
-    <%@include file="./include/admin/footer.jsp" %>
+ <%@include file="../include/admin/footer.jsp" %>
 <script>
 $("#enrollBtn").click(function(){
 	
