@@ -3,6 +3,7 @@ package com.mybatis.shopping.mapper;
 import java.util.List;
 
 import com.mybatis.shopping.model.BookVo;
+import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
 
 public interface BookMapper {
@@ -16,4 +17,8 @@ public interface BookMapper {
 	/* 작가 ID 리스트 요청 */
 	public String[] getAuthorIdList(String keyword);
 	
+	/* 국내 카테고리 리스트 */
+	public List<CateVo> getCateCode1();
+	/* 국외 카테고리 리스트 */
+	public List<CateVo> getCateCode2();
 }

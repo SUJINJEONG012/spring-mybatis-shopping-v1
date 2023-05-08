@@ -10,6 +10,7 @@ import com.mybatis.shopping.mapper.AttachMapper;
 import com.mybatis.shopping.mapper.BookMapper;
 import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
+import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
 
 import lombok.extern.log4j.Log4j;
@@ -62,6 +63,20 @@ public class BookServiceImpl implements BookService {
 	public int goodsGetTotal(Criteria cri) {
 		log.info("goodsGetTotal()..........");
 		return bookMapper.goodsGetTotal(cri);
+	}
+
+	/* 국내 카테고리 리스트 */
+	@Override
+	public List<CateVo> getCateCode1() {
+		log.info("getCateCode1()....");
+		return bookMapper.getCateCode1();
+	}
+
+	/* 국외 카테고리 리스트 */
+	@Override
+	public List<CateVo> getCateCode2() {
+		log.info("getCateCode2()....");
+		return bookMapper.getCateCode2();
 	}
 
 }

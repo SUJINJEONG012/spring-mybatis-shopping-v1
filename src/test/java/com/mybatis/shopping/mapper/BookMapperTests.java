@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.mybatis.shopping.model.BookVo;
+import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -84,8 +85,10 @@ public class BookMapperTests {
 		System.out.println("list : " + list);
 	}
 	
-	
-	
-	
-	
+	@Test
+	public void getCateCode1() {
+		List<CateVo> getCateCode1 = bookMapper.getCateCode1();
+		System.out.println("getCateCode1 @@@@@@: " + getCateCode1);
+	}
+
 }

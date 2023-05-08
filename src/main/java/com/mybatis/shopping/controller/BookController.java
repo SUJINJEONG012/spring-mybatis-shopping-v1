@@ -39,8 +39,11 @@ public class BookController {
 	
 	/* 메인페이지 이동 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String main() {
+	public String main(Model model) {
+		
 		logger.info("메인페이지 진입 ");
+		model.addAttribute("cate1",bookService.getCateCode1());
+		model.addAttribute("cate2",bookService.getCateCode2());
 		return "main";
 	}
 	
@@ -51,8 +54,8 @@ public class BookController {
 	
 	logger.info("getImage()..........." + fileName);
 	
-	//File file = new File("C:\\upload\\" + fileName);
-	File file = new File("/Users/jeongsujin/upload/" + fileName);
+	File file = new File("C:\\upload\\" + fileName);
+	//File file = new File("/Users/jeongsujin/upload/" + fileName);
 	
 	ResponseEntity<byte[]> result = null;
 	
