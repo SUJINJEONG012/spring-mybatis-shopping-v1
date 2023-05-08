@@ -93,20 +93,36 @@ public class BookMapperTests {
 	
 	
 	/* 카테고리 테스트 */
+//	@Test
+//	public void getCateListTest1() {
+//		Criteria cri = new Criteria();
+//		String type="TC";
+//		String keyword = "테스트";
+//		
+//		cri.setType(type);
+//		cri.setKeyword(keyword);
+//		
+//		String[] cateList = bookMapper.getCateList(cri);
+//		for(String codeNum : cateList) {
+//			System.out.println("codeNum : " +codeNum);
+//		};
+//	}
+	
+	/* 카테고리 정보 얻기 */
 	@Test
-	public void getCateListTest1() {
+	public void getCateInfoTest1() {
 		Criteria cri = new Criteria();
+		
 		String type="TC";
-		String keyword = "테스트";
+		String keyword="테스트";
+		String cateCode = "103004";
 		
 		cri.setType(type);
 		cri.setKeyword(keyword);
+		cri.setCateCode(cateCode);
 		
-		String[] cateList = bookMapper.getCateList(cri);
-		for(String codeNum : cateList) {
-			System.out.println("codeNum : " +codeNum);
-		}
-		;
+		bookMapper.getCateInfo(cri);
+		
 	}
 	
 
