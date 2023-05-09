@@ -10,6 +10,7 @@ import com.mybatis.shopping.mapper.AttachMapper;
 import com.mybatis.shopping.mapper.BookMapper;
 import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
+import com.mybatis.shopping.model.CateFilterDto;
 import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
 
@@ -77,6 +78,41 @@ public class BookServiceImpl implements BookService {
 	public List<CateVo> getCateCode2() {
 		log.info("getCateCode2()....");
 		return bookMapper.getCateCode2();
+	}
+
+	/* 검색 결과 카테고리 필터 정보 반환 해주는 메서드 */
+	@Override
+	public List<CateFilterDto> getCateInfoList(Criteria cri) {
+		//먼저 반환할 데이터가 담길 상자 역할을 할 List<CateFilterDto타입의 filterInfoList객체를 선언 및 초기화
+		List<CateFilterDto> filterInfoList = new ArrayList<CateFilterDto>();
+		
+		
+		String[] typeArr = cri.getType().split("");
+		String[] authorArr;
+		
+		for(String type: typeArr) {
+			if(type.equals("A")) {
+				authorArr = bookMapper.getAuthorIdList(cri.getKeyword());
+				if(authorArr.length == 0) {
+					return filterInfoList;
+				}
+				cri.setAuthorArr(authorArr);
+			}
+		}
+		
+		//필터 정보의 대상이 될 '카테고리코드'를 반환해주는 getAuthorIdList를 호출 하고 반환값을  String 배열 타입의 cateList 변수에 저장
+		String[] cateList = bookMapper.getCateList(cri);
+		String tempCateCode = cri.getCateCode();
+
+		for(String cateCode : cateList) {
+			cri.setCateCode(cateCode);
+			CateFilterDto filterInfo = bookMapper.getCateInfo(cri);
+			filterInfoList.add(filterInfo);
+		}
+		
+		cri.setCateCode(tempCateCode);
+		
+		return filterInfoList ;
 	}
 
 }

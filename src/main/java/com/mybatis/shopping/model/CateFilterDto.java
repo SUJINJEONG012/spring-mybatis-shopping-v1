@@ -41,7 +41,7 @@ public class CateFilterDto {
 	
 	@Override
 	public String toString() {
-		return "CateFilterVo [cateName=" + cateName + ", cateCode=" + cateCode + ", cateCount=" + cateCount
+		return "CateFilterDto [cateName=" + cateName + ", cateCode=" + cateCode + ", cateCount=" + cateCount
 				+ ", cateGroup=" + cateGroup + "]";
 	}
 	

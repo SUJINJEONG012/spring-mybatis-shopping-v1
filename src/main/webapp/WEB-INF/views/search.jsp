@@ -89,6 +89,7 @@
 			<div class="content_area">
 				<!-- 게시물 있을 때 -->
 				<c:if test="${listcheck != 'empty'}">
+				${filter_info}
 					<div class="list_search_result">
 						<table>
 							<colgroup>
@@ -177,7 +178,7 @@
 						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}"> 
 						<input type="hidden" name="amout" value="${pageMaker.cri.amount}"> 
 						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
-						<input type="hidden" name="cateCode" value="<c:out value=""${pageMaker.cri.cateCode}/>">
+						<input type="hidden" name="cateCode" value="<c:out value="${pageMaker.cri.cateCode}" />">
 						<input type="hidden" name="type" value="${pageMaker.cri.type}">
 					</form>
 
