@@ -9,8 +9,7 @@
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
 <link rel="stylesheet" href="/resources/css/main.css">
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 
@@ -29,7 +28,7 @@
 						<c:if test="${member.adminCk == 1}">
 							<li><a href="/admin/main">관리자 페이지</a></li>
 						</c:if>
-						<li><a href="" id="gnb_logout_button">로그아웃</a></li>
+						<li><a href="/member/logout" id="gnb_logout_button">로그아웃</a></li>
 						<li><a href="">마이룸</a></li>
 						<li><a href="">장바구니</a></li>
 					</c:if>
@@ -113,7 +112,11 @@
 			</div>			
 			<div class="content_top">
 				<div class="ct_left_area">
-					<div class="image_wrap" data-bookid="${goodsInfo.imageList[0].bookId}" data-path="${goodsInfo.imageList[0].uploadPath}" data-uuid="${goodsInfo.imageList[0].uuid}" data-filename="${goodsInfo.imageList[0].fileName}">
+					<div class="image_wrap" 
+					data-bookid="${goodsInfo.imageList[0].bookId}" 
+					data-path="${goodsInfo.imageList[0].uploadPath}" 
+					data-uuid="${goodsInfo.imageList[0].uuid}" 
+					data-filename="${goodsInfo.imageList[0].fileName}">
 						<img>
 					</div>				
 				</div>
@@ -142,7 +145,7 @@
 					</div>	
 					<div class="price">
 						<div class="sale_price">정가 : <fmt:formatNumber value="${goodsInfo.bookPrice}" pattern="#,### 원" /></div>
-						<div class="discount_price">
+						<div class="discount_price" lang="en">
 							판매가 : <span class="discount_price_number"><fmt:formatNumber value="${goodsInfo.bookPrice - (goodsInfo.bookPrice*goodsInfo.bookDiscount)}" pattern="#,### 원" /></span> 
 							[<fmt:formatNumber value="${goodsInfo.bookDiscount*100}" pattern="###" />% 
 							<fmt:formatNumber value="${goodsInfo.bookPrice*goodsInfo.bookDiscount}" pattern="#,### 원" /> 할인]</div>							
@@ -227,18 +230,37 @@
 
 
 <script>
- /* gnb_area 로그아웃 버튼 작동 */
-$("#gnb_logout_button").click(function(){
-	//alert("버튼 작동");
-	$.ajax({
-		type:"post",
-		url: "/member/logout",
-		success:function(data){
-			alert("로그아웃 성공");
-			document.location.reload();
-		}
-	});
-})
+
+$(document).ready(function(){
+	
+	const bobj = $(".image_wrap");
+	
+	if(bobj.data("bookid")){
+		const uploadPath = bobj.data("path");
+		const uuid = bobj.data("uuid");
+		const fileName = bobj.data("filename");
+		const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+		
+		bobj.find("img").attr("src", "/display?fileName=" + fileCallPath);
+		
+	}else{
+		bobj.find("img").attr("src", "/resources/img/goodsNoImage.png");
+	} 
+	
+	/* publeyear */
+	const year = "${goodsInfo.publeYear}";
+	let tempYear = year.substr(0,10);
+	let yearArray = tempYear.split("-");
+	let publeYear = yearArray[0] + "년 " + yearArray[1] + "월 " + yearArray[2] + "일 ";
+	$(".publeyear").html(publeYear);
+	
+		
+});
+
+
+
+
+
  </script>
 </body>
 </html>
