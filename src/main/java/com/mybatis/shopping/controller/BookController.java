@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -108,9 +109,17 @@ public class BookController {
 				 model.addAttribute("filter_info", bookService.getCateInfoList(cri));
 			}
 		}
-		
-		
 		return "search";
 		
 	}
+	
+	
+	/* 상품 상세 */
+	@GetMapping("/goodsDetail/{bookId}")
+	public String goodsDetailGet(@PathVariable("bookId") int booId, Model model) {
+		logger.info("goodsDetailGet()............");
+		model.addAttribute("goodsInfo", bookService.getGoodsInfo(booId));
+		return "/goodsDetail";
+	}
+	
 }

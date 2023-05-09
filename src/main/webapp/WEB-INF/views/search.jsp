@@ -148,7 +148,9 @@
 										</td>
 										<td class="detail">
 											<div class="category">[${list.cateName}]</div>
-											<div class="title">${list.bookName }</div>
+											<div class="title">
+											<a href="/goodsDetail/${list.bookId}">${list.bookName }</a>
+											</div>
 											<div class="author" lang="en">${list.authName }지음 |
 												${list.publisher} | ${list.publeYear}</div>
 
@@ -316,10 +318,12 @@
 		$(".filter_content a").on("click", function(e){
 			e.preventDefault();
 			
-			let type='<c:out value="${pageMaker.cri.type}"/>';
+			let type ='<c:out value="${pageMaker.cri.type}"/>';
 			if(type ==='A' || type === 'T'){
 				type= type +  'C';
 			}
+			// 카테고리 이름 TC = 제목 
+			// 카테고리 이름 AC = 작가
 			
 			let keyword = '<c:out value="${pageMaker.cri.keyword}"/>';
 			let cateCode = $(this).attr("href");

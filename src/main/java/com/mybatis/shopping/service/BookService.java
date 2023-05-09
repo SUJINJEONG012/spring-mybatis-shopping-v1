@@ -22,4 +22,7 @@ public interface BookService {
 	
 	/* 검색 결과 카테고리 필터 정보 반환 해주는 메서드 */
 	public List<CateFilterDto> getCateInfoList(Criteria cri);
+	
+	/* 상품 정보 */
+	public BookVo getGoodsInfo(int bookId);
 }

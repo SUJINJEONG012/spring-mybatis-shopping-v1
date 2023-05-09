@@ -5,10 +5,8 @@
 
 <mapper namespace="com.mybatis.shopping.mapper.BookMapper">
 
-	<!-- 상품 검색 조건 -->
 	<!-- criteria(검색조건) -->
 	<sql id="criteria">
-
 	  	<trim prefix="where (" suffix=")" prefixOverrides="AND">
 	  		<foreach item="type" collection="typeArr">
 	  			<trim prefix="AND">
@@ -24,7 +22,7 @@
 	  					</when>
 	  					<when test="type == 'C'.toString()">
 	  						a.cateCode like concat ('%', #{cateCode}, '%')
-	  					</when>  					
+	  					</when>  				
 	  					<when test="type == 'T'.toString()">
 	  						bookName like concat ('%', #{keyword}, '%')
 	  					</when>  					
@@ -112,6 +110,7 @@
 
 		<foreach item="type" collection="typeArr">
 			<choose>
+			<!--type=A는 작가, T는 책제목   -->
 				<when test="type =='A'.toString()">
 					<trim prefix="(" suffix=")" prefixOverrides="or">
 						<foreach collection="authorArr" item="authorId">
@@ -131,7 +130,16 @@
 		group by a.cateCode, b.cateName
 		
 	</select>
-
+	
+	
+	<!-- 상품정보  -->
+	<select id="getGoodsInfo" resultType="com.mybatis.shopping.model.BookVo">
+	
+	select a.BOOKID, a.BOOKNAME, a.AUTHORID, b.AUTHNAME, a.PUBLEYEAR, a.PUBLISHER, a.CATECODE, c.CATENAME, a.BOOKPRICE, a.BOOKSTOCK, a.BOOKDISCOUNT, a.BOOKINTRO, a.BOOKCONTENTS
+	from book a left outer join author b on a.authorId = b.authorId
+	left outer join bcate c on a.cateCode = c.catecode
+	where bookid = #{bookId}
+	</select>
 
 
 
