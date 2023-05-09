@@ -313,10 +313,10 @@
 		
 		
 		/* 필터 태그 동작 */
-		$("filter_content a").on("click", function(e){
+		$(".filter_content a").on("click", function(e){
 			e.preventDefault();
 			
-			let type='<c:out value="${pageMaker.cri.type}" />';
+			let type='<c:out value="${pageMaker.cri.type}"/>';
 			if(type ==='A' || type === 'T'){
 				type= type +  'C';
 			}
@@ -324,7 +324,7 @@
 			let keyword = '<c:out value="${pageMaker.cri.keyword}"/>';
 			let cateCode = $(this).attr("href");
 			
-			$("#filter_form input[name='keyword']").val(kewword);
+			$("#filter_form input[name='keyword']").val(keyword);
 			$("#filter_form input[name='cateCode']").val(cateCode);
 			$("#filter_form input[name='type']").val(type);
 			$("#filter_form").submit();
@@ -353,8 +353,10 @@
 							
 							
 							
-							
-						});
+			});
+		
+		
+		
 	</script>
 </body>
 </html>

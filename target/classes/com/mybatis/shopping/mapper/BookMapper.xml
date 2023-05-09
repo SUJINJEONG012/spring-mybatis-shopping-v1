@@ -6,33 +6,33 @@
 <mapper namespace="com.mybatis.shopping.mapper.BookMapper">
 
 	<!-- 상품 검색 조건 -->
+	<!-- criteria(검색조건) -->
 	<sql id="criteria">
 
-		<trim prefix="where (" suffix=")" prefixOverrides="AND">
-
-			<foreach item="type" collection="typeArr">
-				<choose>
-					<when test="type == 'A'.toString()">
-						<trim prefixOverrides="or">
-							<foreach collection="authorArr" item="authorId">
-								<trim prefix="or">
-									a.authorId = #{authorId}
-								</trim>
-							</foreach>
-						</trim>
-					</when>
-
-					<when test="type == 'C'.toString()">
-						a.cateCode like concat ('%',#{cateCode}, '%')
-					</when>
-					<when test="type == 'T'.toString()">
-						bookName like concat ( '%', #{keyword},'%')
-					</when>
-
-				</choose>
-			</foreach>
-		</trim>
-
+	  	<trim prefix="where (" suffix=")" prefixOverrides="AND">
+	  		<foreach item="type" collection="typeArr">
+	  			<trim prefix="AND">
+	  				<choose>
+	  					<when test="type == 'A'.toString()">
+	  						<trim prefixOverrides="or">
+			  					<foreach collection="authorArr" item="authorId">
+			  						<trim prefix="or">
+			  							a.authorId = #{authorId}
+			  						</trim>
+			  					</foreach>  						
+	  						</trim>
+	  					</when>
+	  					<when test="type == 'C'.toString()">
+	  						a.cateCode like concat ('%', #{cateCode}, '%')
+	  					</when>  					
+	  					<when test="type == 'T'.toString()">
+	  						bookName like concat ('%', #{keyword}, '%')
+	  					</when>  					
+	  				</choose>
+	  			</trim>
+	  		</foreach>
+	  	</trim>
+	
 	</sql>
 
 	<!-- 상품 검색 -->
