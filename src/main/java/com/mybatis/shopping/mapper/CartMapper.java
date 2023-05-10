@@ -7,7 +7,7 @@ import com.mybatis.shopping.model.CartDto;
 public interface CartMapper {
 
 	/* 카트 추가 */
-	public int addCart(CartDto cart);
+	public int addCart(CartDto cart) throws Exception ;
 	/* 카트 삭제 */
 	public int deleteCart(int cartId);
 	/* 카트 수량 수정 */
