@@ -157,8 +157,8 @@
 							주문수량
 							<input type="text" class="quantity_input" value="1">
 							<span>
-								<button>+</button>
-								<button>-</button>
+								<button class="plus_btn">+</button>
+								<button class="minus_btn">-</button>
 							</span>
 						</div>
 						<div class="button_set">
