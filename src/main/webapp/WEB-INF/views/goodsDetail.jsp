@@ -155,7 +155,7 @@
 					<div class="button">						
 						<div class="button_quantity">
 							주문수량
-							<input type="text" value="1">
+							<input type="text" class="quantity_input" value="1">
 							<span>
 								<button>+</button>
 								<button>-</button>
@@ -257,6 +257,15 @@ $(document).ready(function(){
 		
 });
 
+  //수량버튼 조작 
+  let quantity = $(".quantity_input").val();
+  
+  $(".plus_btn").on("click", function(){
+	  $(".quantity_input").val(++quantity);
+  });
+  $(".minus_btn").on("click", function(){
+	  $(".quantity_input").val(++quantity);
+  });
 
 
 
