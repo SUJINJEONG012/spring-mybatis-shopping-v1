@@ -30,14 +30,23 @@
 	
 	<!-- 인터셉터 적용 -->
 	<interceptors>
+		
 		<interceptor>
 		<mapping path="/member/login"></mapping>
 		<beans:bean id="loginInterceptor" class="com.mybatis.shopping.interceptor.LoginInterceptor"></beans:bean>
 		</interceptor>
+		
 		<interceptor>
 		<mapping path="/admin/**"></mapping>
 		<beans:bean id="AdminInterceptor" class="com.mybatis.shopping.interceptor.AdminInterceptor"></beans:bean>
 		</interceptor>
+		
+		<interceptor>
+		<mapping path="/cart/**"/>
+		<exclude-mapping path="/cart/add"/>
+		<beans:bean id="CartInterceptor" class="com.mybatis.shopping.interceptor.CartInterceptor"></beans:bean>
+		</interceptor>
+		
 	</interceptors>
 	
 	<!-- 업로드 관련 빈  -->
