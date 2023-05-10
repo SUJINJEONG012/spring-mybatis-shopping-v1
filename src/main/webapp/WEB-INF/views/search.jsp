@@ -29,7 +29,7 @@
 						</c:if>
 						<li><a href="" id="gnb_logout_button">로그아웃</a></li>
 						<li><a href="">마이룸</a></li>
-						<li><a href="">장바구니</a></li>
+						<li><a href="/cart/${member.memberId}">장바구니</a></li>
 					</c:if>
 
 					<li><a href="">고객센터</a></li>

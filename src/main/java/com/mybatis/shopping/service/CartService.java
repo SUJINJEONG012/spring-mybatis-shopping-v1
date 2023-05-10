@@ -1,5 +1,7 @@
 package com.mybatis.shopping.service;
 
+import java.util.List;
+
 import com.mybatis.shopping.model.CartDto;
 
 public interface CartService {
@@ -11,7 +13,8 @@ public interface CartService {
 	/* 장바구니 추가 */
 	public int addCart(CartDto cart);
 	
-			 
+	/* 장바구니 정보 리스트 */
+	public List<CartDto> getCartList(String memberId);
 
 }
 

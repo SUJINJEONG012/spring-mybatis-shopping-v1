@@ -30,7 +30,7 @@
 						</c:if>
 						<li><a href="/member/logout" id="gnb_logout_button">로그아웃</a></li>
 						<li><a href="">마이룸</a></li>
-						<li><a href="">장바구니</a></li>
+						<li><a href="/cart/${member.memberId}">장바구니</a></li>
 					</c:if>
 
 
@@ -149,6 +149,9 @@
 							판매가 : <span class="discount_price_number"><fmt:formatNumber value="${goodsInfo.bookPrice - (goodsInfo.bookPrice*goodsInfo.bookDiscount)}" pattern="#,### 원" /></span> 
 							[<fmt:formatNumber value="${goodsInfo.bookDiscount*100}" pattern="###" />% 
 							<fmt:formatNumber value="${goodsInfo.bookPrice*goodsInfo.bookDiscount}" pattern="#,### 원" /> 할인]</div>							
+					</div>
+					<div>
+					적립포인트 : <span class="point_span"></span>원
 					</div>			
 					<div class="line">
 					</div>	
@@ -168,6 +171,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="line">
 			</div>				
 			<div class="content_middle">
@@ -257,6 +261,17 @@ $(document).ready(function(){
 		
 });
 
+
+/*  포인트 삽입  */
+// salePrice할인 판매 가격을 계산하여 저장
+let salePrice = "${goodsInfo.bookPrice - (goodsInfo.bookPrice*goodsInfo.bookDiscount)}";
+// 계산한 값에 0.05를  곱해서 포인트 값 계산 
+let point = salePrice * 0.05;
+// 소수점 나머지가 생길 경우 버리도록 Math.floor() 메서드를 사용
+point = Math.floor(point);
+$(".point_span").text(point);
+
+
   //수량버튼 조작 
   let quantity = $(".quantity_input").val();
   
@@ -264,10 +279,52 @@ $(document).ready(function(){
 	  $(".quantity_input").val(++quantity);
   });
   $(".minus_btn").on("click", function(){
-	  $(".quantity_input").val(++quantity);
+	  $(".quantity_input").val(--quantity);
   });
 
 
+  
+  
+//서버로 전송할 데이터  
+  const form = {
+		  memberId :'${member.memberId}',
+		  bookId :'${goodsInfo.bookId}',
+		  bookCount : ''
+  }
+  
+ // 장바구니 추가 버튼
+	$(".btn_cart").on("click", function(e){
+		
+		form.bookCount = $(".quantity_input").val();
+		$.ajax({
+			url: '/cart/add',
+			type: 'POST',
+			data: form,
+			success: function(result){
+				cartAlert(result);
+			}
+		})
+		
+	});
+	
+  function cartAlert(result){
+		if(result == '0'){
+			alert("장바구니에 추가를 하지 못하였습니다.");
+		} else if(result == '1'){
+			alert("장바구니에 추가되었습니다.");
+		} else if(result == '2'){
+			alert("장바구니에 이미 추가되어져 있습니다.");
+		} else if(result == '5'){
+			alert("로그인이 필요합니다.");	
+		}
+	};
+	
+	
+ 
+  	
+ 
+  	
+  	
 
 
  </script>

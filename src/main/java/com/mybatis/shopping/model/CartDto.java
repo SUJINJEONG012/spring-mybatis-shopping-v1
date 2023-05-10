@@ -17,6 +17,11 @@ public class CartDto {
 	
 	private int salePrice;
 	private int totalPrice;
+	
+	private int point;
+	private int totalPoint;
+	
+	
 	public int getCartId() {
 		return cartId;
 	}
@@ -69,19 +74,31 @@ public class CartDto {
 		return totalPrice;
 	}
 	
+	public int getPoint() {
+		return point;
+	}
+
+	public int getTotalPoint() {
+		return totalPoint;
+	}
+	
+	
 	/* salePrice, totalPrice 변수 값을 초기화 해주는 메서드를 생성
 	 * 이 두 변수의 값을 변경을 원할 경우 오직 이메서드를 통해서만 가능하
 	*/
 	public void initSaleTotal() {
 		this.salePrice = (int) (this.bookPrice * (1 - this.bookDiscount));
 		this.totalPrice = this.salePrice * this.bookCount;
+		this.point = (int) (Math.floor(this.salePrice*0.05));
+		this.totalPoint = this.point * this.bookCount;
 	}
 	
 	@Override
 	public String toString() {
 		return "CartDto [cartId=" + cartId + ", memberId=" + memberId + ", bookId=" + bookId + ", bookCount="
 				+ bookCount + ", bookName=" + bookName + ", bookPrice=" + bookPrice + ", bookDiscount=" + bookDiscount
-				+ ", salePrice=" + salePrice + ", totalPrice=" + totalPrice + "]";
+				+ ", salePrice=" + salePrice + ", totalPrice=" + totalPrice + ", point=" + point + ", totalPoint="
+				+ totalPoint + "]";
 	}
 	
 	
