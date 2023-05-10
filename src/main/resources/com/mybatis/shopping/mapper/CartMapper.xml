@@ -25,4 +25,11 @@
 	 where memberId = #{memberId}
 	
 	</select>
+	
+	<!-- 카트확인 -->
+	<select id="checkCart" resultType="com.mybatis.shopping.model.CartDto">
+	  select * from cart
+	  where memberId = #{memberId} and bookId = #{bookId}
+	</select>
+	
 </mapper>
