@@ -56,8 +56,8 @@ public class BookController {
 	
 	logger.info("getImage()..........." + fileName);
 	
-	//File file = new File("C:\\upload\\" + fileName);
-	File file = new File("/Users/jeongsujin/upload/" + fileName);
+	File file = new File("C:\\upload\\" + fileName);
+	//File file = new File("/Users/jeongsujin/upload/" + fileName);
 	
 	ResponseEntity<byte[]> result = null;
 	
@@ -89,13 +89,13 @@ public class BookController {
 	public String searchGoodsGet(Criteria cri, Model model) {
 		logger.info("@@ cri : " + cri);
 		
-		List<BookVo> list = bookService.getGoodsList(cri);
+		List<BookVo> bookList = bookService.getGoodsList(cri);
 		
-		logger.info("pre list : " + list);
+		logger.info("pre list : " + bookList);
 		
-		if(!list.isEmpty()) {
-			model.addAttribute("list" , list);
-			logger.info("pre list : " + list);
+		if(!bookList.isEmpty()) {
+			model.addAttribute("bookList" , bookList);
+			logger.info("pre bookList : " + bookList);
 		}else {
 			model.addAttribute("listcheck" , "empty");
 			return "search";

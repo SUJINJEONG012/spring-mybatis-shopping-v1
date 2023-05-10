@@ -132,27 +132,27 @@
 								<col width="120">
 							</colgroup>
 							<tbody id="searchList">
-								<c:forEach items="${list}" var="list">
+								<c:forEach items="${bookList}" var="bookList">
 									<tr>
 										<td class="image">
 							
 
 											<div class="image_wrap"
-												data-bookid="${list.imageList[0].bookId}"
-												data-path="${list.imageList[0].uploadPath}"
-												data-uuid="${list.imageList[0].uuid}"
-												data-filename="${list.imageList[0].fileName}">
+												data-bookid="${bookList.imageList[0].bookId}"
+												data-path="${bookList.imageList[0].uploadPath}"
+												data-uuid="${bookList.imageList[0].uuid}"
+												data-filename="${bookList.imageList[0].fileName}">
 												<img>
 											</div>
 
 										</td>
 										<td class="detail">
-											<div class="category">[${list.cateName}]</div>
+											<div class="category">[${bookList.cateName}]</div>
 											<div class="title">
-											<a href="/goodsDetail/${list.bookId}">${list.bookName }</a>
+											<a href="/goodsDetail/${bookList.bookId}">${bookList.bookName }</a>
 											</div>
-											<div class="author" lang="en">${list.authName }지음 |
-												${list.publisher} | ${list.publeYear}</div>
+											<div class="author" lang="en">${bookList.authName }지음 |
+												${bookList.publisher} | ${bookList.publeYear}</div>
 
 										</td>
 										<td>
@@ -161,13 +161,13 @@
 										<td class="price">
 											<div class="org_price">
 												<del>
-													<fmt:formatNumber value="${list.bookPrice }"
+													<fmt:formatNumber value="${bookList.bookPrice }"
 														pattern="#,###원 " />
 												</del>
 											</div>
 											<div class="sell_price">
 												<strong lang="en"> <fmt:formatNumber
-														value="${list.bookPrice * ( 1 - list.bookDiscount)}"
+														value="${bookList.bookPrice * ( 1 - bookList.bookDiscount)}"
 														pattern="#,### 원" />
 												</strong>
 											</div>
