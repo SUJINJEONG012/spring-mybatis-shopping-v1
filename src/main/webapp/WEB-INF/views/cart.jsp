@@ -286,16 +286,21 @@
 		$(".individual_cart_checkbox").on("change", function(){
 			setTotalInfo($(".cart_info_td"));
 		});
+		
+		
 		// 총 주문 정보 세팅 (배송비, 총 가격, 마일리지, 수량 수, 종류)
 		function setTotalInfo(){
 			let totalPrice = 0;
 			let totalCount = 0;
-			
 			let totalKind = 0;
+			let totalPoint= 0;
 			let deliveryPrice = 0 ;
-			let finalTotalPrice = 0;
+			let finalTotalPrice = 0;	
 			
-			$(".cart_info_td").each(index, element){
+			
+			$(".cart_info_td").each(function(index, element){
+				
+				//체크여부 
 				if($(element).find(".individual_cart_checkbox").is(":checked") === true){
 					// 총 가격
 					totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());
@@ -306,8 +311,36 @@
 					// 총 마일리지
 					totalPoint += parseInt($(element).find(".individual_totalPoint_input").val());		
 				}
+		});
+		
+			
+			
+			/* 배송비 결정 */
+			if(totalPrice >= 30000){
+				deliveryPrice = 0;
+			} else if(totalPrice == 0){
+				deliveryPrice = 0;
+			} else {
+				deliveryPrice = 3000;	
 			}
 			
+			finalTotalPrice = totalPrice + deliveryPrice;
+		
+		
+			// 총 가격
+			$(".totalPrice_span").text(totalPrice.toLocaleString());
+			// 총 갯수
+			$(".totalCount_span").text(totalCount);
+			// 총 종류
+			$(".totalKind_span").text(totalKind);
+			// 총 마일리지
+			$(".totalPoint_span").text(totalPoint.toLocaleString());
+			// 배송비
+			$(".delivery_price").text(deliveryPrice);	
+			// 최종 가격(총 가격 + 배송비)
+			$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());	
+		
+		
 		}
 		
 		
