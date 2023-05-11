@@ -101,7 +101,17 @@
 						<tbody>
 							<c:forEach items="${cartInfo}" var="ci">
 								<tr>
-									<td class="td_width_1"></td>
+									<td class="td_width_1 cart_info_td">
+									 <!-- 체크박스 추가  -->
+									 <input type="checkbox" class="">
+									 <input type="hidden" class="individual_bookPrice_input" value="${ci.bookPrice}">
+									 <input type="hidden" class="individual_salePrice_input" value="${ci.salePrice}">
+									 <input type="hidden" class="individual_bookCount_input" value="${ci.bookCount}">
+									 <input type="hidden" class="individual_totalPrice_input" value="${ci.salePrice * ci.bookCount}">
+									 <input type="hidden" class="individual_point_input" value="${ci.point}">
+									 <input type="hidden" class="individual_totalPoint_input" value="${ci.totalPoint}">
+									 
+									</td>
 									<td class="td_width_2"></td>
 									<td class="td_width_3">${ci.bookName}</td>
 									<td class="td_width_4 price_td">
@@ -121,19 +131,14 @@
 									</td>
 									
 									<td class="td_width_4 table_text_align_center">
-									<fmt:formatNumber value="${ci.salePrice * ci.bookCount}" pattern="#,### 원" />
-									
+									<fmt:formatNumber value="${ci.salePrice * ci.bookCount}" pattern="#,### 원" />		
 									</td>
-									
-							
-								
-									
+											
 									<td class="td_width_4 table_text_align_center delete_btn">
 										<button>삭제</button>
 									</td>
 								</tr>
 							</c:forEach>
-							
 							
 						     
 						</tbody>
@@ -226,10 +231,6 @@
 				<a>주문하기</a>
 			</div>
 				 
-				 
-			
-			
-			
 
 			</div>
 		</div>
@@ -274,6 +275,61 @@
 
 
 	<script>
+		$(document).ready(function(){
+			
+			/* 종합 정보 섹션 정보 삽입 */	
+			let totalPrice = 0; //총 가격 
+			let totalCount = 0; // 총 개수
+			let totalKind = 0; //총 종류 
+			let totalPoint = 0; //총 마일리지
+			let deliveryPrice = 0; //배송비
+			let finalTotalPrice = 0; //최종가격 (총가격+배송비)
+			
+			$(".cart_info_td").each(function(index, element){
+				
+				/*
+				접근한 <td> 객체에 있는 'individual_totalPrice_input' <input> 태그에 값을 totalPrice 변수의 값에 더해줍니다.
+				모든 상품 <td> 객체를 순회하게 되면 totalPrice는 모든 상품의 가격이 더해져서 '총 상품 가격'이 구해지게 됩니다.
+				※parseInt() 메서드를 사용한 이유는 <input> 태그의 값을 얻어오면 그 값은 'string' 타입으로 인식이 되어서 이를 int 타입으로 변경해주기 위함입니다.
+				
+				*/
+				//총 가격
+				totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());
+				//총 개수
+				totalCount += parseInt($(element).find(".individual_bookCount_input").val());
+				//총 종류
+				totalKind += 1;
+				//총 마일리지
+				totalPoint += parseInt($(element).find(".individual_totalPoint_input").val());
+				
+				/* 배송비 결정 */
+				if(totalPrice >= 30000){
+					deliveryPrice = 0;
+				}else if(totalPrice == 0){
+					deliveryPrice = 0;
+				}else{
+					deliveryPrice = 3000;
+				}
+				
+				/* 최종 가격 */
+				finalTotalPrice = totalPrice + deliveryPrice;
+				//총 가격
+				$(".totalPrice_span").text(totalPrice.toLocaleString());
+				//총 개수
+				$(".totalCount_span").text(totalCount);
+				// 총 종류
+				$(".totalKind_span").text(totalKind);
+				//총 마일리지
+				$(".totalPoint_span").text(totalPoint.toLocaleString());
+				//배송비
+				$(".delivery_price").text(deliveryPrice);
+				//최종가격
+				$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());
+				
+				
+			});
+			
+		});
 		
 	</script>
 </body>
