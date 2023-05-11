@@ -1,5 +1,6 @@
 package com.mybatis.shopping.model;
 
+import java.util.List;
 
 /* 장바구니와 관련된 변수들 선언 */
 public class CartDto {
@@ -21,6 +22,15 @@ public class CartDto {
 	private int point;
 	private int totalPoint;
 	
+	private List<AttachImageVo> imageList;
+	
+	
+	public List<AttachImageVo> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<AttachImageVo> imageList) {
+		this.imageList = imageList;
+	}
 	
 	public int getCartId() {
 		return cartId;
@@ -98,7 +108,7 @@ public class CartDto {
 		return "CartDto [cartId=" + cartId + ", memberId=" + memberId + ", bookId=" + bookId + ", bookCount="
 				+ bookCount + ", bookName=" + bookName + ", bookPrice=" + bookPrice + ", bookDiscount=" + bookDiscount
 				+ ", salePrice=" + salePrice + ", totalPrice=" + totalPrice + ", point=" + point + ", totalPoint="
-				+ totalPoint + "]";
+				+ totalPoint + ", imageList=" + imageList + "]";
 	}
 	
 	

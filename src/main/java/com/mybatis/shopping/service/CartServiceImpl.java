@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mybatis.shopping.mapper.AttachMapper;
+import com.mybatis.shopping.mapper.BookMapper;
 import com.mybatis.shopping.mapper.CartMapper;
+import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.CartDto;
 
 @Service
@@ -14,6 +17,12 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	private CartMapper cartMapper;
 	 
+	@Autowired
+	private AttachMapper attachMapper;
+	
+	@Autowired
+	private BookMapper bookMapper;
+	
 	@Override
 	public int addCart(CartDto cart) {
 		// 장바구니 데이터 체크 
@@ -46,7 +55,14 @@ public class CartServiceImpl implements CartService {
 		 *  따로 initSaleTotal()메서드를 호출해주어야 된다.
 		 *  */
 		for(CartDto dto : cart) {
+			/* 종합정보 초기화 */
 			dto.initSaleTotal();
+			/* 이미지 정보 얻기 */
+			int bookId = dto.getBookId();
+			
+			List<AttachImageVo> imageList = attachMapper.getAttachList(bookId);
+			
+			dto.setImageList(imageList);
 		}
 		//반환해주기
 		return cart;
