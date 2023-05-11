@@ -83,7 +83,11 @@
 				</div>
 				<div class="content_middle_section"></div>
 				<div class="content_totalCount_section">
-
+				
+				<div class="all_check_input_div">
+				  <input type="checkbox" class="all_check_input input_size_20" checked="checked">
+				  <span class="all_check_span">전체선택</span>
+				</div>
 					<table>
 						<caption></caption>
 						<thead>
@@ -100,6 +104,7 @@
 
 						<tbody>
 							<c:forEach items="${cartInfo}" var="ci">
+								
 								<tr>
 									<td class="td_width_1 cart_info_td">
 									 <!-- 체크박스 추가  -->
@@ -284,6 +289,19 @@
 
 		//체크 여부에 따라 종합 정보 변화 
 		$(".individual_cart_checkbox").on("change", function(){
+			setTotalInfo($(".cart_info_td"));
+		});
+		
+		/* 체크박스 전체 선택 */
+		$(".all_check_input").on("click", function(){
+			/* 체크박스 체크/해제 */
+			if($(".all_check_input").prop("checked")){
+				$(".individual_cart_checkbox").attr("checked", true);
+			}else{
+				$(".individual_cart_checkbox").attr("checked", false);
+			}
+			
+			/* 총 주문 정보 세팅 (배송비, 총 가격, 마일리지, 물품 수, 종류 )*/
 			setTotalInfo($(".cart_info_td"));
 		});
 		
