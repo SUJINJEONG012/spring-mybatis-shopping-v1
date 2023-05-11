@@ -15,6 +15,9 @@ public interface CartService {
 	
 	/* 장바구니 정보 리스트 */
 	public List<CartDto> getCartList(String memberId);
+	
+	/* 카트 수량 수정 */
+	public int modifyCount(CartDto cart);
 
 }
 

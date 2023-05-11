@@ -138,7 +138,9 @@
 									    <button class="quantity_btn plus_btn">+</button>
 									    <button class="quantity_btn minus_btn">-</button>
 									 </div>
-									<a href="" class="quantity_modify_btn">변경</a>
+									   
+									   <a class="quantity_modify_btn" data-cartid="${ci.cartId}"> 변경</a>
+									
 									</td>
 									
 									<td class="td_width_4 table_text_align_center">
@@ -244,6 +246,15 @@
 				 
 
 			</div>
+			
+			<!-- 수량 조절 form -->
+			<form action="/cart/update" method="post" class="quantity_update_form">
+			 	<input type="hidden" name="cartId" class="update_cartId">
+			  	<input type="hidden" name="bookCount" class="update_bookCount">
+			  	<input type="hidden" name="memberId" value="${member.memberId}">
+			  
+			</form>
+			
 		</div>
 
 		<!-- Footer 영역 -->
@@ -403,8 +414,30 @@
 			// 최종 가격(총 가격 + 배송비)
 			$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());	
 		
-		
 		}
+		
+		
+		/* 수량 버튼 */
+		$(".plus_btn").on("click", function(){
+			let quantity = $(this).parent("div").find("input").val();
+			$(this).parent("div").find("input").val(++quantity);
+		});
+		
+		$(".minus_btn").on("click", function(){
+			let quantity = $(this).parent("div").find("input").val();
+			if( quantity > 1) {
+			$(this).parent("div").find("input").val(--quantity);
+			}
+		});
+		
+		/* 수량 수정 버튼 */
+		$(".quantity_modify_btn").on("click", function(){
+			let cartId = $(this).data("cartid");
+			let bookCount = $(this).parent("td").find("input").val();
+			$(".update_cartId").val(cartId);
+			$(".update_bookCount").val(bookCount);
+			$(".quantity_update_form").submit();
+		});
 		
 		
 	</script>
