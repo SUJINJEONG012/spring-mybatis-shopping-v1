@@ -51,5 +51,14 @@ public class CartController {
 		cartService.modifyCount(cart);
 		return "redirect:/cart/" + cart.getMemberId();
 	}
+
+	
+	/* 장바구니 삭제 */
+	@PostMapping("/cart/delete")
+	public String deleteCartPost(CartDto cart) {
+		cartService.deleteCart(cart.getCartId());
+		return "redirect:/cart/" + cart.getMemberId();
+	}
+	
 	
 }
