@@ -28,7 +28,7 @@ public class OrderController {
 		System.out.println("orders : " + opd.getOrders());
 		
 		model.addAttribute("orderList", orderService.getGoodsInfo(opd.getOrders()));
-		model.addAttribute("memberInfo",memberService.getMemberInfo(memberId));
+		model.addAttribute("memberInfo", memberService.getMemberInfo(memberId));
 		
 		return "/order";
 	}

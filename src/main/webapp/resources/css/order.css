@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+.content_main {
+	min-height: 700px;
+	padding-right: 350px;
+	position: relative;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/* 사용자 정보  */
+.memberInfo_table {
+	width: 100%;
+	border-spacing: 0;
+	border-top: 2px solid #363636;
+	border-bottom: 1px solid #b6b6b6;
+}
+
+.member_info_div td {
+	padding: 12px;
+	text-align: left;
+}
+
+/* 사용자 정보  */
+.memberInfo_table {
+	width: 100%;
+	border-spacing: 0;
+	border-top: 2px solid #363636;
+	border-bottom: 1px solid #b6b6b6;
+}
+
+.member_info_div td {
+	padding: 12px;
+	text-align: left;
+}
+/* 사용자 주소 정보 */
+.addressInfo_div {
+	margin-top: 30px;
+}
+
+.addressInfo_input_div_wrap {
+	border-bottom: 1px solid #f3f3f3;
+	height: 225px;
+}
+
+.address_btn {
+	background-color: #555;
+	color: white;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	font-size: 17px;
+	width: 50%;
+}
+
+.address_btn:hover {
+	background-color: #777;
+}
+
+.addressInfo_button_div::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.addressInfo_input_div {
+	padding: 12px;
+	text-align: left;
+	display: none;
+	line-height: 40px;
+}
+
+.addressInfo_input_div th {
+	border-color: transparent;
+	background-color: transparent;
+}
+
+.addressInfo_input_div th {
+	padding: 12px 5px 12px 20px;
+	vertical-align: top;
+}
+
+.addressInfo_input_div td {
+	padding: 8px 12px;
+}
+
+.addressInfo_input_div_2 input {
+	padding: 6px 5px;
+}
+
+.address_search_btn {
+	vertical-align: middle;
+	display: inline-block;
+	border: 1px solid #aaa;
+	width: 90px;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	color: #555;
+	cursor: pointer;
+}
