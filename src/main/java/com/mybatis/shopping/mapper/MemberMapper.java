@@ -14,6 +14,6 @@ public interface MemberMapper {
 	public MemberVo memberLogin(MemberVo memberVo);
 	
 	/* 주문자 주소 정보 */
-	//public MemberVo getMemberInfo(String memberId);
+	public MemberVo getMemberInfo(String memberId);
 
 }
