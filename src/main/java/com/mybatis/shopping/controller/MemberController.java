@@ -2,15 +2,12 @@ package com.mybatis.shopping.controller;
 
 import java.util.Random;
 
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mybatis.shopping.model.MemberVo;
 import com.mybatis.shopping.service.MemberService;
+//import com.mybatis.shopping.service.OrderService;
 
 @Controller
 @RequestMapping("/member")
@@ -31,6 +29,8 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	
 	
 //	@Autowired
 //	private JavaMailSender mailSender;

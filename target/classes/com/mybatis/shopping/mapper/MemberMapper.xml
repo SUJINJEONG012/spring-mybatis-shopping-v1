@@ -20,4 +20,14 @@
   	select memberId, memberPw, memberName, adminCk, money, point from book_member where memberId= #{memberId}
   	</select>
   	
+  	
+  	<!-- 주문자 정보 -->
+  	
+  	<!-- <select id="getMemberInfo" resultType="com.mybatis.shopping.model.MemberVo">
+  	select memberId, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, money, point
+  	from book_member
+  	where memberId = #{memberId}
+  	</select> -->
+  	
+  	
 </mapper>

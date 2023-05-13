@@ -4,7 +4,7 @@ public class OrderPageItemDto {
 	
 	/* 뷰로 부터 전달받을 값 */
 	private int bookId;
-	private int bookcount;
+	private int bookCount;
 	
 	/* DB로부터 꺼내올 값 */
 	private String bookName;
@@ -25,10 +25,10 @@ public class OrderPageItemDto {
 		this.bookId = bookId;
 	}
 	public int getBookcount() {
-		return bookcount;
+		return bookCount;
 	}
-	public void setBookcount(int bookcount) {
-		this.bookcount = bookcount;
+	public void setBookcount(int bookCount) {
+		this.bookCount = bookCount;
 	}
 	public String getBookName() {
 		return bookName;
@@ -76,15 +76,15 @@ public class OrderPageItemDto {
 	
 	public void initSaleTotal() {
 		this.salePrice = (int) (this.bookPrice * (1- this.bookDiscount));
-		this.totalPrice = this.salePrice * this.bookcount;
+		this.totalPrice = this.salePrice * this.bookCount;
 		this.point= (int) Math.floor(this.salePrice* 0.05);
-		this.totalPoint = this.point * this.bookcount;	
+		this.totalPoint = this.point * this.bookCount;	
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "OrderPageItemDto [bookId=" + bookId + ", bookcount=" + bookcount + ", bookName=" + bookName
+		return "OrderPageItemDto [bookId=" + bookId + ", bookcount=" + bookCount + ", bookName=" + bookName
 				+ ", bookPrice=" + bookPrice + ", bookDiscount=" + bookDiscount + ", salePrice=" + salePrice
 				+ ", totalPrice=" + totalPrice + ", point=" + point + ", totalPoint=" + totalPoint + "]";
 	}	

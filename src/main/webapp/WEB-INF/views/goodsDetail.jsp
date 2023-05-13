@@ -188,6 +188,13 @@
 				리뷰
 			</div>
 			
+			<!-- 주문페이지 form -->
+			<form action="/order/${member.memberId}" method="get" class="order_form">
+			
+			<input type="hidden" name="orders[0].bookId" value="${goodsInfo.bookId}">
+			<input type="hidden" name="orders[0].bookCount" value="">
+			</form>
+			
 			</div>
 		</div>
 		
@@ -318,6 +325,14 @@ $(".point_span").text(point);
 			alert("로그인이 필요합니다.");	
 		}
 	};
+	
+	/* 바로구매 */
+	$(".btn_buy").on("click", function(){
+		//버튼수량 구매
+		let bookCount = $(".quantity_input").val();
+		$(".order_form").find("input[name='orders[0].bookCount']").val(bookCount);
+		$(".order_form").submit();
+	});
 	
 	
  
