@@ -24,7 +24,7 @@ public class OrderServiceImpl implements OrderService {
 			
 			OrderPageItemDto goodsInfo = orderMapper.getGoodsInfo(ord.getBookId());
 			
-			goodsInfo.setBookcount(ord.getBookcount());
+			goodsInfo.setBookCount(ord.getBookCount());
 			
 			goodsInfo.initSaleTotal();
 			

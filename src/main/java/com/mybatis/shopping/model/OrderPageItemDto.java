@@ -24,10 +24,10 @@ public class OrderPageItemDto {
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
-	public int getBookcount() {
+	public int getBookCount() {
 		return bookCount;
 	}
-	public void setBookcount(int bookCount) {
+	public void setBookCount(int bookCount) {
 		this.bookCount = bookCount;
 	}
 	public String getBookName() {
@@ -84,7 +84,7 @@ public class OrderPageItemDto {
 	
 	@Override
 	public String toString() {
-		return "OrderPageItemDto [bookId=" + bookId + ", bookcount=" + bookCount + ", bookName=" + bookName
+		return "OrderPageItemDto [bookId=" + bookId + ", bookCount=" + bookCount + ", bookName=" + bookName
 				+ ", bookPrice=" + bookPrice + ", bookDiscount=" + bookDiscount + ", salePrice=" + salePrice
 				+ ", totalPrice=" + totalPrice + ", point=" + point + ", totalPoint=" + totalPoint + "]";
 	}	

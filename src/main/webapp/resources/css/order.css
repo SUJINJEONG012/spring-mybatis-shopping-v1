@@ -103,3 +103,38 @@ table {
 	color: #555;
 	cursor: pointer;
 }
+
+.orderGoods_div{
+	margin-top:30px;
+}
+.goods_kind_div{
+	font-size: 25px;
+    line-height: 35px;
+    font-weight: bold;
+}
+.goods_subject_table{
+	font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+    text-align: center; 
+}
+.goods_subject_table th{
+	text-align: center;
+    color: #333;
+    border-bottom: 1px solid #e7e7e7;
+    border-top: 2px solid #3084d9;
+    background: #f4f9fd;
+    padding: 2px 0;	 
+}
+.goods_table{
+	font-size: 14px;
+	line-height: 20px;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.goods_table tr{
+height: 110px;
+}
+.goods_table_price_td{
+	text-align: center;
+}
