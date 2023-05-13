@@ -221,7 +221,29 @@
 						</table>
 
 					</div>
+					
 					<!-- 포인트 정보  -->
+					<div class="point_div">
+					 <div class="point_div_subject">포인트 사용 </div>
+					 <table class="point_table">
+					   <colgroup>
+					    <col width="25%">
+					    <col width="*">	    
+					   </colgroup>
+					   <tbody>
+					   <tr>
+					   <th>포인트 사용 </th>
+					   <td>
+					   ${memberInfo.point} | <input type="text" class="order_point_input" value="0">원 
+					   <a href=""  class="order_point_input_btn order_point_input_btn_N" data-state="N">모두 사용</a>
+					   <a href=""  class="order_point_input_btn order_point_input_btn_Y" data-state="Y" style="display: none;">사용취소</a>
+					   
+					   </td>
+					   
+					 </tbody>
+					   
+					 </table>
+					</div>
 					<!-- 주문 종합 정보 -->
 
 				</div>
@@ -342,6 +364,46 @@
 						}
 					}).open();
 		}
+		
+		
+		/* 포인트 입력 */
+		$(".order_point_input").on("propertychange change keyup paste input", function(){
+			const maxPoint = parseInt('${memberInfo.point}');
+			let inputValue = parseInt($(this).val());
+			
+			if(inputValue < 0 ){
+				$(this).val(0);
+			}else if(inputValue > maxPoint){
+				$(this).val(maxPoint);
+			}
+		});
+		
+		/* 포인트 모두사용 취소 이용 
+		Y: 모두사용 N: 모두 취소상태
+		*/
+		$(".order_point_input_btn").on("click", function(e){
+			e.preventDefault();
+			const maxPoint = parseInt('${memberInfo.point}');
+			
+			let state = $(this).data("state");
+			
+			if(state == 'N'){
+				console.log('N 동작');
+				/* 모두 사용 */
+				$(".order_point_input").val(maxPoint);
+				$(".order_point_input_btn_Y").css("display", "inline-block");
+				$(".order_point_input_btn_N").css("display", "none");
+				
+			}else if(state == 'Y'){
+				console.log('Y 동작');
+				/* 모두 사용 */
+				$(".order_point_input").val(0);
+				$(".order_point_input_btn_Y").css("display", "none");
+				$(".order_point_input_btn_N").css("display", "inline-block");
+				
+			}
+		});
+		
 	</script>
 </body>
 </html>
