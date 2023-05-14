@@ -1,5 +1,7 @@
 package com.mybatis.shopping.model;
 
+import java.util.List;
+
 public class OrderPageItemDto {
 	
 	/* 뷰로 부터 전달받을 값 */
@@ -17,7 +19,16 @@ public class OrderPageItemDto {
 	private int point;
 	private int totalPoint;
 	
+	/* 상품 이미지 */
+	private List<AttachImageVo> imageList;
 	
+	
+	public List<AttachImageVo> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<AttachImageVo> imageList) {
+		this.imageList = imageList;
+	}
 	public int getBookId() {
 		return bookId;
 	}
@@ -86,7 +97,8 @@ public class OrderPageItemDto {
 	public String toString() {
 		return "OrderPageItemDto [bookId=" + bookId + ", bookCount=" + bookCount + ", bookName=" + bookName
 				+ ", bookPrice=" + bookPrice + ", bookDiscount=" + bookDiscount + ", salePrice=" + salePrice
-				+ ", totalPrice=" + totalPrice + ", point=" + point + ", totalPoint=" + totalPoint + "]";
+				+ ", totalPrice=" + totalPrice + ", point=" + point + ", totalPoint=" + totalPoint + ", imageList="
+				+ imageList + "]";
 	}	
 	
 	

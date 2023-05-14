@@ -194,6 +194,13 @@
 									<tr>
 										<td>
 											<!--  이미지 -->
+											<div class="image_wrap" 
+											data-bookid="${ol.imageList[0].bookId}" 
+											data-path="${ol.imageList[0].uploadPath}"
+											data-uuid="${ol.imageList[0].uuid}"
+											data-filename="${ol.imageList[0].fileName}">
+											<img>
+											</div>
 										</td>
 
 										<td>${ol.bookName}</td>
@@ -343,6 +350,22 @@
 	$(document).ready(function(){
 		/* 주문 조합정보란 최신화 */
 		setTotalInfo();
+		
+		/* 이미지 삽입 */
+		$(".image_wrap").each(function(i, obj){
+			const bobj = $(obj);
+			
+			if(bobj.data("bookid")){
+				const uploadPath = bobj.data("path");
+				const uuid = bobj.data("uuid");
+				const fileName = bobj.data("filename");
+				
+				const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+				$(this).find("img").attr("src", "/display?fileName=" + fileCallPath);
+			}else{
+				$(this).find("img").attr("src", "/resources/img/goodsNoImage.png");
+			}
+		});
 	});
 	
 	/* 주소 입력란 버튼 동작 */
@@ -499,8 +522,9 @@
 			
 			finalTotalPrice = finalTotalPrice - usePoint;
 			
-			/* if(finalTotalPrice  > usePoint){
-				
+			/* 
+			주문금액보다 포인금액이 더 많을때 -로 최종결제되는 부분 수정해야하는데 일단 보류 
+			if(finalTotalPrice  > usePoint){				
 			}else{
 				alert("포인트 금액이 결제금액 넘게 사용할 수 없습니다. ");
 				return "order_point_input" ;
