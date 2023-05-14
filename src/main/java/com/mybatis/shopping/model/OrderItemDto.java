@@ -1,6 +1,8 @@
 package com.mybatis.shopping.model;
 
-/* 하나의 주문상품 정보 담기 */
+
+
+/* 하나의 주문상품 정보 담기 orderItem */
 public class OrderItemDto {
 
 	/* 주문번호 */
@@ -18,6 +20,7 @@ public class OrderItemDto {
 	/* 상품 한개 시 적립될 포인트 */
 	private int savePoint;
 	
+	/* DB테이블에 존재하지 않는 데이터 */
 	/*할인적용된 가격 */
 	private int salePrice;
 	/* 총 가격 */
