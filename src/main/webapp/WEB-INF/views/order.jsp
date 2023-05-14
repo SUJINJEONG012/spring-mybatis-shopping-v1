@@ -74,9 +74,6 @@
 							</span>
 						</div>
 					</c:if>
-
-
-
 				</div>
 
 			</div>
@@ -106,16 +103,14 @@
 					<div class="addressInfo_div">
 
 						<div class="addressInfo_button_div">
-							<button class="address_btn address_btn_1"
-								onclick="showAddress('1')" style="background-color: #3c3838;">사용자
-								정보</button>
-							<button class="address_btn address_btn_2"
-								onclick="showAddress('2')">직접 입력</button>
+							<button class="address_btn address_btn_1" onclick="showAddress('1')" style="background-color: #3c3838;">사용자 정보</button>
+							<button class="address_btn address_btn_2" onclick="showAddress('2')">직접 입력</button>
 						</div>
 
 						<div class="addressInfo_input_div_wrap">
 							<div class="addressInfo_input_div addressInfo_input_div_1"
 								style="display: block">
+								
 								<table>
 									<colgroup>
 										<col width="25%">
@@ -133,6 +128,7 @@
 										</tr>
 									</tbody>
 								</table>
+								
 							</div>
 
 							<div class="addressInfo_input_div addressInfo_input_div_2">
@@ -199,52 +195,98 @@
 										<td>
 											<!--  이미지 -->
 										</td>
-										
-										<td>${ol.bookName} </td>
-										
+
+										<td>${ol.bookName}</td>
+
 										<td class="goods_table_price_td">
-							<fmt:formatNumber value="${ol.salePrice}" pattern="#,### 원" /> | 수량 ${ol.bookCount}개
-							<fmt:formatNumber value="${ol.totalPrice}" pattern="#,### 원" />
-							[<fmt:formatNumber value="${ol.totalPoint}" pattern="#,### 원" />P]
-							<input type="hidden" class="individual_bookPrice_input" value="${ol.bookPrice}">
-							<input type="hidden" class="individual_salePrice_input" value="${ol.salePrice}">
-							<input type="hidden" class="individual_bookCount_input" value="${ol.bookCount}">
-							<input type="hidden" class="individual_totalPrice_input" value="${ol.salePrice * ol.bookCount}">
-							<input type="hidden" class="individual_point_input" value="${ol.point}">
-							<input type="hidden" class="individual_totalPoint_input" value="${ol.totalPoint}">
-							<input type="hidden" class="individual_bookId_input" value="${ol.bookId}">
-						</td>
+										<fmt:formatNumber
+												value="${ol.salePrice}" pattern="#,### 원" /> | 수량 ${ol.bookCount}개 
+										<fmt:formatNumber value="${ol.totalPrice}" pattern="#,### 원" /> [<fmt:formatNumber
+												value="${ol.totalPoint}" pattern="#,### 원" />P] 
+										<input type="hidden" class="individual_bookPrice_input" value="${ol.bookPrice}">
+										<input type="hidden" class="individual_salePrice_input" value="${ol.salePrice}">
+										<input type="hidden" class="individual_bookCount_input" value="${ol.bookCount}">
+										<input type="hidden" class="individual_totalPrice_input" value="${ol.salePrice * ol.bookCount}">
+										<input type="hidden" class="individual_point_input" value="${ol.point}">
+										<input type="hidden" class="individual_totalPoint_input" value="${ol.totalPoint}">
+										<input type="hidden" class="individual_bookId_input" value="${ol.bookId}">
 										
+										</td>
+
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 
 					</div>
-					
+
 					<!-- 포인트 정보  -->
 					<div class="point_div">
-					 <div class="point_div_subject">포인트 사용 </div>
-					 <table class="point_table">
-					   <colgroup>
-					    <col width="25%">
-					    <col width="*">	    
-					   </colgroup>
-					   <tbody>
-					   <tr>
-					   <th>포인트 사용 </th>
-					   <td>
-					   ${memberInfo.point} | <input type="text" class="order_point_input" value="0">원 
-					   <a href=""  class="order_point_input_btn order_point_input_btn_N" data-state="N">모두 사용</a>
-					   <a href=""  class="order_point_input_btn order_point_input_btn_Y" data-state="Y" style="display: none;">사용취소</a>
-					   
-					   </td>
-					   
-					 </tbody>
-					   
-					 </table>
+						<div class="point_div_subject">포인트 사용</div>
+						<table class="point_table">
+							<colgroup>
+								<col width="25%">
+								<col width="*">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>포인트 사용</th>
+									<td>${memberInfo.point} | <input type="text"
+										class="order_point_input" value="0">원 <a href=""
+										class="order_point_input_btn order_point_input_btn_N"
+										data-state="N">모두 사용</a> <a href=""
+										class="order_point_input_btn order_point_input_btn_Y"
+										data-state="Y" style="display: none;">사용취소</a>
+
+									</td>
+							</tbody>
+						</table>
 					</div>
+
 					<!-- 주문 종합 정보 -->
+					<div class="total_info_div">
+						<!-- 가격 종합 정보  -->
+						<div class="total_info_price_div">
+							<ul>
+								<li>
+									<span class="price_span_label">상품금액</span>
+									<span class="totalPrice_span">10000</span>원
+								</li>
+								
+								<li>
+									<span class="price_span_label">배송비</span>
+									<span class="delivery_price_span">10000</span>원
+								</li>
+								
+								<li>
+									<span class="price_span_label">할인금액</span>
+									<span class="usePoint_span">10000</span>원
+								</li>
+								
+								<li class="price_total_li">
+									<strong class="price_span_label total_price_label">최종결제금액 </strong>
+									<strong class="strong_red">
+									<span class="total_price_red finalTotalPrice_span">
+									150000</span>원 
+									</strong>
+								</li>
+								
+								<li class="point_li">
+								 <span class="price_span_label">적립 예정 포인트 </span>
+								 <span class="totalPoint_span">7960원 </span>
+								 <span></span>
+								</li>
+								
+							</ul>
+						</div>
+						
+						<!-- 버튼 영역 -->
+						<div class="total_info_btn_div">
+						<a href="" class="order_btn">결제하기</a>
+						</div>
+						
+					</div>
+
 
 				</div>
 
@@ -297,7 +339,13 @@
 
 
 	<script>
-		/* 주소 입력란 버튼 동자 */
+	
+	$(document).ready(function(){
+		/* 주문 조합정보란 최신화 */
+		setTotalInfo();
+	});
+	
+	/* 주소 입력란 버튼 동작 */
 		function showAddress(className) {
 			$(".addressInfo_input_div").css("display", "none");
 			$(".addressInfo_input_div_" + className).css("display", "block");
@@ -364,45 +412,121 @@
 						}
 					}).open();
 		}
-		
-		
+
 		/* 포인트 입력 */
-		$(".order_point_input").on("propertychange change keyup paste input", function(){
+		$(".order_point_input").on("propertychange change keyup paste input", function() {
+					
 			const maxPoint = parseInt('${memberInfo.point}');
-			let inputValue = parseInt($(this).val());
 			
-			if(inputValue < 0 ){
+			let inputValue = parseInt($(this).val());
+
+			if (inputValue < 0) {
 				$(this).val(0);
-			}else if(inputValue > maxPoint){
+			} else if (inputValue > maxPoint) {
 				$(this).val(maxPoint);
 			}
+					
+			setTotalInfo();
+					
 		});
-		
+
 		/* 포인트 모두사용 취소 이용 
 		Y: 모두사용 N: 모두 취소상태
-		*/
-		$(".order_point_input_btn").on("click", function(e){
+		 */
+		$(".order_point_input_btn").on("click", function(e) {
 			e.preventDefault();
+			
 			const maxPoint = parseInt('${memberInfo.point}');
-			
+
 			let state = $(this).data("state");
-			
-			if(state == 'N'){
+
+			if (state == 'N') {
 				console.log('N 동작');
 				/* 모두 사용 */
+				
 				$(".order_point_input").val(maxPoint);
 				$(".order_point_input_btn_Y").css("display", "inline-block");
 				$(".order_point_input_btn_N").css("display", "none");
-				
-			}else if(state == 'Y'){
+
+			} else if (state == 'Y') {
 				console.log('Y 동작');
-				/* 모두 사용 */
+				
 				$(".order_point_input").val(0);
 				$(".order_point_input_btn_Y").css("display", "none");
 				$(".order_point_input_btn_N").css("display", "inline-block");
-				
 			}
+			
+			setTotalInfo();
 		});
+		
+		
+		/* 총 주문 정보 세팅 (배송비,총 가격, 마일리지, 품풀 수, 종류))  */
+		function setTotalInfo(){
+			
+			let totalPrice = 0;
+			let totalCount = 0;
+			let totalKind = 0 ;
+			let totalPoint = 0;
+			let deliveryPrice = 0;
+			let usePoint = 0;
+			let finalTotalPrice = 0;
+			
+			$(".goods_table_price_td").each(function(index, element){
+				 // 총 가격
+				 totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());
+				 // 총 개수
+				 totalCount += parseInt($(element).find(".individual_bookCount_input").val());
+				 // 총 종류
+				 totalKind += 1;
+				 // 총 마일리지
+				 totalPoint += parseInt($(element).find(".individual_totalPoint_input").val());
+			});
+			
+			/* 배송비 결정 */
+			if(totalPrice >= 30000){
+				deliveryPrice = 0;
+			}else if(totalPrice == 0){
+				deliveryPrice = 0;
+			}else{
+				deliveryPrice = 3000;
+			}
+			
+			finalTotalPrice = totalPrice + deliveryPrice;
+	
+			/* 사용 포인트 */
+			usePoint = $(".order_point_input").val();
+			
+			
+			finalTotalPrice = finalTotalPrice - usePoint;
+			
+			/* if(finalTotalPrice  > usePoint){
+				
+			}else{
+				alert("포인트 금액이 결제금액 넘게 사용할 수 없습니다. ");
+				return "order_point_input" ;
+			} */
+			
+			
+			/* 값 삽입 */
+			$(".totalPrice_span").text(totalPrice.toLocaleString());
+			// 총 갯수
+			$(".goods_kind_div_count").text(totalCount);
+			// 총 종류
+			$(".goods_kind_div_kind").text(totalKind);
+			// 총 마일리지
+			$(".totalPoint_span").text(totalPoint.toLocaleString());
+			// 배송비
+			$(".delivery_price_span").text(deliveryPrice.toLocaleString());	
+		
+			// 최종 가격(총 가격 + 배송비)
+			$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());		
+			// 할인가(사용 포인트)
+			$(".usePoint_span").text(usePoint.toLocaleString());	
+			
+		}
+		
+	 
+	 
 		
 	</script>
 </body>
