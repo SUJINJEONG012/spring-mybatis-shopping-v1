@@ -302,9 +302,8 @@
 						<div class="total_info_btn_div">
 						<a href="" class="order_btn">결제하기</a>
 						</div>
-						
+					
 					</div>
-
 
 				</div>
 				
@@ -326,11 +325,6 @@
 		
 
 			</div>
-
-
-
-
-
 
 
 			<!-- Footer 영역 -->
@@ -594,7 +588,6 @@
 					$("input[name='memberAddr3']").val($(obj).find(".address3_input").val());
 				}
 			});
-		});
 		
 		/* 사용 포인트 */
 		$("input[name='usePoint']").val($(".order_point_input").val());
@@ -614,7 +607,9 @@
 		
 		/* 서버전송 */
 		$(".order_form").submit();
-	 
+		
+	});
+		
 		
 	</script>
 </body>
