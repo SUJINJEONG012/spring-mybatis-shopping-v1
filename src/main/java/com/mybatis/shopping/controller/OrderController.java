@@ -2,6 +2,8 @@ package com.mybatis.shopping.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +14,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.OrderPageDto;
 import com.mybatis.shopping.service.MemberService;
-//import com.mybatis.shopping.service.OrderService;
 import com.mybatis.shopping.service.OrderService;
 
 @Controller
 public class OrderController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
+	
+	
 	@Autowired
 	private  OrderService orderService;
 	
@@ -28,8 +33,8 @@ public class OrderController {
 	@GetMapping("/order/{memberId}")
 	public String orderPageGet(@PathVariable("memberId") String memberId, OrderPageDto opd, Model model) {
 		
-		System.out.println("memberId : "+ memberId);
-		System.out.println("orders : " + opd.getOrders());
+		//System.out.println("memberId : "+ memberId);
+		//System.out.println("orders : " + opd.getOrders());
 		
 		model.addAttribute("orderList", orderService.getGoodsInfo(opd.getOrders()));
 		model.addAttribute("memberInfo", memberService.getMemberInfo(memberId));
@@ -42,7 +47,7 @@ public class OrderController {
 	public String orderPagePost(OrderDto od, HttpServletRequest request) {
 		
 		System.out.println(od);		
-		
-		return "redirect:/main";
+		logger.info("orderController 적용 여부 ");
+		return "redirect:/";
 	}
 }

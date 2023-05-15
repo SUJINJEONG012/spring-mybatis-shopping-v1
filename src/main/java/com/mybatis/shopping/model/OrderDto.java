@@ -8,7 +8,7 @@ public class OrderDto {
 	/* 주문 번호 */
 	private String orderId;
 	/* 배송 받는 이 */
-	private String addresse;
+	private String addressee;
 	/* 주문회원 아이디 */
 	private String memberId;
 	/* 우편번호 */
@@ -42,11 +42,11 @@ public class OrderDto {
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
-	public String getAddresse() {
-		return addresse;
+	public String getAddressee() {
+		return addressee;
 	}
-	public void setAddresse(String addresse) {
-		this.addresse = addresse;
+	public void setAddresse(String addressee) {
+		this.addressee = addressee;
 	}
 	public String getMemberId() {
 		return memberId;
@@ -124,7 +124,7 @@ public class OrderDto {
 	
 	@Override
 	public String toString() {
-		return "OrderDto [orderId=" + orderId + ", addresse=" + addresse + ", memberId=" + memberId + ", memberAddr1="
+		return "OrderDto [orderId=" + orderId + ", addressee=" + addressee + ", memberId=" + memberId + ", memberAddr1="
 				+ memberAddr1 + ", memberAddr2=" + memberAddr2 + ", memberAddr3=" + memberAddr3 + ", orderState="
 				+ orderState + ", orders=" + orders + ", deliveryCost=" + deliveryCost + ", usePoint=" + usePoint
 				+ ", orderDate=" + orderDate + ", orderSalePrice=" + orderSalePrice + ", orderSavePoint="

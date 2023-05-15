@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome BookMall</title>
+<title>dd</title>
 <link rel="stylesheet" href="/resources/css/main.css">
 <link rel="stylesheet" href="/resources/css/order.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -300,29 +300,26 @@
 						
 						<!-- 버튼 영역 -->
 						<div class="total_info_btn_div">
-						<a href="" class="order_btn">결제하기</a>
+							<a href="" class="order_btn">결제하기</a>
 						</div>
 					
 					</div>
-
 				</div>
 				
-				
-				<!-- 주문 요청 form -->
-		<form class="order_form" action="/order" method="post">
-			<!-- 주문자 회원번호 -->
-			<input name="memberId" value="${memberInfo.memberId}" type="hidden">
-			<!-- 주소록 & 받는이-->
-			<input name="address" type="hidden">
-			<input name="memberAddr1" type="hidden">
-			<input name="memberAddr2" type="hidden">
-			<input name="memberAddr3" type="hidden">
-			<!-- 사용 포인트 -->
-			<input name="usePoint" type="hidden">
+		
+		    <!-- 주문 요청 form -->
+			<form class="order_form" action="/order" method="post">
+				<!-- 주문자 회원번호 -->
+				<input name="memberId" value="${memberInfo.memberId}" type="hidden">
+				<!-- 주소록 & 받는이-->
+				<input name="addressee" type="hidden">
+				<input name="memberAddr1" type="hidden">
+				<input name="memberAddr2" type="hidden">
+				<input name="memberAddr3" type="hidden">
+				<!-- 사용 포인트 -->
+				<input name="usePoint" type="hidden">
 			<!-- 상품 정보 -->
-		</form>
-		
-		
+			</form>
 
 			</div>
 
@@ -350,7 +347,7 @@
 				<div class="footer_container">
 
 					<div class="footer_left">
-						<img src="resources/img/Logo.png">
+						logo
 					</div>
 					<div class="footer_right">
 						(주) VamBook 대표이사 : OOO <br> 사업자등록번호 : ooo-oo-ooooo <br>
@@ -579,14 +576,16 @@
 		
 		/* 주문 요청 */
 		$(".order_btn").on("click", function(){
+			
 			/* 주소 정보 & 받는이 */
-			$(".addressInfo_input_div").each(function(i,obj){
-				if($(obj).find(".selectAddress").val()==="T"){
-					$("input[name='address']").val($(obj).find(".address_input").val());
+			$(".addressInfo_input_div").each(function(i, obj){
+				if($(obj).find(".selectAddress").val() === 'T'){
+					$("input[name='addressee']").val($(obj).find(".addressee_input").val());
 					$("input[name='memberAddr1']").val($(obj).find(".address1_input").val());
 					$("input[name='memberAddr2']").val($(obj).find(".address2_input").val());
 					$("input[name='memberAddr3']").val($(obj).find(".address3_input").val());
 				}
+				
 			});
 		
 		/* 사용 포인트 */
@@ -607,6 +606,7 @@
 		
 		/* 서버전송 */
 		$(".order_form").submit();
+		
 		
 	});
 		
