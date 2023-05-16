@@ -27,6 +27,7 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.memberLogin(memberVo);
 	}
 
+<<<<<<< HEAD
 	/*주문자정보 */
 	@Override
 	public MemberVo getMemberInfo(String memberId) {
@@ -34,5 +35,14 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.getMemberInfo(memberId);
 	}
 	
+=======
+//	/*주문자정보 */
+//	@Override
+//	public MemberVo getMemberInfo(String memberId) {
+//		
+//		return memberMapper.getMemberInfo(memberId);
+//	}
+//	
+>>>>>>> 7bffc37... 뷰페이지에 장바구니에 담은dto 리스트로 콘솔창에 나오는지 체크
 	
 }
