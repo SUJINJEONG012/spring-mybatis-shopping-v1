@@ -12,6 +12,27 @@
 		select bookId, bookName, bookPrice, bookDiscount
 		from book where bookId = #{bookId}
 	</select>
+	<!-- 주문 상품 정보 (주문처리) -->
+	<select id="getOrderInfo" resultType="com.mybatis.shopping.model.OrderItemDto">
+	 select bookId, bookPrice, bookDiscount
+	 from book where bookId = #{bookId}
+	</select>
+	
+	<!-- 주문 테이블 등록 -->
+	<insert id="enrollOrder">
+	 insert into orders(orderId, addressee, memberId, memberAddr1, memberAddr2, memberAddr3, orderState, deliveryCost, usePoint)
+	 values (${orderId},${addressee},${memberId},${memberAddr1},${memberAddr2},${memberAddr3},${orderState},${deliveryCost},${usePoint})
+	</insert>
+	
+	<!-- 주문 아이템 테이블 등록 -->
+	<insert id="enrollOrderItem">
+	insert into orderItem(orderId, bookId, bookCount, bookPrice, bookDiscount, savePoint) values (#{orderId}, #{bookId},#{bookCount},#{bookPrice},#{bookDiscount},#{savePoint})
+	</insert>
+	
+	<!-- 주문 금액 차감 -->
+	<update id="deductMoney">
+	 update
+	</update>
 	
 	
 
