@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
+<link rel="stylesheet" href="/resources/css/main.css">
 <link rel="stylesheet" href="/resources/css/order.css">
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -108,7 +109,7 @@
 				<!-- 배송지 정보 -->
 				<div class="addressInfo_div">
 					<div class="addressInfo_button_div">
-						<button class="address_btn address_btn_1" onclick="showAdress('1')" style="background-color: #3c3838;">상용자 정보 주소록</button>
+						<button class="address_btn address_btn_1" onclick="showAdress('1')" style="background-color: #3c3838;">사용자 정보 주소록</button>
 						<button class="address_btn address_btn_2" onclick="showAdress('2')">직접 입력</button>
 					</div>
 					<div class="addressInfo_input_div_wrap">
@@ -130,7 +131,7 @@
 										<td>
 											${memberInfo.memberAddr1} ${memberInfo.memberAddr2}<br>${memberInfo.memberAddr3}
 											<input class="selectAddress" value="T" type="hidden">
-											<input class="addressee_input" value="${memberInfo.memberName}" type="hidden">
+											<input class="addressee_input" type="hidden" value="${memberInfo.memberName}" >
 											<input class="address1_input" type="hidden" value="${memberInfo.memberAddr1}">
 											<input class="address2_input" type="hidden" value="${memberInfo.memberAddr2}">
 											<input class="address3_input" type="hidden" value="${memberInfo.memberAddr3}">																					
@@ -286,7 +287,7 @@
 				<!-- 주문자 회원번호 -->
 				<input name="memberId" value="${memberInfo.memberId}" type="hidden">
 				<!-- 주소록 & 받는이-->
-				<input name="addressee" type="hidden">
+				<input name="addressee_input" type="hidden">
 				<input name="memberAddr1" type="hidden">
 				<input name="memberAddr2" type="hidden">
 				<input name="memberAddr3" type="hidden">
@@ -366,6 +367,7 @@ $(document).ready(function(){
 	
 	
 });
+
 
 
 /* 주소입력란 버튼 동작(숨김, 등장) */
@@ -564,11 +566,13 @@ $(".order_btn").on("click", function(){
 	$(".addressInfo_input_div").each(function(i, obj){
 		if($(obj).find(".selectAddress").val() === 'T'){
 			$("input[name='addressee']").val($(obj).find(".addressee_input").val());
+			
 			$("input[name='memberAddr1']").val($(obj).find(".address1_input").val());
 			$("input[name='memberAddr2']").val($(obj).find(".address2_input").val());
 			$("input[name='memberAddr3']").val($(obj).find(".address3_input").val());
+			
 		}
-	});	
+	});
 	
 	/* 사용 포인트 */
 	$("input[name='usePoint']").val($(".order_point_input").val());	

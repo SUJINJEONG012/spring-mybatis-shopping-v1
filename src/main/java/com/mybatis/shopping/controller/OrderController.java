@@ -16,8 +16,7 @@ import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.OrderPageDto;
 import com.mybatis.shopping.service.MemberService;
 import com.mybatis.shopping.service.OrderService;
-import com.mybatis.shopping.model.OrderPageDto;
-import com.mybatis.shopping.service.MemberService;
+
 
 @Controller
 public class OrderController {
@@ -48,6 +47,7 @@ public class OrderController {
 		
 		System.out.println(od);		
 		logger.info("orderController 적용 여부 ");
+		System.out.println("addressee: " + od.getAddressee());
 		return "redirect:/";
 	
     }

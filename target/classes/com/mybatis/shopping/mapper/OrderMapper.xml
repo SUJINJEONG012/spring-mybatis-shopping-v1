@@ -9,11 +9,11 @@
 	<!-- 주문 상품 정보 -->
 	<select id="getGoodsInfo"
 		resultType="com.mybatis.shopping.model.OrderPageItemDto">
-
 		select bookId, bookName, bookPrice, bookDiscount
 		from book where bookId = #{bookId}
-
 	</select>
+	
+	
 
 </mapper>
   
