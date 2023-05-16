@@ -1,18 +1,15 @@
 package com.mybatis.shopping.controller;
 
-<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-=======
->>>>>>> 7bffc37... 뷰페이지에 장바구니에 담은dto 리스트로 콘솔창에 나오는지 체크
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.mybatis.shopping.model.OrderDto;
@@ -36,8 +33,8 @@ public class OrderController {
 	@GetMapping("/order/{memberId}")
 	public String orderPageGet(@PathVariable("memberId") String memberId, OrderPageDto opd, Model model) {
 		
-		//System.out.println("memberId : "+ memberId);
-		//System.out.println("orders : " + opd.getOrders());
+		System.out.println("memberId : "+ memberId);
+		System.out.println("orders : " + opd.getOrders());
 		
 		model.addAttribute("orderList", orderService.getGoodsInfo(opd.getOrders()));
 		model.addAttribute("memberInfo", memberService.getMemberInfo(memberId));

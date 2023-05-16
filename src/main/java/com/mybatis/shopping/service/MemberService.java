@@ -14,9 +14,6 @@ public interface MemberService {
 	public MemberVo memberLogin(MemberVo memberVo) throws Exception;
 
 	/* 주문자 정보 */
-<<<<<<< HEAD
-	public MemberVo getMemberInfo(String memberName);
-=======
-	//public MemberVo getMemberInfo(String memberId);
->>>>>>> 7bffc37... 뷰페이지에 장바구니에 담은dto 리스트로 콘솔창에 나오는지 체크
+	public MemberVo getMemberInfo(String memberId);
+
 }

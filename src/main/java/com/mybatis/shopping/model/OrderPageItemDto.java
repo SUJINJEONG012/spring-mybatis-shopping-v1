@@ -35,17 +35,11 @@ public class OrderPageItemDto {
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
-<<<<<<< HEAD
+
 	public int getBookCount() {
 		return bookCount;
 	}
 	public void setBookCount(int bookCount) {
-=======
-	public int getBookcount() {
-		return bookCount;
-	}
-	public void setBookcount(int bookCount) {
->>>>>>> 7bffc37... 뷰페이지에 장바구니에 담은dto 리스트로 콘솔창에 나오는지 체크
 		this.bookCount = bookCount;
 	}
 	public String getBookName() {
@@ -98,19 +92,15 @@ public class OrderPageItemDto {
 		this.point= (int) Math.floor(this.salePrice* 0.05);
 		this.totalPoint = this.point * this.bookCount;	
 	}
-	
-	
 	@Override
 	public String toString() {
-<<<<<<< HEAD
 		return "OrderPageItemDto [bookId=" + bookId + ", bookCount=" + bookCount + ", bookName=" + bookName
-=======
-		return "OrderPageItemDto [bookId=" + bookId + ", bookcount=" + bookCount + ", bookName=" + bookName
->>>>>>> 7bffc37... 뷰페이지에 장바구니에 담은dto 리스트로 콘솔창에 나오는지 체크
 				+ ", bookPrice=" + bookPrice + ", bookDiscount=" + bookDiscount + ", salePrice=" + salePrice
 				+ ", totalPrice=" + totalPrice + ", point=" + point + ", totalPoint=" + totalPoint + ", imageList="
 				+ imageList + "]";
-	}	
+	}
+	
+	
 	
 	
 }

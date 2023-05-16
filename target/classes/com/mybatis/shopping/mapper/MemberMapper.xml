@@ -22,20 +22,12 @@
   	
   	
   	<!-- 주문자 정보 -->
-<<<<<<< HEAD
   	<select id="getMemberInfo" resultType="com.mybatis.shopping.model.MemberVo">
   	select memberId, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, money, point
   	from book_member
   	where memberId = #{memberId}
   	</select>
-=======
-  	
-  	<!-- <select id="getMemberInfo" resultType="com.mybatis.shopping.model.MemberVo">
-  	select memberId, memberName, memberMail, memberAddr1, memberAddr2, memberAddr3, money, point
-  	from book_member
-  	where memberId = #{memberId}
-  	</select> -->
->>>>>>> 7bffc37... 뷰페이지에 장바구니에 담은dto 리스트로 콘솔창에 나오는지 체크
-  	
+
+  	  	
   	
 </mapper>
