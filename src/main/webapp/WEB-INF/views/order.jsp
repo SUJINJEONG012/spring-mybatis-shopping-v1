@@ -108,11 +108,15 @@
 				
 				<!-- 배송지 정보 -->
 				<div class="addressInfo_div">
+					
+					
 					<div class="addressInfo_button_div">
 						<button class="address_btn address_btn_1" onclick="showAdress('1')" style="background-color: #3c3838;">사용자 정보 주소록</button>
 						<button class="address_btn address_btn_2" onclick="showAdress('2')">직접 입력</button>
 					</div>
-					<div class="addressInfo_input_div_wrap">
+					
+					
+					<div class="addressInfo_input_div_wrap">	
 						<div class="addressInfo_input_div addressInfo_input_div_1" style="display: block">
 							<table>
 								<colgroup>
@@ -166,6 +170,7 @@
 							</table>
 						</div>
 					</div>
+					
 				</div>				
 				<!-- 상품 정보 -->
 				<div class="orderGoods_div">
@@ -243,6 +248,7 @@
 						</tbody>
 					</table>
 				</div>				
+				
 				<!-- 주문 종합 정보 -->
 				<div class="total_info_div">
 					<!-- 가격 종합 정보 -->
@@ -287,7 +293,7 @@
 				<!-- 주문자 회원번호 -->
 				<input name="memberId" value="${memberInfo.memberId}" type="hidden">
 				<!-- 주소록 & 받는이-->
-				<input name="addressee_input" type="hidden">
+				<input name="addressee" type="hidden">
 				<input name="memberAddr1" type="hidden">
 				<input name="memberAddr2" type="hidden">
 				<input name="memberAddr3" type="hidden">
