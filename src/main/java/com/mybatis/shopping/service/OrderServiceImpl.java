@@ -1,10 +1,13 @@
 package com.mybatis.shopping.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mybatis.shopping.mapper.AttachMapper;
 import com.mybatis.shopping.mapper.BookMapper;
@@ -12,6 +15,9 @@ import com.mybatis.shopping.mapper.CartMapper;
 import com.mybatis.shopping.mapper.MemberMapper;
 import com.mybatis.shopping.mapper.OrderMapper;
 import com.mybatis.shopping.model.AttachImageVo;
+import com.mybatis.shopping.model.MemberVo;
+import com.mybatis.shopping.model.OrderDto;
+import com.mybatis.shopping.model.OrderItemDto;
 import com.mybatis.shopping.model.OrderPageItemDto;
 
 @Service
@@ -54,5 +60,46 @@ public class OrderServiceImpl implements OrderService {
 			
 		}
 		return result;
+	}
+
+
+	/* 주문 */
+	@Override
+	@Transactional
+	public void order(OrderDto ord) {
+		//주문  정보가 담긴 객체를 세팅 
+		
+		//1. 회원정보가져오기
+		MemberVo memberVo = memberMapper.getMemberInfo(ord.getMemberId());
+		
+		//2. 주문정보 가져오기
+		List<OrderItemDto> ords = new ArrayList<>();
+		
+		for(OrderItemDto oit : ord.getOrders()) {
+			OrderItemDto orderItem = orderMapper.getOrderInfo(oit.getBookId());
+			//수량 세팅
+			orderItem.setBookCount(oit.getBookCount());
+			//기본정보 세팅
+			orderItem.initSaleTotal();
+			//List 객체
+			ords.add(orderItem);
+		}
+		
+		/* OrderDto 세팅 */
+		ord.setOrders(ords);
+		ord.getOrderPriceInfo();
+		
+		/* DB 주문, 주문상품, 넣기 */
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("_yyyyMMddmm");
+		String orderId = memberVo.getMemberId() + format.format(date);
+		ord.setOrderId(orderId);
+		
+		/* db 넣기 */
+		orderMapper.enrollOrder(ord);
+		for(OrderItemDto oit : ord.getOrders()) {
+			oit.setOrderId(orderId);
+			orderMapper.enrollOrderItem(oit);
+		}
 	}
 }
