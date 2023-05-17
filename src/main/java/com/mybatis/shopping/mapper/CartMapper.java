@@ -16,4 +16,6 @@ public interface CartMapper {
 	public List<CartDto> getCart(String memberId);
 	/* 카트 확인 */
 	public CartDto checkCart(CartDto cart);
+	/* 카트 제거(주문) */
+	public int deleteOrderCart(CartDto cartDto);
 }

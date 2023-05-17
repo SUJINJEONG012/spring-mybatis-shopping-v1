@@ -49,6 +49,8 @@ public class OrderController {
 		logger.info("orderController 적용 여부 ");
 		System.out.println("addressee: " + od.getAddressee());
 		return "redirect:/";
-	
     }
+	
+	
+	
 }

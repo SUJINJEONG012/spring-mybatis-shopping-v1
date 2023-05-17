@@ -15,6 +15,8 @@ import com.mybatis.shopping.mapper.CartMapper;
 import com.mybatis.shopping.mapper.MemberMapper;
 import com.mybatis.shopping.mapper.OrderMapper;
 import com.mybatis.shopping.model.AttachImageVo;
+import com.mybatis.shopping.model.BookVo;
+import com.mybatis.shopping.model.CartDto;
 import com.mybatis.shopping.model.MemberVo;
 import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.OrderItemDto;
@@ -96,14 +98,16 @@ public class OrderServiceImpl implements OrderService {
 		ord.setOrderId(orderId);
 		
 		/* db 넣기 */
-		orderMapper.enrollOrder(ord);
-		for(OrderItemDto oit : ord.getOrders()) {
+		orderMapper.enrollOrder(ord); // orders  등록
+		for(OrderItemDto oit : ord.getOrders()) { // orderItem 등록
 			oit.setOrderId(orderId);
 			orderMapper.enrollOrderItem(oit);
 		}
 		
 		
 		/* 비용 포인트 변동 적용 */
+		
+		/* 비용 차감 & 변동 돈 (money)  Member 객체 적용 */
 		int calMoney = memberVo.getMoney();
 		calMoney -= ord.getOrderFinalSalePrice();
 		memberVo.setMoney(calMoney);
@@ -112,6 +116,26 @@ public class OrderServiceImpl implements OrderService {
 		int calPoint = memberVo.getPoint();
 		calPoint = calPoint - ord.getUsePoint() + ord.getOrderSavePoint();
 		memberVo.setPoint(calPoint);
+		
+		/* 변동 돈, 포인트 DB 적용 */
+		orderMapper.deductMoney(memberVo);
+		
+		/* 재고 변동 적용 */
+		for(OrderItemDto oit: ord.getOrders()) {
+			/* 변동 재고값 */
+			BookVo bookVo = bookMapper.getGoodsInfo(oit.getBookId());
+			bookVo.setBookStock(bookVo.getBookStock() - oit.getBookCount());
+			/* 변동 값 DB 적용 */
+			orderMapper.deductStock(bookVo);
+		}
+		/* 장바구니 제거 */
+		for(OrderItemDto oit : ord.getOrders()) {
+			CartDto cartDto = new CartDto();
+			cartDto.setMemberId(ord.getMemberId());
+			cartDto.setBookId(oit.getBookId());
+			cartMapper.deleteOrderCart(cartDto);
+		}
+		
 	
 	}
 }
