@@ -1,6 +1,7 @@
 package com.mybatis.shopping.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.mybatis.shopping.model.MemberVo;
 import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.OrderPageDto;
 import com.mybatis.shopping.service.MemberService;
@@ -46,10 +48,27 @@ public class OrderController {
 	public String orderPagePost(OrderDto od, HttpServletRequest request) {
 		
 		System.out.println(od);		
-		logger.info("orderController 적용 여부 ");
-		System.out.println("addressee: " + od.getAddressee());
+		//logger.info("orderController 적용 여부 ");
+		
+		orderService.order(od);
+		
+		MemberVo memberVo = new MemberVo();
+		memberVo.setMemberId(od.getMemberId());
+		
+		//멤버에 변동된 값 적용되도록 설정 
+		HttpSession session = request.getSession();
+		try {
+			MemberVo memberLogin = memberService.memberLogin(memberVo);
+			memberLogin.setMemberPw("");
+			session.setAttribute("member", memberLogin);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		return "redirect:/";
     }
+	
+	
 	
 	
 	

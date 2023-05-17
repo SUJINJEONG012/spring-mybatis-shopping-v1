@@ -11,7 +11,7 @@ public interface OrderService {
 	public List<OrderPageItemDto> getGoodsInfo(List<OrderPageItemDto> orders);
 	
 	/* 주문 */
-	public void order(OrderDto orw);
+	public void order(OrderDto ord);
 	
 	
 }

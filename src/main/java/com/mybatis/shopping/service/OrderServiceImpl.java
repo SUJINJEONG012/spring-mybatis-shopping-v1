@@ -78,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
 		List<OrderItemDto> ords = new ArrayList<>();
 		
 		for(OrderItemDto oit : ord.getOrders()) {
-			OrderItemDto orderItem = orderMapper.getOrderInfo(oit.getBookId());
+				OrderItemDto orderItem = orderMapper.getOrderInfo(oit.getBookId());
 			//수량 세팅
 			orderItem.setBookCount(oit.getBookCount());
 			//기본정보 세팅

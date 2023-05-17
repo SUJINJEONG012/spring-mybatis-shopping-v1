@@ -33,4 +33,11 @@
 	  where memberId = #{memberId} and bookId = #{bookId}
 	</select>
 	
+	<!-- 카트삭제 -->
+	<delete id="deleteOrderCart">
+	  delete from cart where memberId = #{memberId} and bookId = #{bookId}
+	</delete>
+	
+	
+	
 </mapper>
