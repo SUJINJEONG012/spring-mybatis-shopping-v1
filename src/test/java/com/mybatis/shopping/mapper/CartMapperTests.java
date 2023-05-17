@@ -16,6 +16,8 @@ public class CartMapperTests {
 
 	@Autowired
 	private CartMapper cartMapper;
+	@Autowired
+	private OrderMapper orderMapper;
 	
 	/* 카트 추가 */
 //	@Test
@@ -58,33 +60,45 @@ public class CartMapperTests {
 //	}
 	
 	/* 카트 목록 */	
-	@Test
-	public void getCartTest() {
-		String memberId = "admin";
-		
-		List<CartDto> list = cartMapper.getCart(memberId);
-		for(CartDto cart: list) {
-			System.out.println("cart List : " + cart );
-			cart.initSaleTotal();
-			System.out.print("init cart : " + cart);
-		}
-	}
+//	@Test
+//	public void getCartTest() {
+//		String memberId = "admin";
+//		
+//		List<CartDto> list = cartMapper.getCart(memberId);
+//		for(CartDto cart: list) {
+//			System.out.println("cart List : " + cart );
+//			cart.initSaleTotal();
+//			System.out.print("init cart : " + cart);
+//		}
+//	}
 	
 	/* 카트 확인 */
-	@Test
-	public void checkCartTest() {
-		
-		String memberId = "admin";
-		int bookId = 40;
-		
-		CartDto cart = new CartDto();
-		cart.setMemberId(memberId);
-		cart.setBookId(bookId);
-		
-		CartDto resultCart = cartMapper.checkCart(cart);
-		System.out.println("결과 : "  +  resultCart);
+//	@Test
+//	public void checkCartTest() {
+//		
+//		String memberId = "admin";
+//		int bookId = 40;
+//		
+//		CartDto cart = new CartDto();
+//		cart.setMemberId(memberId);
+//		cart.setBookId(bookId);
+//		
+//		CartDto resultCart = cartMapper.checkCart(cart);
+//		System.out.println("결과 : "  +  resultCart);
+//	
+//	}
 	
-	}
+	/* 장바구니 제거 (주문처리) */
+//	@Test
+//	public void deleteOrderCart() {
+//		String memberId= "admin";
+//		int bookId = 4094;
+//		
+//		CartDto dto = new CartDto();
+//		dto.setMemberId(memberId);
+//		dto.setBookId(bookId);
+//		orderMapper.deleteOrderCart(dto);
+//	}
 	
 	
 }
