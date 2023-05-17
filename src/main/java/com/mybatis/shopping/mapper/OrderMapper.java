@@ -1,5 +1,7 @@
 package com.mybatis.shopping.mapper;
 
+import com.mybatis.shopping.model.BookVo;
+import com.mybatis.shopping.model.CartDto;
 import com.mybatis.shopping.model.MemberVo;
 import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.OrderItemDto;
@@ -18,4 +20,9 @@ public interface OrderMapper {
 	public int enrollOrderItem(OrderItemDto orid);
 	/* 주문 금액 차감 */
 	public int deductMoney(MemberVo memberVo);
+	/* 주문 재고 차감 */
+	public int deductStock(BookVo bookVo);
+	/* 카트 제거 (주문) */
+	public int deleteOrderCart(CartDto cartDto); 
+	
 }
