@@ -101,5 +101,17 @@ public class OrderServiceImpl implements OrderService {
 			oit.setOrderId(orderId);
 			orderMapper.enrollOrderItem(oit);
 		}
+		
+		
+		/* 비용 포인트 변동 적용 */
+		int calMoney = memberVo.getMoney();
+		calMoney -= ord.getOrderFinalSalePrice();
+		memberVo.setMoney(calMoney);
+		
+		/* 포인트 차감, 포인트 증가  & 변동 포인트 Member객체 적용 */
+		int calPoint = memberVo.getPoint();
+		calPoint = calPoint - ord.getUsePoint() + ord.getOrderSavePoint();
+		memberVo.setPoint(calPoint);
+	
 	}
 }
