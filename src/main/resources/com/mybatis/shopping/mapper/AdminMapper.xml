@@ -97,6 +97,12 @@
 	  order by orderdate desc
 	  limit #{skip}, #{amount}
 	</select>
+	
+	<!-- 상품 총 개수 -->
+	<select id="getOrderTotal" resultType="int">
+	 select count(*) from orders
+	</select>
+	
 
 
 </mapper>
