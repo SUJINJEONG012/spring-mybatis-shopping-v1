@@ -35,6 +35,7 @@ import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.PageDto;
 import com.mybatis.shopping.service.AdminService;
 import com.mybatis.shopping.service.AuthorService;
@@ -422,7 +423,19 @@ public class AdminController {
 
 		rttr.addFlashAttribute("delete_result", result);
 		return "redirect:/admin/authorManage";
-
+	}
+	
+	/* 주문 현황 페이지 */
+	@GetMapping("/orderList")
+	public String orderListGet(Criteria cri, Model model) {
+		List<OrderDto> list = adminService.getOrderList(cri);
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list);
+			model.addAttribute("pageMaker", new PageDto(cri, adminService.getOrderTotal(cri)));
+		}else {
+			model.addAttribute("listCheck","empty");
+		}
+		return "/admin/orderList";
 	}
 
 }

@@ -11,6 +11,7 @@ import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.model.OrderDto;
 
 import lombok.extern.log4j.Log4j;
 
@@ -116,6 +117,20 @@ public class AdminServiceImpl implements AdminService {
 		log.info("getAttachInfo..............");
 			
 		return adminMapper.getAttachInfo(bookId);
+	}
+
+	/* 주문 상품 리스트 */
+	@Override
+	public List<OrderDto> getOrderList(Criteria cri) {
+		
+		return adminMapper.getOrderList(cri);
+	}
+
+	/* 주문 총 개수 */
+	@Override
+	public int getOrderTotal(Criteria cri) {
+		
+		return adminMapper.getOrderTotal(cri);
 	}
 	
 	

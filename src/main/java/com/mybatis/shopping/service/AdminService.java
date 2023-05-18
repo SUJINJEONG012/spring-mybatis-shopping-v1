@@ -6,6 +6,7 @@ import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.model.OrderDto;
 
 public interface AdminService {
 	/* 상품등록 */
@@ -31,5 +32,10 @@ public interface AdminService {
 	
 	/* 지정 상품 이미지 정보 얻기 */
 	public List<AttachImageVo> getAttachInfo(int bookId);
+	
+	/* 주문 상품 리스트 */
+	public List<OrderDto> getOrderList(Criteria cri);
+	/* 주문 총 개수 */
+	public int getOrderTotal(Criteria cri);
 
 }
