@@ -11,8 +11,6 @@
 	 <!-- select max(bookId) from book; -->
 	 SELECT LAST_INSERT_ID()
 	 </selectKey>
-	
-
 		insert into book(bookName, authorId, publeYear, publisher, cateCode,
 		bookPrice, bookStock, bookDiscount, bookIntro, bookContents)
 		values( #{bookName}, #{authorId}, #{publeYear}, #{publisher}, #{cateCode},
@@ -86,7 +84,19 @@
 	 <select id="getAttachInfo" resultType="com.mybatis.shopping.model.AttachImageVo">
 	  select * from book_image where bookId = #{bookId}
 	 </select>
-	
+	 
+	 
+	 
+	 <!-- 주문 리스트 --> 
+	<select id="getOrderList" resultType="com.mybatis.shopping.model.OrderDto">
+	  select OrderId, memberId, orderState, orderDate
+	  from orders
+	  <if test="keyword != null">
+	   where memberId like concat('%', #{keyword}, '%')
+	  </if>
+	  order by orderdate desc
+	  limit #{skip}, #{amount}
+	</select>
 
 
 </mapper>
