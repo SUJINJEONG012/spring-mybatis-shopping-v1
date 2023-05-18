@@ -157,15 +157,11 @@ ul{
     margin-left:15px;
 }
 
- 
-
- 
 /* 관리자페이지 컨텐츠 영역 */
 .admin_content_wrap{
    width: 80%;
     float:left;
-    height: 100%;    
-    
+   
 }
 .admin_content_subject{            /* 관리자 컨텐츠 제목 영역 */
     font-size: 40px;
