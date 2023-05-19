@@ -24,15 +24,10 @@ public interface OrderMapper {
 	public int deductMoney(MemberVo memberVo);
 	/* 주문 재고 차감 */
 	public int deductStock(BookVo bookVo);
-	/* 카트 제거 (주문) */
-	public int deleteOrderCart(CartDto cartDto); 
-	
 	/* 주문 취소 */
 	public int orderCancel(String orderId);
-	
 	/* 주문 상품 정보 (주문 취소)*/
 	public List<OrderItemDto> getOrderItemInfo(String orderId);
-	
 	/* 주문 정보 (주문취소) */
 	public OrderDto getOrder(String orderId);
 }

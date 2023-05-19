@@ -153,7 +153,7 @@ public class OrderServiceImpl implements OrderService {
 		MemberVo memberVo = memberMapper.getMemberInfo(dto.getMemberId());
 		//주문상품
 		List<OrderItemDto> ords = orderMapper.getOrderItemInfo(dto.getOrderId());
-		for(OrderItemDto ord: ords) {
+		for(OrderItemDto ord : ords) {
 			ord.initSaleTotal();
 		}
 		//주문

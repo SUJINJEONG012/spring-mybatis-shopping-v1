@@ -53,18 +53,42 @@
 							 </c:if>
 							</td>
 						</tr>
-					</c:forEach>
-					
+					</c:forEach>			
 				</table>
 				
 			</c:if>
 
 			<!-- 게시물 x -->
+			
+			<form id="moveForm" action="/admin/orderList" method="get">
+			 <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+			 <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+			 <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+			</form>
+			
+			<form id="deleteForm" action="/admin/orderCancel" method="post">
+			  <input type="hidden" name="orderId">
+			  <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+			  <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+			  <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+			  <input type="hidden" name="memberId" value="${member.memberId}">
+			</form>
 
 		</div>
 	</div>
 
 	<%@include file="../include/admin/footer.jsp"%>
 
+
+<script>
+ $(".delete_btn").on("click", function(e){
+	 e.preventDefault();
+	 let id = $(this).data("orderid");
+	 $("#deleteForm").find("input[name='orderId']").val(id);
+	 $("#deleteForm").submit();
+ });
+ 
+ 
+</script>
 </body>
 </html>

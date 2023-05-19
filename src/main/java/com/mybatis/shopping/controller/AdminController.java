@@ -35,10 +35,12 @@ import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.AuthorVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.model.OrderCancelDto;
 import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.PageDto;
 import com.mybatis.shopping.service.AdminService;
 import com.mybatis.shopping.service.AuthorService;
+import com.mybatis.shopping.service.OrderService;
 
 import net.coobird.thumbnailator.Thumbnails;
 
@@ -53,6 +55,9 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private OrderService orderService;
 
 	/* 관리자 메인페이지로 이동 */
 	@GetMapping("/main")
@@ -206,7 +211,6 @@ public class AdminController {
 		logger.info("deleteFile................... "+ fileName);
 		
 		File file = null;
-		
 		
 		try {
 			
@@ -436,6 +440,14 @@ public class AdminController {
 			model.addAttribute("listCheck","empty");
 		}
 		return "/admin/orderList";
+	}
+	
+	/* 주문 삭제 */
+	@PostMapping("/orderCancel")
+	public String orderCancelPost(OrderCancelDto dto) {
+		orderService.orderCancel(dto);
+		return "redirect:/admin/orderList?keyword=" + dto.getKeyword() + "&amount=" + dto.getAmount() + "&pageNum=" + dto.getPageNum();
+		
 	}
 
 }

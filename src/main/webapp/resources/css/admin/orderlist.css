@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.delete_btn{
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #f7564b;	
+}
+.delete_btn:hover{
+	background-color : #da190b;
+}
