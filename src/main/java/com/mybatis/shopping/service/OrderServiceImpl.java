@@ -18,6 +18,7 @@ import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CartDto;
 import com.mybatis.shopping.model.MemberVo;
+import com.mybatis.shopping.model.OrderCancelDto;
 import com.mybatis.shopping.model.OrderDto;
 import com.mybatis.shopping.model.OrderItemDto;
 import com.mybatis.shopping.model.OrderPageItemDto;
@@ -138,4 +139,46 @@ public class OrderServiceImpl implements OrderService {
 		
 	
 	}
+
+	/* 주문 취소 */
+	@Override
+	@Transactional
+	public void orderCancel(OrderCancelDto dto) {
+		
+		/* 회원정보, 주문정보, 주문상품정보를 가져와서 Member, OrderDto, OrderItemDto 객체에 담아준다.
+		 * 주문, 주문상품정보의 경우 OrderDto, OrderItemDto에 판매가격 관련정보를 만들어내는 메서드를 호출하여
+		 * 가격 관련 값들도 세팅
+		 * */
+		
+		MemberVo memberVo = memberMapper.getMemberInfo(dto.getMemberId());
+		//주문상품
+		List<OrderItemDto> ords = orderMapper.getOrderItemInfo(dto.getOrderId());
+		for(OrderItemDto ord: ords) {
+			ord.initSaleTotal();
+		}
+		//주문
+		OrderDto orw = orderMapper.getOrder(dto.getOrderId());
+		orw.setOrders(ords);
+		orw.getOrderPriceInfo();
+		//주문상품 취소 (DB)
+		orderMapper.orderCancel(dto.getOrderId());
+		
+		//돈, 포인트, 재고 변환
+		int calMoney = memberVo.getMoney();
+		calMoney += orw.getOrderFinalSalePrice();
+		memberVo.setMoney(calMoney);
+		
+		int calPoint = memberVo.getPoint();
+		calPoint = calPoint + orw.getUsePoint() - orw.getOrderSavePoint();
+		memberVo.setPoint(calPoint);
+		
+		orderMapper.deductMoney(memberVo);
+ 		
+		for(OrderItemDto ord : orw.getOrders()) {
+			BookVo bookVo = bookMapper.getGoodsInfo(ord.getBookId());
+			bookVo.setBookStock(bookVo.getBookStock() + ord.getBookCount());
+			orderMapper.deductStock(bookVo);
+		}		
+	}
 }
+

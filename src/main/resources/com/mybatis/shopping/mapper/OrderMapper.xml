@@ -44,6 +44,23 @@
 	delete from cart where memberId = #{memberId} and bookId = #{bookId}
 	</delete>
 	
+	<!-- 주문취소 -->
+	<update id="orderCancel">
+	 update orders set orderState = "주문취소" where orderId = #{orderId}
+	</update>
+	
+	<!-- 주문상품 (주문취소) -->
+	<select id="" resultType="com.mybatis.shopping.model.OrderItemDto">
+	select * from orderItem
+	where orderId = #{orderId}
+	</select>
+	
+	
+	<!-- 주문정보 (주문취소) -->
+	<select id="getOrder" resultType="com.mybatis.shopping.model.OrderDto">
+	 select * from orders
+	 where orderId = #{orderId}
+	</select>
 	
 
 </mapper>

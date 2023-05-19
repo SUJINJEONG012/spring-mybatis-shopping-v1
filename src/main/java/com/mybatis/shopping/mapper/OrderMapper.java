@@ -1,5 +1,7 @@
 package com.mybatis.shopping.mapper;
 
+import java.util.List;
+
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CartDto;
 import com.mybatis.shopping.model.MemberVo;
@@ -25,5 +27,12 @@ public interface OrderMapper {
 	/* 카트 제거 (주문) */
 	public int deleteOrderCart(CartDto cartDto); 
 	
+	/* 주문 취소 */
+	public int orderCancel(String orderId);
 	
+	/* 주문 상품 정보 (주문 취소)*/
+	public List<OrderItemDto> getOrderItemInfo(String orderId);
+	
+	/* 주문 정보 (주문취소) */
+	public OrderDto getOrder(String orderId);
 }
