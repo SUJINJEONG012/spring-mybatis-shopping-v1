@@ -1,3 +1,4 @@
+
 package com.mybatis.shopping.controller;
 
 import java.io.File;
@@ -109,10 +110,8 @@ public class BookController {
 				 model.addAttribute("filter_info", bookService.getCateInfoList(cri));
 			}
 		}
-		return "search";
-		
+		return "search";	
 	}
-	
 	
 	/* 상품 상세 */
 	@GetMapping("/goodsDetail/{bookId}")
@@ -120,6 +119,14 @@ public class BookController {
 		logger.info("goodsDetailGet()............");
 		model.addAttribute("goodsInfo", bookService.getGoodsInfo(booId));
 		return "/goodsDetail";
+	}
+	/* 리뷰 쓰기 */
+	@GetMapping("/replyEnroll/{memberId}")
+	public String replyEnrollWindowGet(@PathVariable("memberId") String memberId, int bookId, Model model) {
+		BookVo book = bookService.getBookIdName(bookId);
+		model.addAttribute("bookInfo", book);
+		model.addAttribute("memberId", memberId);
+		return "/replyEnroll";
 	}
 	
 }

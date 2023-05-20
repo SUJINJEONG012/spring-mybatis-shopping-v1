@@ -140,7 +140,12 @@
 	left outer join bcate c on a.cateCode = c.catecode
 	where bookid = #{bookId}
 	</select>
-
+	
+	<!-- 상품 id 이름 -->
+	<select id="getBookIdName" resultType="com.mybatis.shopping.model.BookVo">
+	 select bookId, bookName from book
+	 where bookId = #{bookId}
+	</select>
 
 
 
