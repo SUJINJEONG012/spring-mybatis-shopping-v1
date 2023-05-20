@@ -163,6 +163,9 @@ public class OrderServiceImpl implements OrderService {
 		//주문상품 취소 (DB)
 		orderMapper.orderCancel(dto.getOrderId());
 		
+		/* 주문 취소 */
+		orderMapper.orderCancel(dto.getOrderId());
+		
 		//돈, 포인트, 재고 변환
 		int calMoney = memberVo.getMoney();
 		calMoney += orw.getOrderFinalSalePrice();

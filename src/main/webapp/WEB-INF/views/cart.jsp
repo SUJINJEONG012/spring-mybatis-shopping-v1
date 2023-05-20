@@ -61,7 +61,8 @@
 					<!-- 로그인한 상태 -->
 					<c:if test="${member != null}">
 						<div class="login_success_area">
-							<span>회원 : ${member.memberName }</span> <span>충전금액 : <fmt:formatNumber
+							<span>회원 : ${member.memberName }</span> 
+							<span>충전금액 : <fmt:formatNumber
 									value="${member.money }" pattern="#,###.##" />원
 							</span> <span>포인트: <fmt:formatNumber value="${member.point }"
 									pattern="#,###" />원
