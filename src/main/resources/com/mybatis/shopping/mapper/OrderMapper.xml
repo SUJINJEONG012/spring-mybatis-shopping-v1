@@ -50,7 +50,7 @@
 	</update>
 	
 	<!-- 주문상품 (주문취소) -->
-	<select id="" resultType="com.mybatis.shopping.model.OrderItemDto">
+	<select id="getOrderItemInfo" resultType="com.mybatis.shopping.model.OrderItemDto">
 	select * from orderItem
 	where orderId = #{orderId}
 	</select>
