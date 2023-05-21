@@ -11,7 +11,6 @@
 <title>상품관리</title>
 
 <link rel="stylesheet" href="../resources/css/admin/goodsManage.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 

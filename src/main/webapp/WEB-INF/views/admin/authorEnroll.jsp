@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>작가등록</title>
-
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
  <%@include file="../include/admin/header.jsp" %>
