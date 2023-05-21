@@ -15,7 +15,7 @@
 <body>
 	<div class="wrapper">
 
-		<div class="wrap">
+		<div class="header">
 
 			<div class="logo_wrap">
 				<span>Book Mall</span>
@@ -47,6 +47,9 @@
 
 				</div>
 			</form>
+			
+			
+			
 		</div>
 	</div>
 	

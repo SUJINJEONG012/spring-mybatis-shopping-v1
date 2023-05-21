@@ -13,13 +13,14 @@
 <link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet" href="/resources/css/main.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="/resources/js/cart.js"></script>
+
+
 </head>
 <body>
 
 
 	<div class="wrapper">
-		<div class="wrap">
+		<div class="headeer">
 	
 			<div class="top_gnb_area">
 				<div class="inner">
@@ -33,7 +34,7 @@
 						<c:if test="${member.adminCk == 1}">
 							<li><a href="/admin/main">관리자 페이지</a></li>
 						</c:if>
-						<li><a href="" id="gnb_logout_button">로그아웃</a></li>
+						<li><a href="/member/logout" id="gnb_logout_button">로그아웃</a></li>
 						<li><a href="">마이룸</a></li>
 						<li><a href="/cart/${member.memberId}">장바구니</a></li>
 					</c:if>
@@ -81,6 +82,31 @@
 
 
 				</div>
+				
+				<div class="navi_bar_area">
+				<div class="dropdown">
+				  <button class="dropbtn">국내
+				  <i class="fa fa-caret-down"></i>
+				  </button>
+				  <div class="dropdown-content">   
+				   <c:forEach items="${cate1}" var="cate">
+				    <a href="/search?type=C&cateCode=${cate.cateCode}">${cate.cateName }</a>
+				   </c:forEach>
+				  </div>
+				</div>
+				
+				<div class="dropdown">
+				<button class="dropbtn">국외
+				  <i class="fa fa-caret-down"></i>
+				  </button>
+				  <div class="dropdown-content">
+				  <c:forEach items="${cate2}" var="cate">
+				  <a href="/search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
+				  </c:forEach>
+				  </div>
+				</div>
+			</div>
+			
 
 			</div>
 

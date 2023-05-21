@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
 <link rel="stylesheet" href="/resources/css/cart.css">
+<script src="/resources/js/cart.js"></script>
 
 </head>
 <body>
