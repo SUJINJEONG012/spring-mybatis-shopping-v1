@@ -38,11 +38,9 @@
 								<li><a href="/admin/main">관리자 페이지</a></li>
 							</c:if>
 							<li><a href="/member/logout" id="gnb_logout_button">로그아웃</a></li>
-							<li><a href=""><i class="fa fa-user-circle" aria-hidden="true">마이페이지</i></a></li>
-
-							<li><a href="/cart/${member.memberId}"><i class="fa fa-shopping-cart" aria-hidden="true">장바구니 </i>장바구니</a></li>
+							<li><a href="/member/${member.memberId }"><i class="fa fa-user-circle" aria-hidden="true">마이페이지</i></a></li>
+							<li><a href="/cart/${member.memberId}"><i class="fa fa-shopping-cart" aria-hidden="true"> </i>장바구니</a></li>
 						</c:if>
-
 						<li><a href=""><i class="fa fa-headphones" aria-hidden="true"></i>고객센터</a></li>
 					</ul>
 				</div>
@@ -63,16 +61,12 @@
 							<select name="type">
 								<option value="T">책 제목</option>
 								<option value="A">작가</option>
-							</select> <input type="text" name="keyword"
-								value="<c:out value="${pageMaker.cri.keyword}"/>">
+							</select> 
+							<input type="text" name="keyword" value="<c:out value="${pageMaker.cri.keyword}"/>">
 								
-								<i class="fa fa-search" aria-hidden="true">검색</i>
-						   		
-						<i class="fa fa-star" aria-hidden="true">평점</i>
-						
-						<i class="fa fa-bell" aria-hidden="true">공지사항 </i>
-						
-							<button class="btn search_btn">검색</button>
+								<!-- <i class="fa fa-star" aria-hidden="true">평점</i>
+								<i class="fa fa-bell" aria-hidden="true">공지사항 </i>	 -->			
+							<button class="btn search_btn"><i class="fa fa-search" aria-hidden="true">검색</i></button>
 						</div>
 					</form>
 				</div>
@@ -82,12 +76,12 @@
 
 					<!-- 로그인한 상태 -->
 					<c:if test="${member != null}">
-						<div class="login_success_area">
-							<span>회원 : ${member.memberName }</span> <span>충전금액 : <fmt:formatNumber
-									value="${member.money }" pattern="#,###.##" />원
-							</span> <span>포인트: <fmt:formatNumber value="${member.point }"
-									pattern="#,###" />원
-							</span>
+						<div class="login_success_area">	
+							<ul>
+							<li>회원 : <span>${member.memberName }</span></li>
+							<li>충전금액 : <span><fmt:formatNumber value="${member.money }" pattern="#,###.##" />원</span></li>
+							<li> 포인트 : <span><fmt:formatNumber value="${member.point }" pattern="#,###" />원</span></li>
+							</ul>			
 						</div>
 					</c:if>
 

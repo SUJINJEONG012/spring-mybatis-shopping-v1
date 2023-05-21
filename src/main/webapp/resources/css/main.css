@@ -15,6 +15,8 @@
 
 /* 로고 영역 */
 .logo_area { width: 25%; height: 100%; } 
+.logo_area h1{font-size:36px; }
+.logo_area h1 a {font-weight:600;}
 
 .search_area { width: 50%; height: 100%; } 
 

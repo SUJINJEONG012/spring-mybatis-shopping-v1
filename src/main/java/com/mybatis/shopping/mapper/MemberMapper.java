@@ -15,5 +15,8 @@ public interface MemberMapper {
 	
 	/* 주문자 주소 정보 */
 	public MemberVo getMemberInfo(String memberId);
+	/* 회원정보 수정*/
+	
+	/* 회원 카트 수정 */
 
 }
