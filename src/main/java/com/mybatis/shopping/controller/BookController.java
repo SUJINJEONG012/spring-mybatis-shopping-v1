@@ -73,10 +73,7 @@ public class BookController {
 	return result;
 	
 	}
-	
-	
-	
-	
+		
 	/* 이미지 반환 */
 	@GetMapping(value="/getAttachList", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<AttachImageVo>> getAttachList(int bookId){
@@ -120,6 +117,8 @@ public class BookController {
 		model.addAttribute("goodsInfo", bookService.getGoodsInfo(booId));
 		return "/goodsDetail";
 	}
+	
+	
 	/* 리뷰 쓰기 */
 	@GetMapping("/replyEnroll/{memberId}")
 	public String replyEnrollWindowGet(@PathVariable("memberId") String memberId, int bookId, Model model) {

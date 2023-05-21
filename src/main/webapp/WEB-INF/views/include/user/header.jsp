@@ -78,9 +78,9 @@
 					<c:if test="${member != null}">
 						<div class="login_success_area">	
 							<ul>
-							<li>회원 : <span>${member.memberName }</span></li>
-							<li>충전금액 : <span><fmt:formatNumber value="${member.money }" pattern="#,###.##" />원</span></li>
-							<li> 포인트 : <span><fmt:formatNumber value="${member.point }" pattern="#,###" />원</span></li>
+							<li>회원 : <span lang="en">${member.memberName }</span></li>
+							<li>충전금액 : <span lang="en"><fmt:formatNumber value="${member.money }" pattern="#,###.##" />원</span></li>
+							<li> 포인트 : <span lang="en"><fmt:formatNumber value="${member.point }" pattern="#,###" />원</span></li>
 							</ul>			
 						</div>
 					</c:if>
