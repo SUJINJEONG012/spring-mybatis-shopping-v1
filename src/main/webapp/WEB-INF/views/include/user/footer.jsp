@@ -49,6 +49,8 @@
 
 	</div>
 	<!-- wrapper end -->
+	
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script src="/resources/js/common.js"></script>
 </body>
 </html>

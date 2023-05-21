@@ -7,12 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/main.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 
 
 <body>
+
+<%@include file="../include/member/header.jsp"%>
 	<div class="wrapper">
 
 		<div class="header">

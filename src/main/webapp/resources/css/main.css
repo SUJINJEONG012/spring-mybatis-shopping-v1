@@ -11,7 +11,7 @@
 
 .top_gnb_area .list li { list-style: none; padding: 15px; font-weight: 900; } 
 
-.top_area { width: 100%; } 
+.top_area { width: 100%; display: flex; } 
 
 /* 로고 영역 */
 .logo_area { width: 25%; height: 100%; } 

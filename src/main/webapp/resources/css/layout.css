@@ -5,3 +5,5 @@
 	max-width:1200px;
 	margin: 0 auto;
 }
+
+input{height: 45px !important;}
