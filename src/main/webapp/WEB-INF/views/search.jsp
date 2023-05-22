@@ -51,7 +51,7 @@
 				</div>
 				
 				
-					<div class="list_search_result">
+		<div class="list_search_result">
 						<table>
 							<colgroup>
 								<col width="110">
@@ -109,30 +109,28 @@
 								</c:forEach>
 							</tbody>
 						</table>
-					</div>
+	        	</div>
 
 					<!-- 페이지 인터페이스 -->
 					<div class="pageMaker_wrap">
 						<ul class="pageMaker">
 							<!-- 이전버튼 -->
 							<c:if test="${pageMaker.prev}">
-								<li class="pageMaker_btn prev"><a
-									href="${pageMaker.pageStart-1}">이전</a></li>
+								<li class="pageMaker_btn prev"><a href="${pageMaker.pageStart-1}">이전</a></li>
 							</c:if>
 
 							<!-- 페이지 번호  -->
 							<c:forEach begin="${pageMaker.pageStart}"
 								end="${pageMaker.pageEnd}" var="num">
-								<li
-									class="pageMaker_btn ${pageMaker.cri.pageNum == num ? 'active':''}">
+								<li class="pageMaker_btn ${pageMaker.cri.pageNum == num ? 'active':''}">
 									<a href="${num}">${num}</a>
 								</li>
 							</c:forEach>
 
 							<!-- 다음 버튼 -->
 							<c:if test="${pageMaker.next}">
-								<li class="pageMaker_btn next"><a
-									href="${pageMaker.pageEnd + 1}">다음</a></li>
+								<li class="pageMaker_btn next">
+								<a href="${pageMaker.pageEnd + 1}">다음</a></li>
 							</c:if>
 						</ul>
 					</div>
@@ -157,7 +155,7 @@
 		
 	<script>
 		/* gnb_area 로그아웃 버튼 작동 */
-		$("#gnb_logout_button").click(function() {
+		/* $("#gnb_logout_button").click(function() {
 			//alert("버튼 작동");
 			$.ajax({
 				type : "post",
@@ -167,7 +165,7 @@
 					document.location.reload();
 				}
 			}); //ajax
-		})
+		}) */
 
 		/* 페이지 이동 버튼 */
 		const moveForm = $('#moveForm');

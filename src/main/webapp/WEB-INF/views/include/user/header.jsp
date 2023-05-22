@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -18,7 +17,7 @@
 
 <link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet" href="/resources/css/layout.css">
-
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 
@@ -93,7 +92,8 @@
 								<select name="type">
 									<option value="T">책 제목</option>
 									<option value="A">작가</option>
-								</select> <input type="text" name="keyword"
+								</select> 
+								<input type="text" name="keyword"
 									value="<c:out value="${pageMaker.cri.keyword}"/>">
 
 								<!-- <i class="fa fa-star" aria-hidden="true">평점</i>
