@@ -1,16 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</div>
-		<!-- wrap end -->
-
 		<!-- Footer 영역 -->
 		<div class="footer_nav">
 			<div class="footer_nav_container">
@@ -41,7 +30,7 @@
 					대표전화 : oooo-oooo(발신자 부담전화) <br> <br> COPYRIGHT(C) <strong>dd.tistory.com</strong>
 					ALL RIGHTS RESERVED.
 				</div>
-				<div class="clearfix"></div>
+				
 			</div>
 		</div>
 		<!-- class="footer" -->
@@ -51,6 +40,4 @@
 	<!-- wrapper end -->
 	
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<script src="/resources/js/common.js"></script>
-</body>
-</html>
+<script src="/resources/js/common.js"></script>

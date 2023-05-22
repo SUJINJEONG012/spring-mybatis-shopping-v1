@@ -19,7 +19,8 @@ public class ReplyMapperTests {
 	public void replyEnrollTest() {
 		
 		String id = "admin";
-		int bookId =  50;
+		//int bookId =  50;
+		int bookId = 4094;
 		double rating = 3.5;
 		String content = "댓글 테스트 ";
 		

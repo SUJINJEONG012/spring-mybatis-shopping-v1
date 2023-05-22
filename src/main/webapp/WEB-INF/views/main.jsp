@@ -16,7 +16,9 @@
 
 			
 			<div class="content_area">
+			<div class="inner">
 				<h1>content area</h1>
+				</div>
 			</div>
 		
 
