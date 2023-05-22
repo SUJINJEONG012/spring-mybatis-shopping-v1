@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -105,8 +106,8 @@
 					</div>
 
 
-					<!-- <div class="login_area">
-					<!-- 로그인한 상태 -->
+					<!-- <div class="login_area" 로그인한 상태>
+					
 					<c:if test="${member != null}">
 						<div class="login_success_area">
 							<ul>
