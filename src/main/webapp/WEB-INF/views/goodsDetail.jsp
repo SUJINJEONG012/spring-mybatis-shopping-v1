@@ -15,8 +15,6 @@
 
 <%@include file="./include/user/header.jsp"%>
 
-
-			
 			<div class="content_area">
 				<div class="line">
 			</div>			
@@ -122,7 +120,7 @@
 			
 			</div>
 		
-	<%@include file="./include/user/header.jsp"%>
+<%@include file="./include/user/footer.jsp"%>
 		
 		
 <script>

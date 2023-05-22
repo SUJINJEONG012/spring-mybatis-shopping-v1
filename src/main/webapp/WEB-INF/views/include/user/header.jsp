@@ -10,11 +10,8 @@
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
 
-
-
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet" href="/resources/css/layout.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -60,30 +57,6 @@
 						</h1>
 					</div>
 
-					<div class="navi_bar_area">
-						<div class="dropdown">
-							<button class="dropbtn">
-								국내 <i class="fa fa-caret-down"></i>
-							</button>
-							<div class="dropdown-content">
-								<c:forEach items="${cate1}" var="cate">
-									<a href="/search?type=C&cateCode=${cate.cateCode}">${cate.cateName }</a>
-								</c:forEach>
-							</div>
-						</div>
-
-						<div class="dropdown">
-							<button class="dropbtn">
-								국외 <i class="fa fa-caret-down"></i>
-							</button>
-							<div class="dropdown-content">
-								<c:forEach items="${cate2}" var="cate">
-									<a href="/search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
-								</c:forEach>
-							</div>
-						</div>
-					</div>
-
 
 					<div class="search_area">
 						<form id="searchForm" action="/search" method="get">
@@ -92,8 +65,7 @@
 								<select name="type">
 									<option value="T">책 제목</option>
 									<option value="A">작가</option>
-								</select> 
-								<input type="text" name="keyword"
+								</select> <input type="text" name="keyword"
 									value="<c:out value="${pageMaker.cri.keyword}"/>">
 
 								<!-- <i class="fa fa-star" aria-hidden="true">평점</i>
@@ -122,12 +94,12 @@
 
 				</div>
 				<!--top_area -->
+				</div>
+				<!-- inner -->
+
+
+
 			</div>
-			<!-- inner -->
-
-
-
-		</div>
-		<!-- header end -->
+			<!-- header end -->
 </body>
 </html>
