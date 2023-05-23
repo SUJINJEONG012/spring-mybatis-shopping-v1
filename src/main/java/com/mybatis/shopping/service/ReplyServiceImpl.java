@@ -12,6 +12,7 @@ public class ReplyServiceImpl implements ReplyService{
 	@Autowired
 	private ReplyMapper replyMapper;
 	
+	/* 댓글등록 */
 	@Override
 	public int enrollReply(ReplyDto dto) {
 		int result = replyMapper.enrollReply(dto);

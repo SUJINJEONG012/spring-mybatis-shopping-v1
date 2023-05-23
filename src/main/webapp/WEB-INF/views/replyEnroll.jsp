@@ -8,100 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
-	<style type="text/css">
-/* 창 여분 없애기 */
-body {
-	margin: 0;
-}
-/* 전체 배경화면 색상 */
-.wrapper_div {
-	background-color: #f5f5f5;
-	height: 100%;
-}
-/* 팝업창 제목 */
-.subject_div {
-	width: 100%;
-	background-color: #7b8ed1;
-	color: white;
-	padding: 10px;
-	font-weight: bold;
-}
 
-/* 컨텐츠, 버튼 영역 padding */
-.input_wrap {
-	padding: 30px;
-}
-
-.btn_wrap {
-	padding: 5px 30px 30px 30px;
-	text-align: center;
-}
-
-/* 버튼 영역 */
-.cancel_btn {
-	margin-right: 5px;
-	display: inline-block;
-	width: 130px;
-	background-color: #5e6b9f;
-	padding-top: 10px;
-	height: 27px;
-	color: #fff;
-	font-size: 14px;
-	line-height: 18px;
-}
-
-.enroll_btn {
-	display: inline-block;
-	width: 130px;
-	background-color: #7b8ed1;
-	padding-top: 10px;
-	height: 27px;
-	color: #fff;
-	font-size: 14px;
-	line-height: 18px;
-}
-
-/* 책제목 영역 */
-.bookName_div h2 {
-	margin: 0;
-}
-/* 평점 영역 */
-.rating_div {
-	padding-top: 10px;
-}
-
-.rating_div h4 {
-	margin: 0;
-}
-
-select {
-	margin: 15px;
-	width: 100px;
-	height: 40px;
-	text-align: center;
-	font-size: 16px;
-	font-weight: 600;
-}
-/* 리뷰 작성 영역 */
-.content_div {
-	padding-top: 10px;
-}
-
-.content_div h4 {
-	margin: 0;
-}
-
-textarea {
-	width: 100%;
-	height: 100px;
-	border: 1px solid #dadada;
-	padding: 12px 8px 12px 8px;
-	font-size: 15px;
-	color: #a9a9a9;
-	resize: none;
-	margin-top: 10px;
-}
-</style>
 	${bookInfo} ${memberId}
 	
 	<div class="wrapper_div">
@@ -145,6 +52,8 @@ textarea {
 	 $(".cancel_btn").on("click", function(e){
 		 window.close();
 	 });
+	
+	
 	$(".enroll_btn").on("click", function(e){
 		
 		const bookId = '${bookInfo.bookId}';
@@ -158,11 +67,13 @@ textarea {
 				rating : rating,
 				content : content
 		}
+		
 		$.ajax({
 			data: data,
 			type: 'POST',
 			url: '/reply/enroll',
 			success : function(result){
+				
 				window.close();
 			}
 		});
