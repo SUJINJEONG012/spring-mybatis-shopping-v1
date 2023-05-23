@@ -15,6 +15,8 @@
 
 	<%@include file="./include/user/header.jsp"%>
 
+
+
 	<div class="content_area">
 		<!-- 게시물 있을 때  , 상품 검색 -->
 		<c:if test="${listcheck != 'empty'}">
@@ -222,45 +224,7 @@
 
 		});
 
-		/* 검색 타입  */
-		$(document)
-				.ready(
-						function() {
-							const selectedType = '<c:out value="${pageMaker.cri.type}" />';
-							if (selectedType != "") {
-								$("select[name='type']").val(selectedType)
-										.attr("selected", "selected");
-							}
-							$(".image_wrap")
-									.each(
-											function(i, obj) {
-												const bobj = $(obj);
-												if (bobj.data("bookid")) {
-													const uploadPath = bobj
-															.data("path");
-													const uuid = bobj
-															.data("uuid");
-													const fileName = bobj
-															.data("filename");
-													const fileCallPath = encodeURIComponent(uploadPath
-															+ "/s_"
-															+ uuid
-															+ "_" + fileName);
-													$(this)
-															.find("img")
-															.attr(
-																	'src',
-																	'/display?fileName='
-																			+ fileCallPath);
-												} else {
-													$(this)
-															.find("img")
-															.attr('src',
-																	'/resources/img/goodsNoImage.png');
-												}
-											});
-
-						});
+		
 	</script>
 
 	<%@include file="./include/user/footer.jsp"%>
