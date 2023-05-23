@@ -200,9 +200,6 @@ $(".point_span").text(point);
   $(".minus_btn").on("click", function(){
 	  $(".quantity_input").val(--quantity);
   });
-
-
-  
   
 //서버로 전송할 데이터  
   const form = {
@@ -256,10 +253,27 @@ $(".point_span").text(point);
 		const memberId = '${member.memberId}';
 		const bookId = '${goodsInfo.bookId}';
 		
-		let popUrl = "/replyEnroll/" + memberId + "?bookId=" + bookId;
-		console.log(popUrl);
-		let popOption = "width= 490px, height = 490px, top= 300px, left=300px, scrollbars=yes";
-		window.open(popUrl, "리뷰쓰기", popOption);
+		$.ajax({
+			data : {
+				bookId : bookId,
+				memberId : memberId
+			},
+			// 컨트롤러에 등록된 매핑주소 
+			url : '/reply/check',
+			type : 'post',
+			success : function(result){
+				if(result == '1'){
+					alert("이미 등록된 리뷰가 존재합니다. ")
+				
+				}else if(result == '0'){
+					// 등록된 리뷰가없을때 등록되게끔
+					let popUrl = "/replyEnroll/" + memberId + "?bookId=" + bookId;
+					console.log(popUrl);
+					let popOption = "width= 490px, height = 490px, top= 300px, left=300px, scrollbars=yes";
+					window.open(popUrl, "리뷰쓰기", popOption);
+				}
+			}
+		});
 		
 	});
   	

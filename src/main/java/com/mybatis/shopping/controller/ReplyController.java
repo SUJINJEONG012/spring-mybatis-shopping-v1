@@ -1,11 +1,15 @@
 package com.mybatis.shopping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mybatis.shopping.model.Criteria;
 import com.mybatis.shopping.model.ReplyDto;
+import com.mybatis.shopping.model.ReplyPageDto;
 import com.mybatis.shopping.service.ReplyService;
 
 @RestController
@@ -20,4 +24,19 @@ public class ReplyController {
 	public void enrollReplyPost(ReplyDto dto) {
 		replyService.enrollReply(dto);
 	}
+	/* 댓글체크 
+	 * 존재 : 1, 존재안함 : 0
+	 * */
+	@PostMapping("/check")
+	public String replyCheckPost(ReplyDto replyDto) {
+		return replyService.checkReply(replyDto);
+	}
+	
+	
+	/* 댓글 페이징 */
+	@GetMapping(value="/list", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ReplyPageDto replyListGet(Criteria cri) {
+		return replyService.replyList(cri);
+	}
+	
 }

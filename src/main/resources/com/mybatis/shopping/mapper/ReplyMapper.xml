@@ -5,8 +5,31 @@
 
 <mapper namespace="com.mybatis.shopping.mapper.ReplyMapper">
 
+<!-- 댓글등록  -->
  <insert id="enrollReply">
  	insert into reply (bookId, memberId, content, rating) values(#{bookId}, #{memberId}, #{content}, #{rating})
  </insert>
+ 
+ <!-- 댓글 존재 체크  -->
+ <select id="checkReply" resultType="Integer">
+ select replyId from reply
+ where memberId = #{memberId} and bookId = #{bookId} 
+ </select>
+
+
+<!-- 댓글 페이징 -->
+<select id="getReplyList" resultType="com.mybatis.shopping.model.ReplyDto">
+  select replyId, bookId, memberId, content, rating, regDate 
+  from reply
+  where bookId = #{bookId}
+  order by regDate desc
+  limit #{skip}, #{amount}
+</select>
+
+<select id="getReplyTotal" resultType="int">
+ select count(*) from reply where bookId = #{bookId]
+</select>
+
+
 
 </mapper>
