@@ -41,7 +41,7 @@ public class MemberController {
 	private BCryptPasswordEncoder pwEncoder;
 	
 	//로그인페이지로 이동
-	//@GetMapping("/login")
+
 	@GetMapping("/login")
 	public String login() {
 		logger.info("로그인 페이지");

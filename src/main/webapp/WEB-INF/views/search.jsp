@@ -8,14 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
-
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 
 
 	<%@include file="./include/user/header.jsp"%>
-
-
+	
 
 	<div class="content_area">
 		<!-- 게시물 있을 때  , 상품 검색 -->
@@ -45,8 +44,9 @@
 				</div>
 
 				<form id="filter_form" action="/search" method="get">
-					<input type="hidden" name="keyword"> <input type="hidden"
-						name="cateCode"> <input type="hidden" name="type">
+					<input type="hidden" name="keyword"> 
+					<input type="hidden"name="cateCode"> 
+					<input type="hidden" name="type"> 
 				</form>
 
 			</div>
@@ -142,9 +142,8 @@
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 				<input type="hidden" name="amout" value="${pageMaker.cri.amount}">
 				<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
-				<input type="hidden" name="cateCode"
-					value="<c:out value="${pageMaker.cri.cateCode}" />"> <input
-					type="hidden" name="type" value="${pageMaker.cri.type}">
+				<input type="hidden" name="cateCode" value="<c:out value="${pageMaker.cri.cateCode}" />"> 
+				<input type="hidden" name="type" value="${pageMaker.cri.type}">
 			</form>
 
 		</c:if>
@@ -209,10 +208,11 @@
 
 			let type = '<c:out value="${pageMaker.cri.type}"/>';
 			if (type === 'A' || type === 'T') {
-				type = type + 'C';
-			}
+				type = type + 'C';	
+			} 
 			// 카테고리 이름 TC = 제목 
 			// 카테고리 이름 AC = 작가
+			
 
 			let keyword = '<c:out value="${pageMaker.cri.keyword}"/>';
 			let cateCode = $(this).attr("href");
