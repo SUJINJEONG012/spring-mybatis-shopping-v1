@@ -125,7 +125,10 @@
 				</div>
 			</c:if>
 
-			<div class="reply_not_div"></div>
+			<div class="reply_not_div">
+			
+			</div>
+			
 			<ul class="reply_content_ul">
 				<!-- <li>
 					<div class="comment_wrap">
@@ -147,7 +150,7 @@
 			</ul>
 
 			<div class="reply_pageInfo_div">
-				<ul>
+				<ul class="pageMaker">
 					<!-- <li class="pageMaker_btn prev"></li>
 					<li class="pageMaker_btn">1</li>
 					<li class="pageMaker_btn">2</li>
@@ -307,6 +310,16 @@ const form = {
 		amount:10
 	}
 	
+	/*  댓글 페이지 이동 버튼 동작 */
+	$(document).on("click",'.pageMaker_btn a', function(e){
+		e.preventDefault();
+		
+		let page = $(this).attr("href");
+		
+		cri.pageNum = page;
+		replyListInit();
+	});
+	
 	/* 댓그 ㄹ데이터 서버 요청 및 댓글 동적 생성 메서드 */
 	// 익명함수로 선언 후, 새로 선언한 변수에 할당하는 방식으로 
 	let replyListInit = function(){
@@ -388,15 +401,10 @@ const form = {
 				}	
 				
 			console.log(reply_pageMaker);
-			$(".pageMaker").html(reply_pageMaker);				
+			$(".pageMaker").html(reply_pageMaker);			
 			
 		}			
 	}
-	
-	
-	
-	
-	
 	
 	
 	
