@@ -26,11 +26,21 @@
   limit #{skip}, #{amount}
 </select>
 
+<!-- 댓글 총 개수 -->
 <select id="getReplyTotal" resultType="int">
  select count(*) from reply where bookId = #{bookId}
 </select>
 
+<!-- 댓글 수정 -->
+<update id="updateReply">
+update reply set content = #{content}, rating = #{rating}
+where replyId = #{replyId}
+</update>
 
+<!-- 수정한 데이터 반환해주는 쿼리  -->
+<select id="getUpdateReply" resultType="com.mybatis.shopping.model.ReplyDto">
+select * from reply where replyId = #{replyId}
+</select>
   	
 
 

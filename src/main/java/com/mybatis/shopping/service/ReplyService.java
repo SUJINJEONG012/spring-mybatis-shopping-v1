@@ -12,4 +12,9 @@ public interface ReplyService {
 	public String checkReply(ReplyDto replyDto);
 	/* 댓글 페이징 */
 	public ReplyPageDto replyList(Criteria cri);
+	/* 댓글 수정 */
+	public int updateReply(ReplyDto replyDto);
+	/* 댓글 한 개 수정 (수정페이지) */
+	public ReplyDto getUpdateReply(int replyId);
+	
 }

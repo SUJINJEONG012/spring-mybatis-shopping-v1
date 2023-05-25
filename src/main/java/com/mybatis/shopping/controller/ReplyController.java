@@ -32,11 +32,16 @@ public class ReplyController {
 		return replyService.checkReply(replyDto);
 	}
 	
-	
 	/* 댓글 페이징 */
 	@GetMapping(value="/list", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ReplyPageDto replyListGet(Criteria cri) {
 		return replyService.replyList(cri);
+	}
+	
+	/* 댓글 수정 */
+	@PostMapping("/update")
+	public void replyModifyPost(ReplyDto replyDto) {
+		replyService.updateReply(replyDto);
 	}
 	
 }

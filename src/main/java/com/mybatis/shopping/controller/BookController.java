@@ -25,8 +25,10 @@ import com.mybatis.shopping.model.AttachImageVo;
 import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.Criteria;
 import com.mybatis.shopping.model.PageDto;
+import com.mybatis.shopping.model.ReplyDto;
 import com.mybatis.shopping.service.AttachService;
 import com.mybatis.shopping.service.BookService;
+import com.mybatis.shopping.service.ReplyService;
 
 @Controller
 public class BookController {
@@ -36,9 +38,12 @@ public class BookController {
 	@Autowired
 	private AttachService attachService;
 	
-	
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private ReplyService replyService;
+	
 	
 	/* 메인페이지 이동 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -126,6 +131,17 @@ public class BookController {
 		model.addAttribute("bookInfo", book);
 		model.addAttribute("memberId", memberId);
 		return "/replyEnroll";
+	}
+	
+	
+	/* 리뷰 수정 팝업창 */
+	@GetMapping("/replyUpdate")
+	public String replyUpdateWindowGet(ReplyDto replyDto, Model model){
+		BookVo book = bookService.getBookIdName(replyDto.getBookId());
+		model.addAttribute("bookInfo",book);
+		model.addAttribute("replyInfo",replyService.getUpdateReply(replyDto.getReplyId()));
+		model.addAttribute("memberId", replyDto.getMemberId());
+		return "/replyUpdate";
 	}
 	
 }
