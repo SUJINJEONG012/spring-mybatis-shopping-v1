@@ -50,6 +50,7 @@
 	<script>
 	/*  취소버튼  */
 	 $(".cancel_btn").on("click", function(e){
+		 console.log("취소버튼을 누르셨습니다.");
 		 window.close();
 	 });
 	
