@@ -27,7 +27,7 @@
 </select>
 
 <select id="getReplyTotal" resultType="int">
- select count(*) from reply where bookId = #{bookId]
+ select count(*) from reply where bookId = #{bookId}
 </select>
 
 

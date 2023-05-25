@@ -25,9 +25,7 @@ public class Criteria {
 	private String cateCode;
 	/* 상품번호 (댓글 기능에서 사용) */
 	private int bookId;
-	
-	
-	
+
 	/* Criteria 생성자 */
 	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;

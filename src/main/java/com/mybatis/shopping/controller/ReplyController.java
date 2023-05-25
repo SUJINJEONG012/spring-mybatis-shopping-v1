@@ -26,7 +26,7 @@ public class ReplyController {
 	}
 	/* 댓글체크 
 	 * 존재 : 1, 존재안함 : 0
-	 * */
+	 */
 	@PostMapping("/check")
 	public String replyCheckPost(ReplyDto replyDto) {
 		return replyService.checkReply(replyDto);

@@ -107,8 +107,6 @@
 
 		<div class="line"></div>
 
-
-
 		<div class="content_middle">
 			<div class="book_intro">${goodsInfo.bookIntro}</div>
 			<div class="book_content">${goodsInfo.bookContents }</div>
@@ -214,16 +212,12 @@ $(document).ready(function(){
 	$(".point_span").text(point);	
 	
 	/* 리뷰 리스트 출력 */
-	
 	const bookId = '${goodsInfo.bookId}';	
 
 	$.getJSON("/reply/list", {bookId : bookId}, function(obj){
+		 		makeReplyContent(obj);
 		
-		makeReplyContent(obj);
-
-	});		
-	
-	
+			});		
 });	//$(document).ready(function(){
 
 
@@ -301,76 +295,26 @@ const form = {
 					let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes";
 					
 					window.open(popUrl,"리뷰 쓰기",popOption);							
-				}				
-				
+				}					
 			}
-		});			
-
-		
+		});					
 	});		
 	
-
 	/* 댓글 페이지 정보 */
-	 const cri = {
+	const cri = {
 		bookId : '${goodsInfo.bookId}',
 		pageNum : 1,
-		amount : 10
-	}	
+		amount:10
+	}
 	
-	/* 댓글 페이지 이동 버튼 동작 */
-	$(document).on('click', '.pageMaker_btn a', function(e){
-			
-		e.preventDefault();
-		
-		let page = $(this).attr("href");	
-		cri.pageNum = page;		
-		
-		replyListInit();
-			
-	 });
-	
-	
-	/* 댓글 데이터 서버 요청 및 댓글 동적 생성 메서드 */
+	/* 댓그 ㄹ데이터 서버 요청 및 댓글 동적 생성 메서드 */
+	// 익명함수로 선언 후, 새로 선언한 변수에 할당하는 방식으로 
 	let replyListInit = function(){
-		$.getJSON("/reply/list", cri , function(obj){
-			
+		$.getJSON("/reply/list", cri, function(obj){
 			makeReplyContent(obj);
-			
-		});		
+		});
 	}	
-	
-	/* 리뷰 수정 버튼 */
-	 $(document).on('click', '.update_reply_btn', function(e){
-			
-			e.preventDefault();
-			let replyId = $(this).attr("href");		 
-			let popUrl = "/replyUpdate?replyId=" + replyId + "&bookId=" + '${goodsInfo.bookId}' + "&memberId=" + '${member.memberId}';	
-			let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes"	
-			
-			window.open(popUrl,"리뷰 수정",popOption);			
-		 
-	 });	
-	
-	 /* 리뷰 삭제 버튼 */
-	 $(document).on('click', '.delete_reply_btn', function(e){
 
-		e.preventDefault();
-		let replyId = $(this).attr("href");	
-		
-		$.ajax({
-			data : {
-				replyId : replyId,
-				bookId : '${goodsInfo.bookId}'
-			},
-			url : '/reply/delete',
-			type : 'POST',
-			success : function(result){
-				replyListInit();
-				alert('삭제가 완료되엇습니다.');
-			}
-		});		
-			
-	 });	
 	
 	/* 댓글(리뷰) 동적 생성 메서드 */
 	function makeReplyContent(obj){
@@ -443,12 +387,17 @@ const form = {
 					reply_pageMaker += '</li>';	
 				}	
 				
-				console.log(reply_pageMaker);
+			console.log(reply_pageMaker);
 			$(".pageMaker").html(reply_pageMaker);				
 			
-		}		
-		
+		}			
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
