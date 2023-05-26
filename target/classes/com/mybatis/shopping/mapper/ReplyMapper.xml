@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.shopping.mapper.ReplyMapper">
+
+<!-- 댓글등록  -->
+ <insert id="enrollReply">
+ 	insert into reply (bookId, memberId, content, rating) values(#{bookId}, #{memberId}, #{content}, #{rating})
+ </insert>
+ 
+ <!-- 댓글 존재 체크  -->
+ <select id="checkReply" resultType="Integer">
+ select replyId from reply
+ where memberId = #{memberId} and bookId = #{bookId} 
+ </select>
+
+
+<!-- 댓글 페이징 -->
+<select id="getReplyList" resultType="com.mybatis.shopping.model.ReplyDto">
+  select replyId, bookId, memberId, content, rating, regDate 
+  from reply
+  where bookId = #{bookId}
+  order by regDate desc
+  limit #{skip}, #{amount}
+</select>
+
+<!-- 댓글 총 개수 -->
+<select id="getReplyTotal" resultType="int">
+ select count(*) from reply where bookId = #{bookId}
+</select>
+
+<!-- 댓글 수정 -->
+<update id="updateReply">
+update reply set content = #{content}, rating = #{rating}
+where replyId = #{replyId}
+</update>
+
+<!-- 수정한 데이터 반환해주는 쿼리  -->
+<select id="getUpdateReply" resultType="com.mybatis.shopping.model.ReplyDto">
+select * from reply where replyId = #{replyId}
+</select>
+  	
+
+
+</mapper>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.shopping.mapper.AdminMapper">
+
+	<!-- 상품 등록 -->
+	<insert id="bookEnroll">
+	 <selectKey resultType="int" keyProperty="bookId" order="AFTER">
+	 <!-- select max(bookId) from book; -->
+	 SELECT LAST_INSERT_ID()
+	 </selectKey>
+		insert into book(bookName, authorId, publeYear, publisher, cateCode,
+		bookPrice, bookStock, bookDiscount, bookIntro, bookContents)
+		values( #{bookName}, #{authorId}, #{publeYear}, #{publisher}, #{cateCode},
+		#{bookPrice}, #{bookStock}, #{bookDiscount},#{bookIntro}, #{bookContents})
+	</insert>
+	
+
+	<!-- 카테고리 리스트 -->
+	<select id="cateList"
+		resultType="com.mybatis.shopping.model.CateVo">
+		select * from bcate order by catecode
+	</select>
+
+	<!-- 상품 리스트 -->
+	 <select id="goodsGetList"
+		resultType="com.mybatis.shopping.model.BookVo">
+		select bookId, bookName, b.authName, c.cateName, bookStock, a.regDate
+		from book a
+		left outer join author b on a.authorId = b.authorId
+		left outer join bcate c on a.cateCode = c.cateCode
+		<if test="keyword != null">
+			where (bookName like concat ('%', #{keyword}, '%'))
+		</if>
+		order by bookId desc
+		limit #{skip}, #{amount}
+	</select> 
+
+
+	<!-- 상품 총 개수 -->
+	<select id="goodsGetTotal" resultType="int">
+		select count(*) from book
+		<if test="keyword != null">
+			where bookName like concat ('%', #{keyword}, '%')
+		</if>
+	</select>
+	
+	
+	<!-- 상품 조회 페이지 --> 
+	<select id="goodsGetDetail" resultType="com.mybatis.shopping.model.BookVo">
+	  select bookId, bookName, (select authName from author where authorId = book.authorId) authName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents, regDate, updateDate
+	  from book where bookId = #{bookId}  
+	</select>
+	
+	<!-- 상품 정보 수정 페이지  -->
+	<update id="goodsModify">
+	 update book set bookName = #{bookName}, authorId = #{authorId}, publeYear = #{publeYear}, publisher = #{publisher}, cateCode = #{cateCode}, bookPrice= #{bookPrice}, bookStock = #{bookStock}, bookDiscount = #{bookDiscount}, bookIntro =#{bookIntro}, bookContents= #{bookContents}, updateDate = now() 
+	 where bookId = ${bookId}
+	</update>
+	
+	<!-- 상품 s삭제  -->
+	<delete id="goodsDelete">
+	delete from book where bookId= #{bookId}
+	</delete>
+	
+	<!-- 이미지 등록 -->
+	<insert id = "imageEnroll">
+	insert into book_image(bookId, fileName, uploadPath, uuid) values (#{bookId}, #{fileName}, #{uploadPath}, #{uuid})
+	</insert>
+	
+	<!-- 지정상품 이미지 전체 삭제 -->
+	<delete id="deleteImageAll">
+	 delete FROM book_image where bookId = #{bookId}
+	</delete>
+	
+	<!-- 어제자 날짜 이미지 리스트 -->
+	<select id="checkFileList" resultType="com.mybatis.shopping.model.AttachImageVo">
+	 select * from book_image where uploadpath = DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 0 DAY), '%Y\%m\%d')
+	</select>
+	
+	 <!-- 지정 상품 이미지 정보 얻기 -->	
+	 <select id="getAttachInfo" resultType="com.mybatis.shopping.model.AttachImageVo">
+	  select * from book_image where bookId = #{bookId}
+	 </select>
+	 
+	 
+	 
+	 <!-- 주문 리스트 --> 
+	<select id="getOrderList" resultType="com.mybatis.shopping.model.OrderDto">
+	  select OrderId, memberId, orderState, orderDate
+	  from orders
+	  <if test="keyword != null">
+	   where memberId like concat('%', #{keyword}, '%')
+	  </if>
+	  order by orderdate desc
+	  limit #{skip}, #{amount}
+	</select>
+	
+	<!-- 상품 총 개수 -->
+	<select id="getOrderTotal" resultType="int">
+	 select count(*) from orders
+	</select>
+	
+
+
+</mapper>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.shopping.mapper.BookMapper">
+
+	<!-- criteria(검색조건) -->
+	<sql id="criteria">
+	  	<trim prefix="where (" suffix=")" prefixOverrides="AND">
+	  		<foreach item="type" collection="typeArr">
+	  			<trim prefix="AND">
+	  				<choose>
+	  					<when test="type == 'A'.toString()">
+	  						<trim prefixOverrides="or">
+			  					<foreach collection="authorArr" item="authorId">
+			  						<trim prefix="or">
+			  							a.authorId = #{authorId}
+			  						</trim>
+			  					</foreach>  						
+	  						</trim>
+	  					</when>
+	  					<when test="type == 'C'.toString()">
+	  						a.cateCode like concat ('%', #{cateCode}, '%')
+	  					</when>  				
+	  					<when test="type == 'T'.toString()">
+	  						bookName like concat ('%', #{keyword}, '%')
+	  					</when>  					
+	  				</choose>
+	  			</trim>
+	  		</foreach>
+	  	</trim>
+	
+	</sql>
+
+	<!-- 상품 검색 -->
+	<select id="getGoodsList"
+		resultType="com.mybatis.shopping.model.BookVo">
+		select bookId, bookName, b.authName, a.authorId, c.cateName,
+		a.cateCode, publisher, publeYear, bookPrice, bookDiscount
+		from book a
+		left outer join
+		author b on a.authorId= b.authorId
+		left outer join bcate
+		c on
+		a.cateCode = c.cateCode
+		<include refid="criteria"></include>
+		order by bookId desc
+		limit #{skip}, #{amount}
+	</select>
+
+	<!-- 상품 총 개수 -->
+	<select id="goodsGetTotal" resultType="int">
+		select count(*) from book a
+		<include refid="criteria"></include>
+	</select>
+
+
+	<!-- 작가 Id 리스트 요청 -->
+	<select id="getAuthorIdList" resultType="String">
+		select authorId from
+		author where authName like concat ('%', #{keyword},
+		'%')
+	</select>
+
+	<!-- 국내 카테고리 리스트 -->
+	<select id="getCateCode1"
+		resultType="com.mybatis.shopping.model.CateVo">
+	 <![CDATA[
+	 select * from bcate where cateCode > 100000 and cateCode < 200000
+	 ]]>
+
+	</select>
+	<!-- 국외 카테고리 리스트 -->
+	<select id="getCateCode2"
+		resultType="com.mybatis.shopping.model.CateVo">
+	  <![CDATA[
+	 select * from bcate where cateCode > 200000 and cateCode < 300000
+	  ]]>
+	</select>
+
+
+	<!-- 검색대상 카테고리 리스트 -->
+	<select id="getCateList" resultType="String">
+		select DISTINCT cateCode from book where
+		<foreach item="type" collection="typeArr">
+			<choose>
+				<when test="type =='A'.toString()">
+					<trim prefixOverrides="or">
+						<foreach collection="authorArr" item="authorId">
+							<trim prefix="or">
+								authorId = #{authorId}
+							</trim>
+						</foreach>
+					</trim>
+				</when>
+				<when test="type == 'T'.toString()">
+					bookName like concat('%', #{keyword}, '%')
+				</when>
+			</choose>
+		</foreach>
+	</select>
+
+
+	<!-- 카테고리 정보 + (검색대상 개수) -->
+	<select id="getCateInfo"
+		resultType="com.mybatis.shopping.model.CateFilterDto">
+		select distinct count(*) cateCount, a.cateCode, b.cateName from book a
+		left join bcate b on a.cateCode = b.cateCode where
+
+		<foreach item="type" collection="typeArr">
+			<choose>
+			<!--type=A는 작가, T는 책제목   -->
+				<when test="type =='A'.toString()">
+					<trim prefix="(" suffix=")" prefixOverrides="or">
+						<foreach collection="authorArr" item="authorId">
+							<trim prefix="or">
+								authorId = #{authorId}
+							</trim>
+						</foreach>
+					</trim>
+					and a.cateCode = #{cateCode}
+				</when>
+				
+				<when test="type == 'T'.toString()">
+				bookName like concat('%', #{keyword}, '%') and a.cateCode = #{cateCode}
+				</when>				
+			</choose>
+		</foreach>
+		group by a.cateCode, b.cateName
+		
+	</select>
+	
+	
+	<!-- 상품정보  -->
+	<select id="getGoodsInfo" resultType="com.mybatis.shopping.model.BookVo">
+	
+	select a.BOOKID, a.BOOKNAME, a.AUTHORID, b.AUTHNAME, a.PUBLEYEAR, a.PUBLISHER, a.CATECODE, c.CATENAME, a.BOOKPRICE, a.BOOKSTOCK, a.BOOKDISCOUNT, a.BOOKINTRO, a.BOOKCONTENTS
+	from book a left outer join author b on a.authorId = b.authorId
+	left outer join bcate c on a.cateCode = c.catecode
+	where bookid = #{bookId}
+	</select>
+	
+	<!-- 상품 id 이름 -->
+	<select id="getBookIdName" resultType="com.mybatis.shopping.model.BookVo">
+	 select bookId, bookName from book
+	 where bookId = #{bookId}
+	</select>
+
+
+
+</mapper>
+  

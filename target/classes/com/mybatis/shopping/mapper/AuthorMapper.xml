@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.shopping.mapper.AuthorMapper">
+
+	<!-- 작가 등록 -->
+	<insert id="authorEnroll">
+		insert into author(authName, nationId, authorIntro) values (#{authName},
+		#{nationId}, #{authorIntro})
+	</insert>
+
+	<!-- 작가 목록 -->
+	<select id="authorGetList"
+		resultType="com.mybatis.shopping.model.AuthorVo">
+
+		select authorId, authName, nationId, regDate, updateDate
+		from author
+		<if test="keyword != null">
+			where authName like concat('%', #{keyword}, '%')
+		</if>
+		order by authorId desc
+		limit #{skip}, #{amount}
+	</select>
+
+	<!-- 작가 수 -->
+	<select id="authorGetTotal" resultType="int">
+
+		select count(*) from author
+
+		<if test="keyword != null">
+
+			where authName like concat('%', #{keyword}, '%');
+
+		</if>
+
+	</select>
+	
+	<!-- 작가 디테일 페이지  -->
+	<select id="authorGetDetail" resultType="com.mybatis.shopping.model.AuthorVo">
+	 select * from author where authorid = #{authorId}
+	</select>
+
+
+    <!-- 작가 수정 -->
+    <update id="authorModify">
+    update author set authName =#{authName}, nationId=#{nationId}, authorIntro=#{authorIntro}, updateDate=now() where authorid= #{authorId} 
+    </update>
+    
+    <delete id="authorDelete">
+    delete from author where authorId = #{authorId}
+    </delete>
+
+</mapper>
+  
