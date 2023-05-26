@@ -50,7 +50,9 @@
 	
 	<!-- 상품 조회 페이지 --> 
 	<select id="goodsGetDetail" resultType="com.mybatis.shopping.model.BookVo">
-	  select bookId, bookName, (select authName from author where authorId = book.authorId) authName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents, regDate, updateDate
+	  select bookId, bookName, 
+	  (select authName from author where authorId = book.authorId) 
+	  authName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents, regDate, updateDate
 	  from book where bookId = #{bookId}  
 	</select>
 	

@@ -73,9 +73,10 @@
 						정가 :
 						<fmt:formatNumber value="${goodsInfo.bookPrice}" pattern="#,### 원" />
 					</div>
+					
 					<div class="discount_price" lang="en">
-						판매가 : <span class="discount_price_number"><fmt:formatNumber
-								value="${goodsInfo.bookPrice - (goodsInfo.bookPrice*goodsInfo.bookDiscount)}"
+						판매가 : <span class="discount_price_number">
+						<fmt:formatNumber value="${goodsInfo.bookPrice - (goodsInfo.bookPrice*goodsInfo.bookDiscount)}"
 								pattern="#,### 원" /></span> [
 						<fmt:formatNumber value="${goodsInfo.bookDiscount*100}"
 							pattern="###" />
