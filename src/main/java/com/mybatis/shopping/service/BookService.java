@@ -6,6 +6,7 @@ import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CateFilterDto;
 import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.model.SelectDto;
 
 public interface BookService {
 
@@ -27,4 +28,6 @@ public interface BookService {
 	public BookVo getGoodsInfo(int bookId);
 	/* 상품 id 이름 */
 	public BookVo getBookIdName(int bookId);
+	/* 평점순 상품 정보 */
+	public List<SelectDto> likeSelect();
 }

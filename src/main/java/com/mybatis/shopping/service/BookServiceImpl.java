@@ -14,6 +14,7 @@ import com.mybatis.shopping.model.BookVo;
 import com.mybatis.shopping.model.CateFilterDto;
 import com.mybatis.shopping.model.CateVo;
 import com.mybatis.shopping.model.Criteria;
+import com.mybatis.shopping.model.SelectDto;
 
 import lombok.extern.log4j.Log4j;
 
@@ -131,6 +132,18 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public BookVo getBookIdName(int bookId) {
 		return bookMapper.getBookIdName(bookId);
+	}
+
+	/* 평점순 상품 정보 */
+	@Override
+	public List<SelectDto> likeSelect() {
+		List<SelectDto> list = bookMapper.likeSelect();
+		list.forEach(dto ->{
+			int bookId = dto.getBookId();
+			List<AttachImageVo> imageList = attachMapper.getAttachList(bookId);
+			dto.setImageList(imageList);
+		});
+		return list;
 	}
 
 }

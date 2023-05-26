@@ -52,6 +52,7 @@ public class BookController {
 		logger.info("메인페이지 진입 ");
 		model.addAttribute("cate1",bookService.getCateCode1());
 		model.addAttribute("cate2",bookService.getCateCode2());
+		model.addAttribute("ls", bookService.likeSelect());
 		return "main";
 	}
 	
