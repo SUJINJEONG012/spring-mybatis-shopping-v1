@@ -28,5 +28,5 @@ public interface ReplyMapper {
 	 * replyId값을 가지고 테이블의 찾고자 하는 행을 찾기때문에 파라미터로 int 타입의 replyId변수를 작성 
 	 * */
 	
-	public ReplyDto getUploadReply(int replyId);
+	public ReplyDto getUpdateReply(int replyId);
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,7 @@
 			</div>
 			<div class="content_div">
 				<h4>리뷰</h4>
-				<textarea name="content"></textarea>
+				<textarea name="content">${replyInfo.content}</textarea>
 			</div>
 		</div>
 		
@@ -49,6 +50,27 @@
 	
 	<script>
 	
+	 $(document).ready(function(){
+		let rating = '${replyInfo.rating}';
+		$("option").each(function(i,obj){
+			if(rating === $(obj).val()){
+				$(obj).attr("selected", "selected");
+			}
+		});
+		
+		$(".cancel_btn").on("click", function(e){
+			window.close();
+		});
+		
+		$(".update_btn").on("click", function(e){
+			const replyId = '${replyInfo.replyId}';
+			const bookId = '${replyInfo.bookId}';
+			const memberId = '${memberId}';
+			const rating = $('select').val();
+			const content = $("textarea").val();
+		});
+		
+	 });
 	</script>
 </body>
 </html>

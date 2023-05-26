@@ -130,32 +130,12 @@
 			</div>
 			
 			<ul class="reply_content_ul">
-				<!-- <li>
-					<div class="comment_wrap">
-
-						<div class="reply_top">
-							<span class="id_span">ㅇㅇㅇ</span> <span class="date_span">2203</span>
-							<span class="rating_span"> 평점 : <span
-								class="rating_value_span">4</span>점
-							</span> <a class="update_reply_btn">수정</a><a href=""
-								class="delete_reply_btn">삭제</a>
-						</div>
-
-						<div class="reply_bottom">
-							<div class="reply_bottom_txt">사실기대를 많이하고 읽기시작했는데 읽으면서 가가
-								쓴것이 ㅋㅋㅋㅋ?</div>
-						</div>
-					</div>
-				</li> -->
+				
 			</ul>
 
 			<div class="reply_pageInfo_div">
 				<ul class="pageMaker">
-					<!-- <li class="pageMaker_btn prev"></li>
-					<li class="pageMaker_btn">1</li>
-					<li class="pageMaker_btn">2</li>
-					<li class="pageMaker_btn">3</li>
-					<li class="pageMaker_btn next"></li> -->
+					
 				</ul>
 			</div>
 
@@ -333,6 +313,7 @@ const form = {
 		let replyId = $(this).attr("href");
 		let popUrl = "/replyUpdate?replyId=" +replyId + "&bookId=" + '${goodsInfo.bookId}' + "&memberId=" + '${member.memberId}'; 	
 		let popOption = "width=490px, height=490px, top=300px, left=300px, scrollbars=yes"
+		window.open(popUrl, "리뷰수정 ", popOption);
 	
 	});
 

@@ -57,7 +57,7 @@ public class ReplyServiceImpl implements ReplyService{
 	@Override
 	public ReplyDto getUpdateReply(int replyId) {
 		
-		return replyMapper.getUploadReply(replyId);
+		return replyMapper.getUpdateReply(replyId);
 	}
 	
 	
