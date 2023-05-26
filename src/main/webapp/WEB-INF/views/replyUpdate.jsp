@@ -68,6 +68,24 @@
 			const memberId = '${memberId}';
 			const rating = $('select').val();
 			const content = $("textarea").val();
+			
+			const data = {
+					replyId : replyId,
+					bookId : bookId,
+					memberId : memberId,
+					rating : rating,
+					content : content
+			}
+			
+			$.ajax({
+				data : data,
+				type : 'POST',
+				url : '/reply/update',
+				success : function(result){
+					$(opener.location).attr("href", "javascript:replyListInit();");
+					window.close();
+				}
+			})
 		});
 		
 	 });
