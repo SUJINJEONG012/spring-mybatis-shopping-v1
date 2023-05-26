@@ -1,16 +1,13 @@
 @charset "UTF-8";
 
 
+/*============================= 메인 비주얼  =======================*/
 
 
-
-
-
-
-
-
-
-
+.slick-prev{left: 160px; z-index: 9 !important; }
+.slick-next{ right: 160px;z-index:9 !important;}
+.slide_div img{ margin: auto; }
+.image_wrap img{ max-width: 85%; height: auto; display: block; margin: auto;}
 
 
 /*============================= 상품 상세 =======================*/
