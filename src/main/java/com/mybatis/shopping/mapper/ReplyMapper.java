@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mybatis.shopping.model.Criteria;
 import com.mybatis.shopping.model.ReplyDto;
+import com.mybatis.shopping.model.UpdateReplyDto;
 
 public interface ReplyMapper {
 
@@ -32,4 +33,15 @@ public interface ReplyMapper {
 	
 	/* 댓글 삭제 */
 	public int deleteReply(int replyId);
+	
+	
+	/* 평점 평균 구하기 */
+	public Double getRatingAverage(int bookId);
+	
+	
+	/* 평점 평균 반영하기 
+	 * 
+	 * 상품번호, 상품평점평균값을 전달받을수 있도록 파라미터에 dto 생성
+	 * */
+	public int updateRating(UpdateReplyDto updateReplyDto);
 }

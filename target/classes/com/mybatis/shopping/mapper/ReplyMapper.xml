@@ -43,10 +43,22 @@ select * from reply where replyId = #{replyId}
 </select>
   	
 <!-- 댓글 삭제  -->
-
 <delete id="deleteReply">
 delete from reply 
 where replyId = #{replyId}
 </delete>
+
+<!-- 평점 평균 구하기 -->
+<select id="getRatingAverage" resultType="double">
+select avg(rating) from reply where bookId = #{bookId}
+</select>
+
+<!-- 평점 평균 반영하기  -->
+<update id="updateRating">
+update book 
+set ratingAvg = #{ratingAvg}
+where bookId = #{bookId}
+</update>
+
 
 </mapper>

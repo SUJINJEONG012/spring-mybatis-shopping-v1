@@ -9,6 +9,8 @@ import lombok.Data;
 
 @Data
 public class UpdateReplyDto {
+	// 상품번호
 	private int bookId;
+	//상품 평점평균값
 	private double ratingAvg;
 }

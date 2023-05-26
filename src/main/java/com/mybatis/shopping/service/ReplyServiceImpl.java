@@ -8,6 +8,7 @@ import com.mybatis.shopping.model.Criteria;
 import com.mybatis.shopping.model.PageDto;
 import com.mybatis.shopping.model.ReplyDto;
 import com.mybatis.shopping.model.ReplyPageDto;
+import com.mybatis.shopping.model.UpdateReplyDto;
 
 @Service
 public class ReplyServiceImpl implements ReplyService{
@@ -19,6 +20,8 @@ public class ReplyServiceImpl implements ReplyService{
 	@Override
 	public int enrollReply(ReplyDto dto) {
 		int result = replyMapper.enrollReply(dto);
+		//평균값 메서드 호출
+		setRating(dto.getBookId());
 		return result;
 	}
 
@@ -50,6 +53,7 @@ public class ReplyServiceImpl implements ReplyService{
 	@Override
 	public int updateReply(ReplyDto replyDto) {
 		int result = replyMapper.updateReply(replyDto);
+		setRating(replyDto.getBookId());
 		return result;
 	}
 
@@ -64,8 +68,23 @@ public class ReplyServiceImpl implements ReplyService{
 	@Override
 	public int deleteReply(ReplyDto replyDto) {
 		int result = replyMapper.deleteReply(replyDto.getReplyId());
+		setRating(replyDto.getBookId());
 		return result;
 	}
 	
+	
+	/* 평점 평균값 구하기 */
+	public void setRating(int bookId) {
+		Double ratingAvg = replyMapper.getRatingAverage(bookId);
+		if(ratingAvg == null) {
+			ratingAvg = 0.0;
+		}
+		
+		UpdateReplyDto urd = new UpdateReplyDto();
+		urd.setBookId(bookId);
+		urd.setRatingAvg(ratingAvg);
+		
+		replyMapper.updateRating(urd);
+	}
 	
 }
