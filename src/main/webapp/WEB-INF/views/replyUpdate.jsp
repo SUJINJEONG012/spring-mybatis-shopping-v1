@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	${bookInfo} ${memberId}
+	<%--  ${bookInfo} ${memberId}--%>
 	
 	<div class="wrapper_div">
 	 <div class="subject_div">

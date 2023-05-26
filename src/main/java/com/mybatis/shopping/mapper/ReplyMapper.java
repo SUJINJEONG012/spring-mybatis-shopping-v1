@@ -29,4 +29,7 @@ public interface ReplyMapper {
 	 * */
 	
 	public ReplyDto getUpdateReply(int replyId);
+	
+	/* 댓글 삭제 */
+	public int deleteReply(int replyId);
 }

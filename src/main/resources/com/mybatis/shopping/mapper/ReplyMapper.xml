@@ -42,6 +42,11 @@ where replyId = #{replyId}
 select * from reply where replyId = #{replyId}
 </select>
   	
+<!-- 댓글 삭제  -->
 
+<delete id="deleteReply">
+delete from reply 
+where replyId = #{replyId}
+</delete>
 
 </mapper>

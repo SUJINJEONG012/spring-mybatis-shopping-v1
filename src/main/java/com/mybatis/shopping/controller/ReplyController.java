@@ -44,4 +44,10 @@ public class ReplyController {
 		replyService.updateReply(replyDto);
 	}
 	
+	/* 댓글 삭제 */
+	@PostMapping("/delete")
+	public void replyDeletePost(ReplyDto replyDto) {
+		replyService.deleteReply(replyDto);
+	}
+	
 }

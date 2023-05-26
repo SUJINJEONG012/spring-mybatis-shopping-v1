@@ -16,5 +16,7 @@ public interface ReplyService {
 	public int updateReply(ReplyDto replyDto);
 	/* 댓글 한 개 수정 (수정페이지) */
 	public ReplyDto getUpdateReply(int replyId);
+	/* 댓글 삭제 */
+	public int deleteReply(ReplyDto replyDto);
 	
 }

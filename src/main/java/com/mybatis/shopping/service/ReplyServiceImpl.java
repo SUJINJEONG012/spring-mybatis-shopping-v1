@@ -59,6 +59,13 @@ public class ReplyServiceImpl implements ReplyService{
 		
 		return replyMapper.getUpdateReply(replyId);
 	}
+
+	/* 댓글 삭제 */
+	@Override
+	public int deleteReply(ReplyDto replyDto) {
+		int result = replyMapper.deleteReply(replyDto.getReplyId());
+		return result;
+	}
 	
 	
 }
