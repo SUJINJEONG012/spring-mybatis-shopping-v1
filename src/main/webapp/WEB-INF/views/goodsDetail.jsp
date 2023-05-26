@@ -296,7 +296,6 @@ const form = {
 					let popUrl = "/replyEnroll/" + memberId + "?bookId=" + bookId;
 					console.log(popUrl);
 					let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes";
-					
 					window.open(popUrl,"리뷰 쓰기",popOption);							
 				}					
 			}
@@ -320,13 +319,22 @@ const form = {
 		replyListInit();
 	});
 	
-	/* 댓그 ㄹ데이터 서버 요청 및 댓글 동적 생성 메서드 */
+	/* 댓글 데이터 서버 요청 및 댓글 동적 생성 메서드 */
 	// 익명함수로 선언 후, 새로 선언한 변수에 할당하는 방식으로 
 	let replyListInit = function(){
 		$.getJSON("/reply/list", cri, function(obj){
 			makeReplyContent(obj);
 		});
 	}	
+	
+	/* 리뷰 수정 버튼 */
+	$(document).on('click', '.update_reply_btn', function(e){
+		e.preventDefault();  
+		let replyId = $(this).attr("href");
+		let popUrl = "/replyUpdate?replyId=" +replyId + "&bookId=" + '${goodsInfo.bookId}' + "&memberId=" + '${member.memberId}'; 	
+		let popOption = "width=490px, height=490px, top=300px, left=300px, scrollbars=yes"
+	
+	});
 
 	
 	/* 댓글(리뷰) 동적 생성 메서드 */
