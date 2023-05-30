@@ -19,6 +19,8 @@
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+<div class="inner">
+
 
 	<div class="navi_bar_area">
 		<div class="dropdown">
@@ -73,19 +75,20 @@
 		<!-- slide_div_wrap end -->
 		
 		
-		
-		<div class="inner">
 			
-			<div class="ls_wrap">
-			  <div class="ls_div_subject">
-			   평점순 상품
-			  </div>
+	   <div class="ls_wrap">
+			  
+			  <div class="ls_div_subject"> 평점순 상품 </div>
+			  
 			  <div class="ls_div">
-			  <c:forEach items="${ls}" var="ls">
-			   <a href="/goodsDetail/${ls.bookId}">
-			    <div class="ls_div_content_wrap">
+			 
+			 	 <c:forEach items="${ls}" var="ls">
+			   		<a href="/goodsDetail/${ls.bookId}">	   
+			  
+			      <div class="ls_div_content_wrap">
+			  
 			      <div class="ls_div_content">
-			       
+			        
 			        <div class="image_wrap" 
 			        data-bookid="${ls.imageList[0].bookId}" 
 			        data-path="${ls.imageList[0].uploadPath}"
@@ -94,31 +97,36 @@
 			        <img>
 			       </div>
 			       
+			       <div class="ls_content">
 			       
-			       <div class="ls_category">${ls.cateName}</div>
+     
+			       <div class="ls_category">[${ls.cateName}]</div>
 			       <div class="ls_rating"> ${ls.ratingAvg}</div>
 			       <div class="ls_bookName">${ls.bookName}</div>
+			       
 			       <div class="ls_price">정가
-			       	<fmt:formatNumber value="${ls.bookPrice}" pattern="#,### 원" />
+			       <fmt:formatNumber value="${ls.bookPrice}" pattern="#,### 원" />
+				   </div>
+					
+					<div class="ls_total">판매가 : <fmt:formatNumber value="${ls.bookPrice - (ls.bookPrice*ls.bookDiscount)}" pattern="#,### 원" /></div>
+					
 					</div>
 					
-					<div class="ls_total">
-					판매가 : 
-							<fmt:formatNumber value="${ls.bookPrice - (ls.bookPrice*ls.bookDiscount)}"
-								pattern="#,### 원" />	
-					</div>
 					
 			      </div>
-			    </div>
-			   </a>
-			  </c:forEach>
+			      <!-- ls_div_content -->
+			      
+			    	</div>
+			    	<!-- ls_div_content_wrap -->
+			    	
+			  		</a>   
+			 	 </c:forEach>
+			  	  
+			  	</div>
 			  </div>
-			</div>
-		</div>
-		<!-- inner end -->
-		
+
+	</div>
 	
-		
 	</div>
 
 	<%@include file="./include/user/footer.jsp"%>

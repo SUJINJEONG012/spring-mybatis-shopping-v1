@@ -32,9 +32,11 @@
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">
-				국외 <i class="fa fa-caret-down"></i>
+			
+			<button class="dropbtn">국외 
+				<i class="fa fa-caret-down"></i>
 			</button>
+			
 			<div class="dropdown-content">
 				<c:forEach items="${cate2}" var="cate">
 					<a href="/search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
@@ -59,6 +61,8 @@
 
 			<div class="ct_right_area">
 				<div class="title">
+				<span>${goodsInfo.cateName }</span>
+				
 					<h1>${goodsInfo.bookName}</h1>
 				</div>
 				<div class="line"></div>

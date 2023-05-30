@@ -1,84 +1,37 @@
 @charset "UTF-8";
 
-
-/*============================= 메인 비주얼  =======================*/
-
-
-.slick-prev{left: 160px; z-index: 9 !important; }
-.slick-next{ right: 160px;z-index:9 !important;}
-.slide_div img{ margin: auto; }
-.image_wrap img{ max-width: 85%; height: auto; display: block; margin: auto;}
+/*============================= 메인 비주얼 =======================*/
 
 
-/*============================= 평점순 상품 노출  =======================*/
-
-.ls_wrap{
-    margin: 30px 0 30px 0;
-    padding: 0 10px 0 10px;
-}
-.ls_div_content{
-	width: 80%;
-    margin: auto;
-    border: 1px solid #dadada;
-}
-.image_wrap{
-	width: 80%;
-    height: 60%;
-    margin: auto;
-    padding: 5% 0 5% 0;
-    display: flex;
-    align-items: center;    
-}
-.ls_category{
-	text-align: center;
-    font-size: 13px;
-    color: #3e74ab;
-}
-.ls_rating{
-	text-align: center;
-    font-size: 13px;
-    color: #e15b6e;
-}
-.ls_bookName{
-	text-align: center;
-    color: #333;
-    font-size: 15px;
-    font-weight: bold;
-}
-.ls_div_subject{
-	font-weight: bold;
-	font-size: 26px;
-	padding-bottom: 10px;
-}
+.slick-prev { left: 160px; z-index: 9 !important; } 
+.slick-next { right: 160px; z-index:9 !important; } 
+.slide_div img { margin: auto; } 
+.image_wrap img { max-width: 85%; height: auto; display: block; margin: auto; } 
 
 
+/* ======================== content ======================== */
 
-.ls_div_content_prev{
-    position: absolute;
-    top: 40%;
-    width: 40px;
-    height: 30px;
-    left: 27px;
-    font-weight: bold;
-    z-index: 1;
-    opacity: 35%;
-}
-.ls_div_content_prev:hover{
-   opacity: 80%;
-}
-.ls_div_content_next{
-    position: absolute;
-    top: 40%;
-    width: 40px;
-    height: 30px;
-    right: 27px;
-    font-weight: bold;
-    z-index: 1;
-    opacity: 35%;
-}
-.ls_div_content_next:hover{
-   opacity: 80%;
-}
+
+/* 홈페이지 메인 제품 목록 */
+.content_area { width: 100%; min-height:500px; } 
+
+.ls_wrap { margin: 30px 0 30px 0; padding: 0 10px 0 10px; } 
+.image_wrap { height: 80%; width: 80%; margin: auto; top: 10%; position: relative; } 
+.image_wrap img { max-width: 100%; min-height: 320px; display: block; } 
+
+.ls_content{text-align:center;}
+.ls_div_content {} 
+.image_wrap {width: 80%; height: 60%; margin: auto; padding: 5% 0 5% 0; display: flex; align-items: center; } 
+.ls_category {text-align: center; font-size: 13px; } 
+.ls_rating {text-align: center; font-size: 13px; color: #e15b6e; } 
+.ls_bookName {text-align: center; color: #333; font-size: 23px; font-weight: bold; } 
+.ls_price {font-size: 14px;color: #aaaaaa;  text-decoration: line-through;}
+.ls_div_subject {font-weight: bold;font-size: 26px;padding-bottom: 10px; } 
+
+.ls_div_content_prev { position: absolute; top: 40%; width: 40px; height: 30px; left: 27px; font-weight: bold; z-index: 1; opacity: 35%; } 
+.ls_div_content_prev:hover { opacity: 80%; } 
+.ls_div_content_next { position: absolute; top: 40%; width: 40px; height: 30px; right: 27px; font-weight: bold; z-index: 1; opacity: 35%; } 
+.ls_div_content_next:hover { opacity: 80%; } 
 
 
 
@@ -97,9 +50,9 @@
 
 .ct_right_area { float: left; width: 70%; height: 100%; } 
 
-.title { height: 28%; font-size: 17px; line-height: 110px; color: #3a60df; padding-left: 3%; } 
+.title { font-size: 17px; color: #3a60df; padding-left: 3%; } 
 
-.author { font-size: 16px; line-height: 50px; padding-left: 3%; } 
+.author { font-size: 16px; padding-left: 3%; } 
 
 .price { line-height: 30px; padding: 2% 0 2% 3%; } 
 

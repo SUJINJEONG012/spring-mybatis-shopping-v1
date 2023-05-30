@@ -18,8 +18,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 16px; line-height: 24px; font-style: normal; 
-    font-weight: 400; vertical-align: baseline; 
-    line-height: 1.2; letter-spacing: -1px; color: #191919;
+    vertical-align: baseline; line-height: 1.2; letter-spacing: -1px; color: #191919;
     font-family:"Noto Sans KR", "Montserrat", sans-serif,"맑은 고딕","Nanum Gothic","나눔 고딕","돋움",dotum,sans-serif;} 
 
 
