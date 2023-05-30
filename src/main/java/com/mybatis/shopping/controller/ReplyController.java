@@ -28,8 +28,8 @@ public class ReplyController {
 	 * 존재 : 1, 존재안함 : 0
 	 */
 	@PostMapping("/check")
-	public String replyCheckPost(ReplyDto replyDto) {
-		return replyService.checkReply(replyDto);
+	public String replyCheckPost(ReplyDto dto) {
+		return replyService.checkReply(dto);
 	}
 	
 	/* 댓글 페이징 */
@@ -40,14 +40,14 @@ public class ReplyController {
 	
 	/* 댓글 수정 */
 	@PostMapping("/update")
-	public void replyModifyPost(ReplyDto replyDto) {
-		replyService.updateReply(replyDto);
+	public void replyModifyPost(ReplyDto dto) {
+		replyService.updateReply(dto);
 	}
 	
 	/* 댓글 삭제 */
 	@PostMapping("/delete")
-	public void replyDeletePost(ReplyDto replyDto) {
-		replyService.deleteReply(replyDto);
+	public void replyDeletePost(ReplyDto dto) {
+		replyService.deleteReply(dto);
 	}
 	
 }

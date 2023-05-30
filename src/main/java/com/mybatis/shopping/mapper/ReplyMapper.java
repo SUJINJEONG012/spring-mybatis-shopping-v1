@@ -9,7 +9,7 @@ import com.mybatis.shopping.model.UpdateReplyDto;
 public interface ReplyMapper {
 
 	/* 댓글 등록 */
-	public int enrollReply(ReplyDto replyDto);
+	public int enrollReply(ReplyDto dto);
 	
 	/* 댓글존재여부 */
 	public Integer checkReply(ReplyDto replyDto);
@@ -21,7 +21,7 @@ public interface ReplyMapper {
 	public int getReplyTotal(int bookId);
 	
 	/* 댓글 수정 */
-	public int updateReply(ReplyDto replyDto);
+	public int updateReply(ReplyDto dto);
 	
 	
 	/* 댓글 한 개 정보 (수정페이지 ) 

@@ -255,7 +255,7 @@ const form = {
 
 	
 	/* 리뷰쓰기 */
-	$(".reply_button_wrap").on("click", function(e){
+	$(".reply_button_wrap button").on("click", function(e){
 		
 		e.preventDefault();
 		
@@ -277,7 +277,7 @@ const form = {
 					let popUrl = "/replyEnroll/" + memberId + "?bookId=" + bookId;
 					console.log(popUrl);
 					let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes";
-					window.open(popUrl,"리뷰 쓰기",popOption);							
+					window.open(popUrl,"리뷰 쓰기", popOption);							
 				}					
 			}
 		});					
@@ -321,7 +321,6 @@ const form = {
 	
 	/* 리뷰 삭제 버튼 */
 	$(document).on('click', '.delete_reply_btn', function(e){
-	
 		e.preventDefault();
 		let replyId = $(this).attr("href");
 		
@@ -372,9 +371,11 @@ const form = {
 				reply_list += '<span class="date_span">'+ obj.regDate +'</span>';
 				/* 평점 */
 				reply_list += '<span class="rating_span">평점 : <span class="rating_value_span">'+ obj.rating +'</span>점</span>';
+				
 				if(obj.memberId === userId){
 					reply_list += '<a class="update_reply_btn" href="'+ obj.replyId +'">수정</a><a class="delete_reply_btn" href="'+ obj.replyId +'">삭제</a>';
 				}
+				
 				reply_list += '</div>'; //<div class="reply_top">
 				reply_list += '<div class="reply_bottom">';
 				reply_list += '<div class="reply_bottom_txt">'+ obj.content +'</div>';
@@ -419,8 +420,6 @@ const form = {
 			
 		}			
 	}
-	
-	
 	
 	
 </script>

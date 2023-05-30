@@ -137,11 +137,11 @@ public class BookController {
 	
 	/* 리뷰 수정 팝업창 */
 	@GetMapping("/replyUpdate")
-	public String replyUpdateWindowGet(ReplyDto replyDto, Model model){
-		BookVo book = bookService.getBookIdName(replyDto.getBookId());
+	public String replyUpdateWindowGet(ReplyDto dto, Model model){
+		BookVo book = bookService.getBookIdName(dto.getBookId());
 		model.addAttribute("bookInfo",book);
-		model.addAttribute("replyInfo",replyService.getUpdateReply(replyDto.getReplyId()));
-		model.addAttribute("memberId", replyDto.getMemberId());
+		model.addAttribute("replyInfo",replyService.getUpdateReply(dto.getReplyId()));
+		model.addAttribute("memberId", dto.getMemberId());
 		return "/replyUpdate";
 	}
 	

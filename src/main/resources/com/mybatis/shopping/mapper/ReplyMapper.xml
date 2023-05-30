@@ -7,7 +7,7 @@
 
 <!-- 댓글등록  -->
  <insert id="enrollReply">
- 	insert into reply (bookId, memberId, content, rating) values(#{bookId}, #{memberId}, #{content}, #{rating})
+ 	insert into reply (bookId, memberId, content, rating) values ( #{bookId}, #{memberId}, #{content}, #{rating})
  </insert>
  
  <!-- 댓글 존재 체크  -->
