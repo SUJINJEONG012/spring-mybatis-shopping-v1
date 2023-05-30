@@ -27,8 +27,6 @@
 			</button>
 			<div class="dropdown-content">
 
-
-
 				<c:forEach items="${cate1}" var="cate">
 					<a href="/search?type=C&cateCode=${cate.cateCode}">${cate.cateName }</a>
 				</c:forEach>
@@ -96,17 +94,20 @@
 			        <img>
 			       </div>
 			       
+			       
 			       <div class="ls_category">${ls.cateName}</div>
-			       <div class="ls_rating" ${ls.ratingAvg}></div>
+			       <div class="ls_rating"> ${ls.ratingAvg}</div>
 			       <div class="ls_bookName">${ls.bookName}</div>
-			       <div class="ls_">정가
+			       <div class="ls_price">정가
 			       	<fmt:formatNumber value="${ls.bookPrice}" pattern="#,### 원" />
 					</div>
 					
 					<div class="ls_total">
-					판매가 : <span class="">
-						<fmt:formatNumber value="${ls.bookPrice - (ls.bookPrice * ls.bookDiscount)}"
-								pattern="#,### 원" /></div>
+					판매가 : 
+							<fmt:formatNumber value="${ls.bookPrice - (ls.bookPrice*ls.bookDiscount)}"
+								pattern="#,### 원" />	
+					</div>
+					
 			      </div>
 			    </div>
 			   </a>

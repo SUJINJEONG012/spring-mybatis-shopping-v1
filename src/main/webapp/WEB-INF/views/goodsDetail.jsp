@@ -18,11 +18,12 @@
 
 	<div class="navi_bar_area">
 		<div class="dropdown">
+			
 			<button class="dropbtn">
 				국내 <i class="fa fa-caret-down"></i>
 			</button>
+			
 			<div class="dropdown-content">
-
 				<c:forEach items="${cate1}" var="cate">
 					<a href="/search?type=C&cateCode=${cate.cateCode}">${cate.cateName }</a>
 				</c:forEach>

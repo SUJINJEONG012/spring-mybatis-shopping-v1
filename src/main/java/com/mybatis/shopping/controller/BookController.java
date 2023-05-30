@@ -47,6 +47,7 @@ public class BookController {
 	
 	/* 메인페이지 이동 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+
 	public String main(Model model) {
 		
 		logger.info("메인페이지 진입 ");

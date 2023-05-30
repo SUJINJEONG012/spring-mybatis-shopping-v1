@@ -149,7 +149,7 @@
 	
 	<!-- 평점순 상품정보  역순으로 8개의 데이터를 가지고 온다. -->
 	<select id="likeSelect" resultType="com.mybatis.shopping.model.SelectDto">
-	 select bookId, bookName, bookPrice, bookDiscount ratingAvg, 
+	 select bookId, bookName, bookPrice, bookDiscount, ratingAvg, 
 	 (select cateName from bcate where book.cateCode = bcate.cateCode) as cateName
 	 from book order by ratingAvg desc limit 8
 	</select>

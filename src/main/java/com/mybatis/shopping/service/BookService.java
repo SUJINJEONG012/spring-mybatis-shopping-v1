@@ -18,6 +18,7 @@ public interface BookService {
 
 	/* 국내 카테고리 리스트 */
 	public List<CateVo> getCateCode1();
+	
 	/* 국외 카테고리 리스트 */
 	public List<CateVo> getCateCode2();
 	
@@ -26,8 +27,10 @@ public interface BookService {
 	
 	/* 상품 정보 */
 	public BookVo getGoodsInfo(int bookId);
+	
 	/* 상품 id 이름 */
 	public BookVo getBookIdName(int bookId);
 	/* 평점순 상품 정보 */
+	
 	public List<SelectDto> likeSelect();
 }
