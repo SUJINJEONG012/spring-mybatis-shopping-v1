@@ -115,6 +115,10 @@
 			  </div>
 			</div>
 		</div>
+		<!-- inner end -->
+		
+	
+		
 	</div>
 
 	<%@include file="./include/user/footer.jsp"%>

@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../resources/css/reset.css">
+<link rel="stylesheet" href="../resources/css/layout.css">
 <link rel="stylesheet" href="../resources/css/main.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
@@ -101,7 +103,7 @@
 			
 			<div class="join_button_wrap">
 				<input type="button" class="join_button" value="가입하기" >
-				<input type="button" class="join_button" value="가입하기2"  onclick="check_reg()">
+				<!-- <input type="button" class="join_button" value="가입하기2"  onclick="check_reg()"> -->
 			</div>
 			
 			
