@@ -21,6 +21,7 @@ public interface BookMapper {
 	
 	/* 국내 카테고리 리스트 */
 	public List<CateVo> getCateCode1();
+	
 	/* 국외 카테고리 리스트 */
 	public List<CateVo> getCateCode2();
 	

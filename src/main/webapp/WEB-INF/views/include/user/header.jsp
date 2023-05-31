@@ -50,22 +50,22 @@
         <a href="/" lang="en" class="white">Book Shop</a></h1>
         
         
-        <div class="search_input">
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" id="searchForm" action="/search" method="get">
+        <div class="search_wrap">
+        <form id="searchForm" action="/search" method="get">
           <div class="">
-
-								<select name="type">
-									<option value="T">책 제목</option>
-									<option value="A">작가</option>
-								</select> <input type="text" name="keyword"class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-									value="<c:out value="${pageMaker.cri.keyword}"/>">
-
-								<!-- <i class="fa fa-star" aria-hidden="true">평점</i>
-								<i class="fa fa-bell" aria-hidden="true">공지사항 </i>	 -->
-								<button class="btn search_btn">
-									<i class="fa fa-search" aria-hidden="true">검색</i>
-								</button>
-							</div>
+				<select name="type">
+					<option value="T">책 제목</option>
+					<option value="A">작가</option>
+				</select>
+								
+				<input type="text" name="keyword"class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+					value="<c:out value="${pageMaker.cri.keyword}"/>">
+						<!-- <i class="fa fa-star" aria-hidden="true">평점</i>
+						<i class="fa fa-bell" aria-hidden="true">공지사항 </i>	 -->
+					<button class="btn search_btn">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</button> 						
+		 </div>
 		
         </form>
         </div>
