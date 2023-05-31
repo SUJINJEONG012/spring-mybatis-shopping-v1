@@ -18,41 +18,35 @@
 
 <body>
 
+	<div class="join_wrap">
+		<div class="join_box">
+          
+          <h1 class="logo" lang="en">BOOK SHOPPING</h1>
 
-
-	<div class="login_page">
-
-
-		<form id="login_form" method="post">
-
-			<h1 class="logo">Book Shop</h1>
-
-
-			<div class="login_wrap">
-
-				<div class="id_wrap">
-					<div class="id_input_box">
-						<input type="text" class="id_input" name="memberId">
-					</div>
+			
+			<form id="login_form" method="post">
+				<div class="input_wrap">
+					
+					<span class="input_label">아이디</span>
+					<input type="text" name="memberId" placeholder="이름" class="cm_input full">
 				</div>
-
-				<div class="pw_wrap">
-					<div class="pw_input_box">
-						<input type="text" class="pw_input" name="memberPw">
-					</div>
+				
+				<div class="input_wrap">
+					<span class="input_label">비밀번호</span>
+					<input type="text" name="memberPw" placeholder="비밀번호" class="cm_input full">
 				</div>
 
 				<c:if test="${result == 0}">
 					<div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
 				</c:if>
-
-
-				<div class="login_button_wrap">
+			</form>
+			
+			<div class="button_wrap">
 					<input type="button" class="login_button" value="로그인">
-				</div>
-
 			</div>
-		</form>
+				
+
+		</div>
 	</div>
 
 

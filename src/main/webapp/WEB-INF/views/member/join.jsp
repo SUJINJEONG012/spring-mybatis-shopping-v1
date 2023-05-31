@@ -14,13 +14,18 @@
 <body>
 
 
-	<div class="wrapper">
+
+<div class="mem_wrap">
+		<div class="mem_box">
+		
+		
+		
+		<h1 class="logo" lang="en">BOOK SHOPPING</h1>
+		
+		
 		<form action="" id="join_form" method="post">
 
-			<div class="wrap">
-			<div class="subjecet">
-				<span>회원가입</span>
-			</div>
+			
 			
 			<div class="id_wrap">
 				<div class="id_name">아이디</div>
@@ -108,9 +113,14 @@
 			
 			
 			
-			</div>
 		</form>
-	</div>
+		
+		
+		</div>
+</div>
+
+
+	
 	
 	
 <!--  주소 api 라이브러리 -->

@@ -18,7 +18,7 @@
 <div class="wrapper">
 	
 
- <header class="">
+ <header>
    
     <div class="inner">   
       
@@ -47,25 +47,23 @@
 
        <div class="top_menu">
         <h1 class="logo">
-        <a href="/" lang="en" class="white">Book Shop</a></h1>
+        <a href="/" lang="en" class="white">BOOK SHOPPING</a></h1>
         
         
         <div class="search_wrap">
         <form id="searchForm" action="/search" method="get">
-          <div class="">
+         
 				<select name="type">
 					<option value="T">책 제목</option>
 					<option value="A">작가</option>
 				</select>
 								
-				<input type="text" name="keyword"class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+				<input type="text" name="keyword" class="input" placeholder="검색어를 입력하세요."
 					value="<c:out value="${pageMaker.cri.keyword}"/>">
-						<!-- <i class="fa fa-star" aria-hidden="true">평점</i>
-						<i class="fa fa-bell" aria-hidden="true">공지사항 </i>	 -->
+			
 					<button class="btn search_btn">
 						<i class="fa fa-search" aria-hidden="true"></i>
 					</button> 						
-		 </div>
 		
         </form>
         </div>
