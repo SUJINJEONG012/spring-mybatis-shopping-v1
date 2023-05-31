@@ -27,24 +27,24 @@
 
 			
 			
-			<div class="id_wrap">
-				<div class="id_name">아이디</div>
-				<div class="id_input_box">
+			<div class="input_wrap">
+				<span class="input_label">아이디</span>
 					<input class="id_input" name="memberId">	
-				</div>
+				
 				<span class="id_input_re_1">사용가능한 아이디 입니다.</span>
 				<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
 				<span class="final_id_ck">아이디를 입력해주세요.</span>
 			</div>
 			
-			<div class="pw_wrap">
+			<div class="input_wrap">
 				<div class="pw_name">비밀번호</div>
 				<div class="pw_input_box">
 					<input class="pw_input" name="memberPw">
 				</div>
 				<span class="final_pw_ck">비밀번호를 입력해주세요.</span>
 			</div>
-			<div class="pwck_wrap">
+			
+			<div class="input_wrap">
 				<div class="pwck_name">비밀번호 확인</div>
 				<div class="pwck_input_box">
 					<input class="pwck_input">
@@ -53,14 +53,14 @@
 				<span class="pwck_input_re_1">비밀번호가 일치합니다.</span>
 				<span class="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
 			</div>
-			<div class="user_wrap">
+			<div class="input_wrap">
 				<div class="user_name">이름</div>
 				<div class="user_input_box">
 					<input class="user_input" name="memberName">
 				</div>
 				<span class="final_name_ck">이름을 입력해주세요.</span>
 			</div>
-			<div class="mail_wrap">
+			<div class="input_wrap">
 				<div class="mail_name">이메일</div> 
 				<div class="mail_input_box">
 					<input class="mail_input" name="memberMail">
@@ -77,11 +77,10 @@
 					</div>					
 					<span id="mail_check_input_box_warn"></span>
 				</div>
-				
 			</div>
 			
 			
-			<div class="address_wrap">
+			<div class="input_wrap">
 				<div class="address_name">주소</div>
 				<div class="address_input_1_wrap">
 					<div class="address_input_1_box">
@@ -105,15 +104,13 @@
 				</div>
 				<span class="final_addr_ck">주소를 입력해주세요.</span>
 			</div>
-			
-			<div class="join_button_wrap">
+				
+		</form>
+
+		<div class="button_wrap">
 				<input type="button" class="join_button" value="가입하기" >
 				<!-- <input type="button" class="join_button" value="가입하기2"  onclick="check_reg()"> -->
-			</div>
-			
-			
-			
-		</form>
+		</div>
 		
 		
 		</div>

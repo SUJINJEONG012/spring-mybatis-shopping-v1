@@ -18,15 +18,14 @@
 
 <body>
 
-	<div class="join_wrap">
-		<div class="join_box">
+	<div class="mem_wrap">
+		<div class="mem_box">
           
           <h1 class="logo" lang="en">BOOK SHOPPING</h1>
 
 			
 			<form id="login_form" method="post">
 				<div class="input_wrap">
-					
 					<span class="input_label">아이디</span>
 					<input type="text" name="memberId" placeholder="이름" class="cm_input full">
 				</div>
