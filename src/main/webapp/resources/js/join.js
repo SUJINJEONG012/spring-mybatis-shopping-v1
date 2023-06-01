@@ -163,7 +163,7 @@ $(".pwck_input").on("propertychange keyup paste input", function() {
 //인증번호 이메일 전송 => 컨트롤러에 화면이 전횐되면 안되기때문에 ajax 사용(비동기)
 
 $(".mail_check_button").click(function() {
-	alert("클릭");
+	alert("인증번호를 확인해주세요.");
 	console.log("클릭 ? ");
 	var email = $(".mail_input").val(); //입력한 이메일
 	var checkBox = $(".mail_check_input"); //인증번호 입력
