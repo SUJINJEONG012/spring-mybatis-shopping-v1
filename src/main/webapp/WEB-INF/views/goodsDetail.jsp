@@ -66,48 +66,41 @@
 
 			<div class="ct_info_area">
 				<div class="title">
-				<span>${goodsInfo.cateName }</span>
+				<span>[${goodsInfo.cateName }]</span>
 				
 					<h1>${goodsInfo.bookName}</h1>
 				</div>
 			
 				<div class="author">
-					<span> ${goodsInfo.authName} 지음 </span> <span>|</span> <span>
-						${goodsInfo.publisher} </span> <span>|</span> 
-						<span class="publeyear">
-						${goodsInfo.publeYear} </span>
+					<span> ${goodsInfo.authName} 지음 </span> <span>|</span> 
+					<span> ${goodsInfo.publisher} </span> <span>|</span> 
+					<span class="publeyear" lang="en"> ${goodsInfo.publeYear} </span>
 				</div>
 				
 				<div class="price">
-					<div class="sale_price">
-						정가 :
-						<fmt:formatNumber value="${goodsInfo.bookPrice}" pattern="#,### 원" />
+					<div class="sale_price" lang="en">
+						정가 : <fmt:formatNumber value="${goodsInfo.bookPrice}" pattern="#,### 원" />
 					</div>
 					
 					<div class="discount_price" lang="en">
-						판매가 : <span class="discount_price_number">
-						<fmt:formatNumber value="${goodsInfo.bookPrice - (goodsInfo.bookPrice*goodsInfo.bookDiscount)}"
-								pattern="#,### 원" /></span> [
-						<fmt:formatNumber value="${goodsInfo.bookDiscount*100}"
-							pattern="###" />
-						%
-						<fmt:formatNumber
-							value="${goodsInfo.bookPrice*goodsInfo.bookDiscount}"
-							pattern="#,### 원" />
-						할인]
+						판매가 : <span class="discount_price_number" lang="en"> 
+						<fmt:formatNumber value="${goodsInfo.bookPrice - (goodsInfo.bookPrice*goodsInfo.bookDiscount)}" pattern="#,### 원" /></span> [
+						<fmt:formatNumber value="${goodsInfo.bookDiscount*100}" pattern="###" /> %
+						<fmt:formatNumber value="${goodsInfo.bookPrice*goodsInfo.bookDiscount}" pattern="#,### 원" /> 할인]
 					</div>
 				</div>
+				
 				<div>
-					적립포인트 : <span class="point_span"></span>원
+					적립포인트 : <span class="point_span" lang="en"></span>원
 				</div>
 			
 				<div class="button">
 					<div class="button_quantity">
-						주문수량 <input type="text" class="quantity_input" value="1">
-						<span>
+						주문수량 <input type="text" class="quantity_input" lang="en" value="1">
+						
 							<button class="plus_btn">+</button>
 							<button class="minus_btn">-</button>
-						</span>
+						
 					</div>
 					<div class="button_set">
 						<a class="btn_cart">장바구니 담기</a> <a class="btn_buy">바로구매</a>
@@ -377,11 +370,11 @@ const form = {
 				reply_list += '<div class="comment_wrap">';
 				reply_list += '<div class="reply_top">';
 				/* 아이디 */
-				reply_list += '<span class="id_span">'+ obj.memberId+'</span>';
+				reply_list += '<span class="id_span" lang="en">'+ obj.memberId+'</span>';
 				/* 날짜 */
-				reply_list += '<span class="date_span">'+ obj.regDate +'</span>';
+				reply_list += '<span class="date_span" lang="en">'+ obj.regDate +'</span>';
 				/* 평점 */
-				reply_list += '<span class="rating_span">평점 : <span class="rating_value_span">'+ obj.rating +'</span>점</span>';
+				reply_list += '<span class="rating_span" lang="en">평점 : <span class="rating_value_span" lang="en">'+ obj.rating +'</span>점</span>';
 				
 				if(obj.memberId === userId){
 					reply_list += '<a class="update_reply_btn" href="'+ obj.replyId +'">수정</a><a class="delete_reply_btn" href="'+ obj.replyId +'">삭제</a>';
