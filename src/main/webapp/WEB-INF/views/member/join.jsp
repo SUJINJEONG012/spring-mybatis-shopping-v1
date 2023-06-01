@@ -16,9 +16,8 @@
 
 
 <div class="mem_wrap">
+		
 		<div class="mem_box">
-		
-		
 		
 		<h1 class="logo" lang="en">BOOK SHOPPING</h1>
 		
@@ -29,7 +28,7 @@
 			
 			<div class="input_wrap">
 				<span class="input_label">아이디</span>
-					<input class="id_input" name="memberId">	
+				<input class="id_input" name="memberId">	
 				
 				<span class="id_input_re_1">사용가능한 아이디 입니다.</span>
 				<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
@@ -37,7 +36,8 @@
 			</div>
 			
 			<div class="input_wrap">
-				<div class="pw_name">비밀번호</div>
+				
+				<span class="input_label">비밀번호</span>
 				<div class="pw_input_box">
 					<input class="pw_input" name="memberPw">
 				</div>
@@ -45,7 +45,8 @@
 			</div>
 			
 			<div class="input_wrap">
-				<div class="pwck_name">비밀번호 확인</div>
+				
+				<span class="input_label">비밀번호 확인</span>
 				<div class="pwck_input_box">
 					<input class="pwck_input">
 				</div>
@@ -53,15 +54,18 @@
 				<span class="pwck_input_re_1">비밀번호가 일치합니다.</span>
 				<span class="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
 			</div>
-			<div class="input_wrap">
-				<div class="user_name">이름</div>
+			
+			<div class="input_wrap"> 
+			 <span class="input_label">이름</span>	
 				<div class="user_input_box">
 					<input class="user_input" name="memberName">
 				</div>
 				<span class="final_name_ck">이름을 입력해주세요.</span>
 			</div>
+			
 			<div class="input_wrap">
-				<div class="mail_name">이메일</div> 
+				
+				<span class="input_label">이메일</span>	
 				<div class="mail_input_box">
 					<input class="mail_input" name="memberMail">
 				</div>
@@ -70,8 +74,7 @@
 				<div class="mail_check_wrap">
 					<div class="mail_check_input_box" id="mail_check_input_box_false">
 						<input class="mail_check_input" disabled="disabled">
-					</div>
-					
+					</div>	
 					<div class="mail_check_button">
 						<span>인증번호 전송</span>
 					</div>					
@@ -80,8 +83,9 @@
 			</div>
 			
 			
+			
 			<div class="input_wrap">
-				<div class="address_name">주소</div>
+				<span class="input_label">주소</span>	
 				<div class="address_input_1_wrap">
 					<div class="address_input_1_box">
 						<input class="address_input_1" name="memberAddr1" readonly="readonly">

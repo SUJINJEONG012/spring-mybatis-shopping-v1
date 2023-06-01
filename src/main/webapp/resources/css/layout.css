@@ -94,6 +94,34 @@ select { width: 100%; height: 45px; border-radius: 0; }
 /* 중복아이디 존재하는 경우 */
 .id_input_re_2 {color : red;display : none; } 
 
+.final_id_ck{
+	display: none;
+}
+.final_pw_ck{
+	display: none;
+}
+.final_pwck_ck{
+	display: none;
+}
+.final_name_ck{
+	display: none;
+}
+.final_mail_ck{
+	display: none;
+}
+.final_addr_ck{
+	display: none;
+}
+
+/* 비밀번호 확인 일치 유효성검사 */
+.pwck_input_re_1{
+		color : green;
+		display : none;	
+}
+.pwck_input_re_2{
+		color : red;
+		display : none;	
+}
 
 
 span.final_id_ck { display: none; } 
