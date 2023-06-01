@@ -22,7 +22,6 @@ const check_reg = function check_reg() {
 
 }
 
-
 $(document).ready(function() {
 	//회원가입 버튼
 	$(".join_button").click(function() {
@@ -42,6 +41,14 @@ $(document).ready(function() {
 		} else {
 			$(".final_id_ck").css("display", "none");
 			idCheck = true; //
+		}
+		/* 비밀번호 유효성 검사 */
+		if(pw == "") {
+			$('.final_pw_ck').css('display', 'block');
+		    pwCheck = false;
+		}else{
+			$('.final_pw_ck').css('disply', 'none');
+			pwCheck = true;
 		}
 		/* 비밀번호 확인 유효성 검사 */
 		if (pwck == "") {
@@ -95,7 +102,9 @@ $(document).ready(function() {
 }); */
 
 //아이디 중복검사
-$(".id_input").on("propertychange change keyup paste input", function() {
+
+$(".id_input").on("propertychange change keyup paste input ", function() {
+	
 	var memberId = $(".id_input").val();
 	var data = { memberId: memberId }
 
