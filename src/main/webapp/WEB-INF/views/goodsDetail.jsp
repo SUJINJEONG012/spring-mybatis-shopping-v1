@@ -15,6 +15,9 @@
 
 	<%@include file="./include/user/header.jsp"%>
 
+<div class="detail_wrap">
+
+<div class="inner">
 
 	<div class="navi_bar_area">
 		<div class="dropdown">
@@ -47,9 +50,11 @@
 
 
 	<div class="content_area">
-		<div class="line"></div>
+	
 		<div class="content_top">
-			<div class="ct_left_area">
+		
+			<div class="ct_img_area">
+			
 				<div class="image_wrap"
 					data-bookid="${goodsInfo.imageList[0].bookId}"
 					data-path="${goodsInfo.imageList[0].uploadPath}"
@@ -59,20 +64,20 @@
 				</div>
 			</div>
 
-			<div class="ct_right_area">
+			<div class="ct_info_area">
 				<div class="title">
 				<span>${goodsInfo.cateName }</span>
 				
 					<h1>${goodsInfo.bookName}</h1>
 				</div>
-				<div class="line"></div>
+			
 				<div class="author">
 					<span> ${goodsInfo.authName} 지음 </span> <span>|</span> <span>
 						${goodsInfo.publisher} </span> <span>|</span> 
 						<span class="publeyear">
 						${goodsInfo.publeYear} </span>
 				</div>
-				<div class="line"></div>
+				
 				<div class="price">
 					<div class="sale_price">
 						정가 :
@@ -95,7 +100,7 @@
 				<div>
 					적립포인트 : <span class="point_span"></span>원
 				</div>
-				<div class="line"></div>
+			
 				<div class="button">
 					<div class="button_quantity">
 						주문수량 <input type="text" class="quantity_input" value="1">
@@ -111,13 +116,12 @@
 			</div>
 		</div>
 
-		<div class="line"></div>
 
 		<div class="content_middle">
 			<div class="book_intro">${goodsInfo.bookIntro}</div>
 			<div class="book_content">${goodsInfo.bookContents }</div>
 		</div>
-		<div class="line"></div>
+		
 
 		<div class="content_bottom">
 
@@ -158,8 +162,10 @@
 				value="${goodsInfo.bookId}"> <input type="hidden"
 				name="orders[0].bookCount" value="">
 		</form>
-
+		
+       </div>
 	</div>
+</div>
 
 	<%@include file="./include/user/footer.jsp"%>
 

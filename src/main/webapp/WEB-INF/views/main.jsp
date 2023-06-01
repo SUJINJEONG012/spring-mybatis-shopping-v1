@@ -19,6 +19,7 @@
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+
 <div class="inner">
 
 
@@ -100,15 +101,15 @@
 			       <div class="ls_content">
 			       
      
-			       <div class="ls_category">[${ls.cateName}]</div>
-			       <div class="ls_rating"> ${ls.ratingAvg}</div>
-			       <div class="ls_bookName">${ls.bookName}</div>
+			       <div class="ls_category ls_txt" lang="en">[${ls.cateName}]</div>
+			       <div class="ls_rating ls_txt" lang="en"> <i class="fa fa-star" aria-hidden="true"></i> ${ls.ratingAvg}</div>
+			       <div class="ls_bookName ls_txt" lang="en">${ls.bookName}</div>
 			       
-			       <div class="ls_price">정가
+			       <div class="ls_price" lang="en">정가
 			       <fmt:formatNumber value="${ls.bookPrice}" pattern="#,### 원" />
 				   </div>
 					
-					<div class="ls_total">판매가 : <fmt:formatNumber value="${ls.bookPrice - (ls.bookPrice*ls.bookDiscount)}" pattern="#,### 원" /></div>
+					<div class="ls_total" lang="en">판매가 : <fmt:formatNumber value="${ls.bookPrice - (ls.bookPrice*ls.bookDiscount)}" pattern="#,### 원" /></div>
 					
 					</div>
 					

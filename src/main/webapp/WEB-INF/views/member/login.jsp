@@ -16,7 +16,7 @@
 </head>
 
 
-<body>
+<body style="background: #0b514e;">
 
 	<div class="mem_wrap">
 		<div class="mem_box">

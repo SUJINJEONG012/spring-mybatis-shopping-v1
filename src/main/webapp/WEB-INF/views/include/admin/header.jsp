@@ -8,12 +8,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="../resources/css/admin/goodsModify.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+
 <link rel="stylesheet" href="../resources/css/admin/main.css">
 <link rel="stylesheet" href="../resources/css/admin/layout.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
+<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+
+
 </head>
 <body>
+
+
 <div class="wrapper">
         <div class="wrap">
            

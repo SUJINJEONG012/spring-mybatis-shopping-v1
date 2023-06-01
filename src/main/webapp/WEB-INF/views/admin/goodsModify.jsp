@@ -3,26 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!DOCTYPE html>
-<html>
 
-<head>
-<meta charset="UTF-8">
-<title>상품 수정 페이지</title>
-<link rel="stylesheet" href="../resources/css/admin/goodsModify.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
-
-<script
-	src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-
-</head>
-
-<body>
-
-	<%@include file="../include/admin/header.jsp"%>
+<%@include file="../include/admin/header.jsp"%>
 
 	<style>
 #result_card img {
@@ -55,6 +37,9 @@
 	cursor: pointer;
 }
 </style>
+
+
+
 	<div class="admin_content_wrap">
 		<div class="admin_content_subject">
 			<span>상품 등록</span>
@@ -209,12 +194,12 @@
 
 
 
-	<%@include file="../include/admin/footer.jsp"%>
+
 
 
 	<script>
 $(document).ready(function(){
-	
+alert("Dd");
 	/* 캘린더 위젯 적용 */
 	/* 설정 */
 	const config = {
@@ -768,8 +753,9 @@ let regex = new RegExp("(.*?)\.(jpg|png)$");
 	}
 
 
-
 </script>
 
+
+	<%@include file="../include/admin/footer.jsp"%>
 </body>
 </html>

@@ -35,10 +35,8 @@
 					<li><a href="/admin/main">관리자 페이지</a></li>
 				</c:if>
 					<li><a href="/member/logout" id="gnb_logout_button">로그아웃</a></li>
-					<li><a href="/member/${member.memberId}"><i
-									class="fa fa-user-circle" aria-hidden="true">마이페이지</i></a></li>
-					<li><a href="/cart/${member.memberId}"><i
-									class="fa fa-shopping-cart" aria-hidden="true"> </i>장바구니</a></li>
+					<li><a href="/member/${member.memberId}"><i class="fa fa-user-circle" aria-hidden="true">마이페이지</i></a></li>
+					<li><a href="/cart/${member.memberId}"><i class="fa fa-shopping-cart" aria-hidden="true"> </i>장바구니</a></li>
 				</c:if>
         </ul>
         
