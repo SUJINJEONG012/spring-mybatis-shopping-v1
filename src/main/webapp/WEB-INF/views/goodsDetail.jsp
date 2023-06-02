@@ -103,7 +103,8 @@
 						
 					</div>
 					<div class="button_set">
-						<a class="btn_cart">장바구니 담기</a> <a class="btn_buy">바로구매</a>
+						<a class="btn_border">장바구니 담기</a> 
+						<a class="btn_black">바로구매</a>
 					</div>
 				</div>
 			</div>

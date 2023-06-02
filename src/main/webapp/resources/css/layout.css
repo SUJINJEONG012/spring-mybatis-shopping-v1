@@ -1,29 +1,27 @@
 @charset "UTF-8"; 
 
 /* ======================== 공통 ======================== */
-
 .wrapper { width: 100%; } 
 .wrap { } 
 .inner { max-width:1200px; margin: 0 auto; } 
 
-header {background: #0b514e;padding: 2rem 0;    margin-bottom: 2rem;}
+header {background: #0b514e;padding: 2rem 0; margin-bottom: 2rem;}
 /* 로고 */
-.logo {font-size:50px;text-align: center;color: #eeff09;} 
+.logo {font-size:50px;text-align: center;color: #fbffc8;} 
 
 /* 페이지 제목 */
 .subjecet { width: 100%; background-color: #8EC0E4; } 
 .subjecet span { margin-left: 31px; color: white; } 
 
-
-
 .input_wrap { margin: 18px 0 0; } 
 .input_label { padding: 10px 0; display: block; font-size: 15px; } 
-
 .input_box { position: relative; margin-bottom:20px; } 
 
 
 /* BUTTON 관련 */
 .button_wrap { margin: 30px auto; } 
+.btn_border { display: inline-block; text-align: center;border: 1px solid #191919; margin-right: 2px; padding: 10px 20px;} 
+.btn_black { display: inline-block;  border:1px solid #191919;  text-align: center; padding: 10px 20px; background-color: #191919; color: #fff; } 
 
 
 
@@ -33,7 +31,7 @@ header {background: #0b514e;padding: 2rem 0;    margin-bottom: 2rem;}
 .top_sidemenu ul li {color: #99d0cd;font-size: 14px;font-weight: 400;line-height: 22px;position: relative;padding: 0 9px 0 8px;} 
 
 /* .top_sidemenu ul li:first-child:before { background: #bcbcbc; content: ""; display: block; height: 12px; position: absolute; right: 0; top: 6px; width: 1px; } */
-.top_sidemenu ul li::before { background: #bcbcbc; content: ""; display: block; height: 12px; position: absolute; right: 0; top: 6px; width: 1px; } 
+.top_sidemenu ul li::before { background: #99d0cd; content: ""; display: block; height: 10px; position: absolute; right: 0; top: 7px; width: 1px; } 
 .top_sidemenu ul li:last-child::before{content: none;}
  
 .top_sidemenu ul li i::before{padding-right:6px;}
@@ -252,12 +250,11 @@ span.final_addr_ck { display: none; }
 .ct_info_area .button {  } 
 .ct_info_area .button_quantity { display: flex; align-items: end; margin-bottom: 40px;} 
 .ct_info_area .button_quantity input  { width: 150px; text-align: center; font-weight: bold;  border-bottom: none; padding: 0; height: auto;} 
-.ct_info_area .button_quantity button { border: 1px solid #aaa; color: #3a60df; width: 20px; height: 20px; padding: 3px; background-color: #fff; font-weight: bold; font-size: 15px; line-height: 15px; } 
-.ct_info_area .btn_cart { display: inline-block; width: 140px; text-align: center; height: 50px; line-height: 50px; background-color: #5e6b9f; border: 1px solid #5e6b9f; color: #fff; margin-right: 2px; } 
-.ct_info_area .btn_buy { display: inline-block; width: 140px; text-align: center; height: 50px; line-height: 50px; background-color: #7b8ed1; border: 1px solid #7b8ed1; color: #fff; } 
+.ct_info_area .button_quantity button { border: 1px solid #aaa;  width: 20px; height: 20px; font-weight: bold; font-size: 15px; line-height: 15px; } 
 
 .content_middle { width: 100%;  } 
 .content_middle .book_intro {  margin: auto; margin-top: 40px; } 
+
 .content_middle .book_content {  margin: auto; margin-top: 40px; margin-bottom: 40px; } 
 
 
