@@ -14,7 +14,7 @@
 
 	<%@include file="./include/user/header.jsp"%>
 
-<div class="detail_wrap">
+<div class="content_wrap detail">
 
 <div class="inner">
 

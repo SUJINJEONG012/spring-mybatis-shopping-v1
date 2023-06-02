@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+
+.content_subject span {
+	padding: 30px;
+    display: inline-block;
+    font-size: 30px;
+}
+
+
+
 table {
 	border-collapse: collapse;
 	width: 100%;
@@ -9,29 +18,13 @@ table {
 	text-align: center;
 }
 
-caption {
-	visibility: hidden;
-	width: 0;
-	height: 0;
-	font-size: 0;
-	line-height: 0;
-	overflow: hidden;
+.table_02 {
+    width: 100%;
+    border-top: 2px solid #5a6273;
+    font-size: 14px;
+    margin: 20px 0;
 }
 
-.content_subject {
-	height: 110px;
-	line-height: 110px;
-	background-color: #5080bd;
-	margin-bottom: 60px;
-}
-
-.content_subject span {
-	padding-left: 30 px;
-	display: inline-block;
-	color: white;
-	font-size: 50px;
-	font-weight: bolder;
-}
 
 .content_totalCount_section {
 	margin-bottom: 12px;

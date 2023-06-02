@@ -90,7 +90,7 @@ select {height: 45px;border-radius: 0;background: transparent;border: none;/* bo
 
 
 .mem_wrap { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; } 
-.mem_wrap .mem_box { display: block; position: relative; top: auto; right: auto; overflow-y: auto; width: 700px; } 
+.mem_wrap .mem_box { display: block; position: relative; top: auto; right: auto;  width: 700px; } 
 .mem_wrap .mem_box .logo { padding:40px 0; font-weight:600; } 
 
 
@@ -245,8 +245,13 @@ span.final_addr_ck { display: none; }
 
 
 /* ======================== 상품 상세 ======================== */
-.detail_wrap { margin: 5rem auto 10rem; }
-.detail_wrap .inner { position: relative; background-color: #fff; padding: 3rem; border-radius: 20px; box-shadow: 0 50px 100px rgba(17, 20, 39, 0.20); }
+.content_wrap { margin: 5rem auto 10rem; }
+.content_wrap .inner { position: relative; background-color: #fff; padding: 3rem; border-radius: 20px; box-shadow: 0 50px 100px rgba(17, 20, 39, 0.20); }
+
+.content_subject {
+	background-color: transparent;
+	}
+	
 .content_top { width: 100%; display: flex; justify-content: space-between;  align-items: center;} 
 
 .ct_img_area {} 

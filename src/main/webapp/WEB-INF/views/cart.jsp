@@ -6,42 +6,59 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
-<link rel="stylesheet" href="/resources/css/cart.css">
+
 <script src="/resources/js/cart.js"></script>
 
+<link rel="stylesheet" href="/resources/css/cart.css">
+		
 </head>
 <body>
 
 
 <%@include file="./include/user/header.jsp"%>
-
-
-			<div class="content_area">
+	
+			
+			<div class="content_wrap">
+			
+			<div class="inner">
 				<div class="content_subject">
 					<span>장바구니</span>
 				</div>
-				<div class="content_middle_section"></div>
+				
+				
+			
+				
 				<div class="content_totalCount_section">
 				
 				<div class="all_check_input_div">
 				  <input type="checkbox" class="all_check_input input_size_20" checked="checked">
 				  <span class="all_check_span">전체선택</span>
 				</div>
-					<table>
-						<caption></caption>
-						<thead>
-							<tr>
-								<th class="td_width_1"></th>
-								<th class="td_width_2"></th>
-								<th class="td_width_3">상품명</th>
-								<th class="td_width_4">가격</th>
-								<th class="td_width_4">수량</th>
-								<th class="td_width_4">합계</th>
-								<th class="td_width_4">삭제</th>
-							</tr>
-						</thead>
-
-						<tbody>
+				
+				
+				
+				
+ <table class="table_02">
+	<colgroup>
+		<col style="width: 15%">
+		<col style="width: 15%">
+		<col style="width: 15%">
+		<col style="width: 15%">
+        <col style="width: 10%">
+        <col style="width: 10%">
+	</colgroup>
+	
+	<thead>
+		<tr>
+			<th>이미지<th>
+			<th>상품명</th>
+			<th>가격</th>
+			<th>수량</th>
+			<th>합계</th>
+			<th>삭제</th>
+		</tr>
+	</thead>
+	<tbody>
 							<c:forEach items="${cartInfo}" var="ci">
 								
 								<tr>
@@ -96,95 +113,32 @@
 						     
 						</tbody>
 						
-						<tr class="list_table"></tr>
-						     
-					</table>
-				</div>
+				</table>		
 				
 				<!-- 가격총합 -->
 				<div class="content_total_section">
 				 <div class="total_wrap">
-				  
-				  
-				<table>
-						<tr>
-							<td>
-								<table>
-									<tr>
-										<td>총 상품 가격</td>
-										<td>
-											<span class="totalPrice_span">70000</span> 원
-										</td>
-									</tr>
-									<tr>
-										<td>배송비</td>
-										<td>
-											<span class="delivery_price">3000</span>원
-										</td>
-									</tr>									
-									<tr>
-										<td>총 주문 상품수</td>
-										<td><span class="totalKind_span"></span>종 <span class="totalCount_span"></span>권</td>
-									</tr>
-								</table>
-							</td>
-							<td>
-								<table>
-									<tr>
-										<td></td>
-										<td></td>
-									</tr>
-								</table>							
-							</td>
-						</tr>
-					</table>
-					<div class="boundary_div">구분선</div>
-					<table>
-						<tr>
-							<td>
-								<table>
-									<tbody>
-										<tr>
-											<td>
-												<strong>총 결제 예상 금액</strong>
-											</td>
-											<td>
-												<span class="finalTotalPrice_span">70000</span> 원
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</td>
-							<td>
-								<table>
-									<tbody>
-										<tr>
-											<td>
-												<strong>총 적립 예상 마일리지</strong>
-											
-											</td>
-											<td>
-												<span class="totalPoint_span">70000</span> 원
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</td>
-						</tr>
-					</table>
-				  
+				 	총 상품 가격<span class="totalPrice_span">70000</span> 원
+				    배송비<span class="delivery_price">3000</span>원
+				    총 주문 상품수<span class="totalKind_span"></span>종 <span class="totalCount_span"></span>권
+				  총 결제 예상 금액<span class="finalTotalPrice_span">70000</span> 원
+				총 적립 예상 마일리지<span class="totalPoint_span">70000</span> 원
+					
+				
 				 </div>
 				</div>
 				
-				
-				<!-- 구매 버튼 영역 -->
-			<div class="content_btn_section">
-				<a class="order_btn">주문하기</a>
-			</div>
-				 
-
 			</div>
 			
+				<!-- 구매 버튼 영역 -->
+			<div class="content_btn_section button_wrap">
+				<a class="order_btn">주문하기</a>
+			</div>
+				
+				
+				
+			</div>	
+				
 			<!-- 수량 조절 form -->
 			<form action="/cart/update" method="post" class="quantity_update_form">
 			 	<input type="hidden" name="cartId" class="update_cartId">
@@ -205,8 +159,11 @@
 			<form action="/order/${member.memberId}" method="get" class="order_form">
 			
 			</form>
+		
 			
 <script src="/resources/js/cart.js"></script>
+		
+		
 		
 <%@include file="./include/user/footer.jsp"%>
 
