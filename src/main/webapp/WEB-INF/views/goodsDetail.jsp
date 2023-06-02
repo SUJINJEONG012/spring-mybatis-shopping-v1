@@ -8,8 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
-<link rel="stylesheet" href="/resources/css/main.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 </head>
 <body>
 
@@ -103,8 +102,8 @@
 						
 					</div>
 					<div class="button_set">
-						<a class="btn_border">장바구니 담기</a> 
-						<a class="btn_black">바로구매</a>
+						<a class="btn_cart btn_border">장바구니 담기</a> 
+						<a class="btn_buy btn_black">바로구매</a>
 					</div>
 				</div>
 			</div>
@@ -378,7 +377,7 @@ const form = {
 				reply_list += '<span class="rating_span" lang="en">평점 : <span class="rating_value_span" lang="en">'+ obj.rating +'</span>점</span>';
 				
 				if(obj.memberId === userId){
-					reply_list += '<a class="update_reply_btn" href="'+ obj.replyId +'">수정</a><a class="delete_reply_btn" href="'+ obj.replyId +'">삭제</a>';
+					reply_list += '<a class="reply_btn update_reply_btn" href="'+ obj.replyId +'">수정</a><a class="reply_btn delete_reply_btn" href="'+ obj.replyId +'">삭제</a>';
 				}
 				
 				reply_list += '</div>'; //<div class="reply_top">

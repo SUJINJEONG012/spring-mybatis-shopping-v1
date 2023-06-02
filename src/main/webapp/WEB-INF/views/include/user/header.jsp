@@ -11,12 +11,21 @@
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
 
 <div class="wrapper">
-	
 
  <header>
    
@@ -63,17 +72,11 @@
 						<i class="fa fa-search" aria-hidden="true"></i>
 					</button> 						
 		
-        </form>
+        		</form>
+        	</div>
+         
         </div>
-        
-        
-        
-        </div>
-        
-     
-						
 
-       
       
     </div>
   </header>

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome BookMall</title>
-<link rel="stylesheet" href="/resources/css/order.css">
+<!-- <link rel="stylesheet" href="/resources/css/order.css"> -->
 
   <!-- 다음주소 -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
@@ -17,7 +17,10 @@
 
 <%@include file="./include/user/header.jsp"%>
 
-		<div class="content_area">
+
+
+		<div class="detail_wrap">
+		  <div clas="inner">
 			
 			<div class="content_subject"><span>장바구니</span></div>
 
@@ -215,7 +218,7 @@
 				</div>				
 				
 			</div>		
-			<!--  content_main -->	
+			
 
 			<!-- 주문 요청 form -->
 			<form class="order_form" action="/order" method="post">
@@ -230,7 +233,8 @@
 				<input name="usePoint" type="hidden">
 				<!-- 상품 정보 -->
 			</form>
-			
+			</div>
+		</div>
 	
 		
 		

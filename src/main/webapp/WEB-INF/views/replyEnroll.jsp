@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/reset.css">
+<link rel="stylesheet" href="/resources/css/layout.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
 
-	${bookInfo} ${memberId}
+	<%-- ${bookInfo} ${memberId} --%>
 	
 	<div class="wrapper_div">
 	 <div class="subject_div">
@@ -23,7 +25,7 @@
 			</div>
 			<div class="rating_div">
 				<h4>평점</h4>
-				<select name="rating">
+				<select name="rating" lang="en">
 					<option value="0.5">0.5</option>
 					<option value="1.0">1.0</option>
 					<option value="1.5">1.5</option>
@@ -41,8 +43,8 @@
 		</div>
 		
 		<div class="btn_wrap">
-			<a class="cancel_btn">취소</a>
-			<a class="enroll_btn">등록</a>
+			<a class="cancel_btn btn_border">취소</a>
+			<a class="enroll_btn btn_black">등록</a>
 		</div>
 		
 	</div>
