@@ -35,17 +35,9 @@ table {
 }
 
 .content_btn_section a {
-	color: #fefeff;
-	background-color: #365fdd;
-	min-width: 125px;
-	padding: 17px 25px;
-	display: inline-block;
-	height: 39px;
-	font-size: 23px;
-	font-weight: bold;
-	text-align: center;
-	margin-right: 14px;
-	line-height: 39px;
+	    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .subject_table {
@@ -64,7 +56,7 @@ table {
 }
 
 .tbl-type01 td {
-    
+    padding: 10px;
     border-top: 1px solid #9aa7c0;
     text-align: center;
 }
@@ -143,13 +135,14 @@ table {
 
 .quantity_modify_btn {
 	border: 1px solid #d0d0d0;
-	
 	background-color: #fff;
 	text-align: center;
-	
 	display: inline-block;
-	padding: 3px 6px 2px;
-	margin-top: 3px;
+	padding: 5px 10px;
+	margin-left: 10px;
+	font-size: 11px;
+	width: 50px;
+	line-height: ;
 }
 
 .table_text_align_center {
@@ -166,7 +159,7 @@ table {
 }
 
 .content_total_section {
-	background-color: rgb(227, 237, 247);
+	background-color: rgb(243 243 243);
 }
 
 .total_wrap {

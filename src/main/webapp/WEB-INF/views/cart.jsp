@@ -30,13 +30,12 @@
 
 				<table class="table_02 tbl-type01">
 					<colgroup>
-						<col width = "10%">
-						<col width = "30%">
-						<col width = "auto">
-						<col width = "auto">
-						<col width = "auto">
-						<col width = "auto">
-						<col width = "auto">
+						<col width="10%">
+						<col width="35%">
+						<col width="25%">
+						<col width="25%">
+						<col width="10%">
+						<col width="25%">
 					</colgroup>
 
 					<thead>
@@ -49,13 +48,10 @@
 								</div>
 							</th>
 							
-							<th>상품명</th>
-							
+							<th>상품명</th>	
 							<th>수량</th>
 							<th>가격</th>
 							<th>포인트 적립</th>
-							<th>합계</th>
-			
 							<th>삭제</th>
 						</tr>
 					</thead>
@@ -95,17 +91,20 @@
 								
 
 								<td class="">
-									<div class="table_text_align_center quantity_div">
+									<div class="quantity_div">
 										
 										<div class="quantity_box">
 										<button class="quantity_btn plus_btn">+</button>
 										<input type="text" value="${ci.bookCount}"
 											class="quantity_input">
 										<button class="quantity_btn minus_btn">-</button>
+										<a class="quantity_modify_btn" data-cartid="${ci.cartId}">변경</a>
 										</div>
+										
+										
 									</div> 
-									<a class="quantity_modify_btn" data-cartid="${ci.cartId}">
-										변경</a>
+									
+									
 
 								</td>
 								
@@ -120,9 +119,7 @@
 								</td>
 								
 
-								<td class=""lang="en">
-								<fmt:formatNumber value="${ci.salePrice * ci.bookCount}" pattern="#,### 원" /></td>
-
+								
 								<td class="button_wrap">
 									<button class="delete_btn" data-cartid="${ci.cartId}">삭제</button>
 								</td>
@@ -137,11 +134,17 @@
 				<!-- 가격총합 -->
 				<div class="content_total_section">
 					<div class="total_wrap">
-						총 상품 가격<span class="totalPrice_span">70000</span> 원 배송비<span
-							class="delivery_price">3000</span>원 총 주문 상품수<span
-							class="totalKind_span"></span>종 <span class="totalCount_span"></span>권
-						총 결제 예상 금액<span class="finalTotalPrice_span">70000</span> 원 총 적립
-						예상 마일리지<span class="totalPoint_span">70000</span> 원
+						
+						<strong>총 상품 가격 = </strong><span class="totalPrice_span" lang="en"> </span>원 + 
+						
+						<span> 배송비 = </span><span class="delivery_price" lang="en"></span>원 +
+						
+						<span> 적립 예상 마일리지 = </span> <span class="totalPoint_span" lang="en"></span> 원
+						
+						<strong>총 주문 금액 = </strong><span class="finalTotalPrice_span" lang="en"></span> 원 
+						<span>[주문 상품수</span> 
+						<span class="totalKind_span" lang="en"></span>종 
+						<span class="totalCount_span" lang="en"></span>권]
 
 
 					</div>

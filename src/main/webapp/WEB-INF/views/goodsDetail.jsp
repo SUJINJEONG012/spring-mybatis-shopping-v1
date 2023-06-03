@@ -89,7 +89,7 @@
 					</div>
 				</div>
 				
-				<div>
+				<div class="point">
 					적립포인트 : <span class="point_span" lang="en"></span>원
 				</div>
 			

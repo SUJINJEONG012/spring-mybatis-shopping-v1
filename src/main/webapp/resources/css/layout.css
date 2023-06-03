@@ -1,4 +1,4 @@
-@charset "UTF-8"; 
+q@charset "UTF-8"; 
 
 /* ======================== 공통 ======================== */
 .wrapper { width: 100%; } 
@@ -26,11 +26,13 @@ header {background: #0b514e;padding: 2rem 0; margin-bottom: 2rem;}
 .btn_black:hover{color:#fff;}
 
 /* FORM 관련 */
-input {width: 100%;
+input {
+    width: 100%;
     height: 45px;
     padding: 0 30px 0 10px;
     background: transparent;
-    border-bottom: 1px solid #898989;} 
+    border-bottom: 1px solid #898989;
+    } 
 select {height: 45px;border-radius: 0;background: transparent;border: none;/* border-radius: 10px; */ border-bottom: 1px solid #209d98;} 
 
 
@@ -175,11 +177,11 @@ span.final_addr_ck { display: none; }
 
 .type_list tr { height: 200px; border-bottom: 1px solid #e7e7e7; } 
 
-.detail div { margin-bottom: 5px; } 
+.detail .point { margin-bottom: 5px; } 
 
 .category { font-size: 12px; font-weight: 600; } 
 
-.title { font-size: 20px; color: #3a60df; font-weight: 700; } 
+.title { font-size: 20px;  font-weight: 700; } 
 
 .author { font-size: 14px; } 
 
@@ -295,16 +297,21 @@ span.final_addr_ck { display: none; }
 	background-color: transparent;
 	}
 	
-.content_top { width: 100%; display: flex; justify-content: space-between;  align-items: center;} 
+.content_top { width: 100%; display: flex; justify-content: space-between;  align-items:start;} 
 
 .ct_img_area {} 
-.ct_info_area { width: 60%;} 
-.ct_info_area .title { font-size: 17px; color: #3a60df; } 
-.ct_info_area .author { font-size: 16px; } 
+.ct_info_area { width: 60%;flex-basis: 40%;} 
+.ct_info_area .title { border-bottom: 1px solid #191919; padding: 0 0 20px;} 
+.ct_info_area .title span { font-size: 17px; } 
+.ct_info_area .title h1 { font-size: 25px; } 
+.ct_info_area .author { font-size: 16px;  padding: 20px 0;} 
 .ct_info_area .price {  } 
 
 .ct_info_area .discount_price_number { font-size: 22px; color: #f84450; font-weight: bold; } 
-.ct_info_area .button {  } 
+.ct_info_area .button {border-top: 1px solid #191919;
+    margin-top: 50px;
+    padding: 30px 0;
+} 
 .ct_info_area .button_quantity { display: flex; align-items: end; align-items: center; margin-bottom: 40px;} 
 .ct_info_area .button_quantity input  { width: 150px; text-align: center; font-weight: bold; padding: 0; height: auto;} 
 .ct_info_area .button_quantity button { border: 1px solid #aaa;  width: 20px; height: 20px; font-weight: bold; font-size: 15px; line-height: 15px; } 
@@ -360,22 +367,21 @@ span.final_addr_ck { display: none; }
 /* 상세 내가 쓴 리뷰 수정 삭제 버튼 */
 .reply_btn{
 	 display: inline-block;
-   
-    text-align: center;
-    
-    line-height: 20px;
-    margin: 0 5px 0 30px;
-    color: #fff;
-    cursor: pointer;
-    padding: 5px 15px;
-    font-size: 12px;
+	 text-align: center;
+	 /* line-height: 20px; */
+	 margin: 0 5px;
+	 color: #fff;
+	 cursor: pointer;
+	 padding: 5px 15px;
+	 font-size: 12px;
 }
 .update_reply_btn {   
     background-color: #383837;
    } 
 
-.delete_reply_btn {     /* font-weight: bold; */
-    background-color: red;
+.delete_reply_btn {
+    /* font-weight: bold; */
+    background-color: #f76161;
     } 
 
 
