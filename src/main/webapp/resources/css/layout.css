@@ -262,8 +262,8 @@ span.final_addr_ck { display: none; }
 
 .ct_info_area .discount_price_number { font-size: 22px; color: #f84450; font-weight: bold; } 
 .ct_info_area .button {  } 
-.ct_info_area .button_quantity { display: flex; align-items: end; margin-bottom: 40px;} 
-.ct_info_area .button_quantity input  { width: 150px; text-align: center; font-weight: bold;  border-bottom: none; padding: 0; height: auto;} 
+.ct_info_area .button_quantity { display: flex; align-items: end; align-items: center; margin-bottom: 40px;} 
+.ct_info_area .button_quantity input  { width: 150px; text-align: center; font-weight: bold; padding: 0; height: auto;} 
 .ct_info_area .button_quantity button { border: 1px solid #aaa;  width: 20px; height: 20px; font-weight: bold; font-size: 15px; line-height: 15px; } 
 
 .content_middle { width: 100%;  } 

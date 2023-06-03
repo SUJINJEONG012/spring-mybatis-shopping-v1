@@ -21,10 +21,9 @@ table {
 .table_02 {
     width: 100%;
     border-top: 2px solid #5a6273;
-    font-size: 14px;
+    
     margin: 20px 0;
 }
-
 
 .content_totalCount_section {
 	margin-bottom: 12px;
@@ -61,25 +60,27 @@ th {
 	color: #333;
 	border-bottom: 1px solid #e7e7e7;
 	border-top: 1px solid #3084d9;
-	background: #f4f9fd;
+	
 	padding: 2px 0;
 }
 
-.td_width_1 {
-	width: 5%;
+
+.tbl-type01 th {
+    background: #eaedf2;
+    padding: 10px 0px 10px 0px;
+    text-align: left;
+    line-height: 110%;
+    border: 1px solid #9aa7c0;
+    text-align: center;
 }
 
-.td_width_2 {
-	width: 10%;
+.tbl-type01 td {
+   
+   
+    border: 1px solid #9aa7c0;
+    text-align: center;
 }
 
-.td_width_3 {
-	width: 25%;
-}
-
-.td_width_4 {
-	width: 15%;
-}
 
 .cart_table {
 	font-size: 14px;
@@ -115,16 +116,7 @@ th {
 }
 
 .quantity_input {
-	position: absolute;
-	width: 27px;
-	height: 23px;
-	text-align: center;
-	border: 1px solid #c6c6c6;
-	border-right: 0px;
-	line-height: 19px;
-	font-size: 12px;
-	color: #4c4848;
-	left: 0;
+	
 }
 
 .quantity_btn {
