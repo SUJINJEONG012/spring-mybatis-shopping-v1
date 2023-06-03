@@ -77,7 +77,7 @@
 				</div>
 				
 				<div class="price">
-					<div class="sale_price" lang="en">
+					<div class="ls_price" lang="en">
 						정가 : <fmt:formatNumber value="${goodsInfo.bookPrice}" pattern="#,### 원" />
 					</div>
 					

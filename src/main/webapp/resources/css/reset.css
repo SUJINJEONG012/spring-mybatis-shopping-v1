@@ -18,7 +18,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 16px; line-height: 24px; font-style: normal; 
-    vertical-align: baseline; line-height: 1.7; letter-spacing: -1px; 
+   line-height: 1.7; letter-spacing: -1px; 
     font-family:"Noto Sans KR", "Montserrat", sans-serif,"맑은 고딕","Nanum Gothic","나눔 고딕","돋움",dotum,sans-serif;} 
 
 
@@ -71,7 +71,7 @@ legend { display: block;overflow: hidden; position: absolute; left: -9999px; tex
 textarea { resize: none } 
 
 button { margin: 0; padding: 0; border: 0; background: 0; outline: none } 
-/*button, input { -webkit-appearance: none } *.
+/*button, input { -webkit-appearance: none } */
 
 a, a *,
 button { cursor: pointer;text-decoration: none; } 
@@ -87,13 +87,14 @@ hr { margin: 0; padding: 0; border: 0; outline: 0 }
 sup { vertical-align: super; font-size: .5em } 
 
 
-/* input 기본 스타일 초기화 */
+/* input 기본 스타일 초기화 
 input {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
             border-radius: 0
 }
+*/
 /* IE10 이상에서 input box 에 추가된 지우기 버튼 제거 */
 input::-ms-clear { display: none;} 
 
@@ -117,7 +118,6 @@ input[type='password']::-ms-clear {
 input::-webkit-search-cancel-button { display: none } 
 
 
-input{height:28px;margin:1px;padding:1px 3px;line-height:24px; font-size:15px;}
 input[type="text"],input[type="submit"],
 input[type="password"]{height:28px;color:#6e706c; padding:0 10px;font-size:15px;vertical-align:middle;}
 input[type="text"]:disabled,

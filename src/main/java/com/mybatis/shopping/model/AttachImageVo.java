@@ -14,5 +14,4 @@ public class AttachImageVo {
 	//상품 id
 	private int bookId;
 	
-	
 }

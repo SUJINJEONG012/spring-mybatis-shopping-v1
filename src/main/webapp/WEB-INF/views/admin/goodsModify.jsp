@@ -6,7 +6,7 @@
 
 <%@include file="../include/admin/header.jsp"%>
 
-	<style>
+<style>
 #result_card img {
 	max-width: 100%;
 	height: auto;
@@ -199,7 +199,7 @@
 
 	<script>
 $(document).ready(function(){
-alert("Dd");
+
 	/* 캘린더 위젯 적용 */
 	/* 설정 */
 	const config = {

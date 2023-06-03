@@ -26,22 +26,17 @@
 				<span>장바구니</span>
 			</div>
 
-
-
-
-			<div class="content_totalCount_section">
-
-
-
+			
 
 				<table class="table_02 tbl-type01">
 					<colgroup>
-						<col style="width: 15%">
-						<col style="width: 15%">
-						<col style="width: 15%">
-						<col style="width: 15%">
-						<col style="width: 10%">
-						<col style="width: 10%">
+						<col width = "10%">
+						<col width = "30%">
+						<col width = "auto">
+						<col width = "auto">
+						<col width = "auto">
+						<col width = "auto">
+						<col width = "auto">
 					</colgroup>
 
 					<thead>
@@ -53,11 +48,14 @@
 										checked="checked"> <span class="all_check_span">전체선택</span>
 								</div>
 							</th>
-							<th>이미지</th>
+							
 							<th>상품명</th>
-							<th>가격</th>
+							
 							<th>수량</th>
+							<th>가격</th>
+							<th>포인트 적립</th>
 							<th>합계</th>
+			
 							<th>삭제</th>
 						</tr>
 					</thead>
@@ -65,8 +63,9 @@
 						<c:forEach items="${cartInfo}" var="ci">
 
 							<tr>
-								<td class="td_width_1 cart_info_td">
-									<!-- 체크박스 추가  --> <input type="checkbox"
+								<td class="cart_info_td">
+									<!-- 체크박스 추가  --> 
+									<input type="checkbox"
 									class="individual_cart_checkbox input_size_20"
 									checked="checked"> <input type="hidden"
 									class="individual_bookPrice_input" value="${ci.bookPrice}">
@@ -82,38 +81,49 @@
 									value="${ci.bookId}">
 
 								</td>
-								<td class="td_width_2">
+								
+								<td class="info_td name">
 									<div class="image_wrap" data-bookid="${ci.imageList[0].bookId}"
 										data-path="${ci.imageList[0].uploadPath}"
 										data-uuid="${ci.imageList[0].uuid}"
 										data-filename="${ci.imageList[0].fileName}">
 										<img>
 									</div>
+									<div class="name">${ci.bookName}</div>
 								</td>
-								<td class="td_width_3">${ci.bookName}</td>
-								<td class="td_width_4 price_td"><del>
-										정가 :
-										<fmt:formatNumber value="${ci.bookPrice}" pattern="#,### 원" />
-									</del><br> 판매가 : <span class="red_color"><fmt:formatNumber
-											value="${ci.salePrice}" pattern="#,### 원" /></span><br> 마일리지 :
-									<span class="green_color"><fmt:formatNumber
-											value="${ci.point}" pattern="#,###" /></span></td>
+		
+								
 
-								<td class="td_width_4 table_text_align_center">
+								<td class="">
 									<div class="table_text_align_center quantity_div">
+										
+										<div class="quantity_box">
+										<button class="quantity_btn plus_btn">+</button>
 										<input type="text" value="${ci.bookCount}"
 											class="quantity_input">
-										<button class="quantity_btn plus_btn">+</button>
 										<button class="quantity_btn minus_btn">-</button>
-									</div> <a class="quantity_modify_btn" data-cartid="${ci.cartId}">
+										</div>
+									</div> 
+									<a class="quantity_modify_btn" data-cartid="${ci.cartId}">
 										변경</a>
 
 								</td>
+								
+								<td class="price_td" >
+								<p class="ls_price" lang="en"><fmt:formatNumber value="${ci.bookPrice}" pattern="#,### 원" /> </p>
+								 <span class="red_color" lang="en"><fmt:formatNumber value="${ci.salePrice}" pattern="#,### 원" /></span>
+								
+								</td>
+								
+								<td>
+								<span class="green_color" lang="en"><fmt:formatNumber value="${ci.point}" pattern="#,###" /></span>
+								</td>
+								
 
-								<td class="td_width_4 table_text_align_center"><fmt:formatNumber
-										value="${ci.salePrice * ci.bookCount}" pattern="#,### 원" /></td>
+								<td class=""lang="en">
+								<fmt:formatNumber value="${ci.salePrice * ci.bookCount}" pattern="#,### 원" /></td>
 
-								<td class="td_width_4 table_text_align_center">
+								<td class="button_wrap">
 									<button class="delete_btn" data-cartid="${ci.cartId}">삭제</button>
 								</td>
 							</tr>
@@ -136,8 +146,6 @@
 
 					</div>
 				</div>
-
-			</div>
 
 			<!-- 구매 버튼 영역 -->
 			<div class="content_btn_section button_wrap">
