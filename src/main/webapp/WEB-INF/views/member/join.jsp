@@ -5,16 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/reset.css">
-<link rel="stylesheet" href="../resources/css/layout.css">
-<link rel="stylesheet" href="../resources/css/main.css">
+<link rel="stylesheet" href="/resources/css/reset.css">
+<link rel="stylesheet" href="/resources/css/layout.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 </head>
-<body>
+<body style="background: #0b514e;">
 
 
-<div class="wrap">
 
 <div class="mem_wrap">
 		
@@ -24,9 +22,6 @@
 		
 		
 		<form action="" id="join_form" method="post">
-
-			
-			
 			<div class="input_wrap">
 				<span class="input_label">아이디</span>
 				
@@ -69,7 +64,7 @@
 				
 				<span class="input_label">이메일</span>	
 				<div class="input_box">
-					<input class="mail_input" name="memberMail">
+					<input class="mail_input input" name="memberMail">
 					<div class="mail_check_button">
 						<span class="btn">인증번호 전송</span>
 				    </div>	
@@ -82,7 +77,7 @@
 				<div class="mail_check_wrap">
 				    
 					<div class="mail_check_input_box" id="mail_check_input_box_false">
-						<input class="mail_check_input" placeholder="인증번호" disabled="disabled">
+						<input class="mail_check_input input" placeholder="인증번호" disabled="disabled">
 					</div>
 					<span id="mail_check_input_box_warn"></span>
 				</div>
@@ -93,7 +88,7 @@
 				<span class="input_label">주소</span>	
 				<div class="address_input_1_wrap">
 					<div class="address_input_1_box input_box">
-						<input class="address_input_1" name="memberAddr1" readonly="readonly">
+						<input class="address_input_1 input" name="memberAddr1" readonly="readonly">
 					</div>
 					
 					<div class="address_button" onclick="execution_daum_address()">
@@ -103,12 +98,12 @@
 				</div>
 				<div class ="address_input_2_wrap">
 					<div class="address_input_2_box input_box">
-						<input class="address_input_2" name="memberAddr2" readonly="readonly">
+						<input class="address_input_2 input" name="memberAddr2" readonly="readonly">
 					</div>
 				</div>
 				<div class ="address_input_3_wrap">
 					<div class="address_input_3_box input_box">
-						<input class="address_input_3 " name="memberAddr3" readonly="readonly" placeholder="나머지 주소를 입력해주세요.">
+						<input class="address_input_3 input" name="memberAddr3" readonly="readonly" placeholder="나머지 주소를 입력해주세요.">
 					</div>
 				</div>
 				<span class="final_addr_ck">주소를 입력해주세요.</span>
@@ -117,14 +112,12 @@
 		</form>
 
 		<div class="button_wrap">
-				<input type="button" class="join_button" value="가입하기" >
+				<input type="button" class="join_button input" value="가입하기" >
 				<!-- <input type="button" class="join_button" value="가입하기2"  onclick="check_reg()"> -->
 		</div>
 		
 		
 		</div>
-</div>
-
 </div>
 
 	
