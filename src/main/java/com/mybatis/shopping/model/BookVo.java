@@ -28,6 +28,8 @@ public class BookVo {
 	private Date regDate; // 등록날짜
 	private Date updateDate; //수정날짜
 	
+	
+	
 	// 이미지 정보
 	private List<AttachImageVo> imageList;
 

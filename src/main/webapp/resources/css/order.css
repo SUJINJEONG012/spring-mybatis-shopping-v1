@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8";
 
 .content_main {
 	position: relative;
@@ -10,7 +10,7 @@ table {
 	border-collapse: collapse;
 }
 
-/* 사용자 정보  */
+사용자 정보 
 .memberInfo_table {
 	width: 100%;
 	border-spacing: 0;
@@ -23,7 +23,7 @@ table {
 	text-align: left;
 }
 
-/* 사용자 정보  */
+사용자 정보 
 .memberInfo_table {
 	width: 100%;
 	border-spacing: 0;
@@ -35,7 +35,7 @@ table {
 	padding: 12px;
 	text-align: left;
 }
-/* 사용자 주소 정보 */
+사용자 주소 정보
 .addressInfo_div {
 	margin-top: 30px;
 }
@@ -140,7 +140,7 @@ height: 110px;
 }
 
 
-/* 포인트 영역 */
+포인트 영역
 .point_div{
 	margin-top: 30px;
     margin-bottom: 50px;
@@ -187,7 +187,7 @@ height: 110px;
 }
 
 
-/* 주문 종합 정보 */
+주문 종합 정보
 .total_info_div{
 	position:absolute;
 	top: 0;
@@ -247,7 +247,7 @@ height: 110px;
 } 
 
 
-/* 이미지 */
+이미지
 .image_wrap{
 	width: 100%;
 	height: 100%;
@@ -258,3 +258,4 @@ height: 110px;
     display: block;		
 }
 
+ */

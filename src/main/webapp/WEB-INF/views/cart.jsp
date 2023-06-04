@@ -28,7 +28,7 @@
 
 			
 
-				<table class="table_02 tbl-type01">
+				<table class="tbl-type01">
 					<colgroup>
 						<col width="10%">
 						<col width="35%">
@@ -90,32 +90,29 @@
 		
 								
 
-								<td class="">
-									<div class="quantity_div">
+								<td class="quantity_td">
+									<div class="">			
 										
-										<div class="quantity_box">
 										<button class="quantity_btn plus_btn">+</button>
 										<input type="text" value="${ci.bookCount}"
 											class="quantity_input">
 										<button class="quantity_btn minus_btn">-</button>
-										<a class="quantity_modify_btn" data-cartid="${ci.cartId}">변경</a>
-										</div>
-										
-										
+													
 									</div> 
+										<a class="quantity_modify_btn" data-cartid="${ci.cartId}">변경</a>
+										
 									
 									
-
 								</td>
 								
 								<td class="price_td" >
-								<p class="ls_price" lang="en"><fmt:formatNumber value="${ci.bookPrice}" pattern="#,### 원" /> </p>
-								 <span class="red_color" lang="en"><fmt:formatNumber value="${ci.salePrice}" pattern="#,### 원" /></span>
+								<p class="ls_price" lang="en"><fmt:formatNumber value="${ci.bookPrice}" pattern="#,###원" /> </p>
+								 <span class="red_color" lang="en"><fmt:formatNumber value="${ci.salePrice}" pattern="#,###원" /></span>
 								
 								</td>
 								
 								<td>
-								<span class="green_color" lang="en"><fmt:formatNumber value="${ci.point}" pattern="#,###" /></span>
+								<span class="green_color" lang="en"><fmt:formatNumber value="${ci.point}" pattern="#,###원" /></span>
 								</td>
 								
 
@@ -133,26 +130,31 @@
 
 				<!-- 가격총합 -->
 				<div class="content_total_section">
+				  
+				  
 					<div class="total_wrap">
-						
-						<strong>총 상품 가격 = </strong><span class="totalPrice_span" lang="en"> </span>원 + 
+						<h2> 총 주문금액</h2>
+						<strong>상품 가격 = </strong><span class="totalPrice_span" lang="en"> </span>원 + 
 						
 						<span> 배송비 = </span><span class="delivery_price" lang="en"></span>원 +
 						
-						<span> 적립 예상 마일리지 = </span> <span class="totalPoint_span" lang="en"></span> 원
+						<span> 적립 예상 마일리지 = </span> <span class="totalPoint_span" lang="en"></span>원
 						
+						<div>
 						<strong>총 주문 금액 = </strong><span class="finalTotalPrice_span" lang="en"></span> 원 
 						<span>[주문 상품수</span> 
 						<span class="totalKind_span" lang="en"></span>종 
 						<span class="totalCount_span" lang="en"></span>권]
+						</div>
 
 
 					</div>
 				</div>
 
 			<!-- 구매 버튼 영역 -->
-			<div class="content_btn_section button_wrap">
-				<a class="order_btn">주문하기</a>
+			<div class="button_wrap">
+			<a class="btn_border">뒤로가기</a>
+				<a class="btn_black">주문하기</a>
 			</div>
 
 

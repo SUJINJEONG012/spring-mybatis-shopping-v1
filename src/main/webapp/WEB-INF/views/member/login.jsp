@@ -27,12 +27,12 @@
 			<form id="login_form" method="post">
 				<div class="input_wrap">
 					<span class="input_label">아이디</span>
-					<input type="text" name="memberId" placeholder="이름" class="cm_input full">
+					<input type="text"  name="memberId" placeholder="이름" class="cm_input full input" lang="en">
 				</div>
 				
 				<div class="input_wrap">
 					<span class="input_label">비밀번호</span>
-					<input type="text" name="memberPw" placeholder="비밀번호" class="cm_input full">
+					<input type="text" name="memberPw" placeholder="비밀번호" class="cm_input full input" lang="en">
 				</div>
 
 				<c:if test="${result == 0}">
@@ -41,7 +41,7 @@
 			</form>
 			
 			<div class="button_wrap">
-					<input type="button" class="login_button" value="로그인">
+					<input type="button"  class="login_button input" value="로그인">
 			</div>
 				
 

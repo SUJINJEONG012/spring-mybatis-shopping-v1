@@ -1,29 +1,11 @@
 @charset "UTF-8";
 
 
-.content_subject span {
-	padding: 30px;
-    display: inline-block;
-    font-size: 30px;
-}
 
 
 
-table {
-	border-collapse: collapse;
-	width: 100%;
-}
 
-.table_text_align_center {
-	text-align: center;
-}
 
-.table_02 {
-    width: 100%;
-    border-top: 2px solid #5a6273;
-    
-    margin: 20px 0;
-}
 
 .content_totalCount_section {
 	margin-bottom: 12px;
@@ -35,7 +17,7 @@ table {
 }
 
 .content_btn_section a {
-	    font-size: 23px;
+	font-size: 17px;
     font-weight: bold;
     text-align: center;
 }
@@ -47,19 +29,6 @@ table {
 	text-align: center;
 }
 
-
-.tbl-type01 th {
-    
-    padding: 15px 0;
-   
-    text-align: center;
-}
-
-.tbl-type01 td {
-    padding: 10px;
-    border-top: 1px solid #9aa7c0;
-    text-align: center;
-}
 
 
 .tbl-type01 .image_wrap {
@@ -106,9 +75,8 @@ table {
 	border-bottom: 1px solid #e7e7e7;
 }
 
-.quantity_div {
+.quantity_td {
 	position: relative;
-	display:flex;
 	width: 42px;
 	height: 25px;
 	text-align: left;
@@ -134,6 +102,9 @@ table {
 
 
 .quantity_modify_btn {
+	position: absolute;
+    top: 38%;
+    left: 72%;
 	border: 1px solid #d0d0d0;
 	background-color: #fff;
 	text-align: center;
@@ -142,7 +113,7 @@ table {
 	margin-left: 10px;
 	font-size: 11px;
 	width: 50px;
-	line-height: ;
+	
 }
 
 .table_text_align_center {
@@ -165,33 +136,22 @@ table {
 .total_wrap {
 	width: 80%;
 	margin: auto;
-	padding: 10px 0 10px 0;
+	padding: 40px 0;
 }
 
-.total_wrap td {
-	width: 50%;
+.total_wrap h2{
+	font-size: 23px;
+    padding: 20px 0;
+    font-weight: 500;
+    border-bottom: 1px solid #d1d0d0;
+    margin-bottom: 20px;
+    
 }
 
 .finalTotalPrice_span {
-	color: #854A72;
-	font-size: 17px;
-	font-weight: bold;
-}
-
-.totalPoint_span {
-	font-size: 17px;
-	font-weight: bold;
-}
-
-.boundary_div {
-	font-size: 0;
-	border: 1px dotted #d1c7c7;
-	margin: 5px 0 5px 0;
-}
-
-.input_size_20 {
-	width: 20px;
-	height: 20px;
+    font-size: 23px;
+    color: #e82222;
+    font-weight: 600;
 }
 
 .all_check_input {

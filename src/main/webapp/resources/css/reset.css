@@ -17,8 +17,8 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 16px; line-height: 24px; font-style: normal; 
-   line-height: 1.7; letter-spacing: -1px; 
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 14px; line-height: 24px; font-style: normal; 
+   line-height: 1.45; letter-spacing: -1px; 
     font-family:"Noto Sans KR", "Montserrat", sans-serif,"맑은 고딕","Nanum Gothic","나눔 고딕","돋움",dotum,sans-serif;} 
 
 
@@ -97,7 +97,7 @@ input {
 */
 /* IE10 이상에서 input box 에 추가된 지우기 버튼 제거 */
 input::-ms-clear { display: none;} 
-
+input::placeholder{color: #4e8282; font-weight:300; font-size:13px;}
 input[type=checkbox],
 input[type=radio] { opacity: 1; width: 13px; height: 13px; margin: 0; cursor: pointer } 
 input[type='number']::-webkit-outer-spin-button,
@@ -119,7 +119,7 @@ input::x-webkit-search-cancel-button { display: none }
 
 
 input[type="text"],input[type="submit"],
-input[type="password"]{height:28px;/* color:#6e706c; */padding:0 10px;font-size:15px;vertical-align:middle;}
+input[type="password"]{padding:0 10px;font-size:15px;vertical-align:middle;}
 input[type="text"]:disabled,
 input[type="password"]:disabled{text-align:center;background:#f5f5f5;border:1px solid #ebebeb}
 input[type="checkbox"]{width:14px;height:14px;border:1px solid #707070;margin:0;padding:0;vertical-align:middle;}
@@ -130,15 +130,16 @@ textarea{width:100%;height:160px;background:#fff;border:1px solid #c9ccc2;color:
 textarea:disabled{background:#f5f5f5}
 
 
-/* Select box 스타일 초기화 */ 
+/* Select box 스타일 초기화 
 select {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
 }
-/* IE 에서 Select box 화살표 제거 */ 
+*/ 
+/* IE 에서 Select box 화살표 제거 
 select::-ms-expand { display: none; }
-
+*/ 
 
 
 

@@ -151,7 +151,7 @@ $(document).ready(function(){
 		});
 		
 		/* 주문 페이지 이동 */	
-		$(".order_btn").on("click", function(){
+		$(".btn_black").on("click", function(){
 			
 			let form_contents ='';
 			let orderNumber = 0;

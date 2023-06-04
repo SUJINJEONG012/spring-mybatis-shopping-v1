@@ -61,6 +61,18 @@
 						<col width="120">
 						<col width="120">
 					</colgroup>
+					
+					<thead>
+					
+					<tr>
+						
+							<th>상품명</th>	
+							<th>평점</th>
+							<th>가격</th>
+							
+						</tr>
+						
+					</thead>
 					<tbody id="searchList">
 						<c:forEach items="${bookList}" var="bookList">
 							<tr>
