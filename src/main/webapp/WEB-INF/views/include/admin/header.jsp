@@ -20,15 +20,14 @@
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
 
-
 </head>
 <body>
 
 
-<div class="wrapper">
-        <div class="wrap">
-           
-            <!-- gnv_area -->	
+<header>
+   
+    <div class="inner">     
+      <!-- gnv_area -->	
             <div class="top_gnb_area">
                 <ul class="list">	
                     <li><a href="/">메인 페이지</a></li>
@@ -36,12 +35,14 @@
                     <li>고객센터</li>			
                 </ul>
             </div>
+            
             <!-- top_subject_area -->
             <div class="admin_top_wrap">
-                <span>관리자 페이지</span>
-                
-            </div>
-            <!-- contents-area -->
+                <span>관리자 페이지</span>   
+            </div>        
+    </div>
+    
+    <!-- contents-area -->
             <div class="admin_wrap">
                 <!-- 네비영역 -->
                 <div class="admin_navi_wrap">
@@ -66,3 +67,12 @@
 	                  </li>	                                                                                               
 	              </ul>
                 </div>
+            </div>
+  </header>
+  
+  
+  
+           
+            
+            
+            
