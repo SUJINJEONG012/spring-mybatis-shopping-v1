@@ -76,7 +76,6 @@
 		</div>
 	</div>
 
-	<%@include file="../include/admin/footer.jsp"%>
 
 
 <script>

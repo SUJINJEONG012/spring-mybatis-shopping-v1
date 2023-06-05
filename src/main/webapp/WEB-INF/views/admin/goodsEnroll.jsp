@@ -8,13 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 등록</title>
-<link rel="stylesheet" href="../resources/css/admin/page.css">
-<link rel="stylesheet" href="../resources/css/admin/goodsEnroll.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 
-<script
-	src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+
+<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
@@ -23,7 +20,7 @@
 
 <body>
 
-	<style>
+<style>
 .admin_list_01 {
 	background-color: #c8c8c8;
 }
@@ -193,7 +190,7 @@
 
 				<div class="form_section">
 					<div class="form_section_title">
-						<labe l>책 목차</label>
+						<label>책 목차</label>
 					</div>
 
 					<div class="form_section_content bct">
@@ -213,6 +210,7 @@
 						<div id="uploadResult"></div>
 
 					</div>
+				</div>
 			</form>
 
 			<div class="btn_section">
@@ -224,15 +222,9 @@
 		</div>
 
 	</div>
-
-	<%@include file="../include/admin/footer.jsp"%>
-
-	<script>
-
-//let enrollForm = $("#enrollForm")
 	
 
-
+	<script>
 /* 상품 등록 버튼 */
 $("#enrollBtn").on("click", function(e){
 	

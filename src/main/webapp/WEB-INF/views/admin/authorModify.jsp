@@ -105,6 +105,7 @@
 		<input type="hidden" name="keyword" value='<c:out value="${cri.keyword }"/>'>
 	</form>
 	
+	
 	<script>
 	let moveForm = $("#moveForm");
 	let modifyForm = $("#modifyForm");
@@ -159,6 +160,6 @@
 	
 	</script>
 
-	<%@include file="../include/admin/footer.jsp"%>
+	
 </body>
 </html>

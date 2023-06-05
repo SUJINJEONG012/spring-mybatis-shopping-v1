@@ -195,8 +195,6 @@
 
 
 
-
-
 	<script>
 $(document).ready(function(){
 
@@ -756,6 +754,6 @@ let regex = new RegExp("(.*?)\.(jpg|png)$");
 </script>
 
 
-	<%@include file="../include/admin/footer.jsp"%>
+	
 </body>
 </html>

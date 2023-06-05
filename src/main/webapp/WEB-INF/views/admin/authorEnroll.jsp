@@ -65,9 +65,8 @@
   
                 </div>
                 <!-- admin_content_wrap end -->
-               
-       
- <%@include file="../include/admin/footer.jsp" %>
+             
+
 <script>
 $("#enrollBtn").click(function(){
 	

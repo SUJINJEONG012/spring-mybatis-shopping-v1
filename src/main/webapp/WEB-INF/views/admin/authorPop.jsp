@@ -107,6 +107,9 @@
 
 	</div>
 	
+	
+	</div>
+	
 	<script>
 	let searchForm = $("#searchForm");
 	let moveForm = $("#moveForm");

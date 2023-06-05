@@ -124,10 +124,11 @@
 
 
 	</div>
+	
+	<!-- end -->
 
 	<div class="clearfix"></div>
 
-	<%@include file="../include/admin/footer.jsp"%>
 
 	<script>
 		$(document).ready(function() {

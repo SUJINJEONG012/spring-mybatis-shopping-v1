@@ -48,7 +48,7 @@ a { color: inherit; text-decoration: none; }
 :before,
 html { box-sizing: border-box } 
 
-img { width: 100%; max-width: 100%; vertical-align: top } 
+img {  max-width: 100%; vertical-align: top } 
 
 li,
 ol,

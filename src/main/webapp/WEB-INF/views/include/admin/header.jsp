@@ -9,13 +9,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="../resources/css/admin/goodsModify.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
-
-<link rel="stylesheet" href="../resources/css/admin/main.css">
+<link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet" href="../resources/css/admin/layout.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
@@ -26,7 +24,7 @@
 
 <header>
    
-    <div class="inner">     
+       
       <!-- gnv_area -->	
             <div class="top_gnb_area">
                 <ul class="list">	
@@ -36,14 +34,14 @@
                 </ul>
             </div>
             
-            <!-- top_subject_area -->
-            <div class="admin_top_wrap">
-                <span>관리자 페이지</span>   
-            </div>        
-    </div>
-    
+  
+        
+  
+  
+  
+  <div class="admin_wrap"> 
     <!-- contents-area -->
-            <div class="admin_wrap">
+           
                 <!-- 네비영역 -->
                 <div class="admin_navi_wrap">
 	              <ul>
@@ -67,8 +65,13 @@
 	                  </li>	                                                                                               
 	              </ul>
                 </div>
-            </div>
-  </header>
+            
+  </div> 
+      
+                 
+  </header>  
+    
+
   
   
   

@@ -10,20 +10,16 @@
 <meta charset="UTF-8">
 <title>상품관리</title>
 
-<link rel="stylesheet" href="../resources/css/admin/goodsManage.css">
+
 </head>
+
 <body>
 
 <style>
-.admin_list_02 {
-	background-color: #c8c8c8;
-}
+.admin_list_02 {background-color: #c8c8c8;}
 </style>
 
 
-	<script> 
-		
-	</script>
 
 <%@include file="../include/admin/header.jsp"%>
 
@@ -124,8 +120,7 @@
 
 
 				</div>
-				<div class="clearfix"></div>
-		
+	
 		
 <script>
 
@@ -197,6 +192,5 @@ $(".pageMaker_btn a").on("click", function(e){
  
 </script>
 		
-<%@include file="../include/admin/footer.jsp"%>
 </body>
 </html>
