@@ -37,7 +37,7 @@
 						<!-- 게시물 0  -->
 						<c:if test="${listCheck != 'empty' }">
 
-							<table class="order_table">
+							<table class="order_table tbl-type01">
 								<colgroup>
 									<col width="21%">
 									<col width="20%">

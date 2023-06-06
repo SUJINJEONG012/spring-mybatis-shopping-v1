@@ -46,23 +46,34 @@
 					<div class="goods_table_wrap">
 						<!-- 상품리스트 있을 경우 -->
 						<c:if test="${listCheck != 'empty' }">
-							<table class="goods_table">
+							<table class="tbl-type01">
+								<colgroup>
+									<col width="10%">
+									<col width="30%">
+									<col width="10%">
+									<col width="10%">
+									<col width="10%">
+									<col width="20%">
+								</colgroup>
+
 								<thead>
 									<tr>
-										<td class="th_column_1">상품번호</td>
-										<td class="th_column_2">상품이름</td>
-										<td class="th_column_3">작가 이름</td>
-										<td class="th_column_4">카테고리</td>
-										<td class="th_column_5">재고</td>
-										<td class="th_column_6">등록날짜</td>
+										<th class="th_column_1">상품번호</th>
+										<th class="th_column_2">상품이름</th>
+										<th class="th_column_3">작가 이름</th>
+										<th class="th_column_4">카테고리</th>
+										<th class="th_column_5">재고</th>
+										<th class="th_column_6">등록날짜</th>
 									</tr>
 								</thead>
 								<c:forEach items="${list}" var="list">
 									<tr>
-										<td><a class="move" lang="en"
-											href='<c:out value="${list.bookId}"/>'> <c:out
-													value="${list.bookName}"></c:out>
-										</a></td>
+										<td>
+										<a class="move" lang="en" href='<c:out value="${list.bookId}"/>'> 
+											<c:out value="${list.bookId}"></c:out>
+										</a>
+										</td>
+										
 										<td lang="en"><c:out value="${list.bookName}"></c:out></td>
 										<td lang="en"><c:out value="${list.authName}"></c:out></td>
 										<td lang="en"><c:out value="${list.cateName}"></c:out></td>
@@ -85,7 +96,7 @@
 					<div class="search_wrap">
 						<form id="searchForm" action="/admin/goodsManage" method="get">
 							<div class="search_input">
-								<input type="text" name="keyword"
+								<input type="text" name="keyword" class="search_input"
 									value='<c:out value="${pageMaker.cri.keyword}"></c:out>'>
 
 								<input type="hidden" name="pageNum"
@@ -143,74 +154,71 @@
 
 
 	<script>
+		$(document).ready(function() {
 
+			/* 상품등록 이벤트*/
+			let eResult = '<c:out value="${enroll_result}"/>';
+			checkResult(eResult);
 
-$(document).ready(function() {
-	
-	/* 상품등록 이벤트*/
-	let eResult = '<c:out value="${enroll_result}"/>';
-	checkResult(eResult);
+			function checkResult(result) {
+				if (result === '') {
+					return;
+				}
+				alert("상품'" + eResult + "'을 등록하였습니다.");
+			}
 
-	function checkResult(result) {
-		if (result === '') {
-			return;
-		}
-		alert("상품'" + eResult + "'을 등록하였습니다.");
-	}
-	
-	/* 수정 성공 이벤트 */
-	let modify_result = '${modify_result}';
-	if(modify_result == 1){
-		alert("수정 완료");
-	}
-	
-	/* 삭제 결과 경고창 */
-	let delete_result = '${delete_result}';
-	if(delete_result == 1){
-		alert("삭제 완료");
-	}
-});
+			/* 수정 성공 이벤트 */
+			let modify_result = '${modify_result}';
+			if (modify_result == 1) {
+				alert("수정 완료");
+			}
 
+			/* 삭제 결과 경고창 */
+			let delete_result = '${delete_result}';
+			if (delete_result == 1) {
+				alert("삭제 완료");
+			}
+		});
 
+		/* 작가 검색 버튼 동작 */
+		let searchForm = $("#searchForm");
+		let moveForm = $("#moveForm");
 
-/* 작가 검색 버튼 동작 */
-let searchForm = $("#searchForm");
-let moveForm = $("#moveForm");
+		$("#searchForm button").on("click", function(e) {
 
+			e.preventDefault();
 
-$("#searchForm button").on("click", function(e){
-	
-	 e.preventDefault();
-	
-	if(!searchForm.find("input[name='keyword']").val()){
-		alert("키워드를 입력해주세요.");
-		return false;
-	}
-	
-	searchForm.find("input[name='pageNum']").val("1");
-	searchForm.submit();
- }); 
- 
- 
- /* 페이지 이동 버튼 */
-$(".pageMaker_btn a").on("click", function(e){
-	e.preventDefault();
-	
-	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-	moveForm.submit();
-});
+			if (!searchForm.find("input[name='keyword']").val()) {
+				alert("키워드를 입력해주세요.");
+				return false;
+			}
 
- 
- /* 상품 조회 페이지 */
- $(".move").on("click", function(e){
-	e.preventDefault();
-	
-	moveForm.append("<input type='hidden' name='bookId' value='"+ $(this).attr("href") + "'>");
-	moveForm.attr("action", "/admin/goodsDetail");
-	moveForm.submit();
- });
- 
-</script>
+			searchForm.find("input[name='pageNum']").val("1");
+			searchForm.submit();
+		});
+
+		/* 페이지 이동 버튼 */
+		$(".pageMaker_btn a").on("click", function(e) {
+			e.preventDefault();
+
+			moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+			moveForm.submit();
+		});
+
+		/* 상품 조회 페이지 */
+		$(".move")
+				.on(
+						"click",
+						function(e) {
+							e.preventDefault();
+
+							moveForm
+									.append("<input type='hidden' name='bookId' value='"
+											+ $(this).attr("href") + "'>");
+							moveForm.attr("action", "/admin/goodsDetail");
+							moveForm.submit();
+						});
+	</script>
 
 </body>
 </html>

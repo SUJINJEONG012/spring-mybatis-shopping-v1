@@ -42,7 +42,7 @@
 
 					<div class="author_table_wrap">
 						<c:if test="${listCheck != 'empty' }">
-							<table>
+							<table class="tbl-type01">
 								<thead>
 									<tr>
 										<td class="th_column_1">작가 번호</td>
