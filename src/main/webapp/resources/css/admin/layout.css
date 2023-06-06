@@ -5,7 +5,19 @@
 body{background: #F2F2F2; height:100%;}
 /* ================================= HEADER ================================*/
 
-header { position: relative; height: 45px; }
+header { position: relative; height: 45px; margin-top: 25px; }
+
+
+.top_gnb_area { display:flex; flex-direction: row-reverse; /* padding: 1em; */ } 
+.top_gnb_area ul { display: flex; justify-content: space-between; } 
+.top_gnb_area ul li { color: #21223a; font-size: 14px; font-weight: 400; line-height: 22px; position: relative; padding: 0 9px 0 8px; } 
+.top_gnb_area ul li::before { background: #21223a; content: ""; display: block; height: 10px; position: absolute; right: 0; top: 7px; width: 1px; } 
+.top_gnb_area ul li:last-child::before { content: none; } 
+ 
+.top_gnb_area ul li i::before { padding-right:6px; } 
+.top_gnb_area ul li a { } 
+
+
 
 .admin_navi_wrap {background: #21223a;color: #fff; }
 .admin_content_wrap {}
