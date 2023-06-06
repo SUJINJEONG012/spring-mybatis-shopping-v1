@@ -16,7 +16,8 @@
 <body>
 
 <style>
-.admin_list_02 {background-color: #c8c8c8;}
+.admin_navi_wrap li a.admin_list_02 { display:inline-block; background:#2d2f4f; color:#fff; } 
+
 </style>
 
 
@@ -24,7 +25,11 @@
 <%@include file="../include/admin/header.jsp"%>
 
 				<div class="admin_content_wrap">
-					<div class="admin_content_subject">
+				
+				    
+				    <div class="admin_content">
+				    
+				    <div class="admin_content_subject">
 						<span>상품 관리</span>
 					</div>
 
@@ -45,16 +50,15 @@
 								<c:forEach items="${list}" var="list">
 									<tr>
 										<td>
-										<a class="move" href='<c:out value="${list.bookId}"/>'>
+										<a class="move" lang="en" href='<c:out value="${list.bookId}"/>'>
 										<c:out value="${list.bookName}"></c:out>
 										</a>
 										</td>
-										<td><c:out value="${list.bookName}"></c:out></td>
-										<td><c:out value="${list.authName}"></c:out></td>
-										<td><c:out value="${list.cateName}"></c:out></td>
-										<td><c:out value="${list.bookStock}"></c:out></td>
-										<td><fmt:formatDate value="${list.regDate}"
-												pattern="yyyy-mm-dd" /></td>
+										<td lang="en"><c:out value="${list.bookName}"></c:out></td>
+										<td lang="en"><c:out value="${list.authName}"></c:out></td>
+										<td lang="en"><c:out value="${list.cateName}"></c:out></td>
+										<td lang="en"><c:out value="${list.bookStock}"></c:out></td>
+										<td lang="en"><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd" /></td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -119,6 +123,8 @@
                 	</form>
 
 
+                  </div>
+					
 				</div>
 	
 		

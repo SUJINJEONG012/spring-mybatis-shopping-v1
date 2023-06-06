@@ -12,9 +12,8 @@
 </head>
 <body>
 <style>
-.admin_list_04 {
-	background-color: #c8c8c8;
-}
+.admin_navi_wrap li a.admin_list_04 { display:inline-block; background:#2d2f4f; color:#fff; } 
+
 </style>
 
  <%@include file="../include/admin/header.jsp" %>
@@ -23,6 +22,10 @@
 
 
 	<div class="admin_content_wrap">
+	
+	
+	 <div class="admin_content">
+                    
 		<div class="admin_content_subject">
 			<span>작가 관리</span>
 		</div>
@@ -43,17 +46,17 @@
 					<c:forEach items="${list}" var="list">
 						<tbody>
 							<tr>
-								<td><c:out value="${list.authorId}"></c:out></td>
+								<td lang="en"><c:out value="${list.authorId}"></c:out></td>
 								<td>
 								<a class="move" href='<c:out value="${list.authorId}"/>'> 
 								<c:out value="${list.authName}"></c:out>
 								</a>
 								</td>
 
-								<td><c:out value="${list.nationName}"></c:out></td>
-								<td><fmt:formatDate value="${list.regDate}"
+								<td lang="en"><c:out value="${list.nationName}"></c:out></td>
+								<td lang="en"><fmt:formatDate value="${list.regDate}"
 										pattern="yyyy-MM-dd" /></td>
-								<td><fmt:formatDate value="${list.updateDate}"
+								<td lang="en"><fmt:formatDate value="${list.updateDate}"
 										pattern="yyyy-MM-dd" /></td>
 							</tr>
 						</tbody>
@@ -121,14 +124,11 @@
 		</form>
 
 
-
+</div>
 
 	</div>
 	
 	<!-- end -->
-
-	<div class="clearfix"></div>
-
 
 	<script>
 		$(document).ready(function() {

@@ -9,13 +9,15 @@
 <body>
  <%@include file="../include/admin/header.jsp" %>
 <style>
-.admin_list_03{
-    background-color: #c8c8c8;
-} 
+.admin_navi_wrap li a.admin_list_03 { display:inline-block; background:#2d2f4f; color:#fff; } 
+
 
 </style>
                 
                 <div class="admin_content_wrap">
+                
+                
+                  <div class="admin_content">
                     
                     <div class="admin_content_subject"><span>작가 등록</span></div>
                     
@@ -62,7 +64,7 @@
 	                    	</div> 
                     </div>
                     
-  
+  </div>
                 </div>
                 <!-- admin_content_wrap end -->
              

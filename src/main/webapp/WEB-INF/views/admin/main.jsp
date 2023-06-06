@@ -14,9 +14,12 @@
 
 
                <div class="admin_content_wrap">
+               
+                <div class="admin_content">
+                    
                     <div>관리자 페이지 입니다.</div>
                 </div>
             
-           
+           </div>
 </body>
 </html>

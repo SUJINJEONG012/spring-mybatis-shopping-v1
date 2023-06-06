@@ -16,6 +16,8 @@
 	</div>
 
 	<div class="content_wrap">
+	
+	
 
 		<div class="author_table_wrap">
 

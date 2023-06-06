@@ -15,6 +15,11 @@
 	 <%@include file="../include/admin/header.jsp" %>
 
 	<div class="admin_content_wrap">
+	
+	 <div class="admin_content">
+                    
+                    
+                    
 		<div class="admin_content_subject">
 			<span>작가 수정</span>
 		</div>
@@ -95,7 +100,7 @@
 		
 		
 		
-
+</div>
 	</div>
 
 	<form id="moveForm" method="get">

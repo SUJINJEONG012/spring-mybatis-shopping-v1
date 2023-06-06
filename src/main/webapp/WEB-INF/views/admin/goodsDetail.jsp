@@ -32,6 +32,11 @@ margin-top:10px;
 
 	<div class="admin_content_main admin_content_wrap">
 
+
+ <div class="admin_content">
+                    
+                    
+                    
 		<div class="admin_content_subject">
 			<span>상품 상세</span>
 		</div>
@@ -209,7 +214,7 @@ margin-top:10px;
 		</form>
 
 	</div>
-
+</div>
 
 
 	

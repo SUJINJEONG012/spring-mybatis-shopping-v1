@@ -21,9 +21,8 @@
 <body>
 
 <style>
-.admin_list_01 {
-	background-color: #c8c8c8;
-}
+
+.admin_navi_wrap li a.admin_list_01 { display:inline-block; background:#2d2f4f; color:#fff; } 
 
 #result_card img {
 	max-width: 100%;
@@ -60,6 +59,10 @@
 	<%@include file="../include/admin/header.jsp"%>
 
 	<div class="admin_content_wrap">
+	
+	
+	 <div class="admin_content">
+                    
 
 		<div class="admin_content_subject">
 			<span>상품 등록</span>
@@ -222,7 +225,8 @@
 		</div>
 
 	</div>
-	
+</div>	
+
 
 	<script>
 /* 상품 등록 버튼 */

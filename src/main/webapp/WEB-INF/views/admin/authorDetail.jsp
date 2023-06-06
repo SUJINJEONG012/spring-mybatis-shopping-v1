@@ -15,6 +15,10 @@
 	<%@include file="../include/admin/header.jsp"%>
 
 	<div class="admin_content_wrap">
+	
+	 <div class="admin_content">
+                    
+	
 		<div class="admin_content_subject">
 			<span>작가 상세</span>
 		</div>
@@ -25,7 +29,7 @@
 					<label>작가 번호</label>
 				</div>
 				<div class="form_section_content">
-					<input class="input_block" name="authorId" readonly="readonly"
+					<input class="input_block" name="authorId" readonly="readonly" lang="en"
 						value="<c:out value='${authorInfo.authorId }'></c:out>">
 
 				</div>
@@ -69,7 +73,7 @@
 					<label>등록 날짜</label>
 				</div>
 				<div class="form_section_content">
-					<input class="input_block" type="text" readonly="readonly"
+					<input class="input_block" type="text" readonly="readonly" lang="en"
 						value="<fmt:formatDate value="${authorInfo.regDate}" pattern="yyyy-MM-dd"/>">
 				</div>
 			</div>
@@ -78,7 +82,7 @@
 					<label>수정 날짜</label>
 				</div>
 				<div class="form_section_content">
-					<input class="input_block" type="text" readonly="readonly"
+					<input class="input_block" type="text" readonly="readonly" lang="en"
 						value="<fmt:formatDate value="${authorInfo.updateDate}" pattern="yyyy-MM-dd"/>">
 				</div>
 			</div>
@@ -86,6 +90,8 @@
 				<button id="cancelBtn" class="btn">작가 목록</button>
 				<button id="modifyBtn" class="btn modify_btn">수 정</button>
 			</div>
+		</div>
+		
 		</div>
 
 	</div>

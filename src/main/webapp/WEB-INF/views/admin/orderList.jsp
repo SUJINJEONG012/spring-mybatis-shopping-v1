@@ -12,9 +12,16 @@
 </head>
 <body>
 
+<style>
+.admin_navi_wrap li a.admin_list_06 { display:inline-block; background:#2d2f4f; color:#fff; } 
+
+</style>
 	<%@include file="../include/admin/header.jsp"%>
 
 	<div class="admin_content_wrap">
+	
+	 <div class="admin_content">
+                    
 		<div class="admin_content_subject">
 			<span>주문 현황</span>
 		</div>
@@ -42,9 +49,9 @@
 
 					<c:forEach items="${list}"  var="list">
 						<tr>
-							<td><c:out value="${list.orderId}"></c:out></td>
-							<td><c:out value="${list.memberId}"></c:out></td>
-							<td><fmt:formatDate value="${list.orderDate}" pattern="yyyy-MM-dd"/></td>
+							<td lang="en"><c:out value="${list.orderId}"></c:out></td>
+							<td lang="en"><c:out value="${list.memberId}"></c:out></td>
+							<td lang="en"><fmt:formatDate value="${list.orderDate}" pattern="yyyy-MM-dd"/></td>
 							<td><c:out value="${list.orderState}"/></td>
 							<td>
 							 <c:if test="${list.orderState == '배송준비' }">
@@ -76,7 +83,7 @@
 		</div>
 	</div>
 
-
+</div>
 
 <script>
  $(".delete_btn").on("click", function(e){
