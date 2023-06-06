@@ -6,17 +6,23 @@ a:active { color: black; }
 a:hover { color: black; }  */
 
 /* ================================= HEADER ================================*/
+header {
+    /* display: flex; */
+    position: relative;
+    height: 45px;
+    background: yellow;
+    }
 
-.admin_navi_wrap {background: #21223a;color: #fff;/* flex-basis: 22%; *//* z-index: 99; */}
+.admin_navi_wrap {background: #21223a;color: #fff;/* flex-basis: 22%; *//* z-index: 99; *//* position: absolute; *//* top: 0; */left: 0;}
 .admin_content_wrap {/* flex-basis: 78%; */}
 
 
 .inner{max-width:1200px; margin:0 auto;}
  
 /* 홈페이지 기능 네비 */ 
-.top_gnb_area {/* width: 100%; *//* height: 50px; *//* background-color: #f0f0f1; *//* position:relative; *//* z-index: 9999; *//* position: absolute; *//* top: 0; */} 
-.top_gnb_area .list { position: absolute; top: 0px; right: 0; }
-.top_gnb_area .list li { list-style: none; float : left; padding: 13px 15px 0 10px; cursor: pointer; } 
+.top_gnb_area {background-color: yellow;/* position:relative; *//* z-index: 9999; *//* position: absolute; *//* top: 0; */} 
+.top_gnb_area .list {display: flex;justify-content: right;}
+.top_gnb_area .list li {/* list-style: none; *//* float : left; *//* padding: 13px 15px 0 10px; *//* cursor: pointer; */text-align: right;} 
 
 
 /* 관리제 페이지 상단 현페이지 정보 */
@@ -24,7 +30,7 @@ a:hover { color: black; }  */
 .admin_top_wrap>span { margin-left: 30px; display:inline-block; color: white; font-size: 50px; font-weight: bolder; } 
 
 /* 관리자 wrap(네비+컨텐츠) */
-.admin_wrap{/* display:flex; *//* height: 100vh; */position: absolute;top: 0;left: 0;}
+.admin_wrap{/* display:flex; *//* height: 100vh; */position: absolute;top: 0;left: 0;width: 262px;height: 100vh;background: #21223a;color: #fff;/* flex-basis: 22%; *//* z-index: 99; */position: absolute;top: 0;left: 0;}
 }
 /* .admin_list_01 { background-color: #c8c8c8; } 
 .admin_list_02 { background-color: #c8c8c8; } 
@@ -103,12 +109,16 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 
 
 /* 관리자페이지 컨텐츠 영역 */
-.admin_content_wrap {position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #bdbbbb;}
+.admin_content_wrap {
+    /* position: relative; */
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+    background: #bdbbbb;
+    margin-left: 262px;
+    margin-top: 45px;
+    }
 /* 관리자 컨텐츠 제목 영역 */
-.admin_content_subject { font-size: 40px; font-weight: bolder; padding-left: 15px; background-color: #6AAFE6; height: 80px; line-height: 80px; color: white; }  
+.admin_content_subject {/* font-size: 40px; *//* font-weight: bolder; *//* padding-left: 15px; *//* background-color: #6AAFE6; *//* height: 80px; *//* line-height: 80px; *//* color: white; */}  
  
  
 
