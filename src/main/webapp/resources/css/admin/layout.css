@@ -1,11 +1,10 @@
-@charset "UTF-8";
- 
+@charset "UTF-8"; 
 
 
-body{background: #F2F2F2; height:100%;}
+body { background: #F2F2F2; height:100%; } 
 /* ================================= HEADER ================================*/
 
-header { position: relative; height: 45px; margin-top: 25px; }
+header { position: relative; height: 45px; margin-top: 25px; } 
 
 
 .top_gnb_area { display:flex; flex-direction: row-reverse; /* padding: 1em; */ } 
@@ -19,58 +18,64 @@ header { position: relative; height: 45px; margin-top: 25px; }
 
 
 
-.admin_navi_wrap {background: #21223a;color: #fff; }
-.admin_content_wrap {}
-.admin_content{background:#f2f2f2;}
+.admin_navi_wrap { background: #21223a; color: #fff; } 
+.admin_content_wrap { } 
+.admin_content { background:#f2f2f2; } 
+.admin_bg {background: #fff;border-radius: 20px;max-width: 1020px;margin: 0 auto;padding-bottom: 3rem;} 
+.admin_content_box{
+    padding: 3rem;
+}
 
-.inner{max-width:1200px; margin:0 auto;}
+
+.inner { max-width:1200px; margin:0 auto; } 
  
 /* 홈페이지 기능 네비 */ 
-.top_gnb_area {} 
-.top_gnb_area .list {display: flex;justify-content: right;}
-.top_gnb_area .list li {} 
+.top_gnb_area { } 
+.top_gnb_area .list { display: flex; justify-content: right; } 
+.top_gnb_area .list li { } 
 
 
 /* 관리제 페이지 상단 현페이지 정보 */
-.admin_top_wrap { height:110px;  background-color: #5080bd; margin-bottom:15px; } 
+.admin_top_wrap { height:110px; background-color: #5080bd; margin-bottom:15px; } 
 .admin_top_wrap>span { margin-left: 30px; display:inline-block; color: white; font-size: 50px; font-weight: bolder; } 
 
 /* 관리자 wrap(네비+컨텐츠) */
-.admin_wrap{position: absolute;top: 0;left: 0;width: 262px;height: 100vh;background: #21223a;color: #fff;}}
+.admin_wrap { position: absolute; top: 0; left: 0; width: 262px; height: 100vh; background: #21223a; color: #fff; } 
+ } 
 
 /* .admin_list_01 { background-color: #c8c8c8; } 
 .admin_list_02 { background-color: #c8c8c8; } 
 .admin_list_04 { background-color: #c8c8c8; } */
 
 /* 관리자페이지 네비 영역 */
-.admin_navi_wrap {color: #fff;} 
+.admin_navi_wrap { color: #fff; } 
 .admin_navi_wrap li { text-align: center; } 
-.admin_navi_wrap li:hover{background:#2d2f4f; color:#fff; } 
+.admin_navi_wrap li:hover { background:#2d2f4f; color:#fff; } 
 
-.admin_navi_wrap li a {width:100%;height: 100%;padding: 40px 0; font-size: 19px;font-weight: bolder;display: inline-block;} 
+.admin_navi_wrap li a { width:100%; height: 100%; padding: 40px 0; font-size: 19px; font-weight: bolder; display: inline-block; } 
 
 
 
 /* a:link { color: black; } 
 a:visited { color: black; } 
 a:active { color: black; } 
-a:hover { color: black; }  */
+a:hover { color: black; } */
 
 
 /* .admin_navi_wrap li a:link { color: black; } 
-.admin_navi_wrap li a:visited { color: black; }
+.admin_navi_wrap li a:visited { color: black; } 
 .admin_navi_wrap li a:active { color: black; } 
-.admin_navi_wrap li a:hover { color: black; }  */
+.admin_navi_wrap li a:hover { color: black; } */
 
 
 /* 관리자 컨텐츠 메인 영역 */
-.form_section {/* width: 95%; *//* margin-left: 2%; *//* margin-top: 20px; *//* border: 1px solid #dbdde2; */background-color: #efefef;} 
-.form_section_title {/* padding: 20px 35px; */} 
-.form_section_title label {} 
-.form_section_content {/* padding: 20px 0; *//* border-top: 1px solid #dbdde2; */} 
-.form_section_content input {width: 98%; padding: 5px 1%;} 
+.form_section { } 
+.form_section_title { /* padding: 20px 35px; */ } 
+.form_section_title label { } 
+.form_section_content { /* padding: 20px 0; *//* border-top: 1px solid #dbdde2; */ } 
+.form_section_content input { width: 98%; padding: 5px 1%; } 
 .form_section_content select { width: 98%; text-align-last: center; } 
-.input_block {background-color:#f9f9f9; } 
+.input_block { background-color:#f9f9f9; } 
 
 
 
@@ -102,22 +107,22 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 
  
 /* 버튼 영역 */
-.btn_section {text-align: center;/* margin: 80px 0; */} 
-.btn {/* min-width: 180px; *//* padding: 4px 30px; */font-size: 16px;/* font-weight: 600; *//* line-height: 40px; */} 
+.btn_section { text-align: center; } 
+.btn { font-size: 16px; } 
 .enroll_btn { background-color: #dbdde2; margin-left:15px; } 
 
-.modify_btn {background-color: #b8d3e8;margin-left:15px; } 
-.delete_btn {background-color: #efcdcd; } 
-.delete_btn:hover {background-color : #e4a7a7; } 
+.modify_btn { background-color: #b8d3e8; margin-left:15px; } 
+.delete_btn { background-color: #efcdcd; } 
+.delete_btn:hover { background-color : #e4a7a7; } 
 
 .delete_btn { border: none; color: white; padding: 5px 15px; cursor: pointer; background-color: #f7564b; } 
-.delete_btn:hover {background-color : #da190b; } 
+.delete_btn:hover { background-color : #da190b; } 
 
 #enrollBtn:hover { background-color: #c9cbd0; } 
 
 
 /* ckeditor 높이 */
-.ck-content {height: 170px;} 
+.ck-content { height: 170px; } 
 /* 입력란 공란 경고 태그 */
 .ck_warn { display: none; padding-top: 10px; text-align: center; color: #e05757; font-weight: 300; } 
 
@@ -126,27 +131,20 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 
 
 /* 관리자페이지 컨텐츠 영역 */
-.admin_content_wrap {
-    /* position: relative; */
-    /* max-width: 1200px; */
-    /* margin: 0 auto; */
-    background: #21223a;
-    padding-left: 262px;
-    /* margin-top: 45px; */
-    box-sizing: border-box;
-    }
+.admin_content_wrap { 
+ background: #21223a; padding-left: 262px; box-sizing: border-box; } 
 /* 관리자 컨텐츠 제목 영역 */
-.admin_content_subject {font-size: 30px;}  
+.admin_content_subject {padding: 10px 0;font-size: 30px;border-bottom: 1px solid #eee;} 
  
  
 
 
 /* 페이지 버튼 인터페이스 */
-.pageMaker_wrap {text-align: center; margin-top: 30px; margin-bottom: 40px; } 
-.pageMaker_wrap a {color : black; } 
+.pageMaker_wrap { text-align: center; margin-top: 30px; margin-bottom: 40px; } 
+.pageMaker_wrap a { color : black; } 
 .pageMaker { list-style: none; display: inline-block; } 
 .pageMaker_btn { float: left; width: 40px; height: 40px; line-height: 40px; margin-left: 20px; } 
-.active { border : 2px solid black;font-weight:400; } 
+.active { border : 2px solid black; font-weight:400; } 
 .next, .prev { border: 1px solid #ccc; padding: 0 10px; } 
 .next a, .prev a { color: #ccc; } 
 .pageMaker_btn a:link { color: black; } 
@@ -157,13 +155,13 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 
 
 /* 검색 영역 */
-.search_wrap {margin-top:25px; } 
+.search_wrap { margin-top:25px; } 
 .search_input { position: relative; text-align:center; } 
-.search_input input[name='keyword'] {padding: 4px 10px; font-size: 15px; height: 20px; line-height: 20px; } 
-.search_btn {height: 32px; width: 80px; font-weight: 600; font-size: 18px; line-height: 20px; position: absolute; margin-left: 15px; background-color: #c3daf7; } 
-.table_empty {height: 50px; text-align: center; margin: 200px 0 215px 0px; font-size: 25px; } 
+.search_input input[name='keyword'] { padding: 4px 10px; font-size: 15px; height: 20px; line-height: 20px; } 
+.search_btn { height: 32px; width: 80px; font-weight: 600; font-size: 18px; line-height: 20px; position: absolute; margin-left: 15px; background-color: #c3daf7; } 
+.table_empty { height: 50px; text-align: center; margin: 200px 0 215px 0px; font-size: 25px; } 
 
-.author_table a {color:#1088ed;font-weight: 500; } 
+.author_table a { color:#1088ed; font-weight: 500; } 
 
 
 
@@ -171,40 +169,40 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 
 
 /* 상품 이미지 */
-#result_card img {max-width: 100%; height: auto; display: block; padding: 5px; margin-top: 10px; margin: auto; } 
-#result_card {position: relative; } 
+#result_card img { max-width: 100%; height: auto; display: block; padding: 5px; margin-top: 10px; margin: auto; } 
+#result_card { position: relative; } 
 .imgDeleteBtn { position: absolute; top: 0; right: 5%; background-color: #ef7d7d; color: wheat; font-weight: 900; width: 30px; height: 30px; border-radius: 50%; line-height: 26px; text-align: center; border: none; display: block; cursor: pointer; } 
 
 
 /* 작가 목록 영역 */
-.author_table_wrap {padding: 20px 35px}
-.table_exist {height:251px; } 
-.author_table {width: 100%; border: 1px solid #d3d8e1; text-align: center; border-collapse: collapse; } 
-.author_table td {padding: 10px 5px;border : 1px solid #e9ebf0; } 
-.author_table thead {background-color: #f8f9fd;font-weight: 600; } 
-.author_table a {color:#1088ed;font-weight: 500; } 
-.th_column_1 {width:120px; } 
-.th_column_3 {width:110px; } 
-.th_column_4 {width:140px; } 
-.th_column_5 {width:140px; } 
+.author_table_wrap { padding: 20px 35px } 
+.table_exist { height:251px; } 
+.author_table { width: 100%; border: 1px solid #d3d8e1; text-align: center; border-collapse: collapse; } 
+.author_table td { padding: 10px 5px; border : 1px solid #e9ebf0; } 
+.author_table thead { background-color: #f8f9fd; font-weight: 600; } 
+.author_table a { color:#1088ed; font-weight: 500; } 
+.th_column_1 { width:120px; } 
+.th_column_3 { width:110px; } 
+.th_column_4 { width:140px; } 
+.th_column_5 { width:140px; } 
  
  
  
  /* 상품 목록 영역 */
-.goods_table_wrap {padding: 20px 35px}
-.goods_table {width: 100%; border: 1px solid #d3d8e1; text-align: center; border-collapse: collapse; } 
-.goods_table td {padding: 10px 5px;border : 1px solid #e9ebf0; } 
-.goods_table thead {background-color: #f8f9fd;font-weight: 600; } 
-.goods_table a {color:#1088ed;font-weight: 500; } 
+.goods_table_wrap { padding: 20px 35px } 
+.goods_table { width: 100%; border: 1px solid #d3d8e1; text-align: center; border-collapse: collapse; } 
+.goods_table td { padding: 10px 5px; border : 1px solid #e9ebf0; } 
+.goods_table thead { background-color: #f8f9fd; font-weight: 600; } 
+.goods_table a { color:#1088ed; font-weight: 500; } 
  
  
  
  
  /* footer 영역 */
-.footer {background-color:#D4DFE6;padding-bottom : 50px;position: relative;} 
+.footer { background-color:#D4DFE6; padding-bottom : 50px; position: relative; } 
 .footer_container { width: 100%; height: 100%; margin: auto; } 
 .footer_left>img { width: 150%; height: 130px; margin-left: -20px; margin-top: -12px; } 
-.footer_left { float :left; width: 170px; margin-left: 20px; margin-top : 30px; }
+.footer_left { float :left; width: 170px; margin-left: 20px; margin-top : 30px; } 
 .footer_right { float :left; width: 680px; margin-left: 70px; margin-top : 30px; } 
  
 /* footer navai 영역 */

@@ -15,21 +15,31 @@
 
 <body>
 
-<style>
-.admin_navi_wrap li a.admin_list_02 { display:inline-block; background:#2d2f4f; color:#fff; } 
-
+	<style>
+.admin_navi_wrap li a.admin_list_02 {
+	display: inline-block;
+	background: #2d2f4f;
+	color: #fff;
+}
 </style>
 
 
 
-<%@include file="../include/admin/header.jsp"%>
+	<%@include file="../include/admin/header.jsp"%>
 
-				<div class="admin_content_wrap">
-				
-				    
-				    <div class="admin_content">
-				    
-				    <div class="admin_content_subject">
+	<div class="admin_content_wrap">
+
+
+		<div class="admin_content">
+
+
+			<div class="admin_bg">
+
+				<div class="admin_content_box">
+
+
+
+					<div class="admin_content_subject">
 						<span>상품 관리</span>
 					</div>
 
@@ -49,16 +59,16 @@
 								</thead>
 								<c:forEach items="${list}" var="list">
 									<tr>
-										<td>
-										<a class="move" lang="en" href='<c:out value="${list.bookId}"/>'>
-										<c:out value="${list.bookName}"></c:out>
-										</a>
-										</td>
+										<td><a class="move" lang="en"
+											href='<c:out value="${list.bookId}"/>'> <c:out
+													value="${list.bookName}"></c:out>
+										</a></td>
 										<td lang="en"><c:out value="${list.bookName}"></c:out></td>
 										<td lang="en"><c:out value="${list.authName}"></c:out></td>
 										<td lang="en"><c:out value="${list.cateName}"></c:out></td>
 										<td lang="en"><c:out value="${list.bookStock}"></c:out></td>
-										<td lang="en"><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd" /></td>
+										<td lang="en"><fmt:formatDate value="${list.regDate}"
+												pattern="yyyy-MM-dd" /></td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -77,10 +87,10 @@
 							<div class="search_input">
 								<input type="text" name="keyword"
 									value='<c:out value="${pageMaker.cri.keyword}"></c:out>'>
-								
+
 								<input type="hidden" name="pageNum"
 									value='<c:out value="${pageMaker.cri.pageNum}"></c:out>'>
-								
+
 								<input type="hidden" name="amount"
 									value='<c:out value="${pageMaker.cri.amount}"></c:out>'>
 								<input type="hidden" name="type" value="G">
@@ -89,46 +99,50 @@
 							</div>
 						</form>
 					</div>
-					
+
 					<!-- 페이지 이름 인터페이스 영역 -->
 					<div class="pageMaker_wrap">
-					<ul class="pageMaker">
-					   <c:if test="${pageMaker.prev}">
-					   <li class="pageMaker_btn prev">
-					   <a href="${pageMaker.pageStart-1 }">이전</a>
-					   </li>
-					   </c:if>
-					   
-					   <c:forEach begin="${pageMaker.pageStart}" end="${pageMaker.pageEnd }" var="num">
-					    <li class="pageMaker_btn ${pageMaker.cri.pageNum == num ? 'active':''}">
-					    <a href="${num}">${num}</a>
-					    </li>
-					   </c:forEach>
-					   
-					   <!-- 다음 버튼 -->
-	                  <c:if test="${pageMaker.next}">
-	                    		<li class="pageMaker_btn next">
-	                    			<a href="${pageMaker.pageEnd + 1 }">다음</a>
-	                    		</li>
-	                  </c:if>
-					   
-					</ul>
+						<ul class="pageMaker">
+							<c:if test="${pageMaker.prev}">
+								<li class="pageMaker_btn prev"><a
+									href="${pageMaker.pageStart-1 }">이전</a></li>
+							</c:if>
+
+							<c:forEach begin="${pageMaker.pageStart}"
+								end="${pageMaker.pageEnd }" var="num">
+								<li
+									class="pageMaker_btn ${pageMaker.cri.pageNum == num ? 'active':''}">
+									<a href="${num}">${num}</a>
+								</li>
+							</c:forEach>
+
+							<!-- 다음 버튼 -->
+							<c:if test="${pageMaker.next}">
+								<li class="pageMaker_btn next"><a
+									href="${pageMaker.pageEnd + 1 }">다음</a></li>
+							</c:if>
+
+						</ul>
 					</div>
-					
-					
-					<form id="moveForm" action="/admin/goodsManage" method="get" >
- 						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
-                	</form>
 
 
-                  </div>
-					
+					<form id="moveForm" action="/admin/goodsManage" method="get">
+						<input type="hidden" name="pageNum"
+							value="${pageMaker.cri.pageNum}"> <input type="hidden"
+							name="amount" value="${pageMaker.cri.amount}"> <input
+							type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+					</form>
+
+
 				</div>
-	
-		
-<script>
+
+			</div>
+		</div>
+
+	</div>
+
+
+	<script>
 
 
 $(document).ready(function() {
@@ -197,6 +211,6 @@ $(".pageMaker_btn a").on("click", function(e){
  });
  
 </script>
-		
+
 </body>
 </html>
