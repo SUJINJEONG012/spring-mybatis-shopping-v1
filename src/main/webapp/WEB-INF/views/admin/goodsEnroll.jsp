@@ -149,8 +149,8 @@
 							</div>
 
 							<div class="form_section_content">
-								<input name="bookPrice" value="0"> <span
-									class="ck_warn bookPrice_warn">상품가격을 입력해주세요.</span>
+								<input name="bookPrice" value="0" lang="en"> 
+								<span class="ck_warn bookPrice_warn">상품가격을 입력해주세요.</span>
 							</div>
 						</div>
 

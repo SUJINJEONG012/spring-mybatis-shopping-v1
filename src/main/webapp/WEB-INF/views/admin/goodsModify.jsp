@@ -119,7 +119,7 @@
 						<label>상품 가격</label>
 					</div>
 					<div class="form_section_content">
-						<input name="bookPrice" value="${goodsInfo.bookPrice}"> <span
+						<input name="bookPrice" value="${goodsInfo.bookPrice}" lang="en"> <span
 							class="ck_warn bookPrice_warn">상품 가격을 입력해주세요.</span>
 					</div>
 				</div>
@@ -128,8 +128,8 @@
 						<label>상품 재고</label>
 					</div>
 					<div class="form_section_content">
-						<input name="bookStock" value="${goodsInfo.bookStock}"> <span
-							class="ck_warn bookStock_warn">상품 재고를 입력해주세요.</span>
+						<input name="bookStock" value="${goodsInfo.bookStock}" lang="en"> <span
+							class="ck_warn bookStock_warn" >상품 재고를 입력해주세요.</span>
 					</div>
 				</div>
 				<div class="form_section">
@@ -137,7 +137,7 @@
 						<label>상품 할인율</label>
 					</div>
 					<div class="form_section_content">
-						<input id="discount_interface" maxlength="2" value="0"> <input
+						<input id="discount_interface" maxlength="2" value="0" lang="en"> <input
 							name="bookDiscount" type="hidden"
 							value="${goodsInfo.bookDiscount}">
 						<p class="step_val">

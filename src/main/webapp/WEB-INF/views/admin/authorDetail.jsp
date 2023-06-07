@@ -17,6 +17,12 @@
 	<div class="admin_content_wrap">
 	
 	 <div class="admin_content">
+	 
+	 <div class="admin_bg">
+
+				<div class="admin_content_box">
+	 
+	 
                     
 	
 		<div class="admin_content_subject">
@@ -63,7 +69,7 @@
 					<label>작가소개</label>
 				</div>
 				<div class="form_section_content">
-					<textarea class="input_block" name="authorIntro"
+					<textarea class="input_block" name="authorIntro" lang="en"
 						readonly="readonly"><c:out
 							value='${authorInfo.authorIntro }' /></textarea>
 				</div>
@@ -92,6 +98,8 @@
 			</div>
 		</div>
 		
+		</div>
+		</div>
 		</div>
 
 	</div>
