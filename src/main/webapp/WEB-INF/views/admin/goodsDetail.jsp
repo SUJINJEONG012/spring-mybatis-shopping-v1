@@ -118,7 +118,7 @@
 							<div class="form_section_title">
 								<label>책 카테고리</label>
 							</div>
-							<div class="form_section_content">
+							<div class="form_section_content flex">
 								<div class="cate_wrap">
 									<span>대분류</span> <select class="cate1" disabled>
 										<option value="none">선택</option>
@@ -205,7 +205,7 @@
 
 						<div class="btn_section">
 							<button id="cancelBtn" class="btn">상품 목록</button>
-							<button id="modifyBtn" class="btn enroll_btn">수정</button>
+							<button id="modifyBtn" class="btn enroll_btn">수정하기</button>
 						</div>
 
 					</div>

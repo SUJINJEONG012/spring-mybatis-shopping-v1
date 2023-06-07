@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>작가 선택 팝업창</title>
+<link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet" href="../resources/css/admin/authorPop.css">
+
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
@@ -34,8 +36,8 @@
 						</thead>
 						<c:forEach items="${list}" var="list">
 							<tr>
-								<td><c:out value="${list.authorId}"></c:out></td>
-								<td><a class="move" href='<c:out value="${list.authorId}"/>' data-name='<c:out value="${list.authName}"/>'>
+								<td lang="en"><c:out value="${list.authorId}"></c:out></td>
+								<td lang="en"><a class="move" href='<c:out value="${list.authorId}"/>' data-name='<c:out value="${list.authName}"/>'>
 								<c:out value="${list.authName}"></c:out>
 								</a> 
 								
@@ -58,13 +60,13 @@
 			<div class="search_wrap">
 				<form id="searchForm" action="/admin/authorPop" method="get">
 					<div class="search_input">
-						<input type="text" name="keyword"
+						<input type="text" name="keyword" lang="en" placeholder="검색어를 입력하세요."
 							value='<c:out value="${pageMaker.cri.keyword}"></c:out>'>
 
-						<input type="text" name="pageNum"
+						<input type="hidden" name="pageNum" lang="en"
 							value='<c:out value="${pageMaker.cri.pageNum}"></c:out>'>
 
-						<input type="text" name="amount"
+						<input type="hidden" name="amount" lang="en"
 							value='<c:out value="${pageMaker.cri.amount}"></c:out>'>
 
 						<button class="btn search_btn">검색</button>
@@ -73,18 +75,18 @@
 			</div>
 
 			<!-- 페이지 이동 인터페이스 영역 -->
-			<div class="pageMaker_warp">
+			<div class="pageMaker_wrap">
 
 				<ul class="pageMaker">
 					<c:if test="${pageMaker.prev}">
-						<li class="pageMaker_btn prev"><a
+						<li class="pageMaker_btn prev"><a lang="en"
 							href="${pageMaker.pageStart -1 }">이전</a></li>
 					</c:if>
 
                      <!-- 페이지 번호 -->
 	                    	<c:forEach begin="${pageMaker.pageStart}" end="${pageMaker.pageEnd}" var="num">
 	                    		<li class="pageMaker_btn ${pageMaker.cri.pageNum == num ? "active":""}">
-	                    			<a href="${num}">${num}</a>
+	                    			<a href="${num}" lang="en">${num}</a>
 	                    		</li>
 	                    	</c:forEach>
 					

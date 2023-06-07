@@ -100,7 +100,7 @@
 								<label> 출판일 </label>
 							</div>
 
-							<div class="form_section_content">
+							<div class="form_section_content flex">
 								<input name="publeYear" autocomplete="off" readonly="readonly" lang="en">
 								<span class="ck_warn publeYear_warn">출판일을 선택하세요.</span>
 							</div>
@@ -121,7 +121,7 @@
 							<div class="form_section_title">
 								<label>책 카테고리</label>
 							</div>
-							<div class="form_section_content">
+							<div class="form_section_content flex">
 								<div class="cate_wrap">
 									<span>대분류 </span> <select class="cate1">
 										<option selected value="none">선택</option>
@@ -206,8 +206,7 @@
 								<label>상품이미지</label>
 							</div>
 							<div class="form_section_content">
-								<input type="file" id="fileItem" name="uploadFile"
-									style="height: 30px;">
+								<input type="file" id="fileItem" name="uploadFile">
 
 								<div id="uploadResult"></div>
 

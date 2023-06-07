@@ -42,10 +42,10 @@
   </header> 
   
 
-  
+    <!-- contents-area -->  
   <div class="admin_wrap"> 
-    <!-- contents-area -->
-           
+
+                <div class="admin_header" lang="en">Admin </div>
                 <!-- 네비영역 -->
                 <div class="admin_navi_wrap">
 	              <ul>

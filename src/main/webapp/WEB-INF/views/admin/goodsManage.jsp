@@ -116,7 +116,7 @@
 					<div class="pageMaker_wrap">
 						<ul class="pageMaker">
 							<c:if test="${pageMaker.prev}">
-								<li class="pageMaker_btn prev"><a
+								<li class="pageMaker_btn prev"><a lang="en"
 									href="${pageMaker.pageStart-1 }">이전</a></li>
 							</c:if>
 
@@ -124,13 +124,13 @@
 								end="${pageMaker.pageEnd }" var="num">
 								<li
 									class="pageMaker_btn ${pageMaker.cri.pageNum == num ? 'active':''}">
-									<a href="${num}">${num}</a>
+									<a href="${num}" lang="en" >${num}</a>
 								</li>
 							</c:forEach>
 
 							<!-- 다음 버튼 -->
 							<c:if test="${pageMaker.next}">
-								<li class="pageMaker_btn next"><a
+								<li class="pageMaker_btn next"><a lang="en"
 									href="${pageMaker.pageEnd + 1 }">다음</a></li>
 							</c:if>
 

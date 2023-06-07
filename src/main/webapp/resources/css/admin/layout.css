@@ -27,9 +27,7 @@ header { position: relative; height: 45px; margin-top: 25px; }
 .inner { max-width:1200px; margin:0 auto; } 
  
 .tbl-type01 th { padding: 15px 0; text-align: center; } 
-
 .tbl-type01 td { padding: 10px; border-top: 1px solid #9aa7c0; text-align: center; } 
-
 .tbl-type02 th {padding: 15px 0;}
 
 
@@ -50,8 +48,15 @@ header { position: relative; height: 45px; margin-top: 25px; }
 .admin_list_02 { background-color: #c8c8c8; } 
 .admin_list_04 { background-color: #c8c8c8; } */
 
+.admin_header {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 35px;
+}
+
+
 /* 관리자페이지 네비 영역 */
-.admin_navi_wrap { color: #fff; } 
+.admin_navi_wrap { color: #fff; padding-top: 45px;} 
 .admin_navi_wrap li { text-align: center; border-bottom: 1px solid #3d3d43;} 
 .admin_navi_wrap li:hover { background:#2d2f4f; color:#fff; } 
 
@@ -63,33 +68,27 @@ header { position: relative; height: 45px; margin-top: 25px; }
 
 /* 관리자 컨텐츠 메인 영역 */
 .form_section {padding: 20px 0px;} 
-.form_section_title { /* padding: 20px 35px; */ } 
-.form_section_title label { } 
-.form_section_content { /* padding: 20px 0; *//* border-top: 1px solid #dbdde2; */ } 
-.form_section_content input {width: 98%;padding: 5px 1%;color: #191919;border-bottom: 1px solid #191919;} 
-.form_section_content select { width: 98%; text-align-last: center;
-color: #191919;
-    height: 45px;
-    border-radius: 0;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #191919;
-}
- 
-/* .input_block { background-color:#f9f9f9; }  */
+.form_section_title { padding: 20px 0; } 
+.form_section_title label {font-size: 17px;} 
+
+.form_section_content.flex input {  width: 84%; }
+.form_section_content input {width: 98%;padding: 5px 1%; font-size:15px; color: #191919;border-bottom: 1px solid #191919;background: transparent;} 
+.form_section_content select {width:100%; color: #191919;height: 45px;border-radius: 0;background: transparent;border: none;border-bottom: 1px solid #191919;}
+.form_section_content .cate_wrap {width: 32%; margin-right: 1%; }
+
 .flex{display:flex;}
 
 
 
  /* 카테고리 css 설정 */
-.cate_wrap:not(:first-child) { margin-top: 20px; } 
+.cate_wrap:not(:first-child) {/* margin-top: 20px; */} 
 
 /* 캘린더 css 설정 */
-.ui-datepicker-trigger {margin-left: 25px;width: 14%;height: 38px;font-weight: 600;background-color: #191919;font-size: 15px;cursor:pointer;color: #fff;} 
-input[name='publeYear'] { width: 80%; text-align: center; } 
+.ui-datepicker-trigger {width: 14%;height: 45px;background-color: #191919;font-size: 13px;cursor:pointer;color: #fff;} 
+/* input[name='publeYear'] { width: 80%; text-align: center; }  */
 
 /* 작가 선택 css 설정 */
-.authorId_btn {/* margin-left: 20px; */width: 14%;height: 35px;/* font-weight: 600; */background-color: #191919;font-size: 13px;cursor:pointer;color: #fff;} 
+.authorId_btn {width: 14%;height: 45px;background-color: #191919;font-size: 13px;cursor:pointer;color: #fff;} 
 #authorName_input { width: 80%; text-align: center; } 
 
 
@@ -97,7 +96,7 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 
 /* 할인 가격 문구 */
 .form_section_content .step_val { display: block; padding-top: 5px; font-weight: 500; } 
-.form_section_content .span_discount { display:block; } 
+.form_section_content .span_discount { display:inline-block; } 
 
 
 /* 입력란 공란 경고 태그 */
@@ -110,13 +109,16 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 /* 버튼 영역 */
 .btn_section { text-align: center;padding: 40px 0; } 
 .btn { font-size: 16px; border:1px solid #191919; width:80px; height:45px;} 
-.enroll_btn { background-color: #dbdde2; margin-left:15px; } 
+.enroll_btn { background-color: #191919; margin-left: 15px; color: #fff; } 
 
-.modify_btn { background-color: #b8d3e8; margin-left:15px; } 
-.delete_btn { background-color: #efcdcd; } 
+.modify_btn { background-color: #191919; color: #fff;} 
+.delete_btn { bbackground: #f05247;
+    color: #fff;
+    border: none; } 
+
 .delete_btn:hover { background-color : #e4a7a7; } 
 
-.delete_btn { border: none; color: white; padding: 5px 15px; cursor: pointer; background-color: #f7564b; } 
+.delete_btn { border: none; color: white; padding: 5px 15px; cursor: pointer; background-color: #f05247; } 
 .delete_btn:hover { background-color : #da190b; } 
 
 #enrollBtn:hover { background-color: #c9cbd0; } 
@@ -142,11 +144,12 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 /* 페이지 버튼 인터페이스 */
 .pageMaker_wrap { text-align: center; margin-top: 30px; margin-bottom: 40px; } 
 .pageMaker_wrap a { color : black; } 
-.pageMaker { list-style: none; display: inline-block; } 
-.pageMaker_btn { float: left; width: 40px; height: 40px; line-height: 40px; margin-left: 20px; } 
-.active { border : 2px solid black; font-weight:400; } 
-.next, .prev { border: 1px solid #ccc; padding: 0 10px; } 
+.pageMaker {display: flex;  justify-content: center; } 
+.pageMaker_btn {width: 35px;height: 35px; margin-left: 10px; line-height: 2;} 
+.active {border: 1px solid black;} 
+.next, .prev {border: 1px solid #969696;} 
 .next a, .prev a { color: #ccc; } 
+.pageMaker_btn a { display:inline-block;} 
 .pageMaker_btn a:link { color: black; } 
 .pageMaker_btn a:visited { color: black; } 
 .pageMaker_btn a:active { color: black; } 
@@ -160,7 +163,7 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 .search_input { position: relative; text-align:center;  } 
 
 .search_input input[name='keyword'] { padding: 4px 10px; font-size: 15px; height: 20px; border: 1px solid #191919; height: 35px;} 
-.search_btn {height: 35px;width: 80px;/* font-weight: 600; */font-size: 13px;line-height: 20px;position: absolute;margin-left: 15px;background-color: #191919;color: #fff;} 
+.search_btn {height: 35px;width: 80px; font-size: 13px;line-height: 20px;position: absolute;margin-left: 15px;background-color: #191919;color: #fff;} 
 .table_empty { height: 50px; text-align: center; margin: 200px 0 215px 0px; font-size: 25px; } 
 
 .author_table a { color:#1088ed; font-weight: 500; } 
@@ -173,11 +176,12 @@ input[name='publeYear'] { width: 80%; text-align: center; }
 /* 상품 이미지 */
 #result_card img { max-width: 100%; height: auto; display: block; padding: 5px; margin-top: 10px; margin: auto; } 
 #result_card { position: relative; } 
-.imgDeleteBtn { position: absolute; top: 0; right: 5%; background-color: #ef7d7d; color: wheat; font-weight: 900; width: 30px; height: 30px; border-radius: 50%; line-height: 26px; text-align: center; border: none; display: block; cursor: pointer; } 
+.imgDeleteBtn { position: absolute; top: 0; right: 5%; background-color: #191919;
+    color: #fff; width: 30px; height: 30px; border-radius: 50%; line-height: 26px; text-align: center; border: none; display: block; cursor: pointer; } 
 
 
 /* 작가 목록 영역 */
-.author_table_wrap { padding: 20px 35px } 
+.author_table_wrap { padding: 40px 0; } 
 .table_exist { height:251px; } 
 .author_table { width: 100%; border: 1px solid #d3d8e1; text-align: center; border-collapse: collapse; } 
 .author_table td { padding: 10px 5px; border : 1px solid #e9ebf0; } 
