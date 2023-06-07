@@ -45,7 +45,7 @@
     <!-- contents-area -->  
   <div class="admin_wrap"> 
 
-                <div class="admin_header" lang="en">Admin </div>
+                <div class="admin_header"><a href="/" lang="en">Admin</a></div>
                 <!-- 네비영역 -->
                 <div class="admin_navi_wrap">
 	              <ul>
