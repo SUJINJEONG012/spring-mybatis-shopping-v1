@@ -15,12 +15,8 @@
 
 <body>
 
-	<style>
-.admin_navi_wrap li a.admin_list_02 {
-	display: inline-block;
-	background: #2d2f4f;
-	color: #fff;
-}
+<style>
+.admin_navi_wrap li a.admin_list_02 {display: inline-block; background: #2d2f4f; color: #fff;}
 </style>
 
 
@@ -74,7 +70,12 @@
 										</a>
 										</td>
 										
-										<td lang="en"><c:out value="${list.bookName}"></c:out></td>
+										<td>
+										<a class="move" lang="en" href='<c:out value="${list.bookId}" />'>
+										    <c:out value="${list.bookName}"></c:out>
+										</a>
+										</td>
+										
 										<td lang="en"><c:out value="${list.authName}"></c:out></td>
 										<td lang="en"><c:out value="${list.cateName}"></c:out></td>
 										<td lang="en"><c:out value="${list.bookStock}"></c:out></td>

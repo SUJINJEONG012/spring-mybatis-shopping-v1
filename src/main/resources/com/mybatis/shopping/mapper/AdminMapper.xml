@@ -53,7 +53,7 @@
 	  select bookId, bookName, 
 	  (select authName from author where authorId = book.authorId) 
 	  authName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents, regDate, updateDate
-	  from book where bookId = #{bookId}  
+	  from book where bookId = #{bookName}  
 	</select>
 	
 	<!-- 상품 정보 수정 페이지  -->

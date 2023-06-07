@@ -86,7 +86,7 @@
 								<label>작가 </label>
 							</div>
 
-							<div class="form_section_content">
+							<div class="form_section_content flex">
 								<input id="authName_input" readonly="readonly"> <input
 									id="authorId_input" name="authorId" type="hidden">
 								<button class="authorId_btn">작가선택</button>
@@ -101,7 +101,7 @@
 							</div>
 
 							<div class="form_section_content">
-								<input name="publeYear" autocomplete="off" readonly="readonly">
+								<input name="publeYear" autocomplete="off" readonly="readonly" lang="en">
 								<span class="ck_warn publeYear_warn">출판일을 선택하세요.</span>
 							</div>
 						</div>
@@ -160,8 +160,8 @@
 							</div>
 
 							<div class="form_section_content">
-								<input name="bookStock" value="0"> <span
-									class="ck_warn bookStock_warn">상품가격을 입력하세요.</span>
+								<input name="bookStock" value="0" lang="en"> 
+								<span class="ck_warn bookStock_warn">상품가격을 입력하세요.</span>
 							</div>
 						</div>
 
@@ -171,10 +171,11 @@
 							</div>
 
 							<div class="form_section_content">
-								<input id="discount_interface" maxlength="2" value="0">
-								<input name="bookDiscount" type="hidden" value="0"> <span
-									class="step_val">할인 가격 : <span class="span_discount"></span></span>
-								<span class="ck_warn bookDiscount_warn">1~99 숫자를 입력하세요.</span>
+								<input id="discount_interface" maxlength="2" value="0" lang="en">
+								<input name="bookDiscount" type="hidden" value="0" lang="en"> 
+								<span class="step_val">할인 가격 : 
+								<span class="span_discount"></span></span>
+								<span class="ck_warn bookDiscount_warn" lang="en">1~99 숫자를 입력하세요.</span>
 							</div>
 						</div>
 
