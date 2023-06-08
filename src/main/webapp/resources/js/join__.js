@@ -11,11 +11,10 @@ let code = ""; //이메일 인증번호 저장한 코드
 const check_reg = function check_reg() {
 	alert("회원가입 버튼을 눌렀습니다.");
 
-  let userName = document.getElementById("id_input").value; // 유저가 입력한 이름값
-  
-  let userId = document.getElementById("id").value;
-  let userPw = document.getElementById("pw").value;
-  let userEmail = document.getElementById("email").value;
+  let userId = document.querySelector(".id_input").value; // 유저가 입력한 이름값
+  let userPW = document.querySelector(".pw_input").value;
+  let userName = document.querySelector(".user_input").value;
+  let userEmail = document.getElementById(".mail_input").value;
   let userCategory = document.getElementById("category").value;
   
   
