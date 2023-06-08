@@ -6,16 +6,21 @@
 
 let code = ""; //이메일 인증번호 저장한 코드
 
-/* 유효성 검사 통과유무 변수 */
-let idCheck = false;
-let idckCheck = false;
-let pwCheck = false; //비번 
-let pwckCheck = false;//비번확인 
-let pwckcorCheck = false//비번 확인 일치 확인
-let nameCheck = false; //이름 
-let mailCheck = false;//이메일
-let mailnumCheck = false;//이메일 인증번호 확인
-let addressCheck = false; // 주소 
+
+// 회원가입 유효성 검사
+const check_reg = function check_reg() {
+	alert("회원가입 버튼을 눌렀습니다.");
+
+  let userName = document.getElementById("id_input").value; // 유저가 입력한 이름값
+  
+  let userId = document.getElementById("id").value;
+  let userPw = document.getElementById("pw").value;
+  let userEmail = document.getElementById("email").value;
+  let userCategory = document.getElementById("category").value;
+  
+  
+
+}
 
 $(document).ready(function() {
 	//회원가입 버튼
@@ -83,8 +88,8 @@ $(document).ready(function() {
 
 		}
 
-		document.querySelector("#join_form").attr("action", "/member/join");
-		document.querySelector("#join_form").submit();
+		$("#join_form").attr("action", "/member/join");
+		$("#join_form").submit();
 
 		return false;
 
