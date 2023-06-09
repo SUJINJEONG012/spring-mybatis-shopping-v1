@@ -1,4 +1,4 @@
-/**
+/*
  * 아이디 중복체크, 이메일, 주소, 유효성검사
  */
 
@@ -9,91 +9,41 @@ let code = ""; //이메일 인증번호 저장한 코드
 
 // 회원가입 유효성 검사
 const check_reg = function check_reg() {
-	alert("회원가입 버튼을 눌렀습니다.");
-
+	
+alert("회원가입 버튼을 눌렀습니다.");
   let userId = document.querySelector(".id_input").value; // 유저가 입력한 이름값
   let userPW = document.querySelector(".pw_input").value;
+  let userPwChk = document.querySelector(".pwck_input").value;
   let userName = document.querySelector(".user_input").value;
   let userEmail = document.getElementById(".mail_input").value;
-  let userCategory = document.getElementById("category").value;
-  
-  
+  let userEmailChk = document.querySelector(".mail_check_input").value;
 
+  
+  //정규식 선언
+
+  //모든 공백 체크 정규식
+  let regExp = /\s/g;
+  //아이디 정규식   a~z, 0.9로 시작하는 4~12자리 아이디를 만들 수 있다.
+  let idReg = /^[a-z0-9]{4,12}$/;
+    // 비밀번호 정규식 숫자, 문자로 이루어진 6~12자리의 비밀번호
+  let pwReg = /^[A-Za-z0-9]{4,12}$/;
+  // 이름 정규식 가~히, 한글로 이루어진 문자만으로 2~6자리
+  let nameReg = /^[가-힣]{2,6}$/; 
+  // 이메일 검사 정규식
+  let emailReg =
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+if(!idReg.test(userId) || userId.trim() === ""){
+	alert("형식에 맞게 이름을 입력하세요.");
+	document.querySelector(".id_input").focus();
+	document.querySelector(".id_input").value="";
+	return false;
+}
+  
+ 
 }
 
-$(document).ready(function() {
-	//회원가입 버튼
-	$(".join_button").click(function() {
-		/* 입력값 변수 */
-		let id = $(".id_input").val();
-		let pw = $(".pw_input").val();
-		let pwck = $(".pwck_input").val();
-		let name = $(".user_input").val();
-		let mail = $(".main_input").val();
-		let addr = $(".address_input_3").val();
 
-		/* 아이디 유효성검사 */
-		if (id == "") { //id가 빈값이면 "아이디를 입력해주세요" 리는 문구를 보여주고
-			$(".final_id_ck").css("display", "block");
-			//idCheck = false; 
-			return false;
-		} else {
-			$(".final_id_ck").css("display", "none");
-			idCheck = true; //
-		}
-		/* 비밀번호 유효성 검사 */
-		if(pw == "") {
-			$('.final_pw_ck').css('display', 'block');
-		    pwCheck = false;
-		}else{
-			$('.final_pw_ck').css('disply', 'none');
-			pwCheck = true;
-		}
-		/* 비밀번호 확인 유효성 검사 */
-		if (pwck == "") {
-			$('.final_pwck_ck').css('display', 'block');
-			pwckCheck = false;
-		} else {
-			$('.final_pwck_ck').css('display', 'none');
-			pwckCheck = true;
-		}
-		/* 이름 유효성 검사 */
-		if (name == "") {
-			$('.final_name_ck').css('display', 'block');
-			nameCheck = false;
-		} else {
-			$('.final_name_ck').css('display', 'none');
-			nameCheck = true;
-		}
-		/* 이메일 유효성 검사 */
-		if (mail == "") {
-			$('.final_mail_ck').css('display', 'block');
-			mailCheck = false;
-		} else {
-			$('.final_mail_ck').css('display', 'none');
-			mailCheck = true;
-		}
-		/* 주소 유효성 검사 */
-		if (addr == "") {
-			$(".final_addr_ck").css("display", "block");
-			addressCheck = false;
-		} else {
-			$(".final_addr_ck").css("display", "none");
-			addressCheck = true;
-		}
-
-		//최종 유효성 검사
-		if (idCheck && idckCheck && pwCheck && pwckCheck && pwckcorCheck && nameCheck && mailCheck && mailnumCheck && addressCheck) {
-
-		}
-
-		$("#join_form").attr("action", "/member/join");
-		$("#join_form").submit();
-
-		return false;
-
-	});
-});
 
 
 /* $(".id_input").on("propertychange change keyup paste input", function(){
@@ -101,11 +51,10 @@ $(document).ready(function() {
 }); */
 
 //아이디 중복검사
-
-$(".id_input").on("propertychange change keyup paste input ", function() {
+document.querySelector(".id_input").on("propertychange change keyup paste input ", function() {
 	
-	var memberId = $(".id_input").val();
-	var data = { memberId: memberId }
+	let memberId = $(".id_input").val();
+	let data = { memberId: memberId }
 
 	$.ajax({
 		type: "post",

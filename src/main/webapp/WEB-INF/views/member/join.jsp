@@ -112,7 +112,7 @@
 		</form>
 
 		<div class="button_wrap">
-				<input type="button" class="join_button input" value="가입하기" >
+				<input type="button" class="join_button input" onclick="check_reg()" value="가입하기" >
 				<!-- <input type="button" class="join_button" value="가입하기2"  onclick="check_reg()"> -->
 		</div>
 		

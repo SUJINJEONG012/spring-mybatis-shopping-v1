@@ -100,7 +100,7 @@ $(document).ready(function() {
 
 $(".id_input").on("propertychange change keyup paste input ", function() {
 	
-	var memberId = $(".id_input").val();
+	var memberId =$(".id_input").val();
 	var data = { memberId: memberId }
 
 	$.ajax({
