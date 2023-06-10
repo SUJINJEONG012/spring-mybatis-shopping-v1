@@ -1,3 +1,4 @@
+
 q@charset "UTF-8";/* ======================== 공통 ======================== */
 .wrapper { width: 100%; } 
 .wrap { } 
@@ -309,10 +310,12 @@ span.final_addr_ck { display: none; }
 .ct_info_area .button_quantity button { border: 1px solid #aaa; width: 20px; height: 20px; font-weight: bold; font-size: 15px; line-height: 15px; } 
 
 .content_middle { width: 100%; } 
-.content_middle .book_intro { margin: auto; margin-top: 40px; } 
+.content_middle .book_intro { margin: auto; margin-top: 40px;border-top: 1px solid #dedede;padding: 30px 0; } 
+.content_middle .book_intro p{line-height: 1.75; font-size: 19px;  font-weight: 200; } 
 
-.content_middle .book_content { margin: auto; margin-top: 40px; margin-bottom: 40px; } 
-
+.content_middle .book_content { margin: auto; margin-top: 40px; margin-bottom: 40px;     border-top: 1px solid #bebebe;
+    padding: 20px 0 } 
+.content_middle .book_content p { font-size: 15px; font-weight: 200;}
 
 /* 리뷰 영역 */
 .content_bottom { border-top: 1px solid #cfcfcf; } 

@@ -83,8 +83,8 @@ $(document).ready(function() {
 
 		}
 
-		document.querySelector("#join_form").attr("action", "/member/join");
-		document.querySelector("#join_form").submit();
+		$("#join_form").attr("action", "/member/join");
+		$("#join_form").submit();
 
 		return false;
 

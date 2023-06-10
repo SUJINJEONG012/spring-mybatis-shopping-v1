@@ -47,7 +47,7 @@
 				<div class="pwck_input_box">
 					<input class="pwck_input input">
 				</div>
-				<span class="final_pwck_ck">비밀번호 확인을 입력해주세요.??</span>
+				<span class="final_pwck_ck">비밀번호 확인을 입력해주세요.</span>
 				<span class="pwck_input_re_1">비밀번호가 일치합니다.</span>
 				<span class="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
 			</div>

@@ -260,7 +260,7 @@
 							
 							<li class="point_li">
 							<span class="price_span_label">적립예정 포인트</span> 
-							<span class="totalPoint_span"></span>
+							<span class="totalPoint_span" lang="en"></span>
 							</li>
 							
 						</ul>

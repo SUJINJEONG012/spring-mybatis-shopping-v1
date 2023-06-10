@@ -33,7 +33,6 @@ public class MemberController {
 	private MemberService memberService;
 	
 	
-	
 //	@Autowired
 //	private JavaMailSender mailSender;
 	
@@ -149,7 +148,7 @@ public class MemberController {
 	    System.out.println("lvo =  " + lvo);
 	    
 	    if(lvo != null) { //일치하는 아이디 존재시
-	    	//logger.info( "lvo:  " + lvo+ "encodePw::" + encodePw);
+	        logger.info( "lvo:  " + lvo+ "encodePw::" + encodePw);
 	    	rawPw = memberVo.getMemberPw(); // 사용자가 입력한 비번
 	    	encodePw = lvo.getMemberPw(); //데이터베이스에 저장된 비번
 	    	
