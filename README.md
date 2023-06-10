@@ -20,21 +20,21 @@
 5. ****My Batis 라이브러리 추가, SQLSessionFactory 설정****
 6. ****Log4jdbc-log4j2 추가 및 설정.****
 
-## 패키지 설정
+## 📄 패키지 설정
 
-Controller
-Model : VO( Value Object ) 데이터 타입 저장
-Mapper : DAO( Data Access Object) 역할, 데이터베이스 접속하는 역할
-Service :   mapper와 Controller 사이를 연결, 비즈니스 로직
+- Controller
+- Model : VO( Value Object ) 데이터 타입 저장
+- Mapper : DAO( Data Access Object) 역할, 데이터베이스 접속하는 역할
+- Service :   mapper와 Controller 사이를 연결, 비즈니스 로직
 
-## 마이바티스 설정
+## ✏️ 마이바티스 설정
 
 - mapper로 사용할 xml 경로 지정
 - mapper패키지가 스프링에서 인식할수 있도록 root-context.xml파일 생성
 - Servlet 버전 변경 : 자바설정 등 이용하기 위해서 Servlet 3.0 이상 버전을 사용
 - pom.xml 에서 기존 servlet 2.5 버전을 주석 처리 혹은 삭제 후 3.1.0 버전을 추가
 
-## DBMS
+## ✔️ DBMS
 
 ![SpringERD](https://github.com/SUJINJEONG012/spring-mybatis-shopping-v1/assets/56811978/43c25e72-88cd-4713-8828-486e53619628)
 
