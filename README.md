@@ -1,4 +1,4 @@
 # spring-mybatis-shopping-v1
 
 
-### 마이바티스 부분으로 프로젝트를 다시 공부하기 위해 시작
+![screencapture-localhost-8080-2023-06-11-02_46_05](https://github.com/SUJINJEONG012/spring-mybatis-shopping-v1/assets/56811978/874490c6-42af-4e44-a541-669b5b82894b)
