@@ -1,5 +1,4 @@
-# spring-mybatis-shopping-v1
-
+# 스프링 MVC 쇼핑몰 
 ![screencapture-localhost-8080-2023-06-11-02_46_05](https://github.com/SUJINJEONG012/spring-mybatis-shopping-v1/assets/56811978/944a742a-b2ca-4d99-879e-f8c998e183ff)
 
 
