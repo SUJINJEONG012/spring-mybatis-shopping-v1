@@ -1,5 +1,8 @@
 # spring-mybatis-shopping-v1
 
+![screencapture-localhost-8080-2023-06-11-02_46_05](https://github.com/SUJINJEONG012/spring-mybatis-shopping-v1/assets/56811978/944a742a-b2ca-4d99-879e-f8c998e183ff)
+
+
 ## 프로젝트 환경설정
 
 - STS3, JAVA11
@@ -62,7 +65,4 @@ cart 테이블에 memberId, bookId 를 외래키로 설정
 회원 과 주문  1: N  (회원은 한명이 여러개의 주문을 할 수 있다.)
 주문  1 : N 주문상품  1 : N 상품  
 하나의 주문에는 여러개의 상품이들어갈수있고,
-하나의 상품이 여러 주문에 속할 수 있다.  중간에 주문상품이라는 테이블을 넣어서 관계설계
-
-
-![screencapture-localhost-8080-2023-06-11-02_46_05](https://github.com/SUJINJEONG012/spring-mybatis-shopping-v1/assets/56811978/874490c6-42af-4e44-a541-669b5b82894b)
+하나의 상품이 여러 주문에 속할 수 있습니다. 중간에 주문한 테이블을 찾을 수 있는 관계 설계
